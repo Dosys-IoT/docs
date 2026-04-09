@@ -264,9 +264,9 @@ Dosys no busca reemplazar la supervisión médica ni verificar la ingesta real d
 | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------- |
 | **Código:** U202310636  |   |
 | **Carrera:** Ingeniería de Software   |   |
-| **Habilidades:** Integrante del equipo Dosys. Participa en las actividades de investigación, análisis y construcción de la solución IoT, contribuyendo al trabajo colaborativo del proyecto. |   |
+| **Habilidades:** Mi nombre es Diego Sebastián Zúñiga Murillo, tengo 21 años y actualmente curso el séptimo ciclo de la carrera de Ingeniería de Software en la Universidad Peruana de Ciencias Aplicadas. Me considero una persona puntual, participativa y responsable, con una fuerte pasión por la tecnología y el aprendizaje constante. En mi tiempo libre disfruto de escuchar música, lo que me ayuda a relajarme y mantener el equilibrio entre mis estudios y mi vida personal. Como estudiante, me comprometo a aportar activamente en el desarrollo de este proyecto, contribuyendo con creatividad, iniciativa y habilidades de liderazgo. Confío en que, trabajando en equipo y manteniendo una comunicación constante, lograremos resultados destacados que reflejan nuestro esfuerzo y compromiso. |   |
 
-| Nombre: Martel Zevallos, Gabriel Aristóteles  | <img src="imgs/Diego.jpg" alt="Gabriel" title="Foto de Gabriel" width="320"/> |
+| Nombre: Martel Zevallos, Gabriel Aristóteles  | <img src="imgs/Gabriel.jpg" alt="Gabriel" title="Foto de Gabriel" width="320"/> |
 | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------- |
 | **Código:** U202121584
 |     |
