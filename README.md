@@ -224,7 +224,7 @@ Dosys no busca reemplazar la supervisión médica ni verificar la ingesta real d
 
 ### 1.1.2. Perfiles de integrantes del equipo
 
-| Nombre: Ybañez Esquerre, Miguel Angel | <img src="imgs/Miguel.jpg" alt="Mariano" title="Foto de Miguel" width="520"/> |
+| Nombre: Ybañez Esquerre, Miguel Angel | <img src="imgs/Miguel.jpg" alt="Miguel" title="Foto de Miguel" width="520"/> |
 | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------- |
 | **Código:** U20201B298|                               |
 | **Carrera:** Ingeniería de Software    |                               |
@@ -236,22 +236,22 @@ Dosys no busca reemplazar la supervisión médica ni verificar la ingesta real d
 | **Carrera:** Ingeniería de Software |                               |
 | **Habilidades:** Estudiante de 20 años de Ingeniería de Software en la UPC. Me caracterizo por mi creatividad, eficacia y capacidad para resolver problemas de manera racional. Apasionado por la programación y el desarrollo de software, busco constantemente innovar y aprender nuevas tecnologías. |          |
 
-| Nombre: Qqueso Rodriguez, Britney Delhy| <img src="imgs/Britney.jpg" alt="Mariano" title="Foto de Mariano" width="320"/> |
+| Nombre: Qqueso Rodriguez, Britney Delhy| <img src="imgs/Britney.jpg" alt="Britney" title="Foto de Britney" width="320"/> |
 | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------- |
 | **Código:** U20211G671      |                               |
 | **Carrera:** Ingeniería de Software     |                               |
 | **Habilidades:** Soy estudiante de la carrera de Ingeniería de Software en la Universidad Peruana de Ciencias Aplicadas (UPC). Me considero una persona autodidacta, creativa, organizada y responsable. Me comprometo a contribuir al equipo con mis conocimientos y habilidades, apoyar en todo lo necesario y aprender en el proceso. |        |
 
-| Nombre: Zúñiga Murillo, Diego Sebastián    | [Colocar foto del integrante] |
+| Nombre: Zúñiga Murillo, Diego Sebastián    | <img src="imgs/Diego.jpg" alt="Diego" title="Foto de Diego" width="320"/> |
 | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------- |
 | **Código:** U202310636  |   |
 | **Carrera:** Ingeniería de Software   |   |
 | **Habilidades:** Integrante del equipo Dosys. Participa en las actividades de investigación, análisis y construcción de la solución IoT, contribuyendo al trabajo colaborativo del proyecto. |   |
 
-| Nombre: Martel Zevallos, Gabriel Aristóteles  | [Colocar foto del integrante] |
+| Nombre: Martel Zevallos, Gabriel Aristóteles  | <img src="imgs/Diego.jpg" alt="Gabriel" title="Foto de Gabriel" width="320"/> |
 | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------- |
 | **Código:** U202121584
-  |     |
+|     |
 | **Carrera:** Ingeniería de Software |       |
 | **Habilidades:** Integrante del equipo Dosys. Participa en las actividades de investigación, análisis y construcción de la solución IoT, contribuyendo al trabajo colaborativo del proyecto. |      |
 
@@ -306,3 +306,14 @@ El impacto es alto en términos clínicos, familiares y operativos. Una revisió
 *Pendiente de desarrollo en la siguiente etapa del proyecto.*
 
 ## 1.3. Segmentos objetivo
+#### **Adultos mayores con tratamientos farmacológicos crónicos**
+
+Este es el segmento objetivo principal de Dosys. Incluye a personas de *60 años o más* que requieren tomar medicamentos de manera recurrente para controlar una o varias enfermedades crónicas, y que necesitan apoyo para recordar horarios, identificar compartimentos, confirmar tomas y mantener una rutina más organizada dentro del hogar. En Perú, este grupo crece de forma sostenida y presenta una elevada carga de comorbilidad, lo que incrementa la necesidad de herramientas prácticas para apoyar la adherencia terapéutica. (INEI, 2024).
+
+Características:
+
+* Requieren tratamientos continuos o de larga duración.
+* Pueden tomar varios medicamentos al día o en distintos horarios.
+* Valoran interacciones simples, visibles y fáciles de comprender.
+* Pueden presentar dificultades visuales, auditivas, motoras o de memoria que afectan el seguimiento del tratamiento.
+* Se benefician de recordatorios multimodales, como voz, luz y botones físicos. (W3C Web Accessibility Initiative, 2025).
