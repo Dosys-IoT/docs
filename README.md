@@ -309,15 +309,60 @@ El impacto es alto en términos clínicos, familiares y operativos. Una revisió
 
 #### 1.2.2.1. Lean UX Problem Statements
 
-*Pendiente de desarrollo en la siguiente etapa del proyecto.*
+**Problem Statement 1 – Adultos mayores con tratamientos crónicos**
+
+Nuestro entorno evidencia que los adultos mayores con tratamientos farmacológicos crónicos enfrentan dificultades significativas para cumplir sus esquemas de medicación de manera autónoma en el hogar. Los olvidos de dosis, la confusión entre medicamentos y horarios, y la falta de herramientas accesibles que consideren sus limitaciones visuales, auditivas o cognitivas generan una baja adherencia terapéutica. Hemos observado que los pastilleros convencionales no ofrecen recordatorios activos, no diferencian compartimentos de forma clara ni supervisan condiciones de conservación del medicamento. ¿Cómo podríamos ofrecer a los adultos mayores un sistema de recordatorio y organización de medicamentos que sea accesible, multimodal y fácil de usar, de modo que mejoren su adherencia al tratamiento sin depender exclusivamente de un cuidador?
+
+**Problem Statement 2 – Familiares y cuidadores**
+
+Nuestro entorno evidencia que los familiares y cuidadores de adultos mayores polimedicados carecen de visibilidad oportuna sobre el cumplimiento de la medicación y el estado de los compartimentos del pastillero. Esto les impide intervenir a tiempo ante una dosis omitida, un compartimento vacío o condiciones ambientales inadecuadas de almacenamiento. Hemos observado que las soluciones tradicionales no proveen trazabilidad digital ni mecanismos de notificación remota, lo que obliga al cuidador a depender de la supervisión presencial. ¿Cómo podríamos brindar a familiares y cuidadores un canal de seguimiento remoto, confiable y en tiempo real, que les permita acompañar el tratamiento del adulto mayor sin necesidad de estar físicamente presentes?
 
 #### 1.2.2.2. Lean UX Assumptions
 
-*Pendiente de desarrollo en la siguiente etapa del proyecto.*
+**Business Assumptions:**
+
+1. Creemos que nuestros usuarios necesitan un dispositivo físico que les recuerde de forma clara y accesible cuándo tomar cada medicamento, combinando alertas de voz, luz LED y confirmación mediante botones.
+2. Estas necesidades se pueden resolver con un pastillero inteligente de cinco compartimentos integrado a una aplicación de configuración y monitoreo.
+3. Nuestros clientes iniciales serán familiares o cuidadores de adultos mayores polimedicados que buscan una herramienta confiable para apoyar la adherencia al tratamiento en el hogar.
+4. El valor principal que un cliente quiere de nuestro producto es la tranquilidad de saber que su familiar recibe recordatorios oportunos y que el estado del tratamiento puede supervisarse de forma remota.
+5. El cliente también puede obtener beneficios adicionales como alertas de condiciones ambientales inadecuadas (temperatura y humedad), avisos de recarga de compartimentos y notificaciones de fin de tratamiento.
+6. Vamos a adquirir la mayoría de nuestros clientes mediante redes sociales orientadas a cuidadores, alianzas con farmacias y recomendaciones en comunidades de salud del adulto mayor.
+7. Haremos dinero a través de la venta del dispositivo Dosys como producto premium y, eventualmente, mediante suscripciones para funcionalidades avanzadas de monitoreo y reportes.
+8. Nuestra competencia principal serán pastilleros genéricos sin tecnología, aplicaciones móviles de recordatorio de medicamentos y dispensadores automatizados de alto costo.
+9. Los venceremos gracias a la combinación de hardware accesible con recordatorio multimodal (voz, luz, botón), monitoreo ambiental integrado y una experiencia de configuración simple desde la aplicación.
+10. Nuestro mayor riesgo es que los adultos mayores no adopten el dispositivo por resistencia al uso de tecnología o que los cuidadores no perciban suficiente valor diferencial frente a soluciones más simples.
+11. Resolveremos esto mediante un diseño centrado en la accesibilidad, pruebas de usabilidad con usuarios reales del segmento objetivo y una experiencia de primer uso guiada y asistida.
+
+**User Assumptions:**
+
+1. **¿Quién es el usuario?** Adultos mayores de 60 años o más con tratamientos farmacológicos crónicos, y sus familiares o cuidadores que participan en la supervisión del tratamiento.
+2. **¿Dónde encaja nuestro producto en su vida?** En la rutina diaria del hogar, específicamente en los momentos asociados a la toma de medicamentos (mañana, tarde, noche).
+3. **¿Qué problemas resuelve nuestro producto?** Olvidos de dosis, confusión entre medicamentos y horarios, falta de visibilidad del cuidador sobre el cumplimiento, y almacenamiento en condiciones ambientales inadecuadas.
+4. **¿Cuándo y cómo se usa nuestro producto?** El adulto mayor interactúa con el dispositivo físico cuando recibe un recordatorio (voz + LED) y confirma o repite la alerta con botones. El cuidador usa la aplicación para configurar tratamientos, revisar el estado de cumplimiento y recibir notificaciones.
+5. **¿Qué características son importantes?** Recordatorio por voz con mensaje claro, iluminación LED por compartimento, botones físicos grandes y accesibles, monitoreo de temperatura y humedad, alertas de recarga y fin de tratamiento, y notificaciones remotas para el cuidador.
+6. **¿Cómo debe verse y comportarse nuestro producto?** El dispositivo debe tener un diseño limpio, con compartimentos claramente diferenciados, botones de tamaño adecuado y una interfaz de voz comprensible. La aplicación debe ser visualmente simple, con tipografía legible, navegación intuitiva y flujos de configuración guiados paso a paso.
 
 #### 1.2.2.3. Lean UX Hypothesis Statements
 
-*Pendiente de desarrollo en la siguiente etapa del proyecto.*
+**Hypothesis Statement 1:**
+
+Creemos que lograremos una mejora en la adherencia a la medicación de adultos mayores con tratamientos crónicos si los adultos mayores con polimedicación obtienen recordatorios oportunos y accesibles para cada dosis con un pastillero inteligente que combine alertas de voz, iluminación LED por compartimento y confirmación mediante botones físicos.
+Sabremos que hemos tenido éxito cuando al menos el 80% de las dosis programadas sean confirmadas a tiempo por los usuarios durante el primer mes de uso del dispositivo.
+
+**Hypothesis Statement 2:**
+
+Creemos que reduciremos la ansiedad y la carga de supervisión de los familiares y cuidadores si los cuidadores de adultos mayores polimedicados obtienen visibilidad remota y en tiempo real del cumplimiento de la medicación con una aplicación que envíe notificaciones de dosis confirmadas, dosis omitidas y estado de los compartimentos.
+Sabremos que hemos tenido éxito cuando más del 70% de los cuidadores reporte una disminución percibida en su nivel de preocupación respecto al cumplimiento de la medicación de su familiar.
+
+**Hypothesis Statement 3:**
+
+Creemos que prevendremos el deterioro de medicamentos almacenados en el hogar si los usuarios de Dosys obtienen alertas tempranas sobre condiciones ambientales inadecuadas con sensores de temperatura y humedad integrados en el dispositivo que notifiquen cuando los valores excedan los rangos recomendados de conservación.
+Sabremos que hemos tenido éxito cuando el 100% de las alertas ambientales se emitan antes de que las condiciones del entorno superen los umbrales críticos de conservación durante al menos 30 días consecutivos de uso.
+
+**Hypothesis Statement 4:**
+
+Creemos que mejoraremos la continuidad del tratamiento sin interrupciones por falta de medicamento si los cuidadores y adultos mayores obtienen avisos anticipados de recarga y compra de medicamentos con un sistema que calcule, a partir de la configuración del tratamiento, cuándo un compartimento quedará vacío y cuándo debe adquirirse más medicamento.
+Sabremos que hemos tenido éxito cuando menos del 10% de los usuarios reporte haber quedado sin medicamento disponible en algún compartimento durante el primer trimestre de uso.
 
 #### 1.2.2.4. Lean UX Canvas
 
@@ -339,8 +384,122 @@ Características:
 # Capítulo II: Requirements Elicitation & Analysis
 
 ## 2.1. Competidores
+
+Los competidores que hemos identificado para Dosys son soluciones tecnológicas orientadas a la gestión y recordatorio de medicamentos. Aunque no existe en el mercado peruano un producto que combine pastillero inteligente con monitoreo ambiental IoT y accesibilidad multimodal como lo hace Dosys, sí existen productos internacionales con funcionalidades similares que representan competencia directa e indirecta.
+
 ### 2.1.1. Análisis competitivo
+
+<table>
+  <tr>
+    <th colspan="6" style="text-align:center;">Competitive Analysis Landscape</th>
+  </tr>
+  <tr>
+    <td colspan="2">¿Por qué llevar a cabo este análisis?</td>
+    <td colspan="4">Para identificar las ventajas competitivas de Dosys y definir estrategias efectivas frente a soluciones existentes en el mercado de gestión inteligente de medicamentos para adultos mayores.</td>
+  </tr>
+  <tr>
+    <td colspan="2"></td>
+    <td style="text-align:center;"><strong>Dosys</strong></td>
+    <td style="text-align:center;"><strong>Hero Health</strong></td>
+    <td style="text-align:center;"><strong>MedMinder</strong></td>
+    <td style="text-align:center;"><strong>Pillsy</strong></td>
+  </tr>
+  <tr>
+    <td rowspan="2"><strong>Perfil</strong></td>
+    <td>Overview</td>
+    <td>Dosys es un pastillero inteligente premium de cinco compartimentos con recordatorio por voz, iluminación LED, confirmación por botón físico y monitoreo de temperatura y humedad. Integra una aplicación para configurar tratamientos, gestionar horarios y recibir notificaciones remotas. Diseñado específicamente para adultos mayores en el contexto peruano.</td>
+    <td>Hero Health es un dispensador automático de medicamentos con capacidad para múltiples pastillas. Dispensa la dosis correcta en el momento programado, envía alertas al cuidador y ofrece una app de seguimiento. Enfocado en el mercado estadounidense con un modelo de suscripción mensual.</td>
+    <td>MedMinder es un pastillero inteligente con compartimentos que se iluminan y emiten sonido cuando corresponde una toma. Si la dosis no se toma, envía alertas automáticas a familiares o cuidadores por llamada, texto o email. Ofrece modelos con bloqueo de compartimentos para mayor seguridad.</td>
+    <td>Pillsy es una tapa inteligente que se coloca sobre frascos de medicamentos estándar. Detecta cuándo se abre el frasco, registra la toma y envía recordatorios al usuario mediante una aplicación móvil. Su enfoque es simple y no invasivo, orientado a usuarios con tratamientos de un solo medicamento.</td>
+  </tr>
+  <tr>
+    <td>Ventaja competitiva ¿Qué valor ofrece a los clientes?</td>
+    <td>Ofrece una solución integral que combina recordatorio multimodal (voz, luz LED, botón físico), monitoreo ambiental IoT para conservación de medicamentos, alertas de recarga y fin de tratamiento, y una aplicación accesible para configuración y seguimiento remoto. Diseñado con enfoque en accesibilidad para adultos mayores.</td>
+    <td>Ofrece dispensación automática precisa que elimina errores de selección del medicamento. El dispositivo prepara la dosis exacta, lo que reduce la intervención del usuario. Incluye seguimiento detallado y alertas para cuidadores remotos.</td>
+    <td>Ofrece un sistema de alertas escalonadas que contacta al cuidador si la dosis no se toma, incluyendo llamadas telefónicas. Los modelos con bloqueo de compartimentos previenen la toma accidental de dosis incorrectas, lo que añade una capa de seguridad.</td>
+    <td>Ofrece una solución no invasiva y económica que se adapta a los frascos de medicamento existentes. No requiere reorganizar los medicamentos en un dispositivo nuevo, lo que facilita la adopción por parte de usuarios que prefieren cambios mínimos en su rutina.</td>
+  </tr>
+  <tr>
+    <td rowspan="2"><strong>Perfil de Marketing</strong></td>
+    <td>Mercado Objetivo</td>
+    <td>Adultos mayores de 60 años o más con tratamientos crónicos en el Perú, y sus familiares o cuidadores que buscan una herramienta accesible para apoyar la adherencia al tratamiento en el hogar. Enfoque en el contexto latinoamericano con soporte en español.</td>
+    <td>Adultos mayores y personas con polifarmacia en Estados Unidos, junto con sus cuidadores y familiares. Se orienta a usuarios que requieren dispensación automatizada y están dispuestos a pagar una suscripción mensual por el servicio.</td>
+    <td>Adultos mayores con deterioro cognitivo o condiciones crónicas en Estados Unidos y Canadá. También se dirige a residencias de cuidado y profesionales de salud que buscan herramientas de monitoreo remoto de adherencia.</td>
+    <td>Usuarios adultos de todas las edades con tratamientos de uno o pocos medicamentos en Estados Unidos. Enfocado en personas con estilo de vida activo que buscan un recordatorio simple sin necesidad de un dispositivo especializado complejo.</td>
+  </tr>
+  <tr>
+    <td>Estrategias de marketing</td>
+    <td>●Alianzas con farmacias y cadenas de salud locales para promocionar el dispositivo entre adultos mayores y cuidadores.<br/><br/>●Marketing en redes sociales dirigido a familiares de adultos mayores, mostrando casos de uso y testimonios.<br/><br/>●Presencia en ferias de salud, envejecimiento activo y tecnología IoT en Perú y Latinoamérica.<br/><br/>●Campañas educativas sobre adherencia terapéutica y conservación de medicamentos en el hogar.</td>
+    <td>●Publicidad digital en Estados Unidos con campañas en Google Ads y redes sociales orientadas a cuidadores.<br/><br/>●Alianzas con profesionales de salud y farmacias que recomiendan el dispositivo.<br/><br/>●Contenido educativo sobre gestión de medicamentos en su blog y redes sociales.<br/><br/>●Programa de referidos para usuarios existentes.</td>
+    <td>●Marketing directo a residencias de cuidado y profesionales de salud.<br/><br/>●Publicidad en medios especializados en salud y envejecimiento.<br/><br/>●Presencia en conferencias y ferias de tecnología para el cuidado de adultos mayores.<br/><br/>●Email marketing personalizado dirigido a cuidadores familiares.</td>
+    <td>●Marketing digital enfocado en simplicidad y estilo de vida saludable.<br/><br/>●Presencia en redes sociales con enfoque en bienestar y autocuidado.<br/><br/>●Colaboraciones con influencers de salud y bienestar.<br/><br/>●Distribución a través de Amazon y farmacias online.</td>
+  </tr>
+  <tr>
+    <td rowspan="3"><strong>Perfil de productos</strong></td>
+    <td>Productos &amp; Servicios</td>
+    <td>●Pastillero inteligente de cinco compartimentos con LED, altavoz de voz y botones físicos.<br/><br/>●Sensor de temperatura y humedad integrado para monitoreo de condiciones de conservación.<br/><br/>●Aplicación para configurar tratamientos, horarios, alertas de recarga y notificaciones remotas al cuidador.<br/><br/>●Alertas de fin de tratamiento y recordatorio de compra de medicamento.</td>
+    <td>●Dispensador automático de medicamentos con capacidad para múltiples pastillas.<br/><br/>●Aplicación de seguimiento con historial de tomas y alertas para cuidadores.<br/><br/>●Servicio de suscripción mensual que incluye soporte técnico y reposición de piezas.<br/><br/>●Integración con sistemas de salud para reportes de adherencia.</td>
+    <td>●Pastillero inteligente con compartimentos iluminados y alertas sonoras.<br/><br/>●Modelos con bloqueo automático de compartimentos para prevenir errores.<br/><br/>●Sistema de alertas escalonadas: notificación, llamada y mensaje al cuidador.<br/><br/>●Portal web para monitoreo remoto por parte de familiares y profesionales de salud.</td>
+    <td>●Tapa inteligente con sensor de apertura para frascos de medicamentos.<br/><br/>●Aplicación móvil con recordatorios, historial de tomas y reportes.<br/><br/>●Sincronización con Apple Health y Google Fit.<br/><br/>●Diseño compacto y portátil que no requiere reorganizar medicamentos.</td>
+  </tr>
+  <tr>
+    <td>Precios &amp; Costos</td>
+    <td>●Venta del dispositivo como producto premium a precio accesible para el mercado peruano.<br/><br/>●Sin suscripción obligatoria para funcionalidades básicas.<br/><br/>●Posibilidad de plan de suscripción opcional para reportes avanzados y funcionalidades adicionales de monitoreo.</td>
+    <td>●Dispositivo proporcionado sin costo inicial.<br/><br/>●Suscripción mensual de aproximadamente $29.99 USD que incluye el servicio completo.<br/><br/>●Modelo de ingreso recurrente basado en suscripción.</td>
+    <td>●Dispositivo con precio de compra entre $39.99 y $69.99 USD según el modelo.<br/><br/>●Suscripción mensual de $19.99 a $39.99 USD para el servicio de alertas y monitoreo remoto.<br/><br/>●Planes diferenciados según nivel de funcionalidades.</td>
+    <td>●Tapa inteligente con precio de compra de aproximadamente $9.99 a $14.99 USD por unidad.<br/><br/>●Aplicación gratuita con funcionalidades básicas.<br/><br/>●Sin modelo de suscripción, costo único por dispositivo.</td>
+  </tr>
+  <tr>
+    <td>Canales de distribución (Web y/o Móvil)</td>
+    <td>●<strong>Aplicación móvil</strong> para Android e iOS para configuración y monitoreo.<br/><br/>●Venta del dispositivo a través de tienda online propia y alianzas con farmacias.<br/><br/>●<strong>Landing page</strong> informativa con opción de compra directa.</td>
+    <td>●<strong>Plataforma web</strong> para registro y gestión de suscripción.<br/><br/>●<strong>Aplicación móvil</strong> para Android e iOS con todas las funcionalidades de seguimiento.<br/><br/>●Distribución directa al consumidor a través de su sitio web.</td>
+    <td>●<strong>Plataforma web</strong> con portal de monitoreo para cuidadores.<br/><br/>●<strong>Aplicación móvil</strong> para Android e iOS.<br/><br/>●Distribución a través de su sitio web, farmacias y proveedores de salud.</td>
+    <td>●<strong>Aplicación móvil</strong> para Android e iOS.<br/><br/>●Venta a través de Amazon, farmacias online y su sitio web.<br/><br/>●Distribución directa al consumidor.</td>
+  </tr>
+  <tr>
+    <td rowspan="4"><strong>Análisis SWOT</strong></td>
+    <td>Fortalezas</td>
+    <td>●Combinación única de recordatorio multimodal (voz, LED, botón) con monitoreo ambiental IoT.<br/><br/>●Diseño centrado en accesibilidad para adultos mayores con limitaciones visuales, auditivas o motoras.<br/><br/>●Enfoque en el mercado peruano y latinoamericano con soporte nativo en español.<br/><br/>●Sin dependencia de suscripción obligatoria, lo que reduce la barrera de entrada.</td>
+    <td>●Dispensación automática que elimina errores humanos en la selección del medicamento.<br/><br/>●Modelo de suscripción sin costo inicial del dispositivo, lo que facilita la adopción.<br/><br/>●Amplia capacidad de almacenamiento de múltiples medicamentos.<br/><br/>●Marca consolidada en el mercado estadounidense.</td>
+    <td>●Sistema de alertas escalonadas con múltiples canales de contacto al cuidador.<br/><br/>●Modelos con bloqueo de compartimentos para mayor seguridad en pacientes con deterioro cognitivo.<br/><br/>●Presencia establecida en el sector de salud y residencias de cuidado.<br/><br/>●Portal web robusto para monitoreo profesional.</td>
+    <td>●Solución económica y no invasiva que se adapta a frascos existentes.<br/><br/>●Diseño compacto y portátil, ideal para usuarios activos.<br/><br/>●Bajo costo de adquisición sin suscripción.<br/><br/>●Integración con plataformas de salud como Apple Health y Google Fit.</td>
+  </tr>
+  <tr>
+    <td>Debilidades</td>
+    <td>●Producto en etapa de desarrollo, sin base de usuarios consolidada ni reconocimiento de marca.<br/><br/>●Limitado a cinco compartimentos, lo que puede ser insuficiente para pacientes con alta polifarmacia.<br/><br/>●Recursos limitados como startup universitaria frente a competidores internacionales con mayor financiamiento.<br/><br/>●Dependencia de conectividad para funcionalidades de monitoreo remoto.</td>
+    <td>●Costo mensual de suscripción que puede resultar elevado a largo plazo.<br/><br/>●Dispositivo de gran tamaño que ocupa espacio considerable.<br/><br/>●Disponibilidad limitada al mercado estadounidense.<br/><br/>●Dependencia total del modelo de suscripción: sin pago, sin servicio.</td>
+    <td>●Costo combinado de dispositivo más suscripción que puede ser prohibitivo para muchos usuarios.<br/><br/>●Interfaz y experiencia de usuario percibida como anticuada frente a competidores más modernos.<br/><br/>●Disponibilidad limitada a Estados Unidos y Canadá.<br/><br/>●Requiere reorganizar todos los medicamentos en el dispositivo.</td>
+    <td>●Solo monitorea apertura del frasco, no confirma la ingesta real del medicamento.<br/><br/>●Limitado a un medicamento por tapa, lo que es impráctico para polifarmacia.<br/><br/>●Sin alertas multimodales (solo notificación en app).<br/><br/>●No ofrece monitoreo ambiental ni funcionalidades de conservación.</td>
+  </tr>
+  <tr>
+    <td>Oportunidades</td>
+    <td>●Crecimiento sostenido de la población adulta mayor en Perú con alta carga de comorbilidad.<br/><br/>●Ausencia de soluciones IoT accesibles para gestión de medicamentos en el mercado peruano y latinoamericano.<br/><br/>●Posibilidad de alianzas con el sector salud, farmacias y programas gubernamentales de atención al adulto mayor.<br/><br/>●Expansión a otros mercados de Latinoamérica con necesidades similares.</td>
+    <td>●Expansión a mercados internacionales fuera de Estados Unidos.<br/><br/>●Incorporación de inteligencia artificial para predicción de patrones de adherencia.<br/><br/>●Alianzas con aseguradoras que subsidien el costo de suscripción.<br/><br/>●Integración con telemedicina y sistemas de salud digital.</td>
+    <td>●Modernización de la interfaz y experiencia de usuario.<br/><br/>●Expansión a mercados latinoamericanos y europeos.<br/><br/>●Incorporación de sensores adicionales para monitoreo de salud.<br/><br/>●Alianzas con sistemas de salud pública para programas de adherencia.</td>
+    <td>●Desarrollo de tapas con sensores más avanzados que detecten cantidad de pastillas.<br/><br/>●Expansión del producto a paquetes multi-tapa para polifarmacia.<br/><br/>●Integración con plataformas de telemedicina.<br/><br/>●Entrada a mercados emergentes con precio competitivo.</td>
+  </tr>
+  <tr>
+    <td>Amenazas</td>
+    <td>●Competencia directa e indirecta con soluciones internacionales consolidadas que podrían ingresar al mercado peruano.<br/><br/>●Riesgo de desconfianza inicial por parte de adultos mayores hacia dispositivos tecnológicos.<br/><br/>●Posibles barreras económicas del segmento objetivo para adquirir un producto premium.<br/><br/>●Dificultad para retener usuarios si no se genera valor continuo más allá del recordatorio básico.</td>
+    <td>●Saturación del mercado de dispensadores automáticos en Estados Unidos.<br/><br/>●Riesgo de cancelación de suscripciones por usuarios que perciben el costo como elevado.<br/><br/>●Competencia de aplicaciones gratuitas de recordatorio de medicamentos.<br/><br/>●Regulaciones sanitarias que podrían limitar funcionalidades.</td>
+    <td>●Competencia de soluciones más modernas y económicas.<br/><br/>●Disminución de la demanda por parte de residencias que adopten soluciones automatizadas más avanzadas.<br/><br/>●Incremento de costos de suscripción que aleje a usuarios individuales.<br/><br/>●Plataformas emergentes con mejor experiencia de usuario.</td>
+    <td>●Competencia de smartwatches y wearables con funciones de recordatorio de medicamentos.<br/><br/>●Limitación del modelo de producto único sin ingresos recurrentes.<br/><br/>●Riesgo de obsolescencia frente a soluciones más integrales.<br/><br/>●Dificultad para competir en precio con aplicaciones gratuitas.</td>
+  </tr>
+</table>
+
 ### 2.1.2. Estrategias y tácticas frente a competidores
+
+Dosys aplicará una estrategia de diferenciación enfocada en la accesibilidad, la integración IoT y la cercanía cultural con el mercado peruano y latinoamericano. Frente a los competidores internacionales del mercado de gestión inteligente de medicamentos, Dosys se posiciona como una solución accesible, integral y adaptada al contexto local, conectando a adultos mayores con una experiencia de uso simple y multimodal que las soluciones importadas no ofrecen.
+
+Su valor diferencial se sustenta en tres pilares: (1) recordatorio multimodal mediante voz, LED y botones físicos diseñados para usuarios con limitaciones sensoriales o cognitivas; (2) monitoreo ambiental IoT con sensores de temperatura y humedad que supervisan la conservación de los medicamentos; y (3) un modelo de negocio sin suscripción obligatoria que reduce la barrera de entrada frente a competidores como Hero Health o MedMinder.
+
+**Estrategias clave:**
+
+- **Diferenciación por accesibilidad:** Mientras que competidores como Pillsy dependen exclusivamente de notificaciones en app, Dosys combina alertas físicas (voz, luz, botón) que no requieren uso de smartphone por parte del adulto mayor, reduciendo la brecha tecnológica.
+- **Liderazgo en costos accesibles:** Frente al modelo de suscripción de Hero Health (~$29.99/mes) y los costos combinados de MedMinder (dispositivo + suscripción), Dosys ofrece un producto premium de compra única con funcionalidades completas sin pagos recurrentes obligatorios.
+- **Enfoque regional:** Aprovechar la ausencia de soluciones especializadas en Perú y Latinoamérica, ofreciendo soporte nativo en español, alianzas con farmacias locales y adaptación a las condiciones y necesidades del adulto mayor peruano.
+- **Valor agregado IoT:** Ninguno de los competidores analizados integra monitoreo de condiciones ambientales de conservación del medicamento. Esta funcionalidad diferencial permite a Dosys posicionarse como la única solución que no solo recuerda la toma, sino que también protege la calidad del medicamento.
+- **Mitigación de amenazas:** Para contrarrestar la resistencia tecnológica del adulto mayor, Dosys implementará una experiencia de primer uso guiada, un diseño físico intuitivo con compartimentos claramente diferenciados y pruebas de usabilidad directas con usuarios del segmento objetivo.
 
 ## 2.2. Entrevistas
 ### 2.2.1. Diseño de entrevistas
@@ -350,11 +509,159 @@ Características:
 ## 2.3. Needfinding
 ### 2.3.1. User Personas
 ### 2.3.2. User Task Matrix
+
+La siguiente matriz identifica las tareas que los segmentos objetivo de Dosys realizan actualmente en relación con la gestión de medicamentos, independientemente de la existencia del producto. Se evalúa la frecuencia (Alta, Media, Baja) y la importancia (Alta, Media, Baja) de cada tarea para cada segmento.
+
+Los segmentos considerados son:
+- **Segmento 1 (S1):** Adultos mayores con tratamientos farmacológicos crónicos.
+- **Segmento 2 (S2):** Familiares y cuidadores de adultos mayores polimedicados.
+
+<table>
+  <tr>
+    <th rowspan="2">Tarea</th>
+    <th colspan="2" style="text-align:center;">Adulto Mayor (S1)</th>
+    <th colspan="2" style="text-align:center;">Cuidador / Familiar (S2)</th>
+  </tr>
+  <tr>
+    <th>Frecuencia</th>
+    <th>Importancia</th>
+    <th>Frecuencia</th>
+    <th>Importancia</th>
+  </tr>
+  <tr>
+    <td>Recordar qué medicamento tomar en cada horario</td>
+    <td>Alta</td>
+    <td>Alta</td>
+    <td>Alta</td>
+    <td>Alta</td>
+  </tr>
+  <tr>
+    <td>Identificar el medicamento correcto entre varios disponibles</td>
+    <td>Alta</td>
+    <td>Alta</td>
+    <td>Media</td>
+    <td>Alta</td>
+  </tr>
+  <tr>
+    <td>Tomar la dosis en el horario indicado</td>
+    <td>Alta</td>
+    <td>Alta</td>
+    <td>Media</td>
+    <td>Alta</td>
+  </tr>
+  <tr>
+    <td>Organizar los medicamentos en un pastillero o contenedor</td>
+    <td>Media</td>
+    <td>Alta</td>
+    <td>Alta</td>
+    <td>Alta</td>
+  </tr>
+  <tr>
+    <td>Verificar que se tomó la dosis correspondiente</td>
+    <td>Alta</td>
+    <td>Media</td>
+    <td>Alta</td>
+    <td>Alta</td>
+  </tr>
+  <tr>
+    <td>Supervisar el cumplimiento del tratamiento del familiar</td>
+    <td>Baja</td>
+    <td>Baja</td>
+    <td>Alta</td>
+    <td>Alta</td>
+  </tr>
+  <tr>
+    <td>Revisar si hay medicamento suficiente para los próximos días</td>
+    <td>Media</td>
+    <td>Media</td>
+    <td>Media</td>
+    <td>Alta</td>
+  </tr>
+  <tr>
+    <td>Comprar o reponer medicamentos antes de que se agoten</td>
+    <td>Baja</td>
+    <td>Alta</td>
+    <td>Media</td>
+    <td>Alta</td>
+  </tr>
+  <tr>
+    <td>Almacenar los medicamentos en condiciones adecuadas (temperatura, humedad)</td>
+    <td>Baja</td>
+    <td>Media</td>
+    <td>Baja</td>
+    <td>Media</td>
+  </tr>
+  <tr>
+    <td>Consultar el horario o esquema del tratamiento</td>
+    <td>Media</td>
+    <td>Media</td>
+    <td>Media</td>
+    <td>Media</td>
+  </tr>
+  <tr>
+    <td>Comunicar al cuidador si olvidó o retrasó una dosis</td>
+    <td>Media</td>
+    <td>Alta</td>
+    <td>Media</td>
+    <td>Alta</td>
+  </tr>
+  <tr>
+    <td>Registrar o actualizar los medicamentos y horarios tras una consulta médica</td>
+    <td>Baja</td>
+    <td>Alta</td>
+    <td>Baja</td>
+    <td>Alta</td>
+  </tr>
+  <tr>
+    <td>Limpiar o vaciar compartimentos al finalizar un tratamiento</td>
+    <td>Baja</td>
+    <td>Media</td>
+    <td>Baja</td>
+    <td>Media</td>
+  </tr>
+</table>
+
+**Tareas con mayor relevancia para ambos segmentos:**
+
+Las tareas que presentan alta frecuencia y alta importancia en ambos segmentos son las que Dosys prioriza en su propuesta de valor:
+
+- **Recordar qué medicamento tomar en cada horario:** Es la tarea más crítica y frecuente. Dosys la aborda mediante el recordatorio multimodal (voz + LED + botón).
+- **Tomar la dosis en el horario indicado:** Directamente vinculada a la adherencia terapéutica. Dosys facilita esta tarea con alertas programadas y confirmación física.
+- **Verificar que se tomó la dosis correspondiente:** Es de alta importancia para el cuidador. Dosys la resuelve con el registro de confirmaciones y notificaciones remotas de dosis omitidas.
+- **Organizar los medicamentos en un pastillero:** Tarea que recae principalmente en el cuidador. Dosys la simplifica con cinco compartimentos diferenciados y configuración guiada desde la aplicación.
+
 ### 2.3.3. User Journey Mapping
 ### 2.3.4. Empathy Mapping
 
 ## 2.4. Big Picture EventStorming
 ## 2.5. Ubiquitous Language
+
+El siguiente glosario define los términos clave utilizados de manera consistente por todo el equipo de desarrollo de Dosys, tanto en la comunicación interna como en el código fuente, la documentación y la interfaz del producto. Su propósito es eliminar ambigüedades entre los dominios de salud, IoT y cuidado del adulto mayor.
+
+| Término (EN) | Término (ES) | Definición |
+| :---- | :---- | :---- |
+| **Medication** | Medicamento | Fármaco recetado o de uso regular que el adulto mayor debe tomar según un esquema terapéutico definido. Cada medicamento se registra en el sistema con nombre, dosis, frecuencia y duración del tratamiento. |
+| **Compartment** | Compartimento | Cada una de las cinco divisiones físicas del pastillero Dosys donde se almacena un medicamento específico. Un compartimento se asocia a un único medicamento dentro de un tratamiento activo. |
+| **Treatment** | Tratamiento | Conjunto de reglas que define qué medicamento tomar, en qué compartimento se encuentra, a qué hora corresponde cada dosis, durante cuántos días y con qué frecuencia. Es configurado por el cuidador o el propio usuario desde la aplicación. |
+| **Dose** | Dosis | Unidad mínima de toma de un medicamento en un momento específico del día. Cada dosis tiene un horario programado y está vinculada a un compartimento del dispositivo. |
+| **Reminder** | Recordatorio | Evento que se activa cuando llega el horario programado de una dosis. Se manifiesta de forma multimodal: reproducción de un mensaje de voz, encendido del LED del compartimento correspondiente y habilitación del botón de confirmación. |
+| **Confirmation** | Confirmación | Acción realizada por el adulto mayor al presionar el botón físico del compartimento correspondiente tras recibir un recordatorio, indicando que ha tomado la dosis. |
+| **Snooze** | Repetición de alerta | Acción realizada por el adulto mayor al presionar el botón de repetir, lo que pospone el recordatorio por un intervalo de tiempo definido antes de volver a emitir la alerta. |
+| **Missed Dose** | Dosis omitida | Dosis que no fue confirmada dentro del período de tiempo permitido después del recordatorio. Genera una notificación al cuidador a través de la aplicación. |
+| **Caregiver** | Cuidador | Persona responsable de supervisar y apoyar el tratamiento del adulto mayor. Puede ser un familiar, un cuidador profesional o cualquier persona designada. Utiliza la aplicación para configurar tratamientos, recibir notificaciones y monitorear el cumplimiento. |
+| **Patient** | Paciente | Adulto mayor que utiliza el dispositivo Dosys para recibir recordatorios y confirmar la toma de sus medicamentos. Interactúa principalmente con el hardware del pastillero. |
+| **Device** | Dispositivo | El pastillero inteligente Dosys como unidad de hardware. Incluye los cinco compartimentos, LEDs, altavoz, botones físicos y los sensores de temperatura y humedad. Cada dispositivo se vincula a una cuenta de usuario en la aplicación. |
+| **Environmental Monitoring** | Monitoreo ambiental | Funcionalidad del dispositivo que mide continuamente la temperatura y humedad del entorno donde se almacenan los medicamentos mediante sensores integrados, con el fin de detectar condiciones que puedan comprometer su conservación. |
+| **Environmental Alert** | Alerta ambiental | Notificación generada cuando los sensores del dispositivo detectan que la temperatura o humedad del entorno excede los umbrales recomendados para la conservación segura de medicamentos. |
+| **Refill Alert** | Alerta de recarga | Notificación que indica que un compartimento está próximo a quedarse sin medicamento, calculada a partir de la cantidad registrada y la frecuencia de toma configurada en el tratamiento. |
+| **Purchase Reminder** | Aviso de compra | Notificación anticipada que sugiere al cuidador o usuario adquirir más unidades de un medicamento antes de que se agote la reserva en el compartimento. |
+| **End-of-Treatment Alert** | Alerta de fin de tratamiento | Notificación que indica que un tratamiento ha llegado a su fecha de finalización programada y que el compartimento correspondiente debe ser vaciado o limpiado. |
+| **Adherence** | Adherencia | Grado en que el paciente cumple con el esquema de medicación programado. Se mide a través del porcentaje de dosis confirmadas respecto al total de dosis programadas en un período determinado. |
+| **Polypharmacy** | Polifarmacia | Condición en la que el paciente debe tomar múltiples medicamentos de manera simultánea o en distintos horarios del día, lo que incrementa la complejidad del tratamiento y el riesgo de errores. |
+| **Multimodal Reminder** | Recordatorio multimodal | Estrategia de alerta que combina múltiples canales sensoriales (voz, luz LED, vibración o botón físico) para maximizar la probabilidad de que el adulto mayor perciba y responda al recordatorio. |
+| **Bounded Context** | Contexto delimitado | División lógica del sistema en dominios independientes con responsabilidades bien definidas. En Dosys se identifican tres contextos: Access (gestión de usuarios y autenticación), Medication (gestión de tratamientos y dosis) y Device (gestión del hardware y sensores IoT). |
+| **LED Indicator** | Indicador LED | Luz individual asociada a cada compartimento del dispositivo que se enciende cuando corresponde tomar el medicamento almacenado en ese compartimento, facilitando la identificación visual. |
+| **Voice Alert** | Alerta por voz | Mensaje de audio reproducido por el altavoz del dispositivo que indica al paciente qué medicamento tomar en el momento del recordatorio programado. |
 
 # Capítulo III: Requirements Specification
 
