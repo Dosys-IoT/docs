@@ -242,31 +242,31 @@ Dosys no busca reemplazar la supervisión médica ni verificar la ingesta real d
 
 ### 1.1.2. Perfiles de integrantes del equipo
 
-| Nombre: Ybañez Esquerre, Miguel Angel | <img src="imgs/Miguel.jpg" alt="Miguel" title="Foto de Miguel" width="520"/> |
+| Nombre: Ybañez Esquerre, Miguel Angel | <img src="imgs/team/miguel.jpg" alt="Miguel" title="Foto de Miguel" width="520"/> |
 | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------- |
 | **Código:** U20201B298|                               |
 | **Carrera:** Ingeniería de Software    |                               |
 | **Habilidades:** Miguel Ángel Ybañez Esquerre – Estudiante de 23 años de Ingeniería de Software en la UPC. Me caracterizo por mi creatividad, capacidad analítica y enfoque práctico para resolver problemas. Apasionado por el desarrollo web y los agentes de inteligencia artificial, con experiencia en desarrollo de videojuegos en Unity y realidad virtual con Meta Quest. Siempre en búsqueda de explorar nuevas tecnologías y llevar las ideas a soluciones reales. |                               |
 
-| Nombre: Oblitas Davila, Mariano Moises | <img src="imgs/Mariano.png" alt="Mariano" title="Foto de Mariano" width="320"/> |
+| Nombre: Oblitas Davila, Mariano Moises | <img src="imgs/team/mariano.png" alt="Mariano" title="Foto de Mariano" width="320"/> |
 | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------- |
 | **Código:** U202310222  |                               |
 | **Carrera:** Ingeniería de Software |                               |
 | **Habilidades:** Estudiante de 20 años de Ingeniería de Software en la UPC. Me caracterizo por mi creatividad, eficacia y capacidad para resolver problemas de manera racional. Apasionado por la programación y el desarrollo de software, busco constantemente innovar y aprender nuevas tecnologías. |          |
 
-| Nombre: Qqueso Rodriguez, Britney Delhy| <img src="imgs/Britney.jpg" alt="Britney" title="Foto de Britney" width="320"/> |
+| Nombre: Qqueso Rodriguez, Britney Delhy| <img src="imgs/team/britney.jpg" alt="Britney" title="Foto de Britney" width="320"/> |
 | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------- |
 | **Código:** U20211G671      |                               |
 | **Carrera:** Ingeniería de Software     |                               |
 | **Habilidades:** Soy estudiante de la carrera de Ingeniería de Software en la Universidad Peruana de Ciencias Aplicadas (UPC). Me considero una persona autodidacta, creativa, organizada y responsable. Me comprometo a contribuir al equipo con mis conocimientos y habilidades, apoyar en todo lo necesario y aprender en el proceso. |        |
 
-| Nombre: Zúñiga Murillo, Diego Sebastián    | <img src="imgs/Diego.jpg" alt="Diego" title="Foto de Diego" width="320"/> |
+| Nombre: Zúñiga Murillo, Diego Sebastián    | <img src="imgs/team/diego.jpg" alt="Diego" title="Foto de Diego" width="320"/> |
 | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------- |
 | **Código:** U202310636  |   |
 | **Carrera:** Ingeniería de Software   |   |
 | **Habilidades:** Mi nombre es Diego Sebastián Zúñiga Murillo, tengo 21 años y actualmente curso el séptimo ciclo de la carrera de Ingeniería de Software en la Universidad Peruana de Ciencias Aplicadas. Me considero una persona puntual, participativa y responsable, con una fuerte pasión por la tecnología y el aprendizaje constante. En mi tiempo libre disfruto de escuchar música, lo que me ayuda a relajarme y mantener el equilibrio entre mis estudios y mi vida personal. Como estudiante, me comprometo a aportar activamente en el desarrollo de este proyecto, contribuyendo con creatividad, iniciativa y habilidades de liderazgo. Confío en que, trabajando en equipo y manteniendo una comunicación constante, lograremos resultados destacados que reflejan nuestro esfuerzo y compromiso. |   |
 
-| Nombre: Martel Zevallos, Gabriel Aristóteles  | <img src="imgs/Gabriel.jpg" alt="Gabriel" title="Foto de Gabriel" width="320"/> |
+| Nombre: Martel Zevallos, Gabriel Aristóteles  | <img src="imgs/team/gabriel.jpg" alt="Gabriel" title="Foto de Gabriel" width="320"/> |
 | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------- |
 | **Código:** U202121584
 |     |
@@ -508,6 +508,21 @@ Su valor diferencial se sustenta en tres pilares: (1) recordatorio multimodal me
 
 ## 2.3. Needfinding
 ### 2.3.1. User Personas
+
+A partir del análisis de los segmentos objetivo definidos en la sección 1.3, se elaboraron dos User Personas que representan los perfiles principales de usuario de Dosys: el adulto mayor polimedicado (usuario final del dispositivo) y el cuidador familiar (usuario principal de la aplicación y habitualmente el decisor de compra). Ambas personas fueron construidas con la herramienta UXPressia.
+
+**User Persona 1 — Rosa Jiménez Vargas (Adulto Mayor Polimedicado)**
+
+<img src="imgs/personas/user_persona_rosa_jimenez.png" alt="User Persona 1 - Rosa Jiménez Vargas" title="Adulto Mayor Polimedicado" width="800"/>
+
+Rosa representa al segmento S1: adultos mayores de 60 años o más con tratamientos farmacológicos crónicos que interactúan directamente con el hardware del pastillero Dosys. Sus objetivos, motivaciones y frustraciones guían las decisiones de accesibilidad física del dispositivo (recordatorio multimodal por voz, LED y botones).
+
+**User Persona 2 — Carlos Mendoza Ríos (Cuidador Familiar)**
+
+<img src="imgs/personas/user_persona_carlos_mendoza.png" alt="User Persona 2 - Carlos Mendoza Ríos" title="Cuidador Familiar" width="800"/>
+
+Carlos representa al segmento S2: familiares y cuidadores de adultos mayores polimedicados que configuran los tratamientos, supervisan el cumplimiento remoto y reciben alertas a través de la aplicación móvil. Sus necesidades orientan el diseño de la experiencia digital, las notificaciones y el monitoreo remoto.
+
 ### 2.3.2. User Task Matrix
 
 La siguiente matriz identifica las tareas que los segmentos objetivo de Dosys realizan actualmente en relación con la gestión de medicamentos, independientemente de la existencia del producto. Se evalúa la frecuencia (Alta, Media, Baja) y la importancia (Alta, Media, Baja) de cada tarea para cada segmento.
@@ -632,6 +647,26 @@ Las tareas que presentan alta frecuencia y alta importancia en ambos segmentos s
 
 ### 2.3.3. User Journey Mapping
 ### 2.3.4. Empathy Mapping
+
+A partir de las User Personas definidas en la sección 2.3.1, se elaboraron dos Empathy Maps con la herramienta UXPressia para profundizar en las experiencias, pensamientos, emociones y comportamientos de cada segmento objetivo en su estado actual (AS-IS), es decir, antes de adoptar una solución como Dosys. Estos mapas permiten identificar los dolores reales que justifican la propuesta de valor y las ganancias esperadas que Dosys debe entregar.
+
+**Empathy Map 1 — Rosa Jiménez Vargas (Adulto Mayor Polimedicado)**
+
+<img src="imgs/empathy-maps/empathy_map_rosa_jimenez.png" alt="Empathy Map - Rosa Jiménez Vargas" title="Empathy Map del Adulto Mayor Polimedicado" width="900"/>
+
+El empathy map de Rosa revela una experiencia marcada por la ansiedad ante los olvidos, el miedo a equivocarse con medicamentos similares y la tensión entre su deseo de mantenerse independiente y la necesidad creciente de apoyo familiar. Sus dolores principales —olvidos frecuentes, dificultades visuales y auditivas, pérdida de control sobre su salud— validan directamente la necesidad del recordatorio multimodal (voz, LED, botón físico) planteado en el Hypothesis Statement 1.
+
+**Empathy Map 2 — Carlos Mendoza Ríos (Cuidador Familiar)**
+
+<img src="imgs/empathy-maps/empathy_map_carlos_mendoza.png" alt="Empathy Map - Carlos Mendoza Ríos" title="Empathy Map del Cuidador Familiar" width="900"/>
+
+El empathy map de Carlos expone la carga mental del cuidador remoto: preocupación constante durante su jornada laboral, culpa por no estar físicamente presente y frustración con las soluciones actuales del mercado. Sus ganancias esperadas —monitoreo remoto en tiempo real, alertas inmediatas, coordinación familiar compartida— sustentan las funcionalidades de la aplicación móvil de Dosys y validan los Hypothesis Statements 2, 3 y 4 relacionados con visibilidad remota, monitoreo ambiental y avisos de recarga.
+
+**Hallazgos clave del contraste entre ambos empathy maps:**
+
+- Rosa experimenta *soledad y pérdida de autonomía*, mientras Carlos siente *carga mental y culpa por la distancia*. Dosys debe resolver ambos dolores simultáneamente mediante la combinación hardware + aplicación.
+- Los canales por los que escuchan información son distintos: Rosa consume medios tradicionales (radio, TV, vecinas), mientras Carlos utiliza canales digitales (redes sociales, podcasts, colegas). Esto valida la estrategia de marketing dual definida en el análisis competitivo.
+- Los dolores identificados en ambos empathy maps se alinean directamente con los cuatro Hypothesis Statements del Lean UX, confirmando que las hipótesis del producto apuntan a necesidades reales y no a suposiciones del equipo.
 
 ## 2.4. Big Picture EventStorming
 ## 2.5. Ubiquitous Language
