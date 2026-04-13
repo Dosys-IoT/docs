@@ -666,8 +666,276 @@ El siguiente glosario define los términos clave utilizados de manera consistent
 # Capítulo III: Requirements Specification
 
 ## 3.1. User Stories
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Epic/Story ID</th>
+      <th>Título</th>
+      <th>Descripción</th>
+      <th>Criterios de aceptación</th>
+      <th>Relacionado con (Epic ID)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>EP01</td>
+      <td>Presencia Digital y Captación</td>
+      <td colspan="3">El sistema debe proporcionar una plataforma web informativa para dar a conocer la solución Dosys.</td>
+    </tr>
+    <tr>
+      <td>US01</td>
+      <td>Información del Producto</td>
+      <td>Como visitante de la Landing Page, quiero visualizar las características principales de Dosys, para entender los beneficios del pastillero inteligente.</td>
+      <td>Given que el visitante se encuentra en la página de inicio, When navega por la sección de características, Then visualiza información sobre recordatorios de voz, LEDs y monitoreo ambiental.</td>
+      <td>EP01</td>
+    </tr>
+    <tr>
+      <td>US02</td>
+      <td>Formulario de Contacto</td>
+      <td>Como visitante interesado, quiero enviar mis datos a través de un formulario, para recibir asesoría personalizada sobre el producto.</td>
+      <td>Given que el visitante completa los campos obligatorios, When solicita el envío de la información, Then el sistema confirma la recepción exitosa del mensaje.</td>
+      <td>EP01</td>
+    </tr>
+    <tr>
+      <td>EP02</td>
+      <td>Gestión de Accesos (Contexto Access)</td>
+      <td colspan="3">El sistema debe permitir la administración segura de cuentas de usuario y la vinculación de dispositivos.</td>
+    </tr>
+    <tr>
+      <td>US03</td>
+      <td>Registro de Cuidador</td>
+      <td>Como cuidador, quiero crear una cuenta en la aplicación, para empezar a gestionar el tratamiento de mi familiar.</td>
+      <td>Given que el usuario no tiene una cuenta, When ingresa un correo electrónico válido y una contraseña segura, Then el sistema crea el perfil y envía un correo de verificación.</td>
+      <td>EP02</td>
+    </tr>
+    <tr>
+      <td>TS01</td>
+      <td>API de Autenticación</td>
+      <td>Como Developer, quiero implementar un endpoint de login, para validar las credenciales de los usuarios mediante JWT.</td>
+      <td>Given un request POST con credenciales válidas, When el servicio procesa la solicitud, Then el servidor responde con un status 200 y un token de acceso.</td>
+      <td>EP02</td>
+    </tr>
+    <tr>
+      <td>US04</td>
+      <td>Vinculación IoT</td>
+      <td>Como cuidador, quiero vincular el pastillero físico mediante un código identificador, para que la app pueda enviar configuraciones al hardware.</td>
+      <td>Given que el dispositivo está encendido, When el usuario registra el ID único en la app, Then el sistema establece una conexión lógica entre la cuenta y el hardware.</td>
+      <td>EP02</td>
+    </tr>
+    <tr>
+      <td>EP03</td>
+      <td>Gestión de Tratamientos (Contexto Medication)</td>
+      <td colspan="3">El sistema debe administrar los horarios, dosis y asignación de compartimentos de medicamentos.</td>
+    </tr>
+    <tr>
+      <td>US05</td>
+      <td>Registro de Medicina</td>
+      <td>Como cuidador, quiero registrar un nuevo medicamento en el sistema, para tenerlo disponible en la configuración del tratamiento.</td>
+      <td>Given que el cuidador conoce el nombre del fármaco, When ingresa el nombre y la presentación, Then el sistema guarda la medicina en el catálogo personal.</td>
+      <td>EP03</td>
+    </tr>
+    <tr>
+      <td>US06</td>
+      <td>Programación de Dosis</td>
+      <td>Como cuidador, quiero definir la hora y frecuencia de una toma, para que el paciente reciba los recordatorios oportunamente.</td>
+      <td>Given un medicamento seleccionado, When el usuario asigna un horario (ej. 08:00 AM) y una frecuencia, Then el sistema genera el calendario de tomas correspondiente.</td>
+      <td>EP03</td>
+    </tr>
+    <tr>
+      <td>US07</td>
+      <td>Asignación de Compartimento</td>
+      <td>Como cuidador, quiero asignar un medicamento a uno de los 5 compartimentos físicos, para que el LED correcto se encienda durante la toma.</td>
+      <td>Given un tratamiento activo, When el usuario selecciona un número de compartimento (1 al 5), Then el sistema vincula físicamente la medicina con esa sección del pastillero.</td>
+      <td>EP03</td>
+    </tr>
+    <tr>
+      <td>TS02</td>
+      <td>API de Sincronización de Calendario</td>
+      <td>Como Developer, quiero un endpoint que entregue el calendario de tomas al dispositivo, para que el hardware funcione de forma offline.</td>
+      <td>Given una solicitud GET desde el dispositivo identificado, When existen cambios en el tratamiento, Then el servicio retorna un JSON con el cronograma actualizado de 24 horas.</td>
+      <td>EP03</td>
+    </tr>
+    <tr>
+      <td>US08</td>
+      <td>Consulta de Adherencia</td>
+      <td>Como cuidador, quiero ver un historial de dosis tomadas y omitidas, para monitorear el cumplimiento del tratamiento.</td>
+      <td>Given que existen registros de tomas previas, When el usuario consulta el reporte semanal, Then el sistema muestra el porcentaje de cumplimiento sobre el total programado.</td>
+      <td>EP03</td>
+    </tr>
+    <tr>
+      <td>EP04</td>
+      <td>Interacción con Hardware (Contexto Device)</td>
+      <td colspan="3">El sistema debe gestionar las alertas físicas y los datos recolectados por los sensores IoT.</td>
+    </tr>
+    <tr>
+      <td>US09</td>
+      <td>Alerta Multimodal</td>
+      <td>Como paciente, quiero escuchar un mensaje de voz y ver una luz LED cuando sea hora de mi medicina, para identificar qué debo tomar sin confusión.</td>
+      <td>Given que se alcanza la hora programada para una dosis, When el reloj interno coincide con el horario, Then el dispositivo reproduce el audio y enciende el LED del compartimento asignado.</td>
+      <td>EP04</td>
+    </tr>
+    <tr>
+      <td>US10</td>
+      <td>Confirmación de Toma</td>
+      <td>Como paciente, quiero presionar un botón físico tras ingerir la pastilla, para que el sistema registre mi cumplimiento.</td>
+      <td>Given que una alerta está activa, When el paciente presiona el botón del compartimento, Then el LED se apaga y el dispositivo registra la confirmación de la dosis.</td>
+      <td>EP04</td>
+    </tr>
+    <tr>
+      <td>US11</td>
+      <td>Monitoreo de Humedad</td>
+      <td>Como cuidador, quiero recibir una alerta si la humedad del ambiente sube, para evitar que las pastillas se degraden.</td>
+      <td>Given que el sensor de humedad detecta un valor superior al 65%, When el sistema procesa el dato, Then se envía una notificación push de advertencia al smartphone del cuidador.</td>
+      <td>EP04</td>
+    </tr>
+    <tr>
+      <td>US12</td>
+      <td>Alerta de Temperatura</td>
+      <td>Como cuidador, quiero ser notificado si el pastillero está expuesto a calor excesivo, para cambiarlo de lugar y proteger los fármacos.</td>
+      <td>Given que la temperatura registrada supera los 30°C, When el dispositivo reporta el dato, Then el sistema genera una alerta ambiental crítica.</td>
+      <td>EP04</td>
+    </tr>
+    <tr>
+      <td>TS03</td>
+      <td>Ingesta de Datos de Sensores</td>
+      <td>Como Developer, quiero un endpoint que reciba datos de telemetría (temp/hum), para almacenar el histórico ambiental del dispositivo.</td>
+      <td>Given un request POST con datos de sensores y timestamp, When la firma del dispositivo es válida, Then el servicio persiste la información y retorna un status 201.</td>
+      <td>EP04</td>
+    </tr>
+    <tr>
+      <td>US13</td>
+      <td>Alerta de Recarga</td>
+      <td>Como cuidador, quiero un aviso cuando queden pocas pastillas en un compartimento, para reponer el stock a tiempo.</td>
+      <td>Given que el número de dosis confirmadas reduce el stock a 3 unidades, When se procesa la última confirmación, Then el sistema notifica la necesidad de recarga.</td>
+      <td>EP03</td>
+    </tr>
+    <tr>
+      <td>US14</td>
+      <td>Posponer Alerta (Snooze)</td>
+      <td>Como paciente, quiero silenciar la alarma por 5 minutos, para tomar la medicina después si estoy ocupado en ese instante.</td>
+      <td>Given que la alerta está sonando, When el paciente presiona el botón de repetición, Then el audio se detiene y se reactiva automáticamente tras 5 minutos.</td>
+      <td>EP04</td>
+    </tr>
+    <tr>
+      <td>US15</td>
+      <td>Ajuste de Volumen</td>
+      <td>Como cuidador, quiero regular el volumen del pastillero desde la app, para adaptarlo a la capacidad auditiva del paciente.</td>
+      <td>Given que el dispositivo está online, When el usuario modifica el nivel de volumen en la aplicación, Then el hardware actualiza su configuración de salida de audio inmediatamente.</td>
+      <td>EP04</td>
+    </tr>
+    <tr>
+      <td>US16</td>
+      <td>Sección de Beneficios (Landing)</td>
+      <td>Como visitante del segmento "Cuidadores", quiero leer testimonios y casos de éxito, para confiar en la eficacia de Dosys.</td>
+      <td>Given que el visitante navega hacia la sección de testimonios, When interactúa con los elementos de la página, Then visualiza experiencias reales de otros usuarios.</td>
+      <td>EP01</td>
+    </tr>
+    <tr>
+      <td>US17</td>
+      <td>Registro de Alergias</td>
+      <td>Como cuidador, quiero documentar alergias en el perfil del paciente, para tener una referencia rápida en caso de emergencia médica.</td>
+      <td>Given que el perfil del paciente está activo, When el usuario añade una sustancia a la lista de alergias, Then el sistema actualiza la ficha médica digital.</td>
+      <td>EP02</td>
+    </tr>
+    <tr>
+      <td>TS04</td>
+      <td>Health Check del Dispositivo</td>
+      <td>Como Developer, quiero implementar un "Heartbeat", para saber si el dispositivo ha perdido conexión a internet.</td>
+      <td>Given que el dispositivo no envía señales por más de 10 minutos, When el servicio de monitoreo detecta la inactividad, Then marca el estado del hardware como "Offline" en la base de datos.</td>
+      <td>EP04</td>
+    </tr>
+    <tr>
+      <td>US18</td>
+      <td>Notificación Offline</td>
+      <td>Como cuidador, quiero saber si el pastillero pierde conexión, para verificar si mi familiar está recibiendo las alertas adecuadamente.</td>
+      <td>Given que el estado del dispositivo cambia a "Offline", When se detecta la pérdida de señal, Then el sistema envía una alerta de "Desconexión" al cuidador.</td>
+      <td>EP04</td>
+    </tr>
+    <tr>
+      <td>US19</td>
+      <td>Fin de Tratamiento</td>
+      <td>Como cuidador, quiero una alerta cuando un tratamiento finaliza, para limpiar el compartimento y dejarlo disponible.</td>
+      <td>Given que se ha alcanzado la fecha final programada, When se cumple el último horario de toma, Then el sistema notifica que el compartimento debe ser vaciado.</td>
+      <td>EP03</td>
+    </tr>
+    <tr>
+      <td>US20</td>
+      <td>Visualización de Precio (Landing)</td>
+      <td>Como visitante, quiero conocer los planes de adquisición del producto, para evaluar la compra según mi presupuesto.</td>
+      <td>Given que el visitante accede a la sección de precios, When selecciona un modelo de dispositivo, Then visualiza el costo único y los servicios incluidos.</td>
+      <td>EP01</td>
+    </tr>
+    <tr>
+      <td>TS05</td>
+      <td>API de Notificaciones Push</td>
+      <td>Como Developer, quiero integrar un servicio de mensajería (Firebase), para despachar alertas en tiempo real a los dispositivos móviles.</td>
+      <td>Given un evento crítico (dosis omitida o alerta ambiental), When el bus de eventos detecta el mensaje, Then el servicio envía el payload al token del dispositivo móvil correspondiente.</td>
+      <td>EP02</td>
+    </tr>
+    <tr>
+      <td>US21</td>
+      <td>Recuperación de Contraseña</td>
+      <td>Como cuidador, quiero solicitar un enlace de cambio de clave, para recuperar el acceso si olvido mis credenciales.</td>
+      <td>Given que el usuario ingresa su correo en la sección de olvido de clave, When solicita el restablecimiento, Then el sistema envía un token temporal de un solo uso por email.</td>
+      <td>EP02</td>
+    </tr>
+    <tr>
+      <td>US22</td>
+      <td>Reporte de Temperatura (App)</td>
+      <td>Como cuidador, quiero ver un gráfico de la temperatura del pastillero de las últimas 24 horas, para asegurar que el ambiente es estable.</td>
+      <td>Given que existen datos de telemetría, When el usuario abre la pestaña de "Ambiente", Then el sistema genera una gráfica con las fluctuaciones térmicas registradas.</td>
+      <td>EP04</td>
+    </tr>
+    <tr>
+      <td>US23</td>
+      <td>Soporte Técnico (Landing)</td>
+      <td>Como visitante con dudas técnicas, quiero acceder a una sección de Preguntas Frecuentes (FAQ), para resolver problemas comunes de instalación.</td>
+      <td>Given que el visitante ingresa al pie de página, When selecciona el enlace de Soporte, Then visualiza una lista de soluciones a problemas técnicos frecuentes.</td>
+      <td>EP01</td>
+    </tr>
+  </tbody>
+</table>
+
 ## 3.2. Impact Mapping
 ## 3.3. Product Backlog
+
+<table border="1">
+  <thead>
+    <tr>
+      <th># Orden</th>
+      <th>User Story Id</th>
+      <th>Título</th>
+      <th>Descripción</th>
+      <th>Story Points</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>1</td><td>US01</td><td>Información del Producto</td><td>Como visitante de la Landing Page, quiero visualizar las características de Dosys, para entender los beneficios del producto.</td><td>2</td></tr>
+    <tr><td>2</td><td>US16</td><td>Sección de Beneficios</td><td>Como cuidador visitante, quiero leer testimonios y casos de éxito, para confiar en la eficacia de la solución.</td><td>3</td></tr>
+    <tr><td>3</td><td>US20</td><td>Visualización de Precio</td><td>Como visitante, quiero conocer los planes de adquisición, para evaluar la compra según mi presupuesto.</td><td>1</td></tr>
+    <tr><td>4</td><td>US02</td><td>Formulario de Contacto</td><td>Como visitante interesado, quiero enviar mis datos, para recibir asesoría personalizada.</td><td>2</td></tr>
+    <tr><td>5</td><td>US09</td><td>Alerta Multimodal</td><td>Como paciente, quiero escuchar un mensaje de voz y ver un LED, para identificar mi medicina sin confusión.</td><td>8</td></tr>
+    <tr><td>6</td><td>US10</td><td>Confirmación de Toma</td><td>Como paciente, quiero presionar un botón físico tras ingerir la pastilla, para registrar mi cumplimiento.</td><td>5</td></tr>
+    <tr><td>7</td><td>US05</td><td>Registro de Medicina</td><td>Como cuidador, quiero registrar un fármaco en el sistema, para tenerlo disponible en la configuración.</td><td>3</td></tr>
+    <tr><td>8</td><td>US06</td><td>Programación de Dosis</td><td>Como cuidador, quiero definir la hora y frecuencia de una toma, para que el paciente reciba recordatorios.</td><td>5</td></tr>
+    <tr><td>9</td><td>US07</td><td>Asignación de Compartimento</td><td>Como cuidador, quiero asignar una medicina a un compartimento físico (1-5), para vincular el hardware.</td><td>3</td></tr>
+    <tr><td>10</td><td>US11</td><td>Monitoreo de Humedad</td><td>Como cuidador, quiero alertas si la humedad sube, para evitar que las pastillas se degraden.</td><td>5</td></tr>
+    <tr><td>11</td><td>US12</td><td>Alerta de Temperatura</td><td>Como cuidador, quiero avisos si hay calor excesivo, para proteger la integridad química de los fármacos.</td><td>5</td></tr>
+    <tr><td>12</td><td>US13</td><td>Alerta de Recarga</td><td>Como cuidador, quiero un aviso cuando queden pocas pastillas, para reponer el stock a tiempo.</td><td>3</td></tr>
+    <tr><td>13</td><td>US14</td><td>Posponer Alerta (Snooze)</td><td>Como paciente, quiero silenciar la alarma por 5 minutos, para tomar la medicina después si estoy ocupado.</td><td>3</td></tr>
+    <tr><td>14</td><td>US08</td><td>Consulta de Adherencia</td><td>Como cuidador, quiero ver un historial de dosis, para monitorear el cumplimiento del familiar.</td><td>5</td></tr>
+    <tr><td>15</td><td>US22</td><td>Reporte de Temperatura</td><td>Como cuidador, quiero ver un gráfico térmico de las últimas 24h, para asegurar que el ambiente es estable.</td><td>5</td></tr>
+    <tr><td>16</td><td>US15</td><td>Ajuste de Volumen</td><td>Como cuidador, quiero regular el volumen del pastillero desde la app, para adaptarlo a la audición del paciente.</td><td>2</td></tr>
+    <tr><td>17</td><td>US19</td><td>Fin de Tratamiento</td><td>Como cuidador, quiero una alerta cuando el tratamiento termina, para limpiar el compartimento.</td><td>2</td></tr>
+    <tr><td>18</td><td>US03</td><td>Registro de Cuidador</td><td>Como cuidador, quiero crear una cuenta, para empezar a gestionar el dispositivo.</td><td>3</td></tr>
+    <tr><td>19</td><td>US04</td><td>Vinculación IoT</td><td>Como cuidador, quiero vincular el hardware mediante ID único, para que la app controle el pastillero.</td><td>5</td></tr>
+    <tr><td>20</td><td>US21</td><td>Recuperación de Contraseña</td><td>Como cuidador, quiero solicitar un enlace de cambio de clave, para recuperar mi acceso.</td><td>2</td></tr>
+    <tr><td>21</td><td>US17</td><td>Registro de Alergias</td><td>Como cuidador, quiero documentar alergias en el perfil, para tener una referencia en emergencias.</td><td>1</td></tr>
+    <tr><td>22</td><td>US18</td><td>Notificación Offline</td><td>Como cuidador, quiero saber si el pastillero pierde conexión, para verificar el estado del sistema.</td><td>3</td></tr>
+    <tr><td>23</td><td>US23</td><td>Soporte Técnico (FAQ)</td><td>Como visitante con dudas, quiero acceder a preguntas frecuentes, para resolver problemas de instalación.</td><td>2</td></tr>
+  </tbody>
+</table>
 
 # Capítulo IV: Solution Software Design
 
