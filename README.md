@@ -366,7 +366,20 @@ Sabremos que hemos tenido éxito cuando menos del 10% de los usuarios reporte ha
 
 #### 1.2.2.4. Lean UX Canvas
 
-*Pendiente de desarrollo en la siguiente etapa del proyecto.*
+El Lean UX Canvas (v2) de Jeff Gothelf integra en una sola vista el problema de negocio, los resultados esperados, los usuarios, los beneficios, las soluciones propuestas, las hipótesis y el experimento de validación para la suposición más riesgosa. A continuación se presenta el canvas elaborado para Dosys, construido a partir de los Business Assumptions, User Assumptions e Hypothesis Statements definidos en las secciones previas.
+
+<img src="imgs/lean-ux/lean_ux_canvas.png" alt="Lean UX Canvas v2 - Dosys" title="Lean UX Canvas de Dosys" width="1000"/>
+
+**Interpretación del canvas:**
+
+- **Problema de negocio (Box 1):** Existe una oportunidad clara en el mercado peruano por la ausencia de soluciones integrales de gestión de medicamentos adaptadas al adulto mayor. Los competidores internacionales no están disponibles localmente o resultan costosos.
+- **Resultados esperados (Box 2):** Las métricas clave combinan indicadores de adherencia (80% de dosis confirmadas), retención (70% a 3 meses) y comerciales (200 unidades en el primer año).
+- **Usuarios (Box 3):** Se prioriza al cuidador familiar (S2) como canal de adquisición, ya que es el decisor de compra, mientras que el adulto mayor (S1) es el usuario final del hardware.
+- **Beneficios de usuario (Box 4):** Se segmentan los beneficios por persona, reflejando que Dosys debe resolver dos experiencias distintas simultáneamente (autonomía para Rosa, tranquilidad remota para Carlos).
+- **Soluciones (Box 5):** Se listan las funcionalidades clave del dispositivo y la aplicación que se vinculan directamente con cada beneficio esperado.
+- **Hipótesis (Box 6):** Cinco hipótesis que integran las Business Outcomes, Users, User Outcomes y Solutions de los cuadros anteriores.
+- **Aprendizaje prioritario (Box 7):** La suposición más riesgosa identificada es la adopción y aceptación del dispositivo por parte del adulto mayor, por su alto impacto en la viabilidad del producto y su alta incertidumbre.
+- **Experimento de validación (Box 8):** Se propone un MVP de un solo compartimento para probar la interacción multimodal con 8-10 adultos mayores antes de invertir en el desarrollo completo del producto.
 
 ## 1.3. Segmentos objetivo
 #### **Adultos mayores con tratamientos farmacológicos crónicos**
