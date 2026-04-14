@@ -515,7 +515,35 @@ Su valor diferencial se sustenta en tres pilares: (1) recordatorio multimodal me
 - **Mitigación de amenazas:** Para contrarrestar la resistencia tecnológica del adulto mayor, Dosys implementará una experiencia de primer uso guiada, un diseño físico intuitivo con compartimentos claramente diferenciados y pruebas de usabilidad directas con usuarios del segmento objetivo.
 
 ## 2.2. Entrevistas
-### 2.2.1. Diseño de entrevistas
+
+### 2.2.1. Diseño de Entrevistas
+
+**Segmento objetivo 1: Adultos mayores con tratamientos farmacológicos crónicos**
+
+¿Cual es tu nombre completo?
+
+¿Cual es tu edad?
+
+¿En donde vives?
+
+¿Vives solo, con familiares o con un cuidador?
+
+¿Cuántos medicamentos sueles tomar al día?
+
+¿Cómo organizas actualmente tus medicamentos en casa?
+
+¿Qué tan difícil te resulta recordar la hora correcta para tomar cada medicamento?
+
+¿Te ha pasado que olvidas una dosis o confundes un medicamento con otro?
+
+¿Qué tipo de ayuda usas actualmente para recordar tus medicamentos, si es que usas alguna?
+
+¿Te ayudaría que un dispositivo te avise con voz y luz qué compartimento debes abrir?
+
+¿Te sería cómodo confirmar con un botón físico que ya tomaste la pastilla?
+
+¿Te parecería útil que el dispositivo avise si la temperatura o la humedad podrían afectar tus medicamentos?
+
 ### 2.2.2. Registro de entrevistas
 ### 2.2.3. Análisis de entrevistas
 
