@@ -1032,35 +1032,938 @@ El siguiente glosario define los términos clave utilizados de manera consistent
 
 ## 4.2. Tactical-Level Domain-Driven Design
 
+La siguiente estructura se ajusta al capítulo **Tactical-Level Domain-Driven Design** del enunciado, considerando que la solución completa está conformada por **RESTful API**, **Edge API** y **Embedded Applications**, y que el diseño táctico debe reflejar los containers involucrados en cada bounded context. 
+
 ### 4.2.1. Bounded Context: Access
+
+El bounded context **Access** representa el proceso de registro, autenticación y autorización básica dentro de la solución Dosys.
+Su propósito es aislar la gestión de usuarios y accesos del resto del dominio, evitando mezclar reglas de seguridad con reglas de medicación o de operación del dispositivo.
+
 #### 4.2.1.1. Domain Layer
+
+El **Domain Layer** encapsula la lógica principal del acceso al sistema. Incluye la entidad raíz **User**, la gestión de tokens y la relación de acceso entre usuarios y dispositivos.
+
+**Aggregates**
+
+|    Nombre    |        Categoría        |                                                              Descripción                                                              |
+| :----------: | :---------------------: | :-----------------------------------------------------------------------------------------------------------------------------------: |
+|     User     | Entity (Aggregate Root) | Representa a un usuario autenticado del sistema Dosys. Contiene la identidad básica, el correo electrónico y la contraseña protegida. |
+| RefreshToken |          Entity         |                 Representa un token de refresco asociado a un usuario autenticado. Permite mantener sesiones seguras.                 |
+| DeviceAccess |          Entity         |                          Representa la relación entre un usuario y un dispositivo Dosys al que tiene acceso.                          |
+
+**Value Objects**
+
+|    Nombre    |   Categoría  |                      Descripción                      |
+| :----------: | :----------: | :---------------------------------------------------: |
+| EmailAddress | Value Object | Encapsula y valida el correo electrónico del usuario. |
+| PasswordHash | Value Object |     Representa la contraseña cifrada del usuario.     |
+
+**Enumerations**
+
+|   Nombre   |      Valores     |                      Descripción                     |
+| :--------: | :--------------: | :--------------------------------------------------: |
+| AccessRole | OWNER, CAREGIVER | Define el rol del usuario respecto a un dispositivo. |
+
+**Attributes**
+
+**User**
+
+| Nombre       | Tipo de dato | Visibilidad | Descripción                              |
+| ------------ | ------------ | ----------- | ---------------------------------------- |
+| id           | UUID         | Private     | Identificador único del usuario.         |
+| fullName     | String       | Private     | Nombre completo del usuario.             |
+| email        | EmailAddress | Private     | Correo electrónico validado del usuario. |
+| passwordHash | PasswordHash | Private     | Contraseña cifrada del usuario.          |
+| isActive     | Boolean      | Private     | Indica si la cuenta se encuentra activa. |
+| createdAt    | DateTime     | Private     | Fecha de creación del usuario.           |
+
+**RefreshToken**
+
+| Nombre    | Tipo de dato | Visibilidad | Descripción                            |
+| --------- | ------------ | ----------- | -------------------------------------- |
+| id        | UUID         | Private     | Identificador único del token.         |
+| userId    | UUID         | Private     | Usuario propietario del token.         |
+| token     | String       | Private     | Valor del token de refresco.           |
+| expiresAt | DateTime     | Private     | Fecha y hora de expiración.            |
+| revokedAt | DateTime?    | Private     | Fecha y hora de revocación, si aplica. |
+
+**DeviceAccess**
+
+| Nombre    | Tipo de dato | Visibilidad | Descripción                                             |
+| --------- | ------------ | ----------- | ------------------------------------------------------- |
+| id        | UUID         | Private     | Identificador único del acceso.                         |
+| userId    | UUID         | Private     | Usuario que posee el acceso.                            |
+| deviceId  | UUID         | Private     | Dispositivo Dosys asociado.                             |
+| role      | AccessRole   | Private     | Rol del usuario respecto al dispositivo.                |
+| isActive  | Boolean      | Private     | Indica si el acceso al dispositivo se encuentra activo. |
+| grantedAt | DateTime     | Private     | Fecha en que se concedió el acceso.                     |
+| revokedAt | DateTime?    | Private     | Fecha en que se revocó el acceso, si aplica.            |
+
+**Methods**
+
+**User**
+
+| Nombre                                | Tipo de retorno | Visibilidad | Descripción                                                    |
+| ------------------------------------- | --------------- | ----------- | -------------------------------------------------------------- |
+| User(...) (constructor)               | User            | Public      | Inicializa un usuario con nombre, correo y contraseña cifrada. |
+| activate()                            | Void            | Public      | Activa la cuenta del usuario.                                  |
+| deactivate()                          | Void            | Public      | Desactiva la cuenta del usuario.                               |
+| changePassword(newHash: PasswordHash) | Void            | Public      | Reemplaza la contraseña cifrada por una nueva.                 |
+
+**RefreshToken**
+
+| Nombre                          | Tipo de retorno | Visibilidad | Descripción                            |
+| ------------------------------- | --------------- | ----------- | -------------------------------------- |
+| RefreshToken(...) (constructor) | RefreshToken    | Public      | Inicializa un nuevo token de refresco. |
+| revoke(at: DateTime)            | Void            | Public      | Revoca el token.                       |
+| isActive()                      | Boolean         | Public      | Indica si el token sigue activo.       |
+
+**DeviceAccess**
+
+| Nombre                          | Tipo de retorno | Visibilidad | Descripción                                                        |
+| ------------------------------- | --------------- | ----------- | ------------------------------------------------------------------ |
+| DeviceAccess(...) (constructor) | DeviceAccess    | Public      | Crea una relación de acceso entre usuario y dispositivo.           |
+| grant(at: DateTime)             | Void            | Public      | Marca el acceso como activo y actualiza la fecha de concesión.     |
+| revoke(at: DateTime)            | Void            | Public      | Revoca el acceso al dispositivo y registra la fecha de revocación. |
+
+**Repositories and Domain Services**
+
+|         Nombre         |         Categoría        |                        Descripción                        |
+| :--------------------: | :----------------------: | :-------------------------------------------------------: |
+|     UserRepository     |   Repository Interface   |         Abstracción para persistencia de usuarios.        |
+| RefreshTokenRepository |   Repository Interface   |      Abstracción para persistencia de refresh tokens.     |
+| DeviceAccessRepository |   Repository Interface   | Abstracción para persistencia de accesos por dispositivo. |
+|      TokenService      | Domain Service Interface |    Abstracción para generación y validación de tokens.    |
+|     PasswordHasher     | Domain Service Interface |     Abstracción para hash y validación de contraseñas.    |
+
 #### 4.2.1.2. Interface Layer
+
+La **Interface Layer** expone las operaciones de acceso mediante la **REST API**.
+Se encarga de recibir solicitudes desde las aplicaciones web y móvil, validar el formato de entrada y delegar la lógica al **Application Layer**.
+
+|        Nombre        |     Categoría     |                                            Descripción                                            |
+| :------------------: | :---------------: | :-----------------------------------------------------------------------------------------------: |
+|   AccessController   |     Controller    | Controlador que expone operaciones de registro, autenticación y consulta del usuario autenticado. |
+| AuthExceptionHandler | Exception Handler |               Traductor de errores de autenticación a respuestas HTTP consistentes.               |
+
+**Attributes**
+
+| Nombre               | Tipo de dato          | Visibilidad | Descripción                                                               |
+| -------------------- | --------------------- | ----------- | ------------------------------------------------------------------------- |
+| accessCommandService | IAccessCommandService | Private     | Servicio de comandos para operaciones de registro e inicio de sesión.     |
+| accessQueryService   | IAccessQueryService   | Private     | Servicio de consultas para recuperar información del usuario autenticado. |
+
+**Endpoints**
+
+| Ruta                    | Método | Descripción                                                                       |
+| ----------------------- | ------ | --------------------------------------------------------------------------------- |
+| /api/v1/access/register | POST   | Registra un nuevo usuario en el sistema.                                          |
+| /api/v1/access/login    | POST   | Autentica un usuario y devuelve los tokens de sesión.                             |
+| /api/v1/access/me       | GET    | Devuelve la información básica del usuario autenticado y su dispositivo asociado. |
+
+**Request DTOs**
+
+| Nombre             | Descripción                                                                               |
+| ------------------ | ----------------------------------------------------------------------------------------- |
+| RegisterRequestDto | Contiene los datos necesarios para registrar un usuario: `{ fullName, email, password }`. |
+| LoginRequestDto    | Contiene las credenciales para autenticación: `{ email, password }`.                      |
+
+**Response DTOs**
+
+| Nombre                 | Descripción                                                                   |
+| ---------------------- | ----------------------------------------------------------------------------- |
+| AccessTokenResponseDto | Representa el resultado de login: `{ accessToken, refreshToken, expiresAt }`. |
+| UserProfileResponseDto | Representa al usuario autenticado: `{ id, fullName, email, deviceId }`.       |
+
 #### 4.2.1.3. Application Layer
+
+Esta capa coordina los casos de uso del bounded context **Access**, orquestando el dominio y la infraestructura sin contener lógica técnica de bajo nivel.
+
+|          Nombre          | Categoría |                 Implementa                 |                                   Descripción                                  |
+| :----------------------: | :-------: | :----------------------------------------: | :----------------------------------------------------------------------------: |
+| AccessApplicationService |  Service  | IAccessCommandService, IAccessQueryService | Orquesta el registro de usuarios, autenticación y consulta del usuario actual. |
+
+#### **Dependencies**
+
+| Nombre                 | Tipo de objeto         | Visibilidad | Descripción                                       |
+| ---------------------- | ---------------------- | ----------- | ------------------------------------------------- |
+| userRepository         | UserRepository         | Private     | Permite consultar y persistir usuarios.           |
+| refreshTokenRepository | RefreshTokenRepository | Private     | Permite registrar y recuperar refresh tokens.     |
+| deviceAccessRepository | DeviceAccessRepository | Private     | Permite vincular usuarios con dispositivos.       |
+| tokenService           | TokenService           | Private     | Genera y valida access tokens y refresh tokens.   |
+| passwordHasher         | PasswordHasher         | Private     | Realiza hash y validación de contraseñas.         |
+| unitOfWork             | UnitOfWork             | Private     | Maneja confirmación transaccional de operaciones. |
+
+#### **Methods**
+
+| Nombre                                  | Tipo de retorno        | Visibilidad | Descripción                                                                |
+| --------------------------------------- | ---------------------- | ----------- | -------------------------------------------------------------------------- |
+| registerUser(fullName, email, password) | UserProfileResponseDto | Public      | Registra un nuevo usuario y crea la identidad base en el sistema.          |
+| loginUser(email, password)              | AccessTokenResponseDto | Public      | Autentica al usuario y emite sus tokens de sesión.                         |
+| getCurrentUser(userId)                  | UserProfileResponseDto | Public      | Obtiene la información del usuario autenticado y su acceso al dispositivo. |
+
 #### 4.2.1.4. Infrastructure Layer
+
+Incluye implementaciones concretas para persistencia, seguridad y generación de tokens.
+
+**Repositories and Services**
+
+|           Nombre          |        Categoría       |       Implementa       |                                Descripción                                |
+| :-----------------------: | :--------------------: | :--------------------: | :-----------------------------------------------------------------------: |
+|     UserRepositorySql     |       Repository       |     UserRepository     | Implementación para persistencia de usuarios en base de datos relacional. |
+| RefreshTokenRepositorySql |       Repository       | RefreshTokenRepository |            Implementación para persistencia de refresh tokens.            |
+| DeviceAccessRepositorySql |       Repository       | DeviceAccessRepository |        Implementación para persistencia de accesos por dispositivo.       |
+|      JwtTokenService      | Infrastructure Service |      TokenService      |                  Genera y valida JWT para autenticación.                  |
+|    BcryptPasswordHasher   | Infrastructure Service |     PasswordHasher     |        Implementación para hash y validación segura de contraseñas.       |
+
+#### **Funcionalidades clave**
+
+* Registrar nuevos usuarios.
+* Autenticar credenciales y emitir tokens.
+* Consultar el usuario autenticado.
+* Persistir accesos entre usuarios y dispositivos.
+
 #### 4.2.1.5. Bounded Context Software Architecture Component Level Diagrams
+
+![Access Component Level Diagram](imgs/bounded-contexts/access-component-level-diagram.png)
+
 #### 4.2.1.6. Bounded Context Software Architecture Code Level Diagrams
+
 ##### 4.2.1.6.1. Bounded Context Domain Layer Class Diagrams
+
+![Access Domain Layer Class Diagram](imgs/bounded-contexts/access-domain-layer-class-diagram.png)
+
 ##### 4.2.1.6.2. Bounded Context Database Design Diagram
 
+![Access Database Design Diagram](imgs/bounded-contexts/access-database-design-diagram.png)
+
+---
+
 ### 4.2.2. Bounded Context: Medication
+
+El bounded context **Medication** representa la gestión principal del negocio de Dosys.
+Su responsabilidad es administrar los contenedores del pastillero, los medicamentos asociados a cada contenedor, sus horarios, el historial de cumplimiento de tomas y la visualización del estado ambiental que consulta el usuario en las aplicaciones Web y Mobile.
+
+La raíz agregada del contexto se mantiene en **MedicationContainer** porque la configuración del negocio se realiza contenedor por contenedor, y cada horario siempre se asocia a un único contenedor. Los cambios de `configVersion` del dispositivo no forman parte de una invariante del agregado, sino de un proceso de coordinación del **Application Layer** que notifica al bounded context **Device** que la configuración operativa debe resincronizarse.
+
 #### 4.2.2.1. Domain Layer
+
+El **Domain Layer** encapsula la lógica principal de medicación y adherencia.
+Incluye el agregado raíz **MedicationContainer**, las reglas para horarios, el registro de cumplimiento y los modelos de lectura con los que Web y Mobile consultan el estado ambiental previamente sincronizado desde el bounded context **Device**.
+
+**Aggregates**
+
+|        Nombre       |        Categoría        |                                                              Descripción                                                             |
+| :-----------------: | :---------------------: | :----------------------------------------------------------------------------------------------------------------------------------: |
+| MedicationContainer | Entity (Aggregate Root) | Representa un contenedor físico del pastillero y su configuración lógica, incluyendo el medicamento asociado y la cantidad restante. |
+|  MedicationSchedule |          Entity         |                                   Representa un horario configurado para un contenedor específico.                                   |
+|     IntakeRecord    |          Entity         |                                Representa un registro de cumplimiento asociado a una toma programada.                                |
+
+**Read Models**
+
+|         Nombre         |      Categoría      |                                                Descripción                                               |
+| :--------------------: | :-----------------: | :------------------------------------------------------------------------------------------------------: |
+|   EnvironmentSnapshot  | Entity (Read Model) | Representa la última lectura ambiental sincronizada desde el bounded context Device para un dispositivo. |
+| EnvironmentReadingView | Entity (Read Model) |         Representa una lectura ambiental histórica disponible para consulta en las aplicaciones.         |
+
+**Value Objects**
+
+|      Nombre     |   Categoría  |                                 Descripción                                |
+| :-------------: | :----------: | :------------------------------------------------------------------------: |
+| ContainerNumber | Value Object | Encapsula el número de contenedor válido dentro del rango del dispositivo. |
+|    DailyTime    | Value Object |                Representa la hora exacta de un recordatorio.               |
+|    DaysOfWeek   | Value Object |                 Representa los días activos de un horario.                 |
+|   PillQuantity  | Value Object |                Encapsula la cantidad restante de pastillas.                |
+
+**Enumerations**
+
+|         Nombre        |    Valores    |                               Descripción                               |
+| :-------------------: | :-----------: | :---------------------------------------------------------------------: |
+|    AdherenceStatus    | TAKEN, MISSED |        Define el estado del cumplimiento de una toma programada.        |
+| EnvironmentRiskStatus |  NORMAL, RISK | Define el estado de riesgo de una lectura ambiental visible al usuario. |
+
+**Attributes**
+
+**MedicationContainer**
+
+| Nombre          | Tipo de dato    | Visibilidad | Descripción                                       |
+| --------------- | --------------- | ----------- | ------------------------------------------------- |
+| id              | UUID            | Private     | Identificador único del contenedor lógico.        |
+| deviceId        | UUID            | Private     | Dispositivo Dosys al que pertenece el contenedor. |
+| containerNumber | ContainerNumber | Private     | Número de contenedor dentro del dispositivo.      |
+| medicationName  | String          | Private     | Nombre del medicamento asignado.                  |
+| dosageLabel     | String          | Private     | Descripción breve de dosis o uso.                 |
+| remainingPills  | PillQuantity    | Private     | Cantidad restante de pastillas.                   |
+| isEnabled       | Boolean         | Private     | Indica si el contenedor está habilitado.          |
+| updatedAt       | DateTime        | Private     | Última actualización del contenedor.              |
+
+**MedicationSchedule**
+
+| Nombre          | Tipo de dato    | Visibilidad | Descripción                               |
+| --------------- | --------------- | ----------- | ----------------------------------------- |
+| id              | UUID            | Private     | Identificador único del horario.          |
+| deviceId        | UUID            | Private     | Dispositivo asociado.                     |
+| containerNumber | ContainerNumber | Private     | Contenedor al que pertenece el horario.   |
+| time            | DailyTime       | Private     | Hora de activación del recordatorio.      |
+| daysOfWeek      | DaysOfWeek      | Private     | Días en los que se repite el horario.     |
+| isActive        | Boolean         | Private     | Indica si el horario se encuentra activo. |
+| createdAt       | DateTime        | Private     | Fecha de creación del horario.            |
+
+**IntakeRecord**
+
+| Nombre          | Tipo de dato    | Visibilidad | Descripción                                   |
+| --------------- | --------------- | ----------- | --------------------------------------------- |
+| id              | UUID            | Private     | Identificador único del registro de toma.     |
+| deviceId        | UUID            | Private     | Dispositivo asociado.                         |
+| scheduleId      | UUID            | Private     | Horario programado relacionado.               |
+| containerNumber | ContainerNumber | Private     | Contenedor correspondiente.                   |
+| scheduledAt     | DateTime        | Private     | Fecha y hora programada de la toma.           |
+| confirmedAt     | DateTime?       | Private     | Fecha y hora real de confirmación, si existe. |
+| status          | AdherenceStatus | Private     | Estado de cumplimiento de la toma.            |
+
+**EnvironmentSnapshot**
+
+| Nombre      | Tipo de dato          | Visibilidad | Descripción                                        |
+| ----------- | --------------------- | ----------- | -------------------------------------------------- |
+| deviceId    | UUID                  | Private     | Dispositivo al que corresponde la última lectura.  |
+| temperature | Decimal               | Private     | Última temperatura sincronizada desde Device.      |
+| humidity    | Decimal               | Private     | Última humedad sincronizada desde Device.          |
+| recordedAt  | DateTime              | Private     | Fecha y hora de la lectura más reciente.           |
+| riskStatus  | EnvironmentRiskStatus | Private     | Estado de riesgo calculado para la última lectura. |
+
+**EnvironmentReadingView**
+
+| Nombre      | Tipo de dato          | Visibilidad | Descripción                                  |
+| ----------- | --------------------- | ----------- | -------------------------------------------- |
+| id          | UUID                  | Private     | Identificador único de la lectura histórica. |
+| deviceId    | UUID                  | Private     | Dispositivo asociado.                        |
+| temperature | Decimal               | Private     | Temperatura sincronizada desde Device.       |
+| humidity    | Decimal               | Private     | Humedad sincronizada desde Device.           |
+| recordedAt  | DateTime              | Private     | Fecha y hora de la lectura histórica.        |
+| riskStatus  | EnvironmentRiskStatus | Private     | Estado de riesgo asociado a la lectura.      |
+
+**Methods**
+
+**MedicationContainer**
+
+| Nombre                                         | Tipo de retorno     | Visibilidad | Descripción                                           |
+| ---------------------------------------------- | ------------------- | ----------- | ----------------------------------------------------- |
+| MedicationContainer(...) (constructor)         | MedicationContainer | Public      | Inicializa un contenedor con la configuración básica. |
+| updateMedication(name: String, dosage: String) | Void                | Public      | Actualiza el medicamento y su descripción.            |
+| updateRemainingPills(quantity: PillQuantity)   | Void                | Public      | Actualiza la cantidad restante de pastillas.          |
+| enable()                                       | Void                | Public      | Habilita el contenedor.                               |
+| disable()                                      | Void                | Public      | Deshabilita el contenedor.                            |
+
+**MedicationSchedule**
+
+| Nombre                                        | Tipo de retorno    | Visibilidad | Descripción                                     |
+| --------------------------------------------- | ------------------ | ----------- | ----------------------------------------------- |
+| MedicationSchedule(...) (constructor)         | MedicationSchedule | Public      | Inicializa un horario asociado a un contenedor. |
+| activate()                                    | Void               | Public      | Activa el horario.                              |
+| deactivate()                                  | Void               | Public      | Desactiva el horario.                           |
+| reschedule(time: DailyTime, days: DaysOfWeek) | Void               | Public      | Reconfigura la hora y días del horario.         |
+
+**IntakeRecord**
+
+| Nombre                          | Tipo de retorno | Visibilidad | Descripción                          |
+| ------------------------------- | --------------- | ----------- | ------------------------------------ |
+| IntakeRecord(...) (constructor) | IntakeRecord    | Public      | Crea un registro de toma programada. |
+| markTaken(at: DateTime)         | Void            | Public      | Marca la toma como cumplida.         |
+| markMissed()                    | Void            | Public      | Marca la toma como incumplida.       |
+
+**EnvironmentSnapshot**
+
+| Nombre                                                                                                          | Tipo de retorno | Visibilidad | Descripción                                                                                            |
+| --------------------------------------------------------------------------------------------------------------- | --------------- | ----------- | ------------------------------------------------------------------------------------------------------ |
+| replaceLatest(temperature: Decimal, humidity: Decimal, recordedAt: DateTime, riskStatus: EnvironmentRiskStatus) | Void            | Public      | Reemplaza la última lectura visible del dispositivo con el dato previamente sincronizado desde Device. |
+
+**Repositories**
+
+|              Nombre              |       Categoría      |                                               Descripción                                               |
+| :------------------------------: | :------------------: | :-----------------------------------------------------------------------------------------------------: |
+|   MedicationContainerRepository  | Repository Interface |                              Abstracción para persistencia de contenedores.                             |
+|   MedicationScheduleRepository   | Repository Interface |                                Abstracción para persistencia de horarios.                               |
+|      IntakeRecordRepository      | Repository Interface |                           Abstracción para persistencia de registros de toma.                           |
+|   EnvironmentSnapshotRepository  | Repository Interface |                  Abstracción para persistencia de la última lectura ambiental visible.                  |
+| EnvironmentReadingViewRepository | Repository Interface | Abstracción para persistencia y consulta de lecturas ambientales históricas sincronizadas desde Device. |
+
 #### 4.2.2.2. Interface Layer
+
+La **Interface Layer** expone las operaciones del bounded context **Medication** mediante la **REST API**.
+Se encarga de recibir solicitudes externas, validar datos y delegar la lógica de negocio al **Application Layer**.
+
+|        Nombre        |  Categoría |                                                              Descripción                                                              |
+| :------------------: | :--------: | :-----------------------------------------------------------------------------------------------------------------------------------: |
+| MedicationController | Controller | Controlador que expone operaciones de configuración de contenedores, horarios, consulta de cumplimiento y visualización del ambiente. |
+
+**Attributes**
+
+| Nombre                   | Tipo de dato              | Visibilidad | Descripción                                                                      |
+| ------------------------ | ------------------------- | ----------- | -------------------------------------------------------------------------------- |
+| medicationQueryService   | IMedicationQueryService   | Private     | Servicio de consulta para contenedores, horarios, adherencia y estado ambiental. |
+| medicationCommandService | IMedicationCommandService | Private     | Servicio de comandos para creación y actualización de contenedores y horarios.   |
+
+**Endpoints**
+
+| Ruta                                                               | Método | Descripción                                                                                         |
+| ------------------------------------------------------------------ | ------ | --------------------------------------------------------------------------------------------------- |
+| /api/v1/medication/devices/{deviceId}/containers                   | GET    | Lista la configuración actual de los contenedores del dispositivo.                                  |
+| /api/v1/medication/devices/{deviceId}/containers/{containerNumber} | PUT    | Crea o actualiza la configuración de un contenedor.                                                 |
+| /api/v1/medication/devices/{deviceId}/schedules                    | GET    | Lista todos los horarios configurados para el dispositivo.                                          |
+| /api/v1/medication/devices/{deviceId}/schedules                    | POST   | Crea un nuevo horario para un contenedor.                                                           |
+| /api/v1/medication/devices/{deviceId}/schedules/{scheduleId}       | PUT    | Actualiza un horario existente.                                                                     |
+| /api/v1/medication/devices/{deviceId}/schedules/{scheduleId}       | DELETE | Elimina un horario existente.                                                                       |
+| /api/v1/medication/devices/{deviceId}/adherence/calendar           | GET    | Devuelve la vista mensual del cumplimiento de tomas.                                                |
+| /api/v1/medication/devices/{deviceId}/environment/latest           | GET    | Devuelve la última lectura ambiental sincronizada desde Device y visible en las aplicaciones.       |
+| /api/v1/medication/devices/{deviceId}/environment/history          | GET    | Devuelve el historial de lecturas ambientales sincronizadas desde Device dentro del rango indicado. |
+
+**Request DTOs**
+
+| Nombre                    | Descripción                                                                                                                |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| UpsertContainerRequestDto | Contiene los datos necesarios para configurar un contenedor: `{ medicationName, dosageLabel, remainingPills, isEnabled }`. |
+| CreateScheduleRequestDto  | Contiene los datos necesarios para crear un horario: `{ containerNumber, time, daysOfWeek, isActive }`.                    |
+| UpdateScheduleRequestDto  | Contiene los datos necesarios para actualizar un horario: `{ containerNumber, time, daysOfWeek, isActive }`.               |
+
+**Response DTOs**
+
+| Nombre                            | Descripción                                                                                                                        |
+| --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| MedicationContainerResponseDto    | Representa un contenedor configurado: `{ id, deviceId, containerNumber, medicationName, dosageLabel, remainingPills, isEnabled }`. |
+| MedicationScheduleResponseDto     | Representa un horario configurado: `{ id, containerNumber, time, daysOfWeek, isActive }`.                                          |
+| AdherenceCalendarResponseDto      | Representa una vista mensual de cumplimiento con los registros agrupados por fecha y horario.                                      |
+| EnvironmentLatestResponseDto      | Representa la última lectura ambiental visible: `{ deviceId, temperature, humidity, recordedAt, riskStatus }`.                     |
+| EnvironmentHistoryItemResponseDto | Representa una lectura ambiental histórica: `{ id, temperature, humidity, recordedAt, riskStatus }`.                               |
+
 #### 4.2.2.3. Application Layer
+
+Esta capa coordina la lógica de negocio entre el dominio, la infraestructura y los casos de uso expuestos por el bounded context **Medication**.
+
+|            Nombre            | Categoría |                     Implementa                     |                                                                     Descripción                                                                     |
+| :--------------------------: | :-------: | :------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------: |
+| MedicationApplicationService |  Service  | IMedicationCommandService, IMedicationQueryService | Orquesta la configuración de contenedores, horarios, consulta del historial de cumplimiento y visualización del ambiente sincronizado desde Device. |
+
+#### **Dependencies**
+
+| Nombre                           | Tipo de objeto                   | Visibilidad | Descripción                                                                                         |
+| -------------------------------- | -------------------------------- | ----------- | --------------------------------------------------------------------------------------------------- |
+| medicationContainerRepository    | MedicationContainerRepository    | Private     | Accede a la persistencia de contenedores.                                                           |
+| medicationScheduleRepository     | MedicationScheduleRepository     | Private     | Accede a la persistencia de horarios.                                                               |
+| intakeRecordRepository           | IntakeRecordRepository           | Private     | Permite consultar y registrar cumplimiento de tomas.                                                |
+| environmentSnapshotRepository    | EnvironmentSnapshotRepository    | Private     | Permite consultar la última lectura ambiental visible.                                              |
+| environmentReadingViewRepository | EnvironmentReadingViewRepository | Private     | Permite consultar el historial de lecturas ambientales sincronizadas desde Device.                  |
+| unitOfWork                       | UnitOfWork                       | Private     | Maneja confirmación transaccional de operaciones.                                                   |
+| configVersionPublisher           | ConfigVersionPublisher           | Private     | Marca que la configuración del dispositivo fue modificada para sincronización posterior con Device. |
+
+#### **Methods**
+
+| Nombre                                                                                             | Tipo de retorno                         | Visibilidad | Descripción                                                                                                       |
+| -------------------------------------------------------------------------------------------------- | --------------------------------------- | ----------- | ----------------------------------------------------------------------------------------------------------------- |
+| getContainers(deviceId)                                                                            | List<MedicationContainerResponseDto>    | Public      | Obtiene la configuración actual de los contenedores del dispositivo.                                              |
+| upsertContainer(deviceId, containerNumber, medicationName, dosageLabel, remainingPills, isEnabled) | MedicationContainerResponseDto          | Public      | Crea o actualiza la configuración de un contenedor.                                                               |
+| getSchedules(deviceId)                                                                             | List<MedicationScheduleResponseDto>     | Public      | Lista los horarios configurados para un dispositivo.                                                              |
+| createSchedule(deviceId, containerNumber, time, daysOfWeek, isActive)                              | MedicationScheduleResponseDto           | Public      | Crea un nuevo horario para un contenedor.                                                                         |
+| updateSchedule(deviceId, scheduleId, containerNumber, time, daysOfWeek, isActive)                  | MedicationScheduleResponseDto           | Public      | Actualiza un horario existente.                                                                                   |
+| deleteSchedule(deviceId, scheduleId)                                                               | Void                                    | Public      | Elimina un horario configurado.                                                                                   |
+| getAdherenceCalendar(deviceId, month)                                                              | AdherenceCalendarResponseDto            | Public      | Devuelve la vista mensual del cumplimiento de tomas.                                                              |
+| getLatestEnvironment(deviceId)                                                                     | EnvironmentLatestResponseDto            | Public      | Devuelve la última lectura ambiental previamente sincronizada desde Device.                                       |
+| getEnvironmentHistory(deviceId, from, to)                                                          | List<EnvironmentHistoryItemResponseDto> | Public      | Devuelve el historial de lecturas ambientales previamente sincronizadas desde Device dentro del rango consultado. |
+
 #### 4.2.2.4. Infrastructure Layer
+
+Incluye implementaciones concretas para acceso a datos y soporte a sincronización de configuración.
+
+**Repositories and Services**
+
+|                Nombre               |        Categoría       |            Implementa            |                                                 Descripción                                                |
+| :---------------------------------: | :--------------------: | :------------------------------: | :--------------------------------------------------------------------------------------------------------: |
+|   MedicationContainerRepositorySql  |       Repository       |   MedicationContainerRepository  |                Implementación para persistencia de contenedores en base de datos relacional.               |
+|   MedicationScheduleRepositorySql   |       Repository       |   MedicationScheduleRepository   |                                Implementación para persistencia de horarios.                               |
+|      IntakeRecordRepositorySql      |       Repository       |      IntakeRecordRepository      |                       Implementación para persistencia de registros de cumplimiento.                       |
+|   EnvironmentSnapshotRepositorySql  |       Repository       |   EnvironmentSnapshotRepository  |             Implementación para persistencia de la última lectura ambiental visible al usuario.            |
+| EnvironmentReadingViewRepositorySql |       Repository       | EnvironmentReadingViewRepository | Implementación para persistencia y consulta de lecturas ambientales históricas sincronizadas desde Device. |
+|        ConfigVersionPublisher       | Infrastructure Service |                 —                |        Servicio que incrementa o publica cambios de configuración para resincronización con Device.        |
+
+#### **Funcionalidades clave**
+
+* Crear y actualizar la configuración de los 5 contenedores.
+* Crear, modificar y eliminar horarios de medicación.
+* Consultar el historial de cumplimiento de tomas.
+* Consultar la última lectura ambiental visible y el historial de lecturas previamente sincronizadas desde Device.
+* Marcar cambios de configuración para sincronización con el bounded context Device.
+
 #### 4.2.2.5. Bounded Context Software Architecture Component Level Diagrams
+
+![Medication Component Level Diagram](imgs/bounded-contexts/medication-component-level-diagram.png)
+
 #### 4.2.2.6. Bounded Context Software Architecture Code Level Diagrams
+
 ##### 4.2.2.6.1. Bounded Context Domain Layer Class Diagrams
+
+![Medication Domain Layer Class Diagram](imgs/bounded-contexts/medication-domain-layer-class-diagram.png)
+
 ##### 4.2.2.6.2. Bounded Context Database Design Diagram
 
+![Medication Database Design Diagram](imgs/bounded-contexts/medication-database-design-diagram.png)
+
+---
+
 ### 4.2.3. Bounded Context: Device
+
+El bounded context **Device** representa la operación técnica del pastillero inteligente Dosys.
+Este bounded context abarca tres containers de la solución:
+
+* la **REST API** como fuente oficial de verdad y punto de consolidación definitivo,
+* la **Edge API** como capa operativa que cachea, transforma y sincroniza,
+* y la **Embedded Application** como runtime del dispositivo que consume configuración y reporta eventos.
+
+Su propósito es administrar la configuración operativa del dispositivo, la telemetría ambiental, los eventos de confirmación de tomas, la autenticación del dispositivo y la sincronización entre la **Embedded Application**, la **Edge API** y la **REST API**.
+
 #### 4.2.3.1. Domain Layer
+
+El **Domain Layer** encapsula la lógica principal relacionada con el dispositivo, su configuración runtime, su identidad técnica y los eventos operativos generados por el hardware.
+
+**Aggregates**
+
+|            Nombre           |        Categoría        |                                                                Descripción                                                                |
+| :-------------------------: | :---------------------: | :---------------------------------------------------------------------------------------------------------------------------------------: |
+|        DeviceProfile        | Entity (Aggregate Root) | Representa al dispositivo Dosys como entidad operativa dentro del sistema. Incluye su identidad técnica y su credencial de autenticación. |
+| DeviceConfigurationSnapshot |          Entity         |                             Representa la configuración operativa compilada que el dispositivo debe consumir.                             |
+|      EnvironmentReading     |          Entity         |                                             Representa una lectura ambiental del sensor SHT3X.                                            |
+|      DeviceIntakeEvent      |          Entity         |                                 Representa un evento de confirmación de toma generado por el botón físico.                                |
+|          StockEvent         |          Entity         |                           Representa un evento de actualización de stock restante reportado por el dispositivo.                           |
+|       DeviceHeartbeat       |          Entity         |                                          Representa el estado técnico periódico del dispositivo.                                          |
+
+**Value Objects**
+
+|        Nombre        |   Categoría  |                                             Descripción                                             |
+| :------------------: | :----------: | :-------------------------------------------------------------------------------------------------: |
+|   TemperatureValue   | Value Object |                       Encapsula el valor de temperatura medido por el sensor.                       |
+|     HumidityValue    | Value Object |                         Encapsula el valor de humedad medido por el sensor.                         |
+| ConfigurationVersion | Value Object |               Representa la versión vigente de configuración runtime del dispositivo.               |
+|     DeviceKeyHash    | Value Object | Representa la credencial cifrada del dispositivo utilizada para autenticar solicitudes al Edge API. |
+
+**Enumerations**
+
+|       Nombre      |         Valores         |                              Descripción                             |
+| :---------------: | :---------------------: | :------------------------------------------------------------------: |
+|     SyncStatus    | PENDING, SYNCED, FAILED |  Define el estado de sincronización de un evento hacia la REST API.  |
+| IntakeEventStatus |      TAKEN, MISSED      | Define el estado funcional de una toma reportada por el dispositivo. |
+
+**Attributes**
+
+**DeviceProfile**
+
+| Nombre        | Tipo de dato         | Visibilidad | Descripción                                                                         |
+| ------------- | -------------------- | ----------- | ----------------------------------------------------------------------------------- |
+| id            | UUID                 | Private     | Identificador único del dispositivo.                                                |
+| serialNumber  | String               | Private     | Identificador físico o serial del dispositivo.                                      |
+| deviceKeyHash | DeviceKeyHash        | Private     | Credencial cifrada del dispositivo utilizada para autenticación frente al Edge API. |
+| configVersion | ConfigurationVersion | Private     | Versión de configuración actualmente aplicada.                                      |
+| isEnabled     | Boolean              | Private     | Indica si el dispositivo se encuentra habilitado para operar.                       |
+| lastSeenAt    | DateTime?            | Private     | Última fecha en que el dispositivo reportó actividad.                               |
+| status        | String               | Private     | Estado operativo actual del dispositivo.                                            |
+
+**DeviceConfigurationSnapshot**
+
+| Nombre               | Tipo de dato         | Visibilidad | Descripción                                    |
+| -------------------- | -------------------- | ----------- | ---------------------------------------------- |
+| id                   | UUID                 | Private     | Identificador del snapshot de configuración.   |
+| deviceId             | UUID                 | Private     | Dispositivo al que pertenece la configuración. |
+| configVersion        | ConfigurationVersion | Private     | Versión de configuración generada.             |
+| timezone             | String               | Private     | Zona horaria utilizada por el dispositivo.     |
+| humidityThreshold    | Decimal              | Private     | Umbral de humedad permitido.                   |
+| temperatureThreshold | Decimal              | Private     | Umbral de temperatura permitido.               |
+
+**EnvironmentReading**
+
+| Nombre      | Tipo de dato     | Visibilidad | Descripción                                 |
+| ----------- | ---------------- | ----------- | ------------------------------------------- |
+| id          | UUID             | Private     | Identificador único de la lectura.          |
+| deviceId    | UUID             | Private     | Dispositivo asociado.                       |
+| temperature | TemperatureValue | Private     | Valor de temperatura registrado.            |
+| humidity    | HumidityValue    | Private     | Valor de humedad registrado.                |
+| recordedAt  | DateTime         | Private     | Fecha y hora de la lectura.                 |
+| syncStatus  | SyncStatus       | Private     | Estado de sincronización hacia la REST API. |
+
+**DeviceIntakeEvent**
+
+| Nombre          | Tipo de dato      | Visibilidad | Descripción                                                    |
+| --------------- | ----------------- | ----------- | -------------------------------------------------------------- |
+| id              | UUID              | Private     | Identificador único del evento.                                |
+| deviceId        | UUID              | Private     | Dispositivo asociado.                                          |
+| scheduleId      | UUID              | Private     | Horario recurrente asociado al evento.                         |
+| containerNumber | Integer           | Private     | Contenedor involucrado en la toma.                             |
+| scheduledAt     | DateTime          | Private     | Fecha y hora programada de la ocurrencia concreta del horario. |
+| confirmedAt     | DateTime          | Private     | Fecha y hora en que el usuario confirmó la toma.               |
+| status          | IntakeEventStatus | Private     | Estado funcional de la toma reportada por el dispositivo.      |
+| syncStatus      | SyncStatus        | Private     | Estado de sincronización hacia la REST API.                    |
+
+**StockEvent**
+
+| Nombre          | Tipo de dato | Visibilidad | Descripción                             |
+| --------------- | ------------ | ----------- | --------------------------------------- |
+| id              | UUID         | Private     | Identificador único del evento.         |
+| deviceId        | UUID         | Private     | Dispositivo asociado.                   |
+| containerNumber | Integer      | Private     | Contenedor al que corresponde el stock. |
+| remainingPills  | Integer      | Private     | Cantidad restante reportada.            |
+| recordedAt      | DateTime     | Private     | Fecha y hora del evento.                |
+| syncStatus      | SyncStatus   | Private     | Estado de sincronización.               |
+
+**DeviceHeartbeat**
+
+| Nombre        | Tipo de dato | Visibilidad | Descripción                                    |
+| ------------- | ------------ | ----------- | ---------------------------------------------- |
+| id            | UUID         | Private     | Identificador único del heartbeat.             |
+| deviceId      | UUID         | Private     | Dispositivo asociado.                          |
+| rtcTime       | DateTime     | Private     | Hora leída desde el RTC DS3231.                |
+| wifiConnected | Boolean      | Private     | Indica si el dispositivo tiene conectividad.   |
+| deviceStatus  | String       | Private     | Estado operativo reportado por el dispositivo. |
+| recordedAt    | DateTime     | Private     | Fecha y hora del heartbeat.                    |
+| syncStatus    | SyncStatus   | Private     | Estado de sincronización.                      |
+
+**Methods**
+
+**DeviceProfile**
+
+| Nombre                                             | Tipo de retorno | Visibilidad | Descripción                                                          |
+| -------------------------------------------------- | --------------- | ----------- | -------------------------------------------------------------------- |
+| DeviceProfile(...) (constructor)                   | DeviceProfile   | Public      | Inicializa el perfil operativo del dispositivo.                      |
+| updateConfigVersion(version: ConfigurationVersion) | Void            | Public      | Actualiza la versión de configuración aplicada.                      |
+| updateHeartbeat(at: DateTime, status: String)      | Void            | Public      | Actualiza el estado operativo y la última actividad del dispositivo. |
+| rotateDeviceKey(newHash: DeviceKeyHash)            | Void            | Public      | Reemplaza la credencial cifrada del dispositivo.                     |
+| enable()                                           | Void            | Public      | Habilita el dispositivo para operar.                                 |
+| disable()                                          | Void            | Public      | Deshabilita el dispositivo.                                          |
+
+**DeviceConfigurationSnapshot**
+
+| Nombre                                               | Tipo de retorno             | Visibilidad | Descripción                               |
+| ---------------------------------------------------- | --------------------------- | ----------- | ----------------------------------------- |
+| DeviceConfigurationSnapshot(...) (constructor)       | DeviceConfigurationSnapshot | Public      | Inicializa un snapshot de configuración.  |
+| replaceWithNewVersion(version: ConfigurationVersion) | Void                        | Public      | Reemplaza la versión actual del snapshot. |
+
+**EnvironmentReading**
+
+| Nombre                                | Tipo de retorno    | Visibilidad | Descripción                         |
+| ------------------------------------- | ------------------ | ----------- | ----------------------------------- |
+| EnvironmentReading(...) (constructor) | EnvironmentReading | Public      | Inicializa una lectura ambiental.   |
+| markSynced()                          | Void               | Public      | Marca la lectura como sincronizada. |
+
+**DeviceIntakeEvent**
+
+| Nombre                               | Tipo de retorno   | Visibilidad | Descripción                                   |
+| ------------------------------------ | ----------------- | ----------- | --------------------------------------------- |
+| DeviceIntakeEvent(...) (constructor) | DeviceIntakeEvent | Public      | Inicializa un evento de confirmación de toma. |
+| markSynced()                         | Void              | Public      | Marca el evento como sincronizado.            |
+
+**StockEvent**
+
+| Nombre                        | Tipo de retorno | Visibilidad | Descripción                             |
+| ----------------------------- | --------------- | ----------- | --------------------------------------- |
+| StockEvent(...) (constructor) | StockEvent      | Public      | Inicializa un evento de stock restante. |
+| markSynced()                  | Void            | Public      | Marca el evento como sincronizado.      |
+
+**DeviceHeartbeat**
+
+| Nombre                             | Tipo de retorno | Visibilidad | Descripción                              |
+| ---------------------------------- | --------------- | ----------- | ---------------------------------------- |
+| DeviceHeartbeat(...) (constructor) | DeviceHeartbeat | Public      | Inicializa un heartbeat del dispositivo. |
+| markSynced()                       | Void            | Public      | Marca el heartbeat como sincronizado.    |
+
+**Repositories**
+
+|                 Nombre                |       Categoría      |                                    Descripción                                    |
+| :-----------------------------------: | :------------------: | :-------------------------------------------------------------------------------: |
+|        DeviceProfileRepository        | Repository Interface |  Abstracción para persistencia de perfil del dispositivo y su identidad técnica.  |
+| DeviceConfigurationSnapshotRepository | Repository Interface |       Abstracción para persistencia del snapshot de configuración operativa.      |
+|      EnvironmentReadingRepository     | Repository Interface | Abstracción para persistencia de lecturas ambientales del bounded context Device. |
+|      DeviceIntakeEventRepository      | Repository Interface |  Abstracción para persistencia de eventos de toma reportados por el dispositivo.  |
+|          StockEventRepository         | Repository Interface |            Abstracción para persistencia de eventos de stock restante.            |
+|       DeviceHeartbeatRepository       | Repository Interface |                    Abstracción para persistencia de heartbeats.                   |
+|         PendingSyncRepository         | Repository Interface |   Abstracción para persistencia de eventos pendientes de sincronización en Edge.  |
+
 #### 4.2.3.2. Interface Layer
+
+La **Interface Layer** expone las operaciones del bounded context **Device** en los tres containers que forman parte de su implementación: la **REST API** interna, la **Edge API** y la **Embedded Application**.
+
+##### **REST API (internal)**
+
+La parte interna de la **REST API** expone el contrato de sincronización entre la **Edge API** y la fuente oficial de verdad del sistema.
+Estos endpoints no son consumidos por el usuario final. Son consumidos únicamente por la **Edge API** para sincronizar configuración y eventos definitivos.
+
+|        Nombre        |  Categoría |                                           Descripción                                          |
+| :------------------: | :--------: | :--------------------------------------------------------------------------------------------: |
+| DeviceSyncController | Controller | Controlador interno de la REST API que expone operaciones de sincronización entre Edge y REST. |
+
+**Attributes**
+
+| Nombre                   | Tipo de dato              | Visibilidad | Descripción                                                        |
+| ------------------------ | ------------------------- | ----------- | ------------------------------------------------------------------ |
+| deviceRestCommandService | IDeviceRestCommandService | Private     | Servicio de comandos para consolidar eventos provenientes de Edge. |
+| deviceRestQueryService   | IDeviceRestQueryService   | Private     | Servicio de consultas para devolver configuración runtime oficial. |
+
+**Endpoints**
+
+| Ruta                                                    | Método | Descripción                                                              |
+| ------------------------------------------------------- | ------ | ------------------------------------------------------------------------ |
+| /api/v1/device/internal/{deviceId}/runtime-config       | GET    | Devuelve la configuración runtime oficial y consolidada del dispositivo. |
+| /api/v1/device/internal/{deviceId}/intake-events        | POST   | Consolida de forma definitiva un evento de toma recibido desde Edge.     |
+| /api/v1/device/internal/{deviceId}/environment-readings | POST   | Consolida de forma definitiva una lectura ambiental recibida desde Edge. |
+| /api/v1/device/internal/{deviceId}/stock-events         | POST   | Consolida de forma definitiva un evento de stock recibido desde Edge.    |
+| /api/v1/device/internal/{deviceId}/heartbeats           | POST   | Consolida de forma definitiva un heartbeat recibido desde Edge.          |
+
+**Request DTOs**
+
+| Nombre                               | Descripción                                                                                      |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| InternalDeviceIntakeEventRequestDto  | Contiene un evento de toma: `{ scheduleId, containerNumber, scheduledAt, confirmedAt, status }`. |
+| InternalEnvironmentReadingRequestDto | Contiene una lectura ambiental: `{ temperature, humidity, recordedAt }`.                         |
+| InternalStockEventRequestDto         | Contiene un evento de stock: `{ containerNumber, remainingPills, recordedAt }`.                  |
+| InternalDeviceHeartbeatRequestDto    | Contiene un heartbeat: `{ rtcTime, wifiConnected, deviceStatus, recordedAt }`.                   |
+
+**Response DTOs**
+
+| Nombre                           | Descripción                                                                                                                                                 |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| InternalRuntimeConfigResponseDto | Representa la configuración runtime oficial: `{ deviceId, configVersion, timezone, humidityThreshold, temperatureThreshold, containers, activeSchedules }`. |
+| InternalAcceptedSyncResponseDto  | Representa la aceptación de un evento consolidado: `{ accepted, eventId, syncStatus }`.                                                                     |
+
+##### **Edge API**
+
+La parte de **Edge API** expone el contrato operativo que consume el dispositivo.
+El dispositivo no envía `deviceId` por ruta. En todas las solicitudes a `/edge/v1/device/*` debe enviar una credencial técnica, por ejemplo `X-Device-Key`, y la Edge API resuelve el `deviceId` a partir de esa credencial antes de delegar la lógica al **Application Layer**.
+
+|      Nombre      |    Categoría   |                                                         Descripción                                                         |
+| :--------------: | :------------: | :-------------------------------------------------------------------------------------------------------------------------: |
+| DeviceController |   Controller   |         Controlador de la Edge API que expone configuración runtime, telemetría, eventos de toma, stock y heartbeat.        |
+| DeviceAuthFilter | Request Filter | Componente que valida `X-Device-Key`, resuelve `deviceId` y rechaza solicitudes de dispositivos inválidos o deshabilitados. |
+
+**Attributes**
+
+| Nombre               | Tipo de dato              | Visibilidad | Descripción                                                               |
+| -------------------- | ------------------------- | ----------- | ------------------------------------------------------------------------- |
+| deviceCommandService | IDeviceEdgeCommandService | Private     | Servicio de comandos para registrar telemetría y eventos del dispositivo. |
+| deviceQueryService   | IDeviceEdgeQueryService   | Private     | Servicio de consultas para configuración runtime del dispositivo.         |
+
+**Endpoints**
+
+| Ruta                                 | Método | Descripción                                                                                 |
+| ------------------------------------ | ------ | ------------------------------------------------------------------------------------------- |
+| /edge/v1/device/config               | GET    | Devuelve la configuración operativa vigente que debe consumir el dispositivo autenticado.   |
+| /edge/v1/device/environment-readings | POST   | Registra una lectura de temperatura y humedad reportada por el dispositivo autenticado.     |
+| /edge/v1/device/intake-events        | POST   | Registra la confirmación de una toma desde el botón físico para el dispositivo autenticado. |
+| /edge/v1/device/stock-events         | POST   | Registra el stock restante reportado por el dispositivo autenticado.                        |
+| /edge/v1/device/heartbeats           | POST   | Registra el estado técnico periódico del dispositivo autenticado.                           |
+
+**Request DTOs**
+
+| Nombre                       | Descripción                                                                                      |
+| ---------------------------- | ------------------------------------------------------------------------------------------------ |
+| EnvironmentReadingRequestDto | Contiene una lectura ambiental: `{ temperature, humidity, recordedAt }`.                         |
+| DeviceIntakeEventRequestDto  | Contiene un evento de toma: `{ scheduleId, containerNumber, scheduledAt, confirmedAt, status }`. |
+| StockEventRequestDto         | Contiene un evento de stock: `{ containerNumber, remainingPills, recordedAt }`.                  |
+| DeviceHeartbeatRequestDto    | Contiene un heartbeat del dispositivo: `{ rtcTime, wifiConnected, deviceStatus, recordedAt }`.   |
+
+**Response DTOs**
+
+| Nombre                         | Descripción                                                                                                                                                                                |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| DeviceRuntimeConfigResponseDto | Representa la configuración operativa entregada al dispositivo autenticado: `{ deviceId, configVersion, timezone, humidityThreshold, temperatureThreshold, containers, activeSchedules }`. |
+| AcceptedEventResponseDto       | Representa la aceptación de un evento recibido: `{ accepted, localEventId, syncStatus }`.                                                                                                  |
+
+##### **Embedded Application**
+
+La parte de **Embedded Application** contiene los consumidores y adaptadores que permiten que el firmware del ESP32 interactúe con la Edge API y con los componentes físicos del dispositivo.
+
+|     Nombre     | Categoría |                                  Descripción                                  |
+| :------------: | :-------: | :---------------------------------------------------------------------------: |
+|  EdgeApiClient |  Consumer | Cliente HTTP utilizado por la Embedded Application para consumir la Edge API. |
+|  SensorReader  |  Consumer |   Consumidor que obtiene datos de los sensores para reportarlos al Edge API.  |
+| ButtonListener |  Consumer |    Consumidor que detecta confirmaciones de toma y las reporta al Edge API.   |
+|    RtcReader   |  Consumer |   Consumidor que obtiene la hora desde el RTC para ejecutar alertas locales.  |
+
 #### 4.2.3.3. Application Layer
+
+Esta capa coordina la lógica de negocio entre el dominio operativo del dispositivo, la persistencia local de Edge, la consolidación en la **REST API** y la ejecución del runtime embebido.
+
+##### **REST API (internal)**
+
+La parte interna de la **REST API** consolida los datos definitivos del dispositivo.
+Aquí la REST API actúa como fuente oficial de verdad. La Edge API no decide el estado final del sistema; solo cachea, transforma y sincroniza.
+
+|            Nombre            | Categoría |                     Implementa                     |                                                        Descripción                                                       |
+| :--------------------------: | :-------: | :------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------: |
+| DeviceRestApplicationService |  Service  | IDeviceRestCommandService, IDeviceRestQueryService | Orquesta la construcción de configuración runtime oficial y la consolidación definitiva de eventos provenientes de Edge. |
+
+#### **Dependencies**
+
+| Nombre                                | Tipo de objeto                        | Visibilidad | Descripción                                                                                               |
+| ------------------------------------- | ------------------------------------- | ----------- | --------------------------------------------------------------------------------------------------------- |
+| deviceProfileRepository               | DeviceProfileRepository               | Private     | Accede al perfil técnico del dispositivo.                                                                 |
+| deviceConfigurationSnapshotRepository | DeviceConfigurationSnapshotRepository | Private     | Accede a snapshots oficiales de configuración runtime.                                                    |
+| environmentReadingRepository          | EnvironmentReadingRepository          | Private     | Permite persistir lecturas ambientales definitivas.                                                       |
+| deviceIntakeEventRepository           | DeviceIntakeEventRepository           | Private     | Permite persistir eventos de toma definitivos.                                                            |
+| stockEventRepository                  | StockEventRepository                  | Private     | Permite persistir eventos de stock definitivos.                                                           |
+| deviceHeartbeatRepository             | DeviceHeartbeatRepository             | Private     | Permite persistir heartbeats definitivos.                                                                 |
+| runtimeConfigAssembler                | RuntimeConfigAssembler                | Private     | Construye la configuración runtime oficial a partir de la configuración de negocio vigente.               |
+| environmentProjectionUpdater          | EnvironmentProjectionUpdater          | Private     | Actualiza las proyecciones visibles por el bounded context Medication.                                    |
+| adherenceProjectionUpdater            | AdherenceProjectionUpdater            | Private     | Actualiza los registros de cumplimiento visibles por Medication a partir de eventos de toma consolidados. |
+| stockProjectionUpdater                | StockProjectionUpdater                | Private     | Actualiza el stock visible desde el modelo de negocio.                                                    |
+| unitOfWork                            | UnitOfWork                            | Private     | Maneja confirmación transaccional en la REST API.                                                         |
+
+#### **Methods**
+
+| Nombre                                                                                       | Tipo de retorno                  | Visibilidad | Descripción                                                                                                                       |
+| -------------------------------------------------------------------------------------------- | -------------------------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| getRuntimeConfig(deviceId)                                                                   | InternalRuntimeConfigResponseDto | Public      | Devuelve la configuración runtime oficial del dispositivo.                                                                        |
+| registerIntakeEvent(deviceId, scheduleId, containerNumber, scheduledAt, confirmedAt, status) | InternalAcceptedSyncResponseDto  | Public      | Consolida definitivamente un evento de toma proveniente de Edge y actualiza la proyección de adherencia consumida por Medication. |
+| registerEnvironmentReading(deviceId, temperature, humidity, recordedAt)                      | InternalAcceptedSyncResponseDto  | Public      | Consolida definitivamente una lectura ambiental proveniente de Edge y actualiza las proyecciones visibles por Medication.         |
+| registerStockEvent(deviceId, containerNumber, remainingPills, recordedAt)                    | InternalAcceptedSyncResponseDto  | Public      | Consolida definitivamente un evento de stock proveniente de Edge y actualiza el stock visible en el modelo de negocio.            |
+| registerHeartbeat(deviceId, rtcTime, wifiConnected, deviceStatus, recordedAt)                | InternalAcceptedSyncResponseDto  | Public      | Consolida definitivamente el estado técnico del dispositivo.                                                                      |
+
+##### **Edge API**
+
+La parte de **Edge API** actúa como capa operativa del dispositivo.
+Su responsabilidad es autenticar el dispositivo, resolver `deviceId`, cachear configuración, persistir temporalmente eventos en SQLite y sincronizarlos con la **REST API**.
+
+|            Nombre            | Categoría |                     Implementa                     |                                                             Descripción                                                             |
+| :--------------------------: | :-------: | :------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------: |
+| DeviceEdgeApplicationService |  Service  | IDeviceEdgeCommandService, IDeviceEdgeQueryService | Orquesta la entrega de configuración runtime, registro de telemetría y sincronización de eventos del dispositivo hacia la REST API. |
+
+#### **Dependencies**
+
+| Nombre                                | Tipo de objeto                        | Visibilidad | Descripción                                                            |
+| ------------------------------------- | ------------------------------------- | ----------- | ---------------------------------------------------------------------- |
+| deviceProfileRepository               | DeviceProfileRepository               | Private     | Accede al perfil operativo y snapshots del dispositivo en Edge.        |
+| deviceConfigurationSnapshotRepository | DeviceConfigurationSnapshotRepository | Private     | Accede a la configuración cacheada del dispositivo en Edge.            |
+| pendingSyncRepository                 | PendingSyncRepository                 | Private     | Accede a eventos pendientes de sincronización.                         |
+| deviceCredentialResolver              | DeviceCredentialResolver              | Private     | Resuelve `deviceId` a partir de la credencial técnica del dispositivo. |
+| runtimeConfigRestClient               | RuntimeConfigRestClient               | Private     | Recupera la configuración oficial desde la REST API.                   |
+| restSyncClient                        | RestSyncClient                        | Private     | Sincroniza eventos almacenados localmente con la REST API.             |
+| unitOfWork                            | UnitOfWork                            | Private     | Maneja confirmación transaccional en SQLite.                           |
+
+#### **Methods**
+
+| Nombre                                                                                        | Tipo de retorno                | Visibilidad | Descripción                                                                                                                                |
+| --------------------------------------------------------------------------------------------- | ------------------------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| getRuntimeConfig(deviceKey)                                                                   | DeviceRuntimeConfigResponseDto | Public      | Valida la credencial técnica, resuelve `deviceId`, refresca caché si es necesario y devuelve la configuración runtime vigente.             |
+| registerEnvironmentReading(deviceKey, temperature, humidity, recordedAt)                      | AcceptedEventResponseDto       | Public      | Valida la credencial técnica, resuelve `deviceId`, registra una lectura ambiental y la deja pendiente o sincronizada según disponibilidad. |
+| registerIntakeEvent(deviceKey, scheduleId, containerNumber, scheduledAt, confirmedAt, status) | AcceptedEventResponseDto       | Public      | Valida la credencial técnica, resuelve `deviceId`, registra un evento de toma y lo sincroniza con la REST API.                             |
+| registerStockEvent(deviceKey, containerNumber, remainingPills, recordedAt)                    | AcceptedEventResponseDto       | Public      | Valida la credencial técnica, resuelve `deviceId`, registra un evento de stock restante y lo sincroniza con la REST API.                   |
+| registerHeartbeat(deviceKey, rtcTime, wifiConnected, deviceStatus, recordedAt)                | AcceptedEventResponseDto       | Public      | Valida la credencial técnica, resuelve `deviceId` y registra el estado técnico del dispositivo.                                            |
+| syncPendingEvents(deviceId)                                                                   | Void                           | Public      | Reintenta la sincronización de eventos pendientes hacia la REST API.                                                                       |
+
+##### **Embedded Application**
+
+La parte de **Embedded Application** ejecuta las alertas locales del pastillero y reporta datos al Edge.
+El firmware no es la fuente oficial de verdad. Solo consume configuración runtime y envía eventos operativos.
+
+|            Nombre           | Categoría |                                                    Descripción                                                   |
+| :-------------------------: | :-------: | :--------------------------------------------------------------------------------------------------------------: |
+| ConfigurationRefreshService |  Service  | Solicita periódicamente la configuración runtime al Edge API y actualiza la configuración local del dispositivo. |
+|    AlertExecutionService    |  Service  |  Evalúa la hora actual del RTC contra los horarios activos y ejecuta las alertas locales mediante LEDs y audio.  |
+|  TelemetryReportingService  |  Service  |                          Lee temperatura y humedad y reporta la telemetría al Edge API.                          |
+|  ButtonConfirmationService  |  Service  |                Detecta la confirmación física del usuario y reporta el evento de toma al Edge API.               |
+
+#### **Dependencies**
+
+| Nombre           | Tipo de objeto   | Visibilidad | Descripción                                                           |
+| ---------------- | ---------------- | ----------- | --------------------------------------------------------------------- |
+| edgeApiClient    | EdgeApiClient    | Private     | Cliente HTTP utilizado para consumir la Edge API.                     |
+| localConfigStore | LocalConfigStore | Private     | Almacena localmente la configuración runtime vigente del dispositivo. |
+| sht3xDriver      | Sht3xDriver      | Private     | Adaptador para lectura del sensor de temperatura y humedad.           |
+| ds3231Driver     | Ds3231Driver     | Private     | Adaptador para lectura del RTC.                                       |
+| dfPlayerDriver   | DfPlayerDriver   | Private     | Adaptador para reproducción de audio por voz.                         |
+| ledController    | LedController    | Private     | Adaptador para control de LEDs de contenedores.                       |
+| buttonDriver     | ButtonDriver     | Private     | Adaptador para lectura del botón físico.                              |
+
+#### **Methods**
+
+| Nombre                                                                           | Tipo de retorno | Visibilidad | Descripción                                                                                  |
+| -------------------------------------------------------------------------------- | --------------- | ----------- | -------------------------------------------------------------------------------------------- |
+| refreshRuntimeConfig()                                                           | Void            | Public      | Solicita la configuración runtime vigente al Edge API y la guarda localmente.                |
+| executeAlerts()                                                                  | Void            | Public      | Evalúa la hora actual y dispara la alerta del contenedor correspondiente cuando corresponde. |
+| reportEnvironmentReading()                                                       | Void            | Public      | Lee temperatura y humedad y reporta la lectura al Edge API.                                  |
+| reportIntakeEvent(scheduleId, containerNumber, scheduledAt, confirmedAt, status) | Void            | Public      | Reporta al Edge API la ocurrencia concreta de una toma programada.                           |
+| reportHeartbeat()                                                                | Void            | Public      | Reporta el estado técnico del dispositivo al Edge API.                                       |
+
 #### 4.2.3.4. Infrastructure Layer
+
+Incluye implementaciones concretas para persistencia y sincronización en la **REST API**, persistencia local y cache en la **Edge API**, y adaptadores físicos en la **Embedded Application**.
+
+##### **REST API (internal)**
+
+**Repositories and Services**
+
+|                  Nombre                  |        Categoría       |               Implementa              |                                         Descripción                                         |
+| :--------------------------------------: | :--------------------: | :-----------------------------------: | :-----------------------------------------------------------------------------------------: |
+|        DeviceProfileRepositorySql        |       Repository       |        DeviceProfileRepository        |     Implementación para persistencia del perfil técnico del dispositivo en la REST API.     |
+| DeviceConfigurationSnapshotRepositorySql |       Repository       | DeviceConfigurationSnapshotRepository |                Implementación para persistencia del snapshot runtime oficial.               |
+|      EnvironmentReadingRepositorySql     |       Repository       |      EnvironmentReadingRepository     |             Implementación para persistencia definitiva de lecturas ambientales.            |
+|      DeviceIntakeEventRepositorySql      |       Repository       |      DeviceIntakeEventRepository      |               Implementación para persistencia definitiva de eventos de toma.               |
+|          StockEventRepositorySql         |       Repository       |          StockEventRepository         |               Implementación para persistencia definitiva de eventos de stock.              |
+|       DeviceHeartbeatRepositorySql       |       Repository       |       DeviceHeartbeatRepository       |                  Implementación para persistencia definitiva de heartbeats.                 |
+|          RuntimeConfigAssembler          | Infrastructure Service |                   —                   | Construye la configuración runtime oficial a partir de la configuración vigente de negocio. |
+|       EnvironmentProjectionUpdater       | Infrastructure Service |                   —                   |                Actualiza las proyecciones de ambiente visibles en Medication.               |
+|        AdherenceProjectionUpdater        | Infrastructure Service |                   —                   |                Actualiza la proyección de cumplimiento visible en Medication.               |
+|          StockProjectionUpdater          | Infrastructure Service |                   —                   |                    Actualiza el stock visible desde el modelo de negocio.                   |
+
+##### **Edge API**
+
+**Repositories and Services**
+
+|                    Nombre                   |        Categoría       |               Implementa              |                                          Descripción                                          |
+| :-----------------------------------------: | :--------------------: | :-----------------------------------: | :-------------------------------------------------------------------------------------------: |
+|        DeviceProfileRepositorySqlite        |       Repository       |        DeviceProfileRepository        |             Implementación para persistencia de perfil del dispositivo en SQLite.             |
+| DeviceConfigurationSnapshotRepositorySqlite |       Repository       | DeviceConfigurationSnapshotRepository |                Implementación para persistencia del snapshot runtime en SQLite.               |
+|         PendingSyncRepositorySqlite         |       Repository       |         PendingSyncRepository         |           Implementación para persistencia de eventos pendientes de sincronización.           |
+|           DeviceCredentialResolver          | Infrastructure Service |                   —                   | Valida `X-Device-Key`, resuelve `deviceId` y rechaza dispositivos inválidos o deshabilitados. |
+|           RuntimeConfigRestClient           | Infrastructure Service |                   —                   |             Cliente HTTP para obtener la configuración oficial desde la REST API.             |
+|                RestSyncClient               | Infrastructure Service |                   —                   |             Cliente HTTP para sincronizar eventos locales con la REST API interna.            |
+
+##### **Embedded Application**
+
+**Drivers and Consumers**
+
+|      Nombre      |        Categoría        | Implementa |                                Descripción                                |
+| :--------------: | :---------------------: | :--------: | :-----------------------------------------------------------------------: |
+|   EdgeApiClient  | Infrastructure Consumer |      —     | Cliente HTTP usado por la Embedded Application para consumir la Edge API. |
+| LocalConfigStore |   Infrastructure Store  |      —     |       Persistencia local mínima de la configuración runtime vigente.      |
+|    Sht3xDriver   |          Driver         |      —     |        Adaptador para lectura del sensor de temperatura y humedad.        |
+|   Ds3231Driver   |          Driver         |      —     |                      Adaptador para lectura del RTC.                      |
+|  DfPlayerDriver  |          Driver         |      —     |               Adaptador para reproducción de audio por voz.               |
+|   LedController  |          Driver         |      —     |              Adaptador para control de LEDs de contenedores.              |
+|   ButtonDriver   |          Driver         |      —     |                  Adaptador para lectura del botón físico.                 |
+
+#### **Funcionalidades clave**
+
+* Exponer en la **REST API** la configuración runtime oficial y los endpoints internos de consolidación definitiva.
+* Exponer en la **Edge API** una capa operativa autenticada por credencial técnica del dispositivo.
+* Entregar configuración operativa simplificada al ESP32.
+* Registrar telemetría ambiental enviada por el dispositivo.
+* Registrar eventos de toma confirmada desde el botón físico incluyendo `scheduledAt` y `status`.
+* Registrar stock restante reportado por el dispositivo.
+* Registrar heartbeats del dispositivo.
+* Mantener persistencia local en SQLite y sincronización con la REST API.
+* Mantener explícita la diferencia entre **REST API** como fuente oficial de verdad, **Edge API** como capa operativa y **Embedded Application** como consumidor y reportador de eventos.
+
 #### 4.2.3.5. Bounded Context Software Architecture Component Level Diagrams
+
+![Device REST Internal Component Level Diagram](imgs/bounded-contexts/device-rest-component-level-diagram.png)
+
+![Device Edge Component Level Diagram](imgs/bounded-contexts/device-edge-component-level-diagram.png)
+
+![Device Embedded Component Level Diagram](imgs/bounded-contexts/device-embedded-component-level-diagram.png)
+
 #### 4.2.3.6. Bounded Context Software Architecture Code Level Diagrams
+
 ##### 4.2.3.6.1. Bounded Context Domain Layer Class Diagrams
+
+![Device Domain Layer Class Diagram](imgs/bounded-contexts/device-domain-layer-class-diagram.png)
+
 ##### 4.2.3.6.2. Bounded Context Database Design Diagram
+
+![Device Database Design Diagram](imgs/bounded-contexts/device-database-design-diagram.png)
 
 # Capítulo V: Solution UI/UX Design
 
