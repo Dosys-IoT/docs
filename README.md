@@ -544,6 +544,40 @@ Su valor diferencial se sustenta en tres pilares: (1) recordatorio multimodal me
 
 ¿Te parecería útil que el dispositivo avise si la temperatura o la humedad podrían afectar tus medicamentos?
 
+**Segmento objetivo 2: Familiares y cuidadores de adultos mayores polimedicados**
+
+¿Cuál es tu nombre completo?
+
+¿Cuál es tu edad?
+
+¿En dónde vives y a qué te dedicas actualmente?
+
+¿Qué relación tienes con la persona adulta mayor a la que apoyas (hijo/a, pareja, cuidador profesional, otro)?
+
+¿Vives con ella o la acompañas a distancia? ¿Con qué frecuencia la visitas o te comunicas?
+
+¿Cuántos medicamentos distintos toma al día la persona bajo tu cuidado?
+
+¿Quién organiza y prepara habitualmente sus medicamentos: tú, ella misma u otra persona?
+
+¿Cómo haces actualmente para asegurarte de que tome sus medicamentos a la hora correcta?
+
+¿Te ha tocado enterarte de que olvidó una dosis o tomó un medicamento equivocado? ¿Cómo lo supiste?
+
+¿Qué tan preocupado/a te sientes respecto al cumplimiento del tratamiento cuando no estás presente?
+
+¿Usas actualmente alguna aplicación, alarma o herramienta para hacer seguimiento a sus medicamentos?
+
+¿Te resultaría útil recibir notificaciones en tu celular cuando la persona tome (o no tome) su medicamento?
+
+¿Te gustaría poder configurar los horarios y dosis del tratamiento desde una aplicación móvil, aunque estés lejos?
+
+¿Qué tan valioso sería para ti acceder a un historial de tomas y reportes que puedas compartir con el médico?
+
+¿Estarías dispuesto/a a pagar por un dispositivo que te permita supervisar remotamente el cumplimiento del tratamiento? ¿En qué rango de precio?
+
+¿Qué es lo más importante para ti al momento de elegir una solución de este tipo: precio, facilidad de uso, confiabilidad de las alertas u otra cosa?
+
 ### 2.2.2. Registro de entrevistas
 ### 2.2.3. Análisis de entrevistas
 
