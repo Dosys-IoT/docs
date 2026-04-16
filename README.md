@@ -1085,6 +1085,19 @@ El diagrama presenta el escenario de "Notificación y Confirmación de Dosis", d
 
 #### 4.1.1.3. Bounded Context Canvases
 
+En esta sección se presentan los **Bounded Context Canvases** para los tres contextos delimitados del sistema **Dosys**. Cada canvas detalla el propósito del contexto, sus reglas de negocio, el lenguaje ubicuo aplicado y sus dependencias, siguiendo un proceso de diseño iterativo para asegurar la cohesión del modelo.
+
+<div align="center">
+  <img src="./imgs/CanvasAccess.png" alt="Bounded Context Canvas Access" width="600px">
+  <p><i>Figura: Bounded Context Canvas para el contexto de Access.</i></p>
+  
+  <img src="./imgs/CanvasMedication.png" alt="Bounded Context Canvas Medication" width="600px">
+  <p><i>Figura: Bounded Context Canvas para el contexto de Medication.</i></p>
+  
+  <img src="./imgs/CanvasDevice.png" alt="Bounded Context Canvas Device" width="600px">
+  <p><i>Figura: Bounded Context Canvas para el contexto de Device.</i></p>
+</div>
+
 ### 4.1.2. Context Mapping
 
 ### 4.1.3. Software Architecture
