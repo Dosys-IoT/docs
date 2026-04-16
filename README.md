@@ -1062,8 +1062,6 @@ Se exploraron tres flujos principales: la configuración inicial del tratamiento
   <p><i>Enlace de LucidChart: https://lucid.app/lucidchart/20e81f45-c84d-4f8e-9b12-497449d56f40/edit?viewport_loc=1151%2C-3591%2C5338%2C6595%2C0_0&invitationId=inv_31eb482c-fdb4-41c2-9e05-561a08de57ad</i></p>
 </div>
 
----
-
 #### 4.1.1.1. Candidate Context Discovery
 #### 4.1.1.2. Domain Message Flows Modeling
 #### 4.1.1.3. Bounded Context Canvases
