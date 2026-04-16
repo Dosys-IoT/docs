@@ -1109,9 +1109,36 @@ En esta sección se presenta el **Context Map** de la solución **Dosys**, el cu
 
 ### 4.1.3. Software Architecture
 #### 4.1.3.1. Software Architecture System Landscape Diagram
+Este diagrama ofrece una visión panorámica  del ecosistema en el que se integra la solución. Su objetivo es representar cómo el sistema Dosys convive con otros sistemas de la organización y servicios externos, además de identificar a los distintos tipos de usuarios que interactúan con el entorno completo. Es una herramienta clave para que los interesados entiendan el alcance global y las dependencias externas sin entrar en detalles técnicos de implementación.
+
+<div align="center">
+  <img src="./imgs/software-architecture/system-landscape-diagram.png" alt="System Landscape Diagram Dosys" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
+  <p><i>Figura: Diagrama de paisaje de la plataforma Dosys</i></p>
+</div>
+
 #### 4.1.3.2. Software Architecture Context Level Diagrams
+Este diagrama representa el "Nivel 1" del modelo C4. En este apartado se definen los límites del software, mostrando las interacciones directas entre el sistema y sus usuarios (adultos mayores y cuidadores), así como su relación técnica con servicios de terceros. A diferencia del Landscape, este diagrama omite el entorno organizacional para detallar específicamente qué entra y qué sale de nuestra aplicación, estableciendo las responsabilidades principales del sistema.
+
+<div align="center">
+  <img src="./imgs/software-architecture/context-level-diagrams.png" alt="Context Level Diagram Dosys" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
+  <p><i>Figura: Diagrama de contexto de la plataforma Dosys</i></p>
+</div>
+
 #### 4.1.3.2. Software Architecture Container Level Diagrams
+El diagrama de contenedores representa el "Nivel 2" del modelo C4 y descompone el sistema para mostrar sus unidades de ejecución independientes (aplicaciones web, móviles, bases de datos y servicios backend). En este nivel se detalla cómo se reparte la responsabilidad del sistema, las tecnologías elegidas y los protocolos de comunicación interna. Es fundamental para que los desarrolladores entiendan la arquitectura lógica y cómo fluye la información entre el frontend, el backend y el ecosistema IoT.
+
+<div align="center">
+  <img src="./imgs/software-architecture/container-level-diagrams.png" alt="Container Level Diagram Dosys" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
+  <p><i>Figura: Diagrama de contenedores de la plataforma Dosys</i></p>
+</div>
+
 #### 4.1.3.3. Software Architecture Deployment Diagrams
+El diagrama de despliegue representa la arquitectura física del sistema, ilustrando cómo los contenedores de software se distribuyen en nodos de infraestructura específicos y cómo se comunican a través de distintos protocolos de red. Este nivel es crítico para identificar la segregación entre los servicios en la nube, las aplicaciones de cara al usuario y el hardware que interactúa con el entorno físico. Permite visualizar la topología de red y los puntos de ejecución reales.
+
+<div align="center">
+  <img src="./imgs/software-architecture/deployment-diagrams.png" alt="Deployment Diagram Dosys" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
+  <p><i>Figura: Diagrama de despliegue de la plataforma Dosys</i></p>
+</div>
 
 ## 4.2. Tactical-Level Domain-Driven Design
 
