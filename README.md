@@ -1074,6 +1074,15 @@ Como resultado de esta sesión colaborativa, se definieron tres **Bounded Contex
 </div>
 
 #### 4.1.1.2. Domain Message Flows Modeling
+
+En esta sección se visualiza la interacción entre los **Bounded Contexts** y los actores del sistema mediante la técnica de **Domain Storytelling**. A diferencia del modelado de eventos, aquí nos enfocamos en la narrativa de los mensajes y cómo los flujos de información atraviesan las fronteras de cada contexto para cumplir con los objetivos del usuario.
+El diagrama presenta el escenario de "Notificación y Confirmación de Dosis", donde se evidencia la coordinación entre el hardware (Device), el motor de reglas (Medication) y el usuario final.
+
+<div align="center">
+  <img src="./imgs/FlowModel.png" alt="Domain Message Flows Modeling Dosys" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
+  <p><i>Enlace de LucidChart: https://lucid.app/lucidchart/20e81f45-c84d-4f8e-9b12-497449d56f40/edit?viewport_loc=1151%2C-3591%2C5338%2C6595%2C0_0&invitationId=inv_31eb482c-fdb4-41c2-9e05-561a08de57ad</i></p>
+</div>
+
 #### 4.1.1.3. Bounded Context Canvases
 
 ### 4.1.2. Context Mapping
