@@ -1098,7 +1098,14 @@ En esta sección se presentan los **Bounded Context Canvases** para los tres con
   <p><i>Figura: Bounded Context Canvas para el contexto de Device.</i></p>
 </div>
 
-### 4.1.2. Context Mapping
+#### 4.1.2. Context Mapping
+
+En esta sección se presenta el **Context Map** de la solución **Dosys**, el cual visualiza las relaciones de comunicación y las dependencias técnicas entre los Bounded Contexts identificados. Este mapa es fundamental para entender cómo fluye la información y cómo se protegen los modelos de datos entre los distintos dominios del sistema.
+
+<div align="center">
+  <img src="./imgs/bounded-contexts/ContexMap.png" alt="Context Mapping Dosys" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
+  <p><i>Figura: Mapa de contextos detallando las relaciones Upstream/Downstream y patrones de integración de Dosys.</i></p>
+</div>
 
 ### 4.1.3. Software Architecture
 #### 4.1.3.1. Software Architecture System Landscape Diagram
