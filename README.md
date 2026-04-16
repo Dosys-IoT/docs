@@ -1058,11 +1058,21 @@ En esta sección se presenta el modelado detallado del dominio de **Dosys** medi
 Se exploraron tres flujos principales: la configuración inicial del tratamiento por el cuidador, el ciclo de vida de los recordatorios de dosis (incluyendo confirmaciones y omisiones) y el monitoreo preventivo de condiciones ambientales a través de sensores integrados.
 
 <div align="center">
-  <img src="./imgs/EventStorm 1.png" alt="Design-Level EventStorming Dosys" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
+  <img src="./imgs/EventStorm 2.png" alt="Design-Level EventStorming Dosys" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
   <p><i>Enlace de LucidChart: https://lucid.app/lucidchart/20e81f45-c84d-4f8e-9b12-497449d56f40/edit?viewport_loc=1151%2C-3591%2C5338%2C6595%2C0_0&invitationId=inv_31eb482c-fdb4-41c2-9e05-561a08de57ad</i></p>
 </div>
 
 #### 4.1.1.1. Candidate Context Discovery
+
+A partir del dominio modelado en el **EventStorm**, el equipo realizó el descubrimiento de los contextos candidatos para descomponer el sistema en límites manejables. Para esta identificación, se aplicaron técnicas como la búsqueda de eventos pivote y la priorización de áreas de mayor valor para el negocio.
+
+Como resultado de esta sesión colaborativa, se definieron tres **Bounded Contexts** principales para **Dosys**: **Access**, encargado de la autenticación; **Medication**, que gestiona la lógica de tratamientos; y **Device**, responsable del control del hardware IoT. A continuación, se presenta la evidencia de los límites identificados sobre el mapa de eventos.
+
+<div align="center">
+  <img src="./imgs/EventStorm 1.png" alt="Candidate Context Discovery Dosys" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
+  <p><i>Enlace de LucidChart: https://lucid.app/lucidchart/20e81f45-c84d-4f8e-9b12-497449d56f40/edit?viewport_loc=1151%2C-3591%2C5338%2C6595%2C0_0&invitationId=inv_31eb482c-fdb4-41c2-9e05-561a08de57ad</i></p>
+</div>
+
 #### 4.1.1.2. Domain Message Flows Modeling
 #### 4.1.1.3. Bounded Context Canvases
 
