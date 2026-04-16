@@ -1052,6 +1052,18 @@ El siguiente glosario define los términos clave utilizados de manera consistent
 ## 4.1. Strategic-Level Domain-Driven Design
 
 ### 4.1.1. Design-Level EventStorming
+
+En esta sección se presenta el modelado detallado del dominio de **Dosys** mediante la técnica de **Design-Level EventStorming**. El objetivo de esta sesión, que tuvo una duración aproximada de 2 horas , fue identificar con precisión los eventos de dominio, comandos y actores que rigen los procesos críticos de la solución IoT.
+
+Se exploraron tres flujos principales: la configuración inicial del tratamiento por el cuidador, el ciclo de vida de los recordatorios de dosis (incluyendo confirmaciones y omisiones) y el monitoreo preventivo de condiciones ambientales a través de sensores integrados.
+
+<div align="center">
+  <img src="./imgs/EventStorm 1.png" alt="Design-Level EventStorming Dosys" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
+  <p><i>Enlace de LucidChart: https://lucid.app/lucidchart/20e81f45-c84d-4f8e-9b12-497449d56f40/edit?viewport_loc=1151%2C-3591%2C5338%2C6595%2C0_0&invitationId=inv_31eb482c-fdb4-41c2-9e05-561a08de57ad</i></p>
+</div>
+
+---
+
 #### 4.1.1.1. Candidate Context Discovery
 #### 4.1.1.2. Domain Message Flows Modeling
 #### 4.1.1.3. Bounded Context Canvases
