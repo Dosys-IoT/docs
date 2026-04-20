@@ -1008,6 +1008,21 @@ El siguiente glosario define los términos clave utilizados de manera consistent
 </table>
 
 ## 3.2. Impact Mapping
+El Impact Mapping es una técnica de planificación estratégica que permite al equipo visualizar la relación entre los objetivos de negocio, los actores involucrados, los cambios de comportamiento esperados y los entregables que el producto debe desarrollar para provocar dichos cambios. Para Dosys, esta herramienta resulta especialmente útil porque conecta la propuesta de valor del pastillero inteligente con metas concretas y medibles, evitando el desarrollo de funcionalidades que no contribuyan directamente a los resultados esperados.
+
+La elaboración del Impact Mapping se realizó en la plataforma UXPressia, utilizando como punto de partida las fichas de User Persona definidas en la sección 2.3.1: Rosa Jiménez Vargas (Segmento 1: adulto mayor polimedicada) y Carlos Mendoza Ríos (Segmento 2: cuidador familiar). Se identificaron cuatro Business Goals con criterios SMART, cada uno orientado a una dimensión distinta del modelo de negocio digital de Dosys: ventas, adopción, adherencia y retención.
+
+**Business Goal 1 — Ventas:** Vender 200 unidades del dispositivo Dosys en Lima Metropolitana durante los primeros 6 meses de lanzamiento comercial, con un ticket promedio de S/. 350. Este objetivo se vincula al segmento de cuidadores familiares en su rol de decisores de compra. Para alcanzarlo, se espera que los visitantes conozcan la propuesta de valor del producto a través de la landing page, consulten precios y testimonios, y soliciten información de compra. Los deliverables asociados comprenden la landing page informativa con sus secciones de características, beneficios, precios y formulario de contacto.
+<img src="imgs\impact-maps\BG1 · Ventas.png" alt="impact map BG1 Ventas" title="Impact Map BG1 Ventas" width="800"/>
+
+**Business Goal 2 — Adopción:** Alcanzar 150 cuidadores activos registrados en la aplicación con al menos un tratamiento configurado y un dispositivo vinculado, dentro de los primeros 8 meses. Este objetivo requiere que los cuidadores completen el proceso de onboarding de forma autónoma: crear su cuenta, emparejar el pastillero físico y programar el primer tratamiento. Los deliverables que habilitan estos impactos son el módulo de registro y vinculación IoT, y el módulo de gestión de tratamientos con programación de dosis y asignación de compartimentos.
+<img src="imgs\impact-maps\BG2 · Adopción.png" alt="impact map BG2 Adopcion" title="Impact Map BG2 Adopcion" width="800"/>
+
+**Business Goal 3 — Adherencia:** Lograr que el 80% de los usuarios activos confirmen al menos el 80% de sus dosis programadas durante su primer mes de uso del dispositivo Dosys. Este es el objetivo central del producto y se vincula directamente con el segmento de adultos mayores. Para alcanzarlo, se espera que Rosa confirme cada toma presionando el botón físico al recibir la alerta multimodal, pueda posponer la alerta en caso de estar ocupada, y escuche el recordatorio con claridad según su nivel auditivo. Los deliverables son el pastillero inteligente con alertas de voz, LED y botón físico, la función snooze y el control de volumen remoto desde la app.
+<img src="imgs\impact-maps\BG3 · Adherencia.png" alt="impact map BG1 Ventas" title="Impact Map BG1 Ventas" width="800"/>
+
+**Business Goal 4 — Retención:** Retener al 70% de los cuidadores activos a los 3 meses de uso, medido por acceso semanal a la aplicación y continuidad del tratamiento configurado. Para sostener el uso continuo de la plataforma, se espera que Carlos consulte el historial de adherencia semanalmente, reaccione ante alertas ambientales y de conectividad, y gestione el ciclo de vida de cada tratamiento sin interrupciones. Los deliverables asociados incluyen el dashboard de adherencia y reportes, el sistema de monitoreo ambiental IoT con notificaciones push, y el sistema de alertas de inventario y fin de tratamiento.
+<img src="imgs\impact-maps\BG4 · Retención.png" alt="impact map BG4 Retencion" title="Impact Map BG4 Retencion" width="800"/>
 ## 3.3. Product Backlog
 
 <table border="1">
