@@ -579,7 +579,152 @@ Su valor diferencial se sustenta en tres pilares: (1) recordatorio multimodal me
 ¿Qué es lo más importante para ti al momento de elegir una solución de este tipo: precio, facilidad de uso, confiabilidad de las alertas u otra cosa?
 
 ### 2.2.2. Registro de entrevistas
+
+A continuación se documentan las entrevistas realizadas a miembros de los segmentos objetivo definidos en la sección 1.3. Cada registro incluye los datos del entrevistado, el enlace al video de la entrevista y un resumen estructurado de las respuestas obtenidas.
+
+**Segmento objetivo 1: Adultos mayores con tratamientos farmacológicos crónicos**
+
+**Entrevista 1 — Elizabeth Graciela Ramírez Carrión**
+
+| Campo | Detalle |
+| :---- | :---- |
+| **Nombre completo** | Elizabeth Graciela Ramírez Carrión |
+| **Edad** | 80 años |
+| **Distrito de residencia** | La Molina, Lima (Perú) |
+| **Composición del hogar** | Vive con su hija |
+| **Modalidad** | Virtual |
+| **Fecha de entrevista** | 18 de abril de 2026 |
+| **Duración** | 3 minutos |
+| **Entrevistador** | Oblitas Davila, Mariano Moises |
+| **Enlace al video** | [https://youtu.be/FBfL63a0AjA](https://youtu.be/FBfL63a0AjA) |
+
+<a href="https://youtu.be/FBfL63a0AjA" target="_blank">
+  <img src="https://img.youtube.com/vi/FBfL63a0AjA/hqdefault.jpg" alt="Captura de la entrevista a Elizabeth Ramírez" title="Haz clic para ver el video completo de la entrevista" width="600"/>
+</a>
+
+*(Haz clic en la imagen para reproducir el video completo en YouTube.)*
+
+**Resumen de respuestas:**
+
+| Pregunta | Respuesta |
+| :---- | :---- |
+| ¿Vive sola, con familiares o con un cuidador? | Vive con su hija. |
+| ¿Cuántos medicamentos toma al día? | Menciona explícitamente el Eutirox (en ayunas, una hora antes de comer) como medicamento de por vida, e implica que toma varios más cuando aclara que elabora cronogramas "cuando son muchos medicamentos". |
+| ¿Cómo organiza actualmente sus medicamentos? | Método manual: escribe un cronograma en papel con las horas que le corresponden a cada toma. |
+| ¿Qué tan difícil le resulta recordar el horario correcto? | Reconoce que "la mente es frágil" y que sin su papel se olvidaría. Con su método, el margen de error es de aproximadamente 10 minutos. |
+| ¿Le ha pasado olvidar una dosis o confundir un medicamento? | Generalmente no, aunque admite retrasos de 10 minutos. Cuando sale de casa, lleva sus pastillas consigo para evitar confusiones. |
+| ¿Qué ayuda usa actualmente para recordar sus medicamentos? | Únicamente el cronograma de papel hecho por ella misma. |
+| ¿Le ayudaría un dispositivo que avise con voz y luz qué compartimento abrir? | Le parece una idea nueva que no conocía (la compara con Alexa), pero admite que "podría ser". |
+| ¿Le sería cómodo confirmar con un botón físico que ya tomó la pastilla? | Sí, le parece "excelente, lógico y más práctico" que usar una aplicación compleja. |
+| ¿Le parecería útil que el dispositivo avise si la temperatura o humedad podrían afectar sus medicamentos? | Sí, le parece "maravilloso", ya que menciona que medicamentos como el paracetamol se guardan mucho tiempo y podrían malograrse por el clima. |
+
+**Segmento objetivo 2: Familiares y cuidadores de adultos mayores polimedicados**
+
+**Entrevista 1 — Sara Alejandra Dávila Salinas**
+
+| Campo | Detalle |
+| :---- | :---- |
+| **Nombre completo** | Sara Alejandra Dávila Salinas |
+| **Edad** | 49 años |
+| **Distrito de residencia** | Surco, Lima (Perú) |
+| **Ocupación** | Docente de educación inicial |
+| **Relación con el adulto mayor** | Hija |
+| **Modalidad** | Virtual |
+| **Fecha de entrevista** | 18 de abril de 2026 |
+| **Duración** | 5 minutos |
+| **Entrevistador** | Oblitas Davila, Mariano Moises |
+| **Enlace al video** | [https://youtu.be/mujsh8VxP3k](https://youtu.be/mujsh8VxP3k) |
+
+<a href="https://youtu.be/mujsh8VxP3k" target="_blank">
+  <img src="https://img.youtube.com/vi/mujsh8VxP3k/hqdefault.jpg" alt="Captura de la entrevista a Sara Dávila" title="Haz clic para ver el video completo de la entrevista" width="600"/>
+</a>
+
+*(Haz clic en la imagen para reproducir el video completo en YouTube.)*
+
+**Resumen de respuestas:**
+
+| Pregunta | Respuesta |
+| :---- | :---- |
+| ¿Vives con la persona adulta mayor? ¿Con qué frecuencia la visitas? | No vive con ella. La acompaña presencialmente los domingos y a distancia durante la semana por momentos. |
+| ¿Cuántos medicamentos distintos toma al día? | Aproximadamente cuatro medicamentos. |
+| ¿Quién organiza y prepara habitualmente sus medicamentos? | Sara los organiza cuando hay recetas nuevas (elabora carteles visuales). Durante la semana los administran una enfermera o su nieta; los domingos lo hace Sara personalmente. |
+| ¿Cómo se asegura actualmente de que tome sus medicamentos a la hora correcta? | Utiliza un cartel visual con los horarios y un dispositivo Alexa programado con recordatorios para todos los medicamentos. |
+| ¿Se ha enterado alguna vez de un olvido o error en la toma? | Sí, especialmente cuando se renueva la receta o cambian las dosis. Alexa avisa la hora pero no la dosis específica, lo que genera confusión si el cambio no quedó claro. |
+| ¿Qué tan preocupada se siente cuando no está presente? | Muy preocupada, especialmente con medicamentos críticos como los de la presión arterial. |
+| ¿Utiliza alguna aplicación, alarma o herramienta de seguimiento? | Solo Alexa. |
+| ¿Le resultaría útil recibir notificaciones en su celular al confirmarse o fallar una toma? | Sí, afirma que sería "genial". |
+| ¿Le gustaría configurar horarios y dosis desde una app móvil aunque esté lejos? | Sí, definitivamente. |
+| ¿Qué tan valioso sería acceder a un historial compartible con el médico? | Muy valioso. |
+| ¿Estaría dispuesta a pagar por el dispositivo? ¿Rango de precio? | Sí, al ser la única hija responsable. Sugiere entre S/ 80 y S/ 100 por el dispositivo físico (comparándolo con los S/ 180 que cuesta una Alexa) y una suscripción mensual de S/ 30 a S/ 50. |
+| ¿Qué es lo más importante al momento de elegir una solución de este tipo? | La confiabilidad de las alertas. |
+
 ### 2.2.3. Análisis de entrevistas
+
+Esta sección sintetiza los hallazgos (insights) derivados de las entrevistas registradas en la sección 2.2.2, organizados por segmento objetivo. El análisis alimenta directamente las decisiones de diseño de Dosys y la validación de los Hypothesis Statements definidos en la sección 1.2.2.3.
+
+**Análisis del Segmento 2 — Familiares y cuidadores**
+
+*Basado en la entrevista a Sara Dávila (hija cuidadora, 49 años, Surco).*
+
+**1. Dolor principal del usuario (pain points)**
+
+El problema central detectado no es únicamente el olvido del horario, sino la **confusión con la dosis**. Las herramientas genéricas como Alexa cumplen la función de alertar que "es hora de la pastilla", pero no indican cuántas unidades ni cuáles medicamentos específicamente, lo que genera errores cada vez que el médico cambia la receta. A este problema operativo se suma una **carga emocional alta** (estrés y preocupación constante) vinculada a la importancia de medicamentos críticos como los antihipertensivos, en los que un error de toma tiene consecuencias directas sobre la salud del adulto mayor.
+
+**2. Comportamiento y soluciones actuales**
+
+La entrevistada es una usuaria **tecnológica** (usa Alexa) y **organizada** (elabora carteles visuales con horarios), lo que la perfila como *early adopter* ideal para una solución IoT. Sin embargo, su sistema actual es **desconectado**: no sabe en tiempo real si la enfermera o la nieta cumplieron efectivamente con la dosis mientras ella trabaja. Esta brecha de información representa la oportunidad clave para Dosys, ya que un dispositivo conectado puede cerrar el bucle entre la toma física del medicamento y la visibilidad remota del cuidador.
+
+**3. Propuesta de valor validada para Dosys**
+
+Para este perfil de cuidador (hijo/a que no vive con el adulto mayor), los puntos más atractivos identificados son:
+
+- **Supervisión remota:** saber desde otro distrito o ciudad si el medicamento se tomó efectivamente.
+- **Especificidad de la dosis:** que el sistema no solo emita una alerta genérica, sino que indique con claridad la cantidad y el compartimento exacto, eliminando errores humanos tras cambios de receta.
+- **Historial médico compartible:** capacidad de llevar datos reales de adherencia a la siguiente consulta con el médico tratante.
+
+Estos tres puntos validan directamente los Hypothesis Statements 2 y 3 (visibilidad remota del cumplimiento y especificidad del recordatorio multimodal) definidos en la sección 1.2.2.3.
+
+**4. Viabilidad económica e insights de mercado**
+
+- **Precio del dispositivo:** la usuaria espera que un producto especializado sea **más económico que un asistente generalista**, dado que una Alexa cuesta aproximadamente S/ 180. Ubica el precio de entrada de Dosys cerca de S/ 80 a S/ 100.
+- **Modelo de suscripción:** validó un modelo SaaS con cobro mensual de S/ 30 a S/ 50, comparándolo con servicios básicos como agua o cable. Esto respalda la estrategia de ingresos recurrentes planteada en el modelo de negocio de Dosys.
+- **Factor decisivo de compra:** por encima del diseño industrial o del precio, la **confiabilidad de las alertas** es el criterio más importante para elegir una solución. Si el sistema falla al alertar, pierde todo su valor percibido.
+
+**Análisis del Segmento 1 — Adultos mayores polimedicados**
+
+*Basado en la entrevista a Elizabeth Ramírez (adulta mayor polimedicada, 80 años, La Molina).*
+
+**1. Perfil tecnológico y adaptabilidad de la interfaz**
+
+A diferencia del cuidador, el adulto mayor de 80 años prefiere lo **tangible**: Elizabeth organiza sus medicamentos con papel y lápiz y no utiliza ninguna herramienta digital. Este hallazgo refuerza una decisión clave del diseño de Dosys: la interfaz destinada al usuario final (el adulto mayor) debe ser **física** —luces LED, mensajes por voz y botones de confirmación— y no depender de que el paciente maneje una aplicación móvil. La app móvil queda reservada para el cuidador, tal como se había planteado en los User Personas de la sección 2.3.1.
+
+**2. Insight de producto: conservación ambiental de los fármacos**
+
+Un hallazgo especialmente valioso es la **preocupación explícita por la conservación de los medicamentos** frente a factores ambientales. Elizabeth describe este problema de manera espontánea (sin que el entrevistador la guiara) y califica de "maravillosa" la idea de un dispositivo que monitoree temperatura y humedad. En distritos de Lima con alta humedad relativa, los fármacos guardados por tiempo prolongado (como el paracetamol que ella menciona) pueden degradarse silenciosamente. Este insight valida directamente el Hypothesis Statement relacionado con el **monitoreo ambiental** y respalda la inclusión de sensores de temperatura y humedad como una funcionalidad diferenciadora del producto, más allá del recordatorio básico.
+
+**3. El factor "independencia vs. fragilidad"**
+
+Elizabeth vive con su hija pero se encarga personalmente de su propia organización farmacológica. Al mismo tiempo, admite con claridad que "la mente es frágil" y que sin su papel se olvidaría. Esta tensión entre **deseo de autonomía** y **reconocimiento de su propia vulnerabilidad** representa la oportunidad emocional central de Dosys para el Segmento 1: el dispositivo le ofrece autonomía (no depender de que su hija le prepare el cronograma ni le recuerde cada dosis) y al mismo tiempo le retira la ansiedad de estar revisando el reloj constantemente. Dosys no compite contra su método actual; lo **dignifica y lo libera de la carga cognitiva**.
+
+**4. Preferencia explícita por la confirmación física**
+
+Elizabeth calificó como "excelente, lógico y más práctico" el botón físico de confirmación frente a una aplicación móvil compleja. Esta preferencia, expresada con convicción, valida de manera directa la decisión arquitectónica de Dosys de ubicar la **confirmación de dosis en el hardware del dispositivo** y no exclusivamente en la app del cuidador.
+
+**Análisis comparativo entre segmentos — Sara vs. Elizabeth**
+
+La combinación de ambas entrevistas permite contrastar las expectativas del cuidador y del adulto mayor sobre el mismo producto:
+
+| Dimensión | Sara (Cuidadora, S2) | Elizabeth (Adulta Mayor, S1) |
+| :---- | :---- | :---- |
+| **Qué busca** | Control y datos | Simplicidad y seguridad |
+| **Interfaz preferida** | App móvil con notificaciones e historial | Hardware físico con luces, voz y botones |
+| **Preocupación principal** | Cumplimiento correcto de dosis y cambios de receta | Fragilidad de la memoria y conservación del medicamento |
+| **Valor emocional** | Tranquilidad de saber remotamente | Autonomía sin ansiedad constante |
+| **Feature más valorada** | Supervisión remota e historial compartible con el médico | Botón de confirmación físico + monitoreo ambiental |
+
+**Conclusión del análisis para Dosys**
+
+La validación cruzada es positiva: ambos segmentos confirman necesidades reales y no suposiciones del equipo. El producto es viable porque resuelve simultáneamente dos dolores distintos —el miedo al olvido del adulto mayor y la falta de visibilidad del cuidador— y añade un valor inesperado pero bien recibido: el **monitoreo ambiental** de los medicamentos. Desde la perspectiva de la arquitectura de software, este resultado justifica una **arquitectura de dos capas complementarias**: (i) una interfaz física robusta embebida en el hardware del dispositivo para el paciente y (ii) una plataforma de monitoreo remoto en la nube, accedida por aplicación móvil, para el cuidador. Ambas capas son necesarias —ninguna es suficiente por sí sola— y esta conclusión guía directamente los Bounded Contexts definidos en el Capítulo IV.
 
 ## 2.3. Needfinding
 ### 2.3.1. User Personas
@@ -721,6 +866,28 @@ Las tareas que presentan alta frecuencia y alta importancia en ambos segmentos s
 - **Organizar los medicamentos en un pastillero:** Tarea que recae principalmente en el cuidador. Dosys la simplifica con cinco compartimentos diferenciados y configuración guiada desde la aplicación.
 
 ### 2.3.3. User Journey Mapping
+
+A partir de las User Personas definidas en la sección 2.3.1, se elaboraron dos User Journey Maps con la herramienta UXPressia para describir el recorrido esperado (TO-BE) de cada segmento objetivo al interactuar con la solución Dosys. A diferencia de los Empathy Maps de la sección 2.3.4 —que capturan el estado actual (AS-IS) de los usuarios antes de adoptar el producto—, estos journey maps representan la experiencia completa que Dosys se compromete a entregar a lo largo de cinco etapas del ciclo de vida: **Aware** (descubrimiento), **Join** (incorporación), **Use** (uso cotidiano), **Develop** (consolidación del uso) y **Leave** (cierre o renovación). En cada etapa se documentan los objetivos del usuario, los canales y procesos a través de los cuales interactúa, los problemas que puede encontrar, su experiencia emocional y las oportunidades de mejora identificadas.
+
+**User Journey Map 1 — Rosa Jiménez Vargas (Adulto Mayor Polimedicado)**
+
+<img src="imgs/journey-maps/journey_map_rosa_jimenez.png" alt="User Journey Map - Rosa Jiménez Vargas" title="Journey Map del Adulto Mayor Polimedicado" width="900"/>
+
+El journey map de Rosa muestra una curva emocional que parte de la **curiosidad cauta** en AWARE, desciende al punto más bajo de **ansiedad y abrumamiento** en JOIN —cuando debe aceptar un dispositivo tecnológico en su rutina diaria— y asciende progresivamente hasta alcanzar su pico de **orgullo y empoderamiento** en DEVELOP, cuando ha consolidado una rutina autónoma de adherencia. Este patrón evidencia que el momento crítico del diseño es la etapa JOIN: el onboarding del adulto mayor debe ser multimodal, guiado por voz, y siempre acompañado por el cuidador. La curva también confirma que el objetivo final del producto para S1 no es solo técnico (tomar la dosis) sino emocional: restaurar la sensación de autonomía que la polifarmacia había erosionado.
+
+**User Journey Map 2 — Carlos Mendoza Ríos (Cuidador Familiar)**
+
+<img src="imgs/journey-maps/journey_map_carlos_mendoza.png" alt="User Journey Map - Carlos Mendoza Ríos" title="Journey Map del Cuidador Familiar" width="900"/>
+
+El journey map de Carlos dibuja una curva emocional distinta a la de Rosa: el punto más bajo se encuentra en JOIN —cuando enfrenta la complejidad técnica del setup inicial— y el pico se alcanza en DEVELOP, cuando puede compartir la responsabilidad del cuidado con otros familiares y dejar de sentirse solo en la gestión de la salud de su madre. Esto revela que para el segmento S2 la promesa de valor no se completa únicamente con el monitoreo remoto (USE) sino con la **coordinación familiar distribuida** (DEVELOP): Dosys no solo reduce la carga operativa, sino también la carga emocional del cuidador. La etapa JOIN es nuevamente el momento crítico, pero por razones opuestas a las de Rosa: aquí el riesgo no es la ansiedad emocional sino el abandono por fricción técnica, lo cual valida la prioridad de invertir en un onboarding guiado con escaneo de recetas.
+
+**Hallazgos clave del contraste entre ambos journey maps:**
+
+- Ambas curvas emocionales tienen su **punto más bajo en JOIN**, pero por motivos distintos: Rosa siente ansiedad emocional ante la adopción tecnológica, mientras Carlos experimenta fricción operativa durante la configuración. Esto confirma que la etapa de incorporación es el mayor riesgo de abandono del producto y justifica invertir en un onboarding dual: guiado por voz para S1 y asistido por IA (escaneo de recetas) para S2.
+- El **pico emocional de ambas personas se alcanza en DEVELOP**, no en USE. Esto significa que el valor percibido de Dosys no se consolida con la primera toma exitosa, sino cuando el producto se integra a una rutina sostenible: para Rosa como fuente de empoderamiento personal, para Carlos como plataforma de coordinación familiar. El diseño debe priorizar features que refuercen esta etapa: reportes semanales, roles compartidos y mensajes motivacionales.
+- La etapa **LEAVE se interpreta de forma asimétrica** entre ambos segmentos: para Rosa es el cierre natural de un tratamiento médico, mientras que para Carlos es una decisión comercial sobre la suscripción. Esta diferencia no es una inconsistencia del modelo, sino un reflejo fiel de cómo cada persona se relaciona con el producto —Rosa con el hardware físico y sus ciclos clínicos, Carlos con el servicio digital y su modelo de negocio— y obliga al equipo a diseñar dos experiencias de cierre distintas.
+- Los canales identificados confirman la **estrategia de marketing dual** establecida en el análisis competitivo: Rosa es alcanzada por canales tradicionales y presenciales (folletos, farmacias, demos en casa), mientras Carlos responde a canales digitales (redes sociales, podcasts, landing page con testimonios verificados).
+
 ### 2.3.4. Empathy Mapping
 
 A partir de las User Personas definidas en la sección 2.3.1, se elaboraron dos Empathy Maps con la herramienta UXPressia para profundizar en las experiencias, pensamientos, emociones y comportamientos de cada segmento objetivo en su estado actual (AS-IS), es decir, antes de adoptar una solución como Dosys. Estos mapas permiten identificar los dolores reales que justifican la propuesta de valor y las ganancias esperadas que Dosys debe entregar.
