@@ -737,6 +737,43 @@ A continuación se documentan las entrevistas realizadas a miembros de los segme
 | **¿Estaría dispuesto a pagar por el dispositivo? ¿Rango de precio?** | Sí, aunque preferiría una prueba inicial. Sugiere un rango de precio entre S/ 20 y S/ 70 soles. |
 | **¿Qué es lo más importante al momento de elegir una solución de este tipo?** | La confiabilidad de las alertas y la seguridad de que se están administrando las pastillas correspondientes. |
 
+**Entrevista 4 — Jonatan Escobar Laura**
+
+| Campo | Detalle |
+| :---- | :---- |
+| **Nombre completo** |  Jonatan David Escobar Laura |
+| **Edad** | 20 años |
+| **Distrito de residencia** | Lima |
+| **Ocupación** | Estudiante|
+| **Relación con el adulto mayor** | Nieto |
+| **Modalidad** | Virtual |
+| **Fecha de entrevista** | 26 de abril de 2026 |
+| **Duración** | 5 minutos 39 segundos |
+| **Entrevistador** | Zúñiga Murillo Diego Sebastián |
+| **Enlace al video** | [ver video](https://youtu.be/F3AoIXrbXWc) |
+
+<a href="https://youtu.be/F3AoIXrbXWc" target="_blank">
+  <img src="imgs/interviews/segmento-objetivo-familiar-entrevista-4.png" alt="Captura del video" title="Haz clic para ver el video en SharePoint" width="600"/>
+</a>
+
+*(Haz clic en la imagen para reproducir el video completo en YouTube.)*
+
+**Resumen de respuestas:**
+
+| Pregunta | Respuesta |
+| :--- | :--- |
+| **¿Vives con la persona adulta mayor? ¿Con qué frecuencia la visitas?** | Vive con su familiar, por lo que el acompañamiento es diario y permanente. También realiza voluntariado con visitas presenciales varias veces por semana. |
+| **¿Cuántos medicamentos distintos toma al día?** | Toma aproximadamente 5 medicamentos distintos al día. |
+| **¿Quién organiza y prepara habitualmente sus medicamentos?** | Jonatan se encarga personalmente de la organización y preparación utilizando pastilleros semanales para evitar confusiones. |
+| **¿Cómo se asegura actualmente de que tome sus medicamentos a la hora correcta?** | Utiliza un sistema mixto de alarmas en su propio celular y un calendario físico visible en casa para control de ambos. |
+| **¿Se ha enterado alguna vez de un olvido o error en la toma?** | Sí; se dio cuenta al realizar la revisión visual del pastillero y notar que la dosis correspondiente aún estaba ahí. |
+| **¿Qué tan preocupado se siente cuando no está presente?** | Siente una preocupación latente debido a su alta responsabilidad, especialmente cuando debe ir a la universidad o al voluntariado. |
+| **¿Utiliza alguna aplicación, alarma o herramienta de seguimiento?** | Utiliza principalmente alarmas digitales y listas de verificación (checklists) en su celular. |
+| **¿Le resultaría útil recibir notificaciones en su celular al confirmarse o fallar una toma?** | Definitivamente; le daría mucha tranquilidad poder confirmar el cumplimiento en tiempo real cuando no está en casa. |
+| **¿Le gustaría configurar horarios y dosis desde una app móvil aunque estés lejos?** | Sí, sería la herramienta ideal para gestionar cambios en la receta médica de forma inmediata y remota. |
+| **¿Qué tan valioso sería acceder a un historial compartible con el médico?** | Sumamente valioso, ya que permitiría al médico tomar decisiones basadas en datos reales y precisos sobre la adherencia. |
+| **¿Estaría dispuesto a pagar por el dispositivo? ¿Rango de precio?** | Sí; sugiere un rango de entre S/ 100 y S/ 200, siempre que garantice la seguridad del paciente. |
+| **¿Qué es lo más importante al elegir una solución de este tipo?** | Lo principal es la confiabilidad de las alertas, seguido por la facilidad de uso del sistema. |
 
 ### 2.2.3. Análisis de entrevistas
 
