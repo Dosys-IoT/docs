@@ -658,6 +658,86 @@ A continuación se documentan las entrevistas realizadas a miembros de los segme
 | ¿Estaría dispuesta a pagar por el dispositivo? ¿Rango de precio? | Sí, al ser la única hija responsable. Sugiere entre S/ 80 y S/ 100 por el dispositivo físico (comparándolo con los S/ 180 que cuesta una Alexa) y una suscripción mensual de S/ 30 a S/ 50. |
 | ¿Qué es lo más importante al momento de elegir una solución de este tipo? | La confiabilidad de las alertas. |
 
+
+
+**Entrevista 2 — Edward Rodriguez Alarcon**
+
+| Campo | Detalle |
+| :---- | :---- |
+| **Nombre completo** | Edward Rodriguez Alarcon |
+| **Edad** | 28 años |
+| **Distrito de residencia** | Arequipa (Perú) |
+| **Ocupación** | Ingeniero mecatrónico|
+| **Relación con el adulto mayor** | Nieto |
+| **Modalidad** | Virtual |
+| **Fecha de entrevista** | 26 de abril de 2026 |
+| **Duración** | 4 minutos 50 segundos |
+| **Entrevistador** | Qqueso Rodriguez, Britney Delhy|
+| **Enlace al video** | [ver video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20211g671_upc_edu_pe/IQA6obkzxKFPRp8NrNu_ox3-AWJh8mJzud2CGakWkuu-oP0?e=8q4dBX&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D) |
+
+<a href="https://upcedupe-my.sharepoint.com/:v:/g/personal/u20211g671_upc_edu_pe/IQA6obkzxKFPRp8NrNu_ox3-AWJh8mJzud2CGakWkuu-oP0?e=pLNTcC&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D" target="_blank">
+  <img src="imgs/interviews/segmento-objetivo-familiar-entrevista-2.png" alt="Captura del video" title="Haz clic para ver el video en SharePoint" width="600"/>
+</a>
+
+*(Haz clic en la imagen para reproducir el video completo en YouTube.)*
+
+**Resumen de respuestas:**
+
+| Pregunta | Respuesta |
+| :--- | :--- |
+| **¿Vives con la persona adulta mayor? ¿Con qué frecuencia la visitas?** | No vive con ella. La visita 2 veces por semana y mantienen contacto telefónico interdiario. |
+| **¿Cuántos medicamentos distintos toma al día?** | Toma 7 medicamentos (presión, diabetes y suplementos). |
+| **¿Quién organiza y prepara habitualmente sus medicamentos?** | Edward organiza personalmente todas las pastillas para la semana cada vez que va de visita. |
+| **¿Cómo se asegura actualmente de que tome sus medicamentos a la hora correcta?** | Confía en la autonomía de su abuela y en alarmas que él mismo programó en el celular de ella. |
+| **¿Se ha enterado alguna vez de un olvido o error en la toma?** | Sí, varias veces. Se da cuenta al visitarla porque encuentra pastillas sobrantes de uno o hasta dos días anteriores. |
+| **¿Qué tan preocupado se siente cuando no está presente?** | Bastante preocupado; siempre tiene dudas sobre si ella escuchó la alarma o si olvidó la toma. |
+| **¿Utiliza alguna aplicación, alarma o herramienta de seguimiento?** | Solo las alarmas del teléfono celular de la abuela. |
+| **¿Le resultaría útil recibir notificaciones en su celular al confirmarse o fallar una toma?** | Sí, sería bastante útil para su tranquilidad. |
+| **¿Le gustaría configurar horarios y dosis desde una app móvil aunque estés lejos?** | Sí, especialmente para ajustar dosis cuando el médico realiza cambios en el tratamiento. |
+| **¿Qué tan valioso sería acceder a un historial compartible con el médico?** | Muy valioso, ya que actualmente no sabe cómo responder cuando el médico pregunta por el cumplimiento del tratamiento. |
+| **¿Estaría dispuesto a pagar por el dispositivo? ¿Rango de precio?** | Sí. Sugiere un pago único de entre S/ 500 y S/ 1000. |
+| **¿Qué es lo más importante al elegir una solución de este tipo?** | La confiabilidad de las alertas y la facilidad de uso. |
+
+
+**Entrevista 3 — Juan Alarcon Ramirez**
+
+| Campo | Detalle |
+| :---- | :---- |
+| **Nombre completo** | Juan Alarcon Ramirez |
+| **Edad** | 25 años |
+| **Distrito de residencia** | Cusco (Perú) |
+| **Ocupación** | Estudiante|
+| **Relación con el adulto mayor** | Nieto |
+| **Modalidad** | Virtual |
+| **Fecha de entrevista** | 26 de abril de 2026 |
+| **Duración** | 5 minutos 03 segundos |
+| **Entrevistador** | Qqueso Rodriguez, Britney Delhy|
+| **Enlace al video** | [ver video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20211g671_upc_edu_pe/IQCnS56GDZZtS5PvB91dgc8QAQ92MHDmWUMo7j8YLEFMW8I?e=wgA61j&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D) |
+
+<a href="https://upcedupe-my.sharepoint.com/:v:/g/personal/u20211g671_upc_edu_pe/IQCnS56GDZZtS5PvB91dgc8QAQ92MHDmWUMo7j8YLEFMW8I?e=wgA61j&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D" target="_blank">
+  <img src="imgs/interviews/segmento-objetivo-familiar-entrevista-3.png" alt="Captura del video" title="Haz clic para ver el video en SharePoint" width="600"/>
+</a>
+
+*(Haz clic en la imagen para reproducir el video completo en YouTube.)*
+
+**Resumen de respuestas:**
+
+| Pregunta | Respuesta |
+| :---- | :---- |
+| **¿Vives con la persona adulta mayor? ¿Con qué frecuencia la visitas?** | Vive solo. La visita entre 3 a 4 veces por semana y mantiene comunicación telefónica constante. |
+| **¿Cuántos medicamentos distintos toma al día?** | Aproximadamente 6 medicamentos al día. |
+| **¿Quién organiza y prepara habitualmente sus medicamentos?** | Él es el principal encargado de la organización y cuidado, aunque menciona que lo hacen en conjunto. |
+| **¿Cómo se asegura actualmente de que tome sus medicamentos a la hora correcta?** | Utiliza métodos manuales: deja notas adhesivas (stickers) en la cocina y realiza llamadas telefónicas en el horario exacto de la toma. |
+| **¿Se ha enterado alguna vez de un olvido o error en la toma?** | Sí. Se percató durante una visita al observar que las pastillas del día anterior aún permanecían en el pastillero. |
+| **¿Qué tan preocupado se siente respecto al cumplimiento del tratamiento cuando no está presente?** | Se siente preocupado porque a su abuela ya se le olvidan las cosas y siempre tiene la duda de si tomó la dosis correcta o si se confundió de medicamento. |
+| **¿Utiliza alguna aplicación, alarma o herramienta de seguimiento?** | Solo utiliza las **alarmas de su propio teléfono celular** para recordarse a sí mismo que debe llamarla. |
+| **¿Le resultaría útil recibir notificaciones en su celular al confirmarse o fallar una toma?** | Sí, considera que sería muy útil tener esa información al instante. |
+| **¿Le gustaría configurar horarios y dosis desde una app móvil aunque esté lejos?** | Sí, afirma que sería una opción muy cómoda para su gestión como cuidador. |
+| **¿Qué tan valioso sería acceder a un historial de tomas compartible con el médico?** | Muy valioso, ya que facilita la comunicación con el doctor sobre el tratamiento que sigue la paciente. |
+| **¿Estaría dispuesto a pagar por el dispositivo? ¿Rango de precio?** | Sí, aunque preferiría una prueba inicial. Sugiere un rango de precio entre S/ 20 y S/ 70 soles. |
+| **¿Qué es lo más importante al momento de elegir una solución de este tipo?** | La confiabilidad de las alertas y la seguridad de que se están administrando las pastillas correspondientes. |
+
+
 ### 2.2.3. Análisis de entrevistas
 
 Esta sección sintetiza los hallazgos (insights) derivados de las entrevistas registradas en la sección 2.2.2, organizados por segmento objetivo. El análisis alimenta directamente las decisiones de diseño de Dosys y la validación de los Hypothesis Statements definidos en la sección 1.2.2.3.
