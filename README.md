@@ -2812,7 +2812,7 @@ Los aspectos principales tomados en cuenta en el Sprint 1 corresponden a los bou
 | Martel Zevallos, Gabriel Aristóteles | vr700 | C | C | **L** | C | **L** | **L** |
 | Oblitas Davila, Mariano Moises | *(pendiente)* | **L** | C | C | C | C | C |
 | Qqueso Rodriguez, Britney Delhy | *(pendiente)* | C | C | C | **L** | C | C |
-| Zúñiga Murillo, Diego Sebastián | *(pendiente)* | C | C | C | C | C | C |
+| Zúñiga Murillo, Diego Sebastián | DekayDeCanela | C | C | C | C | C | C |
 
 > **Pendiente del equipo:** completar los GitHub usernames de Mariano, Britney y Diego.
 
