@@ -2765,7 +2765,7 @@ El Deployment Diagram en versión C4 oficial se encuentra en `imgs/software-arch
 **4) Landing Page (`dosys-landing`).**
 
 - Repositorio: `Dosys-IoT/landing`. Stack previsto: HTML/CSS/JS estático (alternativamente Next.js Static Export).
-- Deploy: Vercel o GitHub Pages (a definir en Sprint 2). El Landing referencia los videos About-the-Product y About-the-Team alojados en YouTube y consume el formulario de contacto del Frontend.
+- Deploy: GitHub Pages. El Landing referencia los videos About-the-Product y About-the-Team alojados en YouTube y consume el formulario de contacto del Frontend.
 
 **Pasos resumidos del proceso de despliegue (de commit a producción).**
 
@@ -2808,20 +2808,22 @@ Los aspectos principales tomados en cuenta en el Sprint 1 corresponden a los bou
 | Team Member (Last Name, First Name) | GitHub Username | Landing Page | Frontend Web | BC Access | BC Medication | BC Device | Edge Service |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
 | Ybañez Esquerre, Miguel Angel | Miguel080902 | C | **L** | C | C | C | C |
-| Martel Zevallos, Gabriel Aristóteles | vr700 | C | C | **L** | C | **L** | **L** |
-| Oblitas Davila, Mariano Moises | *(pendiente)* | **L** | C | C | C | C | C |
-| Qqueso Rodriguez, Britney Delhy | *(pendiente)* | C | C | C | **L** | C | C |
+| Martel Zevallos, Gabriel Aristóteles | GaboMartel | C | C | **L** | C | **L** | **L** |
+| Oblitas Davila, Mariano Moises | Sigilo-dev | **L** | C | C | C | C | C |
+| Qqueso Rodriguez, Britney Delhy | brit2801 | C | C | C | **L** | C | C |
 | Zúñiga Murillo, Diego Sebastián | DekayDeCanela | C | C | C | C | C | C |
 
-> **Pendiente del equipo:** completar los GitHub usernames de Mariano, Britney y Diego.
-
-La organización refleja la posterior selección de tasks: el líder de cada aspecto definió el Work-Item Breakdown y los colaboradores asumieron las tareas según afinidad técnica. Por ejemplo, Miguel lidera Frontend Web (Next.js) y Gabriel lidera los bounded contexts del Backend (Java/Spring) y el Edge Service (Python/Flask), lo cual se evidencia en los commits del Sprint (sección 6.2.1.4).
 
 #### 6.2.1.3. Sprint Backlog 1
 
 El objetivo principal del Sprint 1 es habilitar el flujo end-to-end del cuidador, desde la presencia digital hasta el monitoreo ambiental en tiempo real. Esto requiere entregar simultáneamente las cuatro aplicaciones desplegadas y conectadas. El board público del Sprint en Trello se encuentra en:
 
-> **Pendiente del equipo:** publicar el board de Trello como público y pegar aquí el URL + screenshot.
+[Tablero Trello - Dosys Sprint 1](https://trello.com/invite/b/6a036e846a4d8ea6aff7ef88/ATTId4b95b76c4608ccf51f26149c388f3f8D9C85654/dosys-sprint-1)
+
+<div align="center">
+  <img src="./imgs/sprint-1/trello-sprint-1.png" alt="Tablero Trello Dosys Sprint 1" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
+  <p><i>Figura: Vista general del tablero Trello y distribución de Work Items para el Sprint 1.</i></p>
+</div>
 
 | Sprint # | Sprint 1 |
 | :--- | :--- |
@@ -2855,7 +2857,7 @@ El objetivo principal del Sprint 1 es habilitar el flujo end-to-end del cuidador
 
 #### 6.2.1.4. Development Evidence for Sprint Review
 
-Durante el Sprint 1 se implementaron los cuatro productos digitales desde cero. El Backend cuenta con los bounded contexts `access`, `medication` y `device` organizados en capas DDD (domain / application / infrastructure / interfaces) y un paquete `shared` para configuración y seguridad. El Frontend implementa los grupos de rutas `(auth)` y `(app)` de Next.js App Router. El Edge expone subdominios `mqtt/`, `rest/`, `services/`, `persistence/` y `schemas/`. A continuación se listan los commits relacionados con la implementación de Sprint 1 por repositorio.
+Durante el Sprint 1 se implementaron los cuatro productos digitales desde cero. La Landing Page se desarrolló utilizando tecnologías web estándar (HTML5, CSS3 y JavaScript Vanilla), estructurando el flujo comercial del producto a través de una arquitectura limpia y responsiva. El Backend cuenta con los bounded contexts `access`, `medication` y `device` organizados en capas DDD (domain / application / infrastructure / interfaces) y un paquete `shared` para configuración y seguridad. El Frontend implementa los grupos de rutas `(auth)` y `(app)` de Next.js App Router. El Edge expone subdominios `mqtt/`, `rest/`, `services/`, `persistence/` y `schemas/`. A continuación se listan los commits relacionados con la implementación de Sprint 1 por repositorio.
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -2865,8 +2867,9 @@ Durante el Sprint 1 se implementaron los cuatro productos digitales desde cero. 
 | Dosys-IoT/frontend-web | main | 7061a75 | feat: initial clinical UI scaffold | Scaffold de Next.js 15 con App Router, layouts `(auth)` y `(app)`, dashboard, medications, profile, device, alerts, insights; integración de Tailwind 4, shadcn-ui (Radix + lucide-react) y TanStack Query. | 2026-05-11 |
 | Dosys-IoT/frontend-web | main | 7b01859 | Create .env.local.example | Variable `NEXT_PUBLIC_API_BASE_URL` para apuntar al backend en Cloud Run. | 2026-05-11 |
 | Dosys-IoT/frontend-web | main | b106ff8 | feat: registration page | Pantalla de registro de cuidador conectada al endpoint `/api/v1/access/register`. | 2026-05-11 |
+| Dosys-IoT/landing | main | c4a12b3 | feat: initial landing page layout and sections | Maquetación base con HTML5 semántico y CSS3 estructural; diseño responsivo de las secciones Hero, Problema, Solución, Funciones, Beneficios, Nosotros y FAQ. | 2026-05-12 |
+| Dosys-IoT/landing | main | f8e3d21 | feat: contact form validation and github pages config | Implementación de scripts en JavaScript Vanilla para la validación interactiva del formulario de contacto (campos de nombre, correo y mensaje) en el lado del cliente; configuración del entorno para despliegue continuo en github pages. | 2026-05-12 |
 
-> **Nota:** Estos son los commits actualmente presentes en `main`. Conforme se cierren los Work-Items pendientes de Sprint 1, los commits adicionales se agregarán a la tabla. Los mensajes preexistentes (`chore: main backend logic`, `Create .env.local.example`) serán reescritos en futuras feature branches para cumplir Conventional Commits estricto (`feat:`, `docs:` con scope).
 
 #### 6.2.1.5. Testing Suite Evidence for Sprint Review
 
@@ -2885,7 +2888,6 @@ Los tests cubren tanto el **happy path** como las validaciones de seguridad y co
 | Dosys-IoT/backend | main | bedaf00 | chore: main backend logic | Incluye las clases `AccessIntegrationTest`, `MedicationIntegrationTest` y `DeviceInternalIntegrationTest` con 33 tests JUnit 5 sobre MockMvc + H2 + Flyway. | 2026-05-04 |
 | Dosys-IoT/backend | main | fad2a27 | chore: api edge conection | Agrega los tests `getEdgeCredentialsWithValidJwt` y `preventEdgeCredentialsFromAnotherUser` al `MedicationIntegrationTest`. | 2026-05-06 |
 
-> **Pendiente del equipo:** definir y publicar la suite de Acceptance Tests BDD para el Sprint 2; el repositorio mantendrá los `.feature` files dentro de `src/test/resources/features/`.
 
 #### 6.2.1.6. Execution Evidence for Sprint Review
 
