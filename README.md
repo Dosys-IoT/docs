@@ -2859,6 +2859,11 @@ El objetivo principal del Sprint 1 es habilitar el flujo end-to-end del cuidador
 
 Durante el Sprint 1 se implementaron los cuatro productos digitales desde cero. La Landing Page se desarrolló utilizando tecnologías web estándar (HTML5, CSS3 y JavaScript Vanilla), estructurando el flujo comercial del producto a través de una arquitectura limpia y responsiva. El Backend cuenta con los bounded contexts `access`, `medication` y `device` organizados en capas DDD (domain / application / infrastructure / interfaces) y un paquete `shared` para configuración y seguridad. El Frontend implementa los grupos de rutas `(auth)` y `(app)` de Next.js App Router. El Edge expone subdominios `mqtt/`, `rest/`, `services/`, `persistence/` y `schemas/`. A continuación se listan los commits relacionados con la implementación de Sprint 1 por repositorio.
 
+* **Backend Application:** [Repositorio Backend REST API](https://github.com/Dosys-IoT/backend) | [Despliegue en Cloud Run](https://dosys-backend-149855215912.us-central1.run.app)
+* **Frontend Application:** [Repositorio Frontend Web](https://github.com/Dosys-IoT/frontend-web) | [Despliegue en Vercel](https://frontend-web-jet-seven.vercel.app)
+* **Landing Page Application:** [Repositorio Landing Page](https://github.com/Dosys-IoT/landing) | [Despliegue en GitHub Pages](https://dosys-iot.github.io/landing/)
+* **Edge Service Application:** [Repositorio Edge Service](https://github.com/Dosys-IoT/edge) | [Despliegue en Cloud Run](https://dosys-edge-149855215912.us-central1.run.app)
+
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | Dosys-IoT/backend | main | bedaf00 | chore: main backend logic | Estructura inicial de bounded contexts Access, Medication, Device con capas DDD; migraciones Flyway V1–V4; configuración de JWT y SpringDoc OpenAPI; controllers REST `AccessController`, `MedicationController`, `DeviceInternalController`. | 2026-05-04 |
@@ -2900,7 +2905,152 @@ En el Sprint 1 se logró desplegar las cuatro aplicaciones y comprobar el flujo 
 - **Backend — Swagger UI** (`/swagger-ui/index.html`) — documentación interactiva de los 17+ endpoints expuestos (ver 6.2.1.7).
 - **Edge — Health** (`/edge/v1/health`) — verificación de servicio activo y suscripción MQTT.
 
-> **Pendiente del equipo:** subir a Microsoft Stream/Clipchamp el video con la demo de navegación end-to-end (registro → vinculación → alta de medicamento → vista de ambiente) y pegar aquí: (a) un screenshot representativo del video y (b) el URL público del video.
+**Video de Execution Evidence - Frontend**
+
+<div align="center">
+  <img src="./imgs/sprint-1/video-evidence-landing.png" alt="Video de Evidencia de Ejecución Frontend" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
+  <p><i>Figura: Enlace/Acceso a la demostración en video del flujo end-to-end de la aplicación web.</i></p>
+</div>
+
+##### Vista de Autenticación
+Se han desarrollado 2 vistas para la autenticación de usuarios: una para el registro y otra para el inicio de sesión. Ambas vistas están disponibles de forma pública para cualquier persona que acceda a la aplicación. 
+
+La vista de registro (`/register`) permite capturar datos del cuidador como nombre, apellido, correo electrónico clínico y una contraseña segura de acceso. Por otro lado, la vista de inicio de sesión (`/login`) facilita el acceso seguro al Dashboard mediante el ID clínico o correo electrónico institucional, e incorpora accesos directos específicos para continuar con el rol de cuidador o gestionar el hardware directamente mediante "Manage my Device".
+
+<div align="center">
+  <img src="./imgs/sprint-1/auth-register.png" alt="Vista de Registro Dosys" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
+  <p><i>Figura: Interfaz de creación de cuenta clínica (/register) para la gestión del santuario digital.</i></p>
+</div>
+
+<div align="center">
+  <img src="./imgs/sprint-1/auth-login.png" alt="Vista de Login Dosys" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
+  <p><i>Figura: Interfaz de inicio de sesión seguro (/login) con segregación de accesos para cuidadores y dispositivos.</i></p>
+</div>
+
+##### Vista de Dashboard
+Se ha desarrollado la vista principal del panel de control (`/dashboard`), la cual ofrece un resumen en tiempo real del estado de tranquilidad y estabilidad del paciente ("Sanctuary"). Esta vista incluye un indicador circular de consistencia semanal con el puntaje de adherencia actual (Weekly Score al 100%), el estado de carga y configuración de los 5 compartimentos del dispositivo (Device Compartments), un módulo centralizado de alertas urgentes y el historial reciente de las últimas tomas e ingestas registradas. Esta vista es accesible únicamente para usuarios autenticados.
+
+<div align="center">
+  <img src="./imgs/sprint-1/dashboard-view.png" alt="Vista del Dashboard de Dosys" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
+  <p><i>Figura: Panel de control central del cuidador con métricas de adherencia y estado del pastillero inteligente.</i></p>
+</div>
+
+##### Vista de Medicamentos
+Se han desarrollado vistas específicas para la gestión de medicamentos (`/medications`, `/medications/new`). En la vista principal se administra la sincronización de los compartimentos físicos y las prescripciones clínicas cargadas. Cuenta con un diseño modular que destaca funciones avanzadas del ecosistema: Recordatorios Inteligentes (Smart Reminders basados en ciclos de comida y marcadores biológicos), Sincronización de Inventario (Inventory Sync en tiempo real mediante el peso del compartimento) y Conexión con Farmacias (Pharmacy Connect para solicitudes automáticas de reabastecimiento cuando el suministro es crítico). Asimismo, incluye diálogos y formularios interactivos para agregar nuevos medicamentos.
+
+<div align="center">
+  <img src="./imgs/sprint-1/medications-view.png" alt="Vista de Gestión de Medicamentos" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
+  <p><i>Figura: Módulo de control de prescripciones clínicas y estado de sincronización con la farmacia proveedora.</i></p>
+</div>
+
+##### Vista de Dispositivo (Device)
+Se ha desarrollado una vista detallada para el monitoreo del hardware y del entorno físico del dispositivo (`/device`). Esta sección permite visualizar en vivo el estado analógico de los 5 compartimentos (indicando su porcentaje de llenado volumétrico y estados operativos como "Active", "Empty" o "Check Tray"). 
+
+También recopila lecturas críticas de sensores locales, tales como el nivel de humedad ambiental (actualmente al 34% para preservar pastillas secas), la configuración de recordatorios de audio, métricas del dispositivo (batería al 92%, fuerza de señal WiFi en dBm, versión de firmware estable), un registro histórico de sensores (Sensor Log) para auditoría de calibración y detección de manipulaciones (Lid Tamper), y un asistente predictivo para la sustitución de desecantes.
+
+<div align="center">
+  <img src="./imgs/sprint-1/device-view.png" alt="Vista de Estado del Dispositivo" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
+  <p><i>Figura: Panel de telemetría de hardware, estado de los compartimentos y telemetría de variables ambientales.</i></p>
+</div>
+
+##### Vista de Alertas (Alerts Center)
+Se ha desarrollado un centro de control de alertas (`/alerts`) enfocado en la monitorización de métricas críticas y la adherencia dentro del santuario clínico. Permite filtrar los eventos históricos y activos por nivel de severidad (Crítica, Advertencia, Información), tipo de anomalía y asignación de personal. El sistema reporta de forma detallada incidentes como brechas ambientales por alta humedad (ej. Unidad 4B a 68%), alertas de bajo stock de medicamentos específicos (ej. Warfarina), omisiones de dosis por parte del paciente (Patient Adherence) y derivaciones de calibración en básculas (Drift Detected). Adicionalmente, incorpora un mapa de estado del dispositivo (Device Status Map) y métricas de velocidad de respuesta del equipo de soporte clínico.
+
+<div align="center">
+  <img src="./imgs/sprint-1/alerts-view.png" alt="Centro de Alertas de Dosys" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
+  <p><i>Figura: Centro de control de alertas críticas con mapas de estado de unidades y analíticas de tiempo de respuesta.</i></p>
+</div>
+
+##### Vista de Insights (Analíticas)
+Se ha desarrollado una sección de analíticas avanzadas de rendimiento (`/insights`). En esta vista se despliega la tasa de adherencia general del periodo (ej. 94.8% con un incremento del +4.2%), la cantidad de prescripciones activas, las recargas pendientes que requieren acción y el estado de salud general del dispositivo. Incluye gráficos interactivos de la actividad de medicación diaria, un desglose de adherencia por rutinas horarias (mañana al 100% y noche al 84%), un pronóstico de recarga automatizado (Refill Forecast) con los días restantes para medicamentos críticos (Lisinopril, Metformin y Atorvastatin), una gráfica de comportamiento histórico de la humedad y un banner de asesoramiento personalizado con recomendaciones de IA sobre factores ambientales que impactan la estabilidad química del medicamento.
+
+<div align="center">
+  <img src="./imgs/sprint-1/insights-view.png" alt="Vista de Analytics e Insights" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
+  <p><i>Figura: Panel de analítica avanzada sobre la adherencia del paciente, forecast de inventario e informes de entorno.</i></p>
+</div>
+
+##### Vista de Perfil (Settings / Profile)
+Se ha desarrollado la vista de gestión de perfil y configuración general del usuario (`/profile`). Permite visualizar y editar la información del cuidador o paciente principal (ID único, estatus de cuenta "Pro Member" y verificación de datos de salud). 
+
+Asimismo, incluye paneles para personalizar las preferencias de recordatorios (asistencia de voz integrada por IA, volumen de la alarma física, calibración de frecuencia adaptable según actividad), opciones de accesibilidad avanzada (modo de alto contraste optimizado para claridad visual y activación de lector de pantalla), gestión segmentada de canales de notificación (Email, SMS, alertas Push) y opciones avanzadas de administración de datos como la exportación del historial médico o la desactivación de la cuenta.
+
+<div align="center">
+  <img src="./imgs/sprint-1/profile-view.png" alt="Vista de Configuración de Perfil" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
+  <p><i>Figura: Panel de configuración de usuario, preferencias de accesibilidad y parametrización de notificaciones del Dosys Hub.</i></p>
+</div>
+
+---
+
+Asimismo, para la landing page ya desplegada y accesible en [https://dosys-iot.github.io/landing/](https://dosys-iot.github.io/landing/), se estructuraron e implementaron las siguientes secciones clave:
+
+##### Sección de Inicio
+Presenta la introducción formal al ecosistema **Dosys**, posicionándolo como un santuario digital para la precisión clínica ("A Digital Sanctuary for Clinical Precision"). Destaca los pilares de confianza y claridad que sustentan la marca, ofreciendo un diseño de interfaz sofisticado pensado para la paz mental del usuario, respaldado por indicadores de confiabilidad de la infraestructura del 99.9% y soporte técnico continuo 24/7.
+
+<div align="center">
+  <img src="./imgs/sprint-1/landing-inicio.png" alt="Sección de Inicio - Landing Page Dosys" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
+  <p><i>Figura: Sección de inicio de la Landing Page.</i></p>
+</div>
+
+##### Sección de Problemática
+Aborda en profundidad los desafíos críticos actuales en la gestión de la salud y el seguimiento estricto de regímenes médicos complejos en el hogar. Justifica la necesidad del desarrollo de una solución integrada de hardware IoT y software en la nube para mitigar la omisión involuntaria de dosis y controlar los factores ambientales adversos que comprometen la efectividad de los fármacos.
+
+<div align="center">
+  <img src="./imgs/sprint-1/landing-problematica.png" alt="Sección de Problemática - Landing Page Dosys" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
+  <p><i>Figura: Sección de problemática de la Landing Page.</i></p>
+</div>
+
+<div align="center">
+  <img src="./imgs/sprint-1/landing-solucion.png" alt="Sección de Solución - Landing Page Dosys" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
+  <p><i>Figura: Sección de solución de la Landing Page.</i></p>
+</div>
+
+##### Sección de Funciones
+Muestra detalladamente las ventajas tecnológicas del ecosistema Dosys, tales como el dispensador inteligente automatizado con básculas de precisión, el monitoreo ambiental integrado (sensores de humedad y temperatura), el sistema inteligente de notificaciones adaptables y la suite de analítica avanzada de adherencia orientada a cuidadores y personal médico.
+
+<div align="center">
+  <img src="./imgs/sprint-1/landing-funciones.png" alt="Sección de Funciones - Landing Page Dosys" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
+  <p><i>Figura: Sección de funciones de la Landing Page.</i></p>
+</div>
+
+<div align="center">
+  <img src="./imgs/sprint-1/landing-flujo.png" alt="Sección de Flujo - Landing Page Dosys" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
+  <p><i>Figura: Sección de flujo de trabajo de la Landing Page.</i></p>
+</div>
+
+<div align="center">
+  <img src="./imgs/sprint-1/landing-beneficios.png" alt="Sección de Beneficios - Landing Page Dosys" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
+  <p><i>Figura: Sección de beneficios de la Landing Page.</i></p>
+</div>
+
+##### Sección de Sobre Nosotros
+Describe la visión, misión y valores del equipo multidisciplinario detrás de Dosys, enfocado en fusionar la ingeniería IoT, el diseño centrado en el usuario y el cuidado de la salud para ofrecer una experiencia médica conectada, segura y de alta precisión que impacte positivamente en la calidad de vida de los pacientes de la tercera edad o con enfermedades crónicas.
+
+<div align="center">
+  <img src="./imgs/sprint-1/landing-nosotros.png" alt="Sección de Sobre Nosotros - Landing Page Dosys" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
+  <p><i>Figura: Sección de sobre nosotros de la Landing Page.</i></p>
+</div>
+
+<div align="center">
+  <img src="./imgs/sprint-1/landing-faq.png" alt="Sección de Preguntas Frecuentes - Landing Page Dosys" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
+  <p><i>Figura: Sección de preguntas frecuentes (FAQ) de la Landing Page.</i></p>
+</div>
+
+##### Sección de Contacto
+Ofrece un formulario de contacto directo y expone los canales de comunicación y soporte para clínicas, cuidadores o distribuidores farmacéuticos interesados en la plataforma, facilitando la interacción directa con el equipo técnico y de atención al cliente.
+
+<div align="center">
+  <img src="./imgs/sprint-1/landing-contacto.png" alt="Sección de Contacto - Landing Page Dosys" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
+  <p><i>Figura: Sección de contacto de la Landing Page.</i></p>
+</div>
+
+**Video de Execution Evidence - Landing Page**
+
+<div align="center">
+  <a href="https://upcedupe-my.sharepoint.com/:v:/g/personal/u20211g671_upc_edu_pe/IQD83wPTERxqTIO7C9mV3ne-AQ5RIsv_67D8f8lolrZp25E?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=Txt6eK" target="_blank">
+    <img src="./imgs/sprint-1/video-evidence-landing.png" alt="Video de Evidencia de Ejecución Landing Page" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
+  </a>
+  <p><i>Figura: Video demostrativo de la Landing Page (Haz clic para reproducir).</i></p>
+</div>
 
 #### 6.2.1.7. Services Documentation Evidence for Sprint Review
 
@@ -3139,7 +3289,7 @@ W3C Web Accessibility Initiative. (2025). *Web accessibility for older users.* R
 | Producto | Repositorio | Despliegue |
 | :--- | :--- | :--- |
 | Organización GitHub | https://github.com/orgs/Dosys-IoT/repositories | — |
-| Landing Page | https://github.com/Dosys-IoT/landing | (Pendiente) |
+| Landing Page | https://github.com/Dosys-IoT/landing | https://dosys-iot.github.io/landing/ |
 | Frontend Web Application | https://github.com/Dosys-IoT/frontend-web | https://frontend-web-jet-seven.vercel.app |
 | Backend REST API | https://github.com/Dosys-IoT/backend | https://dosys-backend-149855215912.us-central1.run.app |
 | Edge Service | https://github.com/Dosys-IoT/edge | https://dosys-edge-149855215912.us-central1.run.app |
