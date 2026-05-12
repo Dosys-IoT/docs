@@ -2376,63 +2376,788 @@ Incluye implementaciones concretas para persistencia y sincronización en la **R
 
 # Capítulo V: Solution UI/UX Design
 
+En este capítulo se presenta el planteamiento de la propuesta de UX/UI Design para la experiencia de usuario a través de los productos digitales con los que interactúan los segmentos objetivo de Dosys (adulto mayor polimedicado, cuidador familiar y, en menor medida, el dispositivo IoT). El diseño parte del conjunto de User Stories y del Impact Map presentados en el Capítulo III, y traduce los Business Goals (ventas, adopción, adherencia y retención) en decisiones concretas de estilo, arquitectura de información, wireframes, mock-ups y prototipos. Todos los artefactos visuales de esta sección se encuentran centralizados en el archivo de Figma del equipo: [Figma — Dosys](https://www.figma.com/design/U7ZkWf3K7Tpnsx9BxFP7wY/Dosys?node-id=0-1&p=f).
+
 ## 5.1. Style Guidelines
+
+En esta sección se establece el repositorio central de assets, tipografías, colores y reglas visuales compartidas por todo el equipo. El objetivo es mantener una presentación consistente entre el Landing Page, la Web Application y la interfaz física del dispositivo IoT, reduciendo divergencias estéticas entre productos y reforzando la identidad de marca de Dosys.
+
 ### 5.1.1. General Style Guidelines
+
+**Branding.** Dosys se presenta como una marca cercana, confiable y asistencial. El nombre proviene de la contracción de *dose* + *system*, y comunica directamente la propuesta de valor: un sistema que organiza las dosis del adulto mayor. El logotipo se construye a partir de un wordmark en minúsculas y un isotipo de cápsula estilizada que evoca el formato del pastillero. La marca busca transmitir orden, claridad y serenidad, evitando elementos visuales agresivos o clínicos que puedan asociar el producto con un dispositivo médico de prescripción.
+
+**Tono de comunicación.** El equipo adoptó las siguientes dimensiones de comunicación para todos los productos digitales:
+
+| Dimensión | Posición de Dosys | Justificación |
+| :--- | :--- | :--- |
+| Divertido ←→ Serio | **Sereno / Cálido** (más cerca de serio) | Acompaña tareas de salud, requiere confianza. |
+| Formal ←→ Casual | **Cercano** (más cerca de casual) | El usuario final (60+) y el cuidador prefieren un lenguaje natural, no clínico. |
+| Respetuoso ←→ Irreverente | **Respetuoso** | Se evita el humor sobre olvidos o envejecimiento. |
+| Entusiasta ←→ Sereno | **Sereno** | El producto reduce ansiedad; el tono debe reforzar tranquilidad, no urgencia. |
+
+**Colors.** Se seleccionó una paleta basada en tonos calmados con un acento de acción claro, siguiendo principios de contraste WCAG 2.2 AA. Los colores oficiales del Design System Dosys son:
+
+| Token | HEX | Uso |
+| :--- | :--- | :--- |
+| `primary-500` | `#2F6FED` | Color principal de marca, CTA primarios, foco activo, header. |
+| `primary-700` | `#1F4FB8` | Hover y estados pressed sobre el primario. |
+| `secondary-500` | `#10B981` | Confirmación de toma, dosis tomada, estados positivos. |
+| `warning-500` | `#F59E0B` | Alertas de recarga, umbrales ambientales preventivos. |
+| `danger-500` | `#DC2626` | Dosis omitida, fuera de rango crítico, errores de validación. |
+| `neutral-900` | `#0F172A` | Texto principal sobre fondo claro. |
+| `neutral-600` | `#475569` | Texto secundario, descripciones de apoyo. |
+| `neutral-200` | `#E2E8F0` | Bordes suaves, separadores, fondos de tarjeta. |
+| `neutral-50` | `#F8FAFC` | Fondo general de la aplicación. |
+| `white` | `#FFFFFF` | Tarjetas, modales, superficies elevadas. |
+
+El contraste entre `neutral-900` sobre `neutral-50` y `white` sobre `primary-500` supera 4.5:1, suficiente para texto normal según WCAG 2.2 AA, lo que es relevante para el segmento adulto mayor con posibles limitaciones visuales (W3C Web Accessibility Initiative, 2025).
+
+**Typography.** El equipo seleccionó **Inter** como tipografía principal por su excelente legibilidad en pantallas y soporte completo de caracteres en español. La jerarquía tipográfica adoptada es:
+
+| Rol | Tamaño base (web) | Peso | Uso |
+| :--- | :--- | :--- | :--- |
+| H1 | 40 px / 2.5 rem | 700 | Hero del landing, títulos de página. |
+| H2 | 32 px / 2 rem | 600 | Secciones del landing, encabezados principales. |
+| H3 | 24 px / 1.5 rem | 600 | Subsecciones, títulos de tarjeta. |
+| Body L | 18 px / 1.125 rem | 400 | Texto principal de la web app (tamaño mínimo para legibilidad del adulto mayor). |
+| Body M | 16 px / 1 rem | 400 | Texto secundario, descripciones. |
+| Caption | 14 px / 0.875 rem | 500 | Etiquetas, metadata, timestamps. |
+
+Se evitó deliberadamente usar tamaños inferiores a 14 px para texto significativo, en línea con las recomendaciones de accesibilidad para usuarios mayores.
+
+**Spacing.** Se aplica una escala de espaciado en múltiplos de 4 px (4, 8, 12, 16, 24, 32, 48, 64) consistente con los frameworks utilizados (Tailwind / shadcn-ui). El radio de borde estándar de los elementos interactivos es 12 px para botones y 16 px para tarjetas, buscando una percepción amable y poco clínica.
+
+**Iconografía.** Se utiliza la librería **lucide-react** por su trazo uniforme de 1.5 px, su estilo neutro y su buena cobertura semántica (medicación, hora, persona, dispositivo).
+
 ### 5.1.2. Web, Mobile and IoT Style Guidelines
 
+**Web Style Guidelines.** La Web Application Dosys se construye con un enfoque **mobile-first** con breakpoints en 640 px (sm), 768 px (md) y 1024 px (lg). Los CTA primarios mantienen un tamaño mínimo de 44 × 44 px, alineado con las pautas de tamaño táctil de las HIG. La navegación principal en escritorio se ubica en un header superior fijo con avatar e ítems del menú; en mobile se colapsa en un sheet lateral activado por el icono de menú.
+
+**Mobile Style Guidelines.** Aunque la aplicación móvil nativa no forma parte del alcance entregable de la TB1, la Web App está optimizada para ser usada desde el navegador móvil del cuidador. Se respetan zonas seguras del thumb-zone para acciones primarias (parte inferior de la pantalla en mobile), y se prioriza la verticalidad de los formularios para evitar zoom no deseado en campos con `font-size` ≥ 16 px.
+
+**IoT Style Guidelines.** La interfaz física del pastillero combina cinco elementos visuales por compartimento: un anillo LED RGB con cuatro estados (apagado, ámbar pulsante para alerta activa, verde para confirmación de toma y rojo para alerta crítica), un botón mecánico de 12 mm con tapa redonda táctil, una etiqueta numérica grabada del 1 al 5, y un altavoz mono de 8 Ω para el recordatorio por voz. La interacción multimodal sigue siempre el orden: 1) voz → 2) LED → 3) confirmación por botón, lo que garantiza redundancia frente a limitaciones visuales o auditivas del usuario.
+
 ## 5.2. Information Architecture
+
+En esta sección se documentan las decisiones que dirigen la organización del contenido del Landing Page y de la Web Application Dosys, con el objetivo de que los visitantes y usuarios se adapten con facilidad y encuentren la información que necesitan sin esfuerzo cognitivo adicional.
+
 ### 5.2.1. Organization Systems
+
+| Tipo de contenido | Sistema de organización aplicado | Justificación |
+| :--- | :--- | :--- |
+| Secciones del Landing Page | **Jerárquico (visual hierarchy)** descendente: hero → beneficios → cómo funciona → precios → FAQ → contacto. | El visitante recorre la página de arriba hacia abajo y se busca llevarlo del *qué es* al *cómo lo adquiero*. |
+| Onboarding del cuidador (alta de cuenta + vinculación del dispositivo + primer tratamiento) | **Secuencial (step-by-step)** de 3 pasos. | Reduce la carga cognitiva inicial; el cuidador no puede saltar pasos. |
+| Lista de medicamentos por compartimento | **Matricial (compartimento × estado)** con vista de 5 tarjetas. | Reproduce el modelo mental del pastillero físico. |
+| Historial de adherencia | **Cronológico inverso** (más reciente primero). | El cuidador necesita saber qué pasó *hoy* y *ayer* antes que la semana pasada. |
+| Catálogo de FAQ | **Por tópicos** (Producto, Instalación, App, Soporte). | Permite escanear preguntas por área de interés. |
+
 ### 5.2.2. Labeling Systems
+
+Las etiquetas se redactaron buscando el mínimo número de palabras y un vocabulario natural, sin terminología clínica. Las principales convenciones de etiquetado adoptadas son:
+
+| Concepto del dominio | Etiqueta en UI |
+| :--- | :--- |
+| Medication Container | "Compartimento" / "Compartimento 1–5" |
+| Medication Schedule | "Tratamiento" o "Horario" según contexto |
+| Intake Record / Confirmación de toma | "Toma" |
+| Environment Reading | "Ambiente" |
+| Caregiver | "Cuidador" (rol del usuario logueado) |
+| Patient | "Paciente" o nombre del adulto mayor |
+| Device | "Pastillero" en UI de cara al usuario; "Device" sólo en panel técnico |
+
+Las CTAs siguen verbo + objeto corto: *"Agregar medicamento"*, *"Vincular pastillero"*, *"Ver historial"*. Se evita el uso de etiquetas ambiguas como *"Enviar"* o *"OK"* sin contexto.
+
 ### 5.2.3. SEO Tags and Meta Tags
+
+A continuación se especifican los SEO tags y meta tags asignados a las principales páginas. Estos valores se implementan en el `<head>` del Landing Page y en los `metadata` de Next.js de la Web App.
+
+**Landing Page — Home (`/`)**
+
+```html
+<title>Dosys — Pastillero inteligente para adultos mayores</title>
+<meta name="description" content="Dosys es un pastillero IoT con recordatorios por voz, LEDs y monitoreo de temperatura y humedad. Mejora la adherencia al tratamiento del adulto mayor en el hogar." />
+<meta name="keywords" content="pastillero inteligente, IoT, adulto mayor, adherencia medicación, recordatorio medicamentos, Perú, cuidador" />
+<meta name="author" content="Equipo Dosys — UPC" />
+<meta property="og:title" content="Dosys — Pastillero inteligente para adultos mayores" />
+<meta property="og:description" content="Recordatorios multimodales y monitoreo ambiental para tratamientos farmacológicos en casa." />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="es_PE" />
+<meta name="robots" content="index, follow" />
+```
+
+**Landing Page — Precios (`/precios`)**
+
+```html
+<title>Precios | Dosys — Pastillero inteligente</title>
+<meta name="description" content="Conoce los planes de adquisición de Dosys. Pago único, sin suscripción obligatoria." />
+<meta name="keywords" content="precio pastillero inteligente, comprar Dosys, plan Dosys" />
+```
+
+**Web Application — Dashboard (`/`)**
+
+```html
+<title>Dosys — Panel del cuidador</title>
+<meta name="description" content="Configura tratamientos, monitorea adherencia y revisa alertas ambientales de tu pastillero Dosys." />
+<meta name="robots" content="noindex, nofollow" />
+```
+
+Las rutas autenticadas se marcan con `noindex, nofollow` para evitar indexación. Para una eventual publicación de la App móvil en stores se prevén los siguientes ASO elements: **App Title:** "Dosys — Pastillero del adulto mayor"; **App subtitle:** "Recordatorios y monitoreo"; **App keywords:** pastillero, adulto mayor, medicación, IoT, cuidador, adherencia; **App description:** versión extendida del meta description del landing.
+
 ### 5.2.4. Searching Systems
+
+En esta primera versión, el volumen de información manejado por el cuidador es reducido (entre 1 y 5 medicamentos activos por paciente), por lo que no se requiere un buscador global en la Web App. Se ofrecen, en cambio, dos mecanismos de búsqueda contextual:
+
+1. **Filtros en el historial de adherencia:** rango de fechas (últimas 24 h, últimos 7 días, últimos 30 días) y estado (confirmadas / omitidas / pospuestas).
+2. **Búsqueda por nombre en el catálogo personal de medicamentos:** input de búsqueda con coincidencia parcial sin acentos.
+
+Los resultados se muestran como una lista vertical con tarjetas que repiten la estructura visual del listado completo, para evitar disonancia entre el resultado filtrado y la vista por defecto. En el Landing Page no existe búsqueda; el visitante navega exclusivamente por scroll y por anclas del menú.
+
 ### 5.2.5. Navigation Systems
 
+| Producto | Sistema de navegación | Componentes |
+| :--- | :--- | :--- |
+| Landing Page (desktop) | **Header fijo + anclas internas** | Logo + items: *Producto, Cómo funciona, Precios, FAQ, Contacto* + CTA "Iniciar sesión". |
+| Landing Page (mobile) | **Header colapsable + menú hamburguesa** | Mismos items en un sheet lateral. |
+| Web App | **Sidebar permanente (desktop) / Bottom-nav (mobile)** | *Inicio, Medicamentos, Ambiente, Historial, Perfil*. |
+| Microflujos | **Breadcrumbs + back button explícito** | Por ejemplo, `Medicamentos › Compartimento 2 › Editar`. |
+
+La navegación de la Web App refleja las rutas reales desplegadas en Vercel: `/`, `/medications`, `/medications/new`, `/medications/[containerNumber]`, `/medications/[containerNumber]/edit`, `/profile`. Esta correspondencia 1-a-1 entre Information Architecture y URLs facilita el mantenimiento y los enlaces compartidos.
+
 ## 5.3. Landing Page UI Design
+
+La propuesta de UI para el Landing Page traduce las decisiones de Style Guidelines y la arquitectura de información en una página única con secciones ancladas. La intención es comunicar de forma progresiva: primero **qué es Dosys** (hero + propuesta de valor), luego **por qué importa** (beneficios), después **cómo se usa** (cómo funciona) y finalmente **cómo adquirirlo** (precios + contacto). El diseño aplica jerarquía visual con tipografía dominante en el hero y bloques de aire generoso entre secciones para no abrumar al visitante.
+
 ### 5.3.1. Landing Page Wireframe
+
+Los wireframes del Landing Page se elaboraron en Figma utilizando una grilla de 12 columnas para desktop y 4 columnas para mobile. Se trabajaron en escala de grises para forzar al equipo a tomar decisiones de jerarquía y proximidad antes de aplicar color y estilo. Los wireframes están disponibles en el archivo de Figma del equipo: [Figma — Dosys › Landing › Wireframes](https://www.figma.com/design/U7ZkWf3K7Tpnsx9BxFP7wY/Dosys?node-id=0-1&p=f).
+
+**Desktop Web Browser (1440 px).** Estructura: header sticky → hero a dos columnas (texto + ilustración del pastillero) → 3 cards de beneficios → bloque "Cómo funciona" en 3 pasos numerados → tabla de precios con 1 plan destacado → sección de FAQ acordeón → formulario de contacto a dos columnas → footer.
+
+**Mobile Web Browser (375 px).** La misma secuencia se reorganiza en una columna vertical, con el menú colapsado en un sheet, y la ilustración del pastillero pasa por debajo del titular en lugar de a su costado.
+
+La aplicación de los principios de diseño y arquitectura de información se observa en: el contraste fuerte del hero (jerarquía visual), la agrupación de 3 beneficios homogéneos (proximidad y similitud), la numeración explícita de "Cómo funciona" (organización secuencial) y el uso de un único CTA primario por sección (reducción de carga cognitiva).
+
 ### 5.3.2. Landing Page Mock-up
 
+Sobre los wireframes aprobados se construyeron los mock-ups aplicando el Design System (colores, tipografía Inter, iconografía lucide y radios de borde 12/16 px). El mock-up del hero usa `primary-500` como fondo del CTA *"Conocer Dosys"* y un `neutral-50` general para el resto de la página, con tarjetas blancas elevadas para los bloques de beneficios. La sección "Cómo funciona" alterna fondo blanco y `neutral-50` para crear ritmo visual.
+
+Los mock-ups finales pueden visualizarse en: [Figma — Dosys › Landing › Mock-ups](https://www.figma.com/design/U7ZkWf3K7Tpnsx9BxFP7wY/Dosys?node-id=0-1&p=f). La versión desplegada del Landing Page como primera iteración pública será incluida en la sección 6.1.4 y en el repositorio correspondiente.
+
 ## 5.4. Applications UX/UI Design
+
+En esta sección se documenta la propuesta visual y de interacción para la Web Application Dosys, que en TB1 cubre los flujos de gestión de medicamentos y monitoreo ambiental por parte del cuidador. La aplicación está desplegada en `https://frontend-web-jet-seven.vercel.app` y se conecta vía REST a la API `dosys-backend` desplegada en Google Cloud Run.
+
 ### 5.4.1. Applications Wireframes
+
+Los wireframes principales de la Web App, agrupados por user goal del cuidador (Carlos Mendoza Ríos), son:
+
+1. **Login / Registro de cuenta** — Formulario centrado, dos campos + CTA primario y un enlace secundario "¿Olvidaste tu contraseña?".
+2. **Onboarding — Vinculación del pastillero** — 3 pasos: ingresar ID del dispositivo → confirmar conexión → asignar alias al paciente.
+3. **Dashboard / Inicio** — Vista resumen con próxima dosis, estado del dispositivo (online/offline) y últimas dos lecturas ambientales.
+4. **Listado de Medicamentos** — Cinco tarjetas verticales (una por compartimento) con nombre del medicamento, horario y estado.
+5. **Detalle de Compartimento** — Resumen del medicamento, horario y botón *"Editar"* / *"Eliminar"*.
+6. **Nuevo Medicamento** — Formulario en 1 pantalla: nombre + frecuencia + hora + compartimento + duración del tratamiento.
+7. **Ambiente** — Gráfico de temperatura y humedad de las últimas 24 h.
+8. **Historial de Adherencia** — Lista cronológica con filtros por rango y por estado.
+9. **Perfil** — Datos de la cuenta, paciente vinculado y configuración del dispositivo (volumen, etc.).
+
+Todos los wireframes están en Figma › Apps › Wireframes y respetan la grilla 4-col mobile / 12-col desktop, el thumb-zone para acciones primarias y la jerarquía tipográfica del Style Guide.
+
 ### 5.4.2. Applications Wireflow Diagrams
+
+A continuación se especifica un wireflow por User Goal del cuidador. Cada wireflow representa los pasos como wireframes y reflejaa los cambios de estado de pantalla. Los diagramas completos están disponibles en Figma › Apps › Wireflows.
+
+| User Goal | Resumen del wireflow |
+| :--- | :--- |
+| *"Como cuidador quiero registrar un nuevo medicamento y asignarlo a un compartimento"* | Inicio → tap "+" en Medicamentos → formulario *Nuevo Medicamento* → seleccionar compartimento libre → seleccionar hora → confirmar → vista del compartimento con el medicamento ya asignado. |
+| *"Como cuidador quiero ver el cumplimiento de la última semana"* | Inicio → tap "Historial" → filtro "Últimos 7 días" → lista de tomas con su estado (TAKEN / MISSED / SNOOZED). |
+| *"Como cuidador quiero saber si la humedad del pastillero subió hoy"* | Inicio → tap "Ambiente" → gráfico 24 h → tap en pico fuera de rango → tarjeta de detalle con timestamp y valor. |
+| *"Como cuidador quiero vincular un pastillero a mi cuenta"* | Login → Onboarding paso 1 (ID) → paso 2 (validación con backend) → paso 3 (alias) → Dashboard. |
+
+Cada wireflow se complementa en Figma con una nota textual del User Goal y una explicación del flujo.
+
 ### 5.4.2. Applications Mock-ups
+
+Los mock-ups aplican el Design System sobre los wireframes anteriores. Se reutilizan los componentes definidos en la librería compartida (Button, Input, Card, EmptyState, ScheduleCard, EnvironmentChart, StatusPill). Los estados visuales clave son:
+
+- **Empty state** — Cuando un compartimento está vacío: ilustración minimalista, texto "Compartimento libre" y CTA secundario *"Agregar medicamento"*.
+- **Loading state** — Skeleton de tarjeta con shimmer de 800 ms.
+- **Error state** — Toast `danger-500` con mensaje breve y enlace de reintento.
+- **Success state** — Toast `secondary-500` tras una acción confirmada.
+
+Los mock-ups finales están disponibles en Figma › Apps › Mock-ups.
+
 ### 5.4.3. Applications User Flow Diagrams
 
+Los User Flows son la versión consolidada de los Wireflows: incluyen los mock-ups (no sólo wireframes) y agregan rutas alternativas (unhappy paths). Por cada User Goal del segmento cuidador se elaboró un user flow en Figma con la siguiente estructura:
+
+- **Happy path** — secuencia esperada del usuario.
+- **Unhappy paths** — campos vacíos, error de red al consultar `dosys-backend`, compartimento ya ocupado, ID de dispositivo inválido al vincular, sesión expirada.
+- **Decisiones** — rombos que representan condiciones (existencia de medicamento, validez del horario, etc.).
+
+Por ejemplo, el User Flow *"Registrar nuevo medicamento"* incluye como unhappy paths: (a) intento de asignar un compartimento ya ocupado → modal de confirmación de reemplazo; (b) hora inválida (formato incorrecto) → mensaje inline en el input; (c) error 500 del backend → toast con reintento manual. Todos los User Flows están consolidados en Figma › Apps › User Flows.
+
 ## 5.5. Applications Prototyping
+
+El prototipado interactivo se realizó sobre los mock-ups en Figma utilizando el modo Prototype, con transiciones *Smart Animate* para los cambios de estado dentro de una misma vista y *Instant* para los cambios de pantalla, buscando una percepción de respuesta inmediata coherente con la baja latencia esperada del backend en Cloud Run.
+
+Las decisiones clave de interacción son:
+
+- **Navegación principal** — En desktop, click directo en el sidebar; en mobile, tap en bottom-nav con feedback visual de 150 ms (corresponde al sistema de navegación definido en 5.2.5).
+- **Confirmaciones críticas** — Acciones irreversibles (eliminar medicamento, desvincular pastillero) usan modal con doble confirmación, no toast.
+- **Feedback de toma confirmada** — Animación de check verde (`secondary-500`) de 600 ms tras presionar el botón físico, sincronizada con el cambio de estado vía MQTT (tópico `dosys/devices/{id}/intake`).
+
+El prototipo cubre los principales flujos de User Flow Diagrams. El screenshot representativo y el enlace al video de demostración del prototipo se incluirán en la sección 6.2.1.6 (Execution Evidence) y se publicarán en Microsoft Stream/Clipchamp.
+
+> **Pendiente del equipo:** subir a Microsoft Stream/Clipchamp el video de navegación del prototipo y completar aquí el screenshot + URL antes del envío final.
+
 ## 5.6. IoT Device Design
+
+El dispositivo IoT Dosys integra elementos físicos cuya disposición refleja las decisiones de arquitectura de información (compartimento como unidad básica de organización matricial) y la guía de estilos para IoT Device Physical Interfaces (5.1.2).
+
+**Principales criterios de diseño físico:**
+
+1. **Visibilidad y separación clara de los 5 compartimentos**, con un anillo LED de color por compartimento y una etiqueta grabada con el número.
+2. **Botones físicos grandes (12 mm)**, fácilmente alcanzables por una persona con motricidad fina reducida (W3C Web Accessibility Initiative, 2025).
+3. **Altavoz frontal** orientado hacia el usuario, para que el recordatorio de voz no se vea obstruido.
+4. **Indicador global de estado** (LED de conexión) en el frente del dispositivo, separado de los 5 LEDs de compartimento, para evitar confusión semántica entre "alerta de dosis" y "estado de red".
+5. **Sensores de temperatura y humedad (DHT22)** alojados internamente con ventilación lateral, no expuestos al usuario.
+
+**Diagrama de circuito (alto nivel).** El microcontrolador ESP32 actúa como cerebro y se comunica con: el sensor DHT22 (temperatura y humedad), un módulo RTC DS3231 (reloj de tiempo real para mantener la hora aunque caiga la red), un amplificador de audio + DAC para la salida por altavoz, cinco LEDs RGB en serie WS2812B (uno por compartimento) y cinco pulsadores momentáneos conectados a entradas digitales con resistencia pull-up interna del ESP32. La conexión a internet se realiza por WiFi para publicar y suscribirse a tópicos MQTT en HiveMQ Cloud (ver 6.1.4).
+
+Los diagramas físicos (vista frontal, vista superior y vista lateral) y el esquemático del circuito están elaborados en Figma › IoT › Device Design. El diagrama de comunicación MQTT entre el dispositivo y el Edge Service se documenta en la sección 6.1.4 (Software Deployment Configuration) junto con la evidencia de despliegue.
 
 # Capítulo VI: Product Implementation, Validation & Deployment
 
+En este capítulo se documenta el proceso de implementación, pruebas, despliegue y validación de la solución Dosys. La solución se compone de cuatro productos digitales que se comunican entre sí: el **Landing Page** (sitio estático informativo), el **Frontend Web Application** (panel del cuidador, Next.js), el **Backend REST API** (Spring Boot, expone los servicios del negocio sobre PostgreSQL) y el **Edge Service** (Flask + paho-mqtt, puente entre los dispositivos ESP32 vía MQTT y el Backend REST). Cada producto tiene su propio repositorio en la organización `Dosys-IoT` de GitHub. En esta primera entrega (TB1) el proceso se organizó en el **Sprint 1**, cuyo alcance abarcó las funcionalidades de presencia digital, autenticación, gestión de medicamentos y monitoreo ambiental para el cuidador.
+
 ## 6.1. Software Configuration Management
+
+En esta sección se documentan las decisiones y convenciones que el equipo Dosys aplica para mantener consistencia durante el ciclo de vida de los productos digitales: configuración del entorno de desarrollo, gestión del código fuente con GitHub + GitFlow, guía de estilo de código y configuración del despliegue.
+
 ### 6.1.1. Software Development Environment Configuration
+
+A continuación se especifican los productos de software adoptados por el equipo para cada tipo de actividad del ciclo de vida, respetando los constraints del curso.
+
+| Actividad | Producto | Propósito en el proyecto | Ruta de referencia / descarga |
+| :--- | :--- | :--- | :--- |
+| **Project Management** | Trello | Sprint Backlog y tablero Kanban (To-Do / In-Process / To-Review / Done). | https://trello.com |
+| **Project Management** | Discord | Comunicación diaria del equipo, dailies asíncronos y ceremonias Scrum. | https://discord.com |
+| **Requirements Management** | UXPressia | Elaboración de User Personas, Empathy Maps, Customer Journey Maps e Impact Maps. | https://uxpressia.com |
+| **Requirements Management** | Miro | Big Picture EventStorming y Design-Level EventStorming. | https://miro.com |
+| **Requirements Management** | LucidChart | Diagrama de EventStorming consolidado y diagramas auxiliares. | https://www.lucidchart.com |
+| **Product UX/UI Design** | Figma | Style Guidelines, wireframes, mock-ups, wireflows, user flows y prototipos interactivos. | https://www.figma.com |
+| **Software Architecture** | Structurizr | Diagramas C4 (System Landscape, Context, Container, Deployment) del sistema. | https://structurizr.com |
+| **Software Development (Backend)** | IntelliJ IDEA Ultimate | IDE principal para el desarrollo Java/Spring Boot del Backend REST API. | https://www.jetbrains.com/idea |
+| **Software Development (Frontend)** | Visual Studio Code | IDE para Next.js/TypeScript del Frontend Web y del Landing. | https://code.visualstudio.com |
+| **Software Development (Edge)** | Visual Studio Code + Python extension | IDE para el Edge Service en Python/Flask. | https://code.visualstudio.com |
+| **Software Development (IoT)** | PlatformIO sobre VS Code | IDE para el firmware del pastillero (ESP32 / C++). | https://platformio.org |
+| **Lenguajes y runtimes** | Java 21, Node.js 20 LTS, Python 3.12 | Runtimes oficiales para Backend, Frontend y Edge. | https://adoptium.net · https://nodejs.org · https://www.python.org |
+| **Build tools** | Maven 3.9, npm 10, pip 24 | Build y gestión de dependencias. | Incluidos en cada runtime. |
+| **API Testing** | Postman | Pruebas manuales de los endpoints REST y de los flujos del Edge. | https://www.postman.com |
+| **API Documentation** | SpringDoc OpenAPI (Swagger UI) | Documentación interactiva del Backend, expuesta en `/swagger-ui/index.html`. | Dependencia Maven `springdoc-openapi-starter-webmvc-ui`. |
+| **Database (cloud)** | Supabase (PostgreSQL 15) | Base de datos relacional gestionada del Backend. | https://supabase.com |
+| **MQTT Broker (cloud)** | HiveMQ Cloud (Free plan) | Broker MQTT que conecta el pastillero con el Edge Service. | https://www.hivemq.com/products/mqtt-cloud-broker |
+| **Compute (cloud)** | Google Cloud Run | Hosting serverless del Backend REST API y del Edge Service. | https://cloud.google.com/run |
+| **Compute (cloud)** | Vercel | Hosting del Landing Page y del Frontend Web Application (Next.js). | https://vercel.com |
+| **Source Code Management** | GitHub (org `Dosys-IoT`) | Repositorios, code review por Pull Requests y GitHub Actions para CI. | https://github.com/Dosys-IoT |
+| **Software Testing** | JUnit 5 + Spring Boot Test + MockMvc | Tests de integración del Backend. | Incluido en `spring-boot-starter-test`. |
+| **Software Documentation** | Markdown + GitHub | README por repositorio e informe principal de la solución. | https://www.markdownguide.org |
+
 ### 6.1.2. Source Code Management
-### 6.1.3. Source Code Style Guide & Conventions
+
+El equipo utiliza **GitHub** como sistema de control de versiones. La organización del código está distribuida en cuatro repositorios públicos bajo la organización `Dosys-IoT`, uno por producto digital, lo que facilita los despliegues independientes y la trazabilidad de los cambios:
+
+| Producto | Repositorio GitHub | Despliegue actual |
+| :--- | :--- | :--- |
+| Landing Page | https://github.com/Dosys-IoT/landing | (Pendiente de despliegue público — ver 6.1.4) |
+| Frontend Web Application | https://github.com/Dosys-IoT/frontend-web | https://frontend-web-jet-seven.vercel.app |
+| Backend REST API (Web Services) | https://github.com/Dosys-IoT/backend | https://dosys-backend-149855215912.us-central1.run.app |
+| Edge Service | https://github.com/Dosys-IoT/edge | https://dosys-edge-149855215912.us-central1.run.app |
+
+El repositorio del Backend incluye, dentro del mismo proyecto Maven, los archivos de pruebas unitarias y de integración bajo `src/test/java/com/dosys/platform/**`, en línea con la práctica recomendada por Spring Boot.
+
+**GitFlow.** El equipo adopta GitFlow (Driessen, 2010) como Workflow de control de versiones. La estructura de ramas que se aplicará durante el ciclo de vida de los repositorios es:
+
+- `main` — Rama de producción. Contiene únicamente las versiones desplegadas. Está protegida (no se permite push directo).
+- `develop` — Rama de integración. Recibe los merges de las feature branches al cerrar cada User Story.
+- `feature/<scope>-<short-description>` — Una rama por feature. Convención: `feature/medication-create-schedule`, `feature/landing-pricing-section`. Se crea desde `develop` y se mergea de vuelta vía Pull Request.
+- `release/<version>` — Rama de estabilización antes de un release. Se crea desde `develop`, sólo se aceptan fixes, y al finalizar se mergea a `main` y de vuelta a `develop`.
+- `hotfix/<short-description>` — Rama de corrección urgente sobre producción. Se crea desde `main`, se mergea a `main` y a `develop`.
+
+**Semantic Versioning.** Los releases siguen `MAJOR.MINOR.PATCH` (Preston-Werner, s.f.). La versión inicial publicada al cierre del Sprint 1 será `v0.1.0` para Backend, Edge, Frontend y Landing, marcada como Git tag en cada repositorio.
+
+**Conventional Commits.** Los mensajes de commit siguen el estándar `<type>(<scope>): <subject>` (Conventional Commits, s.f.). Los `type` permitidos son `feat`, `fix`, `chore`, `docs`, `test`, `refactor`, `style`, `perf`, `ci`, `build`. Ejemplos del repositorio Backend:
+
+```
+feat(medication): add schedule create and update endpoints
+fix(access): return 401 when token is missing
+chore: main backend logic
+test(device): cover heartbeat ingestion happy path
+```
+
+### 6.1.3. Source Code Style Guide & Coding Conventions
+
+Para todos los lenguajes de la solución se aplica nomenclatura en inglés. Las convenciones por lenguaje son:
+
+| Lenguaje / archivo | Referencia adoptada | Reglas clave |
+| :--- | :--- | :--- |
+| **Java 21** (Backend) | Google Java Style Guide | 4-space indent, `UpperCamelCase` para clases, `lowerCamelCase` para métodos y campos, paquetes en minúscula (`com.dosys.platform.medication`). Bounded contexts como paquetes raíz. |
+| **HTML / CSS** (Landing) | Google HTML/CSS Style Guide | Etiquetas en minúscula, atributos entre comillas dobles, clases en `kebab-case`. |
+| **TypeScript / React** (Frontend) | Google TypeScript Style Guide + reglas de `eslint-config-next` | `PascalCase` para componentes, `camelCase` para hooks/funciones, archivos de componentes `MyComponent.tsx`. |
+| **Tailwind CSS** | Convención utility-first, orden alfabético controlado por `prettier-plugin-tailwindcss`. | — |
+| **Python 3.12** (Edge) | PEP 8 + Black formatter | `snake_case` para funciones y variables, `PascalCase` para clases, máximo 88 caracteres por línea (default de Black). |
+| **C++ / Arduino** (Firmware ESP32) | Google C++ Style Guide (adaptado) | `snake_case` para variables, `PascalCase` para clases. |
+| **Gherkin** (`.feature` files) | Gherkin Conventions for Readable Specifications | Una capacidad por archivo, escenarios en inglés, Given-When-Then en pretérito imperfecto. |
+| **Spring Boot** | Spring Boot Features (referencia oficial) | Configuración por `application.yml` con perfiles `local`, `test` y `prod`. Inyección por constructor, no por campo. |
+
+El Backend aplica adicionalmente una organización **Hexagonal / DDD** consistente con el Capítulo IV: cada bounded context (`access`, `medication`, `device`) expone subpaquetes `domain`, `application`, `infrastructure` e `interfaces/rest`, con un paquete transversal `shared` para configuración, excepciones y seguridad.
+
 ### 6.1.4. Software Deployment Configuration
+
+A continuación se documenta la configuración real del despliegue para cada producto digital de la solución Dosys, incluyendo los pasos necesarios para llevar un commit en `main` hasta un despliegue público funcional.
+
+**Topología general (Deployment Diagram — C4 nivel 4 resumido).**
+
+```
+[ESP32 Pastillero]  --MQTT/TLS (HiveMQ Cloud)-->  [dosys-edge (Cloud Run, Flask + paho-mqtt)]
+                                                            |
+                                                            |  HTTPS internal (EDGE_SERVICE_KEY)
+                                                            v
+[Navegador del Cuidador]  --HTTPS-->  [dosys-frontend-web (Vercel, Next.js)]
+                                                            |
+                                                            |  HTTPS (JWT Bearer)
+                                                            v
+                                              [dosys-backend (Cloud Run, Spring Boot)]
+                                                            |
+                                                            |  PostgreSQL/TLS (5432)
+                                                            v
+                                              [Supabase PostgreSQL 15 — schema `public`]
+[Visitante del Landing]  --HTTPS-->  [dosys-landing (Vercel / GitHub Pages)]
+```
+
+El Deployment Diagram en versión C4 oficial se encuentra en `imgs/software-architecture/deployment-diagrams.png` (referenciado en 4.1.3.3).
+
+**1) Backend REST API (`dosys-backend`).**
+
+- Repositorio: `Dosys-IoT/backend`. Stack: Spring Boot 3.3.5, Java 21, Maven.
+- Build local: `./mvnw clean package`.
+- Deploy: Google Cloud Run, región `us-central1`, autoscaling 0–3 instancias, 1 vCPU, 512 MiB, timeout 300 s, concurrency 80. Imagen construida con Cloud Build a partir del código fuente: `gcloud run deploy dosys-backend --source . --region us-central1 --allow-unauthenticated`.
+- Imagen actual: `us-central1-docker.pkg.dev/dosys-rest-api/cloud-run-source-deploy/dosys-backend@sha256:0e379ab3c04c811dca…` (revisión `dosys-backend-00001-ksq`).
+- URL pública: https://dosys-backend-149855215912.us-central1.run.app
+- Base de datos: Supabase PostgreSQL, proyecto `Dosys`, schema `public`, migraciones aplicadas con Flyway (`V1__create_users_table.sql`, `V2__create_medication_tables.sql`, `V3__device_internal_support.sql`, `V4__allow_multiple_devices_per_user.sql`).
+
+**2) Edge Service (`dosys-edge`).**
+
+- Repositorio: `Dosys-IoT/edge`. Stack: Python 3.12, Flask 3, paho-mqtt 2, peewee, SQLite local (`edge.db`) para buffering offline.
+- Funciona como puente entre HiveMQ Cloud y el Backend: se suscribe a `dosys/devices/+/environment`, `…/intake`, `…/stock`, `…/heartbeat` y `…/config/request`, normaliza el payload y reenvía vía REST autenticado (`EDGE_SERVICE_KEY`) hacia `/api/v1/device/internal/...` del Backend.
+- Deploy: Cloud Run, región `us-central1`, dos revisiones (`dosys-edge-00001-g4b`, `dosys-edge-00002-5qt`), autoscaling 1–3, billing instance-based para mantener la suscripción MQTT activa.
+- URL pública: https://dosys-edge-149855215912.us-central1.run.app · Health check: `GET /edge/v1/health` → `{"status":"UP"}`.
+- Broker MQTT: HiveMQ Cloud (organización `Sigilo`, cluster `Free #1`), puerto 8883 TLS.
+
+**3) Frontend Web Application (`dosys-frontend-web`).**
+
+- Repositorio: `Dosys-IoT/frontend-web`. Stack: Next.js 15, React 19, TypeScript 5, Tailwind 4, shadcn-ui (Radix + lucide-react), TanStack Query, Zod.
+- Build local: `npm install && npm run build`.
+- Deploy: Vercel, framework preset Next.js, root directory `./`, variable de entorno `NEXT_PUBLIC_API_BASE_URL=https://dosys-backend-149855215912.us-central1.run.app`. Despliegue automático en cada push a `main`.
+- URL pública: https://frontend-web-jet-seven.vercel.app (dominios alternativos `frontend-web-git-main-miguels-projects-…vercel.app` y preview generados por commit).
+- Build observado: 71 líneas de log, build completado en 58 s, output prerenderizado para rutas estáticas (`/dashboard`, `/profile`) y dinámicas SSR para `/medications/[containerNumber]`.
+
+**4) Landing Page (`dosys-landing`).**
+
+- Repositorio: `Dosys-IoT/landing`. Stack previsto: HTML/CSS/JS estático (alternativamente Next.js Static Export).
+- Deploy: Vercel o GitHub Pages (a definir en Sprint 2). El Landing referencia los videos About-the-Product y About-the-Team alojados en YouTube y consume el formulario de contacto del Frontend.
+
+**Pasos resumidos del proceso de despliegue (de commit a producción).**
+
+1. El desarrollador crea una feature branch desde `develop` y abre PR contra `develop`.
+2. El PR ejecuta los checks de CI (build + tests + lint).
+3. Tras la aprobación, se mergea a `develop` y se valida en preview deploys (Vercel) o entorno de staging.
+4. Para promover a producción, `develop` se mergea a `main` vía `release/x.y.z`.
+5. El push a `main` dispara: Vercel re-deploy de Landing y Frontend; `gcloud run deploy --source .` (manual desde la CLI) para Backend y Edge.
+6. Se verifica el health check del Backend (`/actuator/health`), del Edge (`/edge/v1/health`), del Frontend (`/`) y del Landing (`/`).
 
 ## 6.2. Landing Page, Services & Applications Implementation
 
-### 6.2.X. Sprint n
-#### 6.2.X.1. Sprint Planning n
-#### 6.2.X.2. Aspect Leaders and Collaborators
-#### 6.2.X.3. Sprint Backlog n
-#### 6.2.X.4. Development Evidence for Sprint Review
-#### 6.2.X.5. Testing Suite Evidence for Sprint Review
-#### 6.2.X.6. Execution Evidence for Sprint Review
-#### 6.2.X.7. Services Documentation Evidence for Sprint Review
-#### 6.2.X.8. Software Deployment Evidence for Sprint Review
-#### 6.2.X.9. Team Collaboration Insights during Sprint
+### 6.2.1. Sprint 1
+
+En esta sección se registra el avance del Sprint 1 del proyecto Dosys, en términos de producto desplegado y trabajo colaborativo. El alcance del Sprint cubrió la primera versión del Landing Page, la primera versión del Frontend Web Application (registro, login, dashboard y gestión de medicamentos), el Backend REST API con los tres bounded contexts (Access, Medication, Device) y el Edge Service con su puente MQTT ↔ REST.
+
+#### 6.2.1.1. Sprint Planning 1
+
+La reunión de Sprint Planning del Sprint 1 se llevó a cabo de forma virtual al inicio del ciclo de implementación. A continuación se presenta el cuadro resumen.
+
+| Sprint # | Sprint 1 |
+| :--- | :--- |
+| **Sprint Planning Background** | |
+| Date | 2026-04-21 |
+| Time | 07:30 PM |
+| Location | Reunión virtual por Discord (canal `#dosys-scrum`). |
+| Prepared By | Ybañez Esquerre, Miguel Angel |
+| Attendees (to planning meeting) | Martel Zevallos, Gabriel Aristóteles / Oblitas Davila, Mariano Moises / Qqueso Rodriguez, Britney Delhy / Ybañez Esquerre, Miguel Angel / Zúñiga Murillo, Diego Sebastián |
+| **Sprint n – 1 Review Summary** | No aplica. Sprint 1 es el primer Sprint de implementación; en las semanas previas (AV1) el equipo se enfocó en Requirements Elicitation & Analysis, Requirements Specification y Solution Software Design, sin entregables de producto desplegado. |
+| **Sprint n – 1 Retrospective Summary** | No aplica. Como retrospectiva inicial, el equipo acordó: (a) mantener dailies asíncronos por Discord, (b) usar Conventional Commits desde el primer commit, (c) sincronizar el Trello al cierre de cada sesión de trabajo para evitar Work-Items huérfanos. |
+| **Sprint Goal & User Stories** | |
+| **Sprint 1 Goal** | *Our focus is on entregar la primera versión desplegada de los cuatro productos digitales de Dosys (Landing, Frontend Web, Backend REST API y Edge Service), cubriendo la presencia digital del producto y los flujos básicos del cuidador (registro, vinculación del pastillero, alta de medicamento y monitoreo ambiental). We believe it delivers a un MVP demostrable y verificable de extremo a extremo (pastillero IoT → Edge → Backend → Web App) to el equipo, al docente del curso y a los primeros usuarios del segmento Cuidador familiar. This will be confirmed when las cuatro aplicaciones están desplegadas en URLs públicas, el cuidador puede registrarse, vincular un pastillero, crear un horario y ver lecturas ambientales reales en la Web App, y el Backend documenta sus endpoints con OpenAPI accesible públicamente.* |
+| **Sprint 1 Velocity** | 38 Story Points (capacidad acordada por el equipo para 3 semanas de Sprint con 5 integrantes). |
+| **Sum of Story Points** | 38 Story Points (ver Sprint Backlog en 6.2.1.3). |
+
+#### 6.2.1.2. Aspect Leaders and Collaborators
+
+Los aspectos principales tomados en cuenta en el Sprint 1 corresponden a los bounded contexts y a los productos digitales de la solución: **Landing Page**, **Frontend Web**, **Bounded Context Access** (Backend), **Bounded Context Medication** (Backend), **Bounded Context Device** (Backend) y **Edge Service**. La matriz LACX a continuación designa para cada aspecto un líder (L), responsable de la coordinación técnica, y uno o varios colaboradores (C), encargados de tareas específicas dentro de ese aspecto.
+
+| Team Member (Last Name, First Name) | GitHub Username | Landing Page | Frontend Web | BC Access | BC Medication | BC Device | Edge Service |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| Ybañez Esquerre, Miguel Angel | Miguel080902 | C | **L** | C | C | C | C |
+| Martel Zevallos, Gabriel Aristóteles | vr700 | C | C | **L** | C | **L** | **L** |
+| Oblitas Davila, Mariano Moises | *(pendiente)* | **L** | C | C | C | C | C |
+| Qqueso Rodriguez, Britney Delhy | *(pendiente)* | C | C | C | **L** | C | C |
+| Zúñiga Murillo, Diego Sebastián | *(pendiente)* | C | C | C | C | C | C |
+
+> **Pendiente del equipo:** completar los GitHub usernames de Mariano, Britney y Diego.
+
+La organización refleja la posterior selección de tasks: el líder de cada aspecto definió el Work-Item Breakdown y los colaboradores asumieron las tareas según afinidad técnica. Por ejemplo, Miguel lidera Frontend Web (Next.js) y Gabriel lidera los bounded contexts del Backend (Java/Spring) y el Edge Service (Python/Flask), lo cual se evidencia en los commits del Sprint (sección 6.2.1.4).
+
+#### 6.2.1.3. Sprint Backlog 1
+
+El objetivo principal del Sprint 1 es habilitar el flujo end-to-end del cuidador, desde la presencia digital hasta el monitoreo ambiental en tiempo real. Esto requiere entregar simultáneamente las cuatro aplicaciones desplegadas y conectadas. El board público del Sprint en Trello se encuentra en:
+
+> **Pendiente del equipo:** publicar el board de Trello como público y pegar aquí el URL + screenshot.
+
+| Sprint # | Sprint 1 |
+| :--- | :--- |
+
+| User Story Id | User Story Title | Work-Item Id | Work-Item Title | Description | Estimation (Hours) | Assigned To | Status |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| US01 | Información del Producto | WI01 | Hero + características del Landing | Implementar hero, beneficios y "Cómo funciona" del Landing Page. | 6 | Mariano | Done |
+| US16 | Sección de Beneficios | WI02 | Testimonios y casos de uso | Sección de testimonios estática en el Landing. | 4 | Mariano | Done |
+| US20 | Visualización de Precio | WI03 | Tabla de precios | Card de precio único en el Landing. | 3 | Mariano | Done |
+| US02 | Formulario de Contacto | WI04 | Form de contacto + validación | Form con nombre, email, mensaje. | 4 | Mariano / Britney | Done |
+| US23 | Soporte Técnico (FAQ) | WI05 | FAQ acordeón | 6 preguntas frecuentes en el Landing. | 3 | Diego | Done |
+| US03 | Registro de Cuidador | WI06 | Endpoint `/api/v1/access/register` | Implementar registro con email + password en el Backend. | 5 | Gabriel | Done |
+| TS01 | API de Autenticación | WI07 | Endpoint `/api/v1/access/login` + JWT | Emisión de JWT firmado HS256. | 6 | Gabriel | Done |
+| US03 | Registro de Cuidador | WI08 | Pantallas Register / Login en el Frontend | Formularios + integración con `/access`. | 6 | Miguel | Done |
+| US21 | Recuperación de Contraseña | WI09 | UI básica "olvidé mi contraseña" | Solo UI, endpoint diferido al Sprint 2. | 2 | Miguel | To-Review |
+| US04 | Vinculación IoT | WI10 | Endpoint `/medication/devices` (POST) | Crea el device asociado al usuario logueado. | 4 | Britney | Done |
+| US04 | Vinculación IoT | WI11 | UI de vinculación en Frontend | Pantalla onboarding con código del pastillero. | 4 | Miguel | Done |
+| US05 | Registro de Medicina | WI12 | Endpoint `/devices/{id}/containers/{n}` (PUT) | Configura compartimento con medicamento. | 5 | Britney | Done |
+| US06 | Programación de Dosis | WI13 | Endpoints `/devices/{id}/schedules` (POST/PUT/DELETE) | CRUD de horarios. | 6 | Britney | Done |
+| US07 | Asignación de Compartimento | WI14 | UI 5 tarjetas de compartimentos | Vista matricial con estado por compartimento. | 5 | Miguel | Done |
+| US08 | Consulta de Adherencia | WI15 | Endpoint `/devices/{id}/adherence/calendar` | Reporte de tomas confirmadas / omitidas. | 5 | Britney | Done |
+| TS02 | API Sincronización de Calendario | WI16 | Endpoint `/device/internal/{id}/runtime-config` | Calendario de 24h para el ESP32. | 4 | Gabriel | Done |
+| US11 | Monitoreo de Humedad | WI17 | Endpoint `/device/internal/{id}/environment-readings` (POST) | Ingreso de lecturas con cálculo de riesgo. | 4 | Gabriel | Done |
+| US12 | Alerta de Temperatura | WI18 | Endpoint `/devices/{id}/environment/latest` y `/history` | Consulta de lecturas para la Web App. | 3 | Gabriel | Done |
+| US22 | Reporte de Temperatura (App) | WI19 | UI gráfico ambiente | Componente `EnvironmentChart` con últimas 24h. | 5 | Miguel | Done |
+| TS03 | Ingesta de Datos de Sensores | WI20 | Subscriber MQTT en Edge | Suscripción a `dosys/devices/+/environment` y reenvío al Backend. | 6 | Gabriel | Done |
+| TS04 | Health Check del Dispositivo | WI21 | Endpoint `/device/internal/{id}/heartbeats` + handler en Edge | Heartbeat cada 60 s. | 4 | Gabriel | Done |
+| — | — | WI22 | Deploy a Cloud Run (Backend + Edge) | Build con Cloud Build, configuración de servicios. | 5 | Gabriel | Done |
+| — | — | WI23 | Deploy a Vercel (Landing + Frontend) | Configuración de proyecto, env vars, custom domains. | 3 | Miguel | Done |
+| — | — | WI24 | Migraciones Flyway V1–V4 | Esquema inicial + soporte device internal + multi-device. | 3 | Gabriel | Done |
+
+#### 6.2.1.4. Development Evidence for Sprint Review
+
+Durante el Sprint 1 se implementaron los cuatro productos digitales desde cero. El Backend cuenta con los bounded contexts `access`, `medication` y `device` organizados en capas DDD (domain / application / infrastructure / interfaces) y un paquete `shared` para configuración y seguridad. El Frontend implementa los grupos de rutas `(auth)` y `(app)` de Next.js App Router. El Edge expone subdominios `mqtt/`, `rest/`, `services/`, `persistence/` y `schemas/`. A continuación se listan los commits relacionados con la implementación de Sprint 1 por repositorio.
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Dosys-IoT/backend | main | bedaf00 | chore: main backend logic | Estructura inicial de bounded contexts Access, Medication, Device con capas DDD; migraciones Flyway V1–V4; configuración de JWT y SpringDoc OpenAPI; controllers REST `AccessController`, `MedicationController`, `DeviceInternalController`. | 2026-05-04 |
+| Dosys-IoT/backend | main | fad2a27 | chore: api edge conection | Endpoint `/api/v1/medication/devices/{id}/edge-credentials` para entregar `EDGE_SERVICE_KEY` y `MQTT_TOPIC_PREFIX` al dispositivo registrado; ajustes en `DeviceInternalController` para aceptar `X-Edge-Service-Key`. | 2026-05-06 |
+| Dosys-IoT/edge | main | 186b6b9 | chore(feat): main app logic | Bootstrap de la aplicación Flask, configuración de paho-mqtt con TLS hacia HiveMQ Cloud, subscribers para `environment`, `intake`, `stock`, `heartbeat` y `config/request`, persistencia local con peewee/SQLite y reenvío de eventos al Backend REST. | 2026-05-06 |
+| Dosys-IoT/frontend-web | main | 7061a75 | feat: initial clinical UI scaffold | Scaffold de Next.js 15 con App Router, layouts `(auth)` y `(app)`, dashboard, medications, profile, device, alerts, insights; integración de Tailwind 4, shadcn-ui (Radix + lucide-react) y TanStack Query. | 2026-05-11 |
+| Dosys-IoT/frontend-web | main | 7b01859 | Create .env.local.example | Variable `NEXT_PUBLIC_API_BASE_URL` para apuntar al backend en Cloud Run. | 2026-05-11 |
+| Dosys-IoT/frontend-web | main | b106ff8 | feat: registration page | Pantalla de registro de cuidador conectada al endpoint `/api/v1/access/register`. | 2026-05-11 |
+
+> **Nota:** Estos son los commits actualmente presentes en `main`. Conforme se cierren los Work-Items pendientes de Sprint 1, los commits adicionales se agregarán a la tabla. Los mensajes preexistentes (`chore: main backend logic`, `Create .env.local.example`) serán reescritos en futuras feature branches para cumplir Conventional Commits estricto (`feat:`, `docs:` con scope).
+
+#### 6.2.1.5. Testing Suite Evidence for Sprint Review
+
+El Backend incluye un proyecto de pruebas en `src/test/java/com/dosys/platform/**` con tres clases de tests de integración (un total de **33 tests JUnit 5**) que ejercen los flujos completos a través de `MockMvc` contra una base de datos H2 en memoria con migraciones Flyway aplicadas. No se utiliza mocking de la capa de persistencia: cada test consulta la BD real para verificar el comportamiento end-to-end del bounded context.
+
+| Test class | Bounded context | User Stories cubiertas | Tests (nombre del método) |
+| :--- | :--- | :--- | :--- |
+| `AccessIntegrationTest` | Access | US03, TS01 | `registerSuccess`, `registerDuplicateEmail`, `loginSuccess`, `loginInvalidPassword`, `meWithValidToken`, `meWithoutToken` |
+| `MedicationIntegrationTest` | Medication | US04, US05, US06, US07, US08, US11, US12 | `createInitialDevice`, `allowMultipleDevicesForSameUser`, `listDevicesForUser`, `createFiveContainersAutomatically`, `updateContainer`, `preventNegativeRemainingPills`, `createValidSchedule`, `preventScheduleForDisabledContainer`, `listSchedules`, `deleteSchedule`, `getEmptyAdherenceCalendar`, `getLatestEnvironmentWithoutData`, `getEdgeCredentialsWithValidJwt`, `preventEdgeCredentialsFromAnotherUser` |
+| `DeviceInternalIntegrationTest` | Device | US10, US11, US13, US18, TS02, TS03, TS04 | `runtimeConfigWithValidDeviceKey`, `runtimeConfigWithValidEdgeServiceKey`, `runtimeConfigWithoutDeviceKey`, `runtimeConfigWithIncorrectDeviceKey`, `runtimeConfigWithIncorrectEdgeServiceKey`, `ingestValidIntakeEvent`, `preventIntakeDuplicateByUpsertBehavior`, `preventIntakeWithInconsistentContainer`, `rejectIntakeWithInvalidScheduleId`, `ingestEnvironmentReadingAndCalculateRisk`, `updateStock`, `preventNegativeStock`, `registerHeartbeat` |
+
+Los tests cubren tanto el **happy path** como las validaciones de seguridad y consistencia (rechazo de keys incorrectas, prevención de stock negativo, deduplicación de intake events, prevención de schedules sobre contenedores deshabilitados, etc.). Para BDD/Gherkin con archivos `.feature`, el equipo planifica su incorporación en el Sprint 2; durante el Sprint 1 se priorizaron los tests de integración por su mayor cobertura por unidad de esfuerzo en una API recién implementada.
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Dosys-IoT/backend | main | bedaf00 | chore: main backend logic | Incluye las clases `AccessIntegrationTest`, `MedicationIntegrationTest` y `DeviceInternalIntegrationTest` con 33 tests JUnit 5 sobre MockMvc + H2 + Flyway. | 2026-05-04 |
+| Dosys-IoT/backend | main | fad2a27 | chore: api edge conection | Agrega los tests `getEdgeCredentialsWithValidJwt` y `preventEdgeCredentialsFromAnotherUser` al `MedicationIntegrationTest`. | 2026-05-06 |
+
+> **Pendiente del equipo:** definir y publicar la suite de Acceptance Tests BDD para el Sprint 2; el repositorio mantendrá los `.feature` files dentro de `src/test/resources/features/`.
+
+#### 6.2.1.6. Execution Evidence for Sprint Review
+
+En el Sprint 1 se logró desplegar las cuatro aplicaciones y comprobar el flujo end-to-end: un cuidador puede registrarse, iniciar sesión, vincular un pastillero (creando el device), configurar un compartimento con medicamento y un horario, y ver la lectura ambiental más reciente reportada por el Edge. Las principales vistas implementadas y los puntos de verificación del despliegue son:
+
+- **Frontend Web — Registro / Login** (`/register`, `/login`) — comunicación con `/api/v1/access/register` y `/login`.
+- **Frontend Web — Dashboard** (`/dashboard`) — resumen con próxima dosis y estado del dispositivo.
+- **Frontend Web — Medicamentos** (`/medications`, `/medications/new`, `/medications/[containerNumber]`) — vista matricial de los 5 compartimentos.
+- **Frontend Web — Perfil** (`/profile`) — datos del cuidador y dispositivo vinculado.
+- **Backend — Swagger UI** (`/swagger-ui/index.html`) — documentación interactiva de los 17+ endpoints expuestos (ver 6.2.1.7).
+- **Edge — Health** (`/edge/v1/health`) — verificación de servicio activo y suscripción MQTT.
+
+> **Pendiente del equipo:** subir a Microsoft Stream/Clipchamp el video con la demo de navegación end-to-end (registro → vinculación → alta de medicamento → vista de ambiente) y pegar aquí: (a) un screenshot representativo del video y (b) el URL público del video.
+
+#### 6.2.1.7. Services Documentation Evidence for Sprint Review
+
+El Backend expone su documentación OpenAPI 3.0 mediante SpringDoc en `https://dosys-backend-149855215912.us-central1.run.app/swagger-ui/index.html` (especificación cruda en `/v3/api-docs`). La siguiente tabla enumera los endpoints REST documentados implementados durante el Sprint 1, agrupados por bounded context.
+
+**Bounded Context: Access** (`/api/v1/access`)
+
+| Método | Ruta | Acción | Request | Response (200) |
+| :--- | :--- | :--- | :--- | :--- |
+| POST | `/register` | Registrar nuevo cuidador. | `RegisterRequest { email, password, fullName }` | `UserResponse { id, email, fullName }` |
+| POST | `/login` | Iniciar sesión y obtener JWT. | `LoginRequest { email, password }` | `LoginResponse { token, expiresIn, user }` |
+| GET | `/me` | Obtener el usuario autenticado (Bearer JWT). | — | `UserResponse` |
+
+**Bounded Context: Medication** (`/api/v1/medication`)
+
+| Método | Ruta | Acción |
+| :--- | :--- | :--- |
+| POST | `/devices` | Crear un nuevo pastillero para el cuidador autenticado. |
+| GET | `/devices` | Listar pastilleros del cuidador. |
+| GET | `/devices/{deviceId}/containers` | Listar los 5 compartimentos del pastillero. |
+| PUT | `/devices/{deviceId}/containers/{containerNumber}` | Crear o actualizar el medicamento de un compartimento. |
+| GET | `/devices/{deviceId}/schedules` | Listar los horarios del pastillero. |
+| POST | `/devices/{deviceId}/schedules` | Crear un horario para un contenedor. |
+| PUT | `/devices/{deviceId}/schedules/{scheduleId}` | Actualizar un horario. |
+| DELETE | `/devices/{deviceId}/schedules/{scheduleId}` | Eliminar un horario. |
+| GET | `/devices/{deviceId}/adherence/calendar` | Reporte de adherencia (rango por defecto: últimos 7 días). |
+| GET | `/devices/{deviceId}/environment/latest` | Última lectura ambiental. |
+| GET | `/devices/{deviceId}/environment/history` | Historial de lecturas ambientales (rango por defecto: 24 h). |
+| GET | `/devices/{deviceId}/edge-credentials` | Entregar al ESP32 las credenciales para conectarse al Edge Service. |
+
+**Bounded Context: Device (internal)** (`/api/v1/device/internal`) — Autenticado vía `X-Device-Key` o `X-Edge-Service-Key`.
+
+| Método | Ruta | Acción |
+| :--- | :--- | :--- |
+| GET | `/{deviceId}/runtime-config` | Calendario de tomas de las próximas 24 h. |
+| POST | `/{deviceId}/intake-events` | Registrar confirmación de toma (`TAKEN`, `MISSED`, `SNOOZED`). |
+| POST | `/{deviceId}/environment-readings` | Ingresar lectura de temperatura/humedad. El Backend calcula `risk_status` (`NORMAL`/`WARNING`/`CRITICAL`). |
+| POST | `/{deviceId}/stock-events` | Actualizar `remainingPills` de un compartimento. |
+| POST | `/{deviceId}/heartbeats` | Latido del dispositivo (`rtcTime`, `wifiConnected`, `deviceStatus`). |
+
+**Ejemplo de request / response** (`POST /api/v1/device/internal/{deviceId}/environment-readings`):
+
+```http
+POST /api/v1/device/internal/1/environment-readings
+Content-Type: application/json
+X-Edge-Service-Key: <key>
+
+{
+  "temperature": 24.8,
+  "humidity": 61.5,
+  "recordedAt": "2026-05-06T20:00:00"
+}
+```
+
+```json
+HTTP/1.1 200 OK
+{
+  "id": 3,
+  "deviceId": 1,
+  "temperature": 24.8,
+  "humidity": 61.5,
+  "recordedAt": "2026-05-06T20:00:00Z",
+  "riskStatus": "NORMAL"
+}
+```
+
+A continuación se muestra la captura de la interacción real con el Swagger UI desplegado, listando los endpoints del bounded context Medication:
+
+![REST API execution — Swagger UI desplegado](imgs/deployment/backend-swagger-ui.png)
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Dosys-IoT/backend | main | bedaf00 | chore: main backend logic | Configuración de SpringDoc OpenAPI (`springdoc-openapi-starter-webmvc-ui`), anotaciones `@Operation` y `@Tag` en los tres controllers REST. | 2026-05-04 |
+| Dosys-IoT/backend | main | fad2a27 | chore: api edge conection | Documentación del endpoint `/edge-credentials` y del header `X-Edge-Service-Key` para `DeviceInternalController`. | 2026-05-06 |
+
+#### 6.2.1.8. Software Deployment Evidence for Sprint Review
+
+Durante el Sprint 1 se realizaron las siguientes actividades de despliegue:
+
+**a) Creación del proyecto en Google Cloud Platform** (`dosys-rest-api`) y configuración de Artifact Registry, Cloud Build y Cloud Run en la región `us-central1`. Habilitación de las APIs necesarias.
+
+**b) Despliegue del Backend (`dosys-backend`).** Se ejecutó `gcloud run deploy dosys-backend --source . --region us-central1 --allow-unauthenticated`. Cloud Build construyó la imagen y la publicó en Artifact Registry; Cloud Run creó la revisión `dosys-backend-00001-ksq` con autoscaling 0–3 instancias, 1 vCPU y 512 MiB.
+
+![Backend en Cloud Run — vista de Service Details](imgs/deployment/backend-cloud-run-service-details.png)
+
+![Backend — YAML de la revisión](imgs/deployment/backend-cloud-run-yaml.png)
+
+**c) Provisionamiento de la base de datos en Supabase.** Se creó el proyecto `Dosys` con cluster `DosysBackend` en la rama `main` (tag `PRODUCTION`). Las migraciones Flyway `V1__create_users_table.sql`, `V2__create_medication_tables.sql`, `V3__device_internal_support.sql` y `V4__allow_multiple_devices_per_user.sql` se aplicaron automáticamente al primer arranque del Backend, creando las tablas `users`, `devices`, `medication_containers`, `medication_schedules`, `intake_records` y `environment_readings`.
+
+![Supabase — Tablas creadas y datos de environment_readings](imgs/deployment/supabase-database-tables.png)
+
+**d) Despliegue del Edge Service (`dosys-edge`).** Se desplegó la aplicación Flask como segundo servicio de Cloud Run, con dos revisiones (`dosys-edge-00001-g4b` y `dosys-edge-00002-5qt`), billing instance-based y autoscaling 1–3. La verificación se realizó vía `GET /edge/v1/health → {"status":"UP"}`.
+
+![Edge — Deploy con gcloud desde VS Code](imgs/deployment/edge-gcloud-deploy-terminal.png)
+
+![Edge — Cloud Run con dos revisiones activas](imgs/deployment/edge-cloud-run-revisions.png)
+
+![Edge — Health check público](imgs/deployment/edge-health-check.png)
+
+**e) Configuración del broker MQTT (HiveMQ Cloud).** Se creó la organización `Sigilo` y el cluster `Free #1` (TLS, puerto 8883). Se publicaron eventos de prueba en los tópicos `dosys/devices/1/environment`, `dosys/devices/1/intake`, `dosys/devices/1/stock`, `dosys/devices/1/heartbeat` y `dosys/devices/1/config/request`, verificando la recepción por el Edge.
+
+![HiveMQ Cloud — Web Client recibiendo eventos del pastillero](imgs/deployment/hivemq-mqtt-messages.png)
+
+**f) Despliegue del Frontend en Vercel.** Se conectó el repositorio `Dosys-IoT/frontend-web`, framework preset Next.js, root `./`, variable `NEXT_PUBLIC_API_BASE_URL` apuntando al backend en Cloud Run. La build pasó exitosamente (58 s) y se generaron los dominios productivos y de preview.
+
+![Vercel — Configuración del proyecto Frontend Web](imgs/deployment/vercel-frontend-project-config.jpg)
+
+![Vercel — Deployment Details con dominios y estado Ready](imgs/deployment/vercel-frontend-deployment-details.jpg)
+
+![Vercel — Build logs y prerender de rutas](imgs/deployment/vercel-frontend-build-logs.jpg)
+
+**g) Despliegue del Landing Page.** El repositorio `Dosys-IoT/landing` se preparó dentro del Sprint 1 con la primera versión del contenido informativo. El despliegue público se realizará desde Vercel siguiendo la misma configuración del Frontend.
+
+> **Pendiente del equipo:** confirmar el dominio público del Landing una vez desplegado y agregar el screenshot de la build en esta subsección.
+
+#### 6.2.1.9. Team Collaboration Insights during Sprint
+
+Las actividades de implementación del Sprint 1 se desarrollaron de forma distribuida entre los cinco integrantes, con dailies asíncronos por Discord y sesiones síncronas semanales para integración cruzada de los productos. La distribución observada en los commits a la fecha es:
+
+- **Gabriel Martel (`vr700`)** — Lidera Backend (BC Access, BC Medication, BC Device) y Edge Service. Commits visibles: `bedaf00 chore: main backend logic` y `fad2a27 chore: api edge conection` en `Dosys-IoT/backend`, `186b6b9 chore(feat): main app logic` en `Dosys-IoT/edge`.
+- **Miguel Ybañez (`Miguel080902`)** — Lidera Frontend Web Application. Commits visibles: `7061a75 feat: initial clinical UI scaffold`, `7b01859 Create .env.local.example`, `b106ff8 feat: registration page` en `Dosys-IoT/frontend-web`.
+- **Mariano Oblitas** — Lidera Landing Page. Trabajos integrados localmente; commits pendientes de push al repositorio `Dosys-IoT/landing`.
+- **Britney Qqueso** — Colabora en BC Medication, especialmente en el modelado de `medication_containers` y `medication_schedules` y la cobertura de tests asociada.
+- **Diego Zúñiga** — Colabora en el Landing Page (sección FAQ) y en QA exploratorio de los endpoints del Backend con Postman.
+
+**Interpretación.** La concentración de commits en pocos autores se debe a (a) la estrategia explícita de "un líder por aspecto" definida en la matriz LACX, y (b) que durante las primeras semanas del Sprint el trabajo de varios miembros se canalizó mediante pair-programming sobre el equipo del autor del commit. Para el Sprint 2 el equipo acordó: (i) abrir Pull Requests individuales por feature aunque el código sea trabajado en pareja, lo que permitirá reflejar mejor la contribución colaborativa en los analíticos de GitHub; (ii) habilitar el branch protection sobre `main` para forzar el flujo vía `develop` y PR.
+
+> **Pendiente del equipo:** insertar aquí los screenshots de las pestañas **Insights › Contributors** de cada repo (`backend`, `edge`, `frontend-web`, `landing`) con el gráfico de commits por autor del Sprint 1.
 
 ## 6.3. Validation Interviews
+
+*Sección reservada para AV2/TB2. En esta entrega TB1 no se realizan entrevistas de validación de los productos digitales desplegados; las entrevistas de descubrimiento y needfinding ya fueron registradas en 2.2.*
+
 ### 6.3.1. Diseño de Entrevistas
+
+> **Pendiente:** se elaborará durante el Sprint 2, una vez que la versión desplegada cubra el flujo del paciente (botón físico + LED) y permita una prueba multimodal con usuarios reales del segmento adulto mayor.
+
 ### 6.3.2. Registro de Entrevistas
+
+> **Pendiente AV2/TB2.**
+
 ### 6.3.3. Evaluaciones según heurísticas
 
+> **Pendiente AV2/TB2** — Se aplicará el formato de evaluación heurística del Anexo D del documento del curso.
+
 ## 6.4. Video About-the-Product
+
+> **Pendiente AV2/TB2.** Para esta entrega TB1 se prioriza la evidencia de despliegue (6.2.1.8) y el primer prototipo navegable (5.5). El Video About-the-Product se elaborará una vez se cierre el Sprint 2 y se cuente con un flujo demostrable con testimonio positivo de un usuario del segmento Cuidador.
 
 # Conclusiones
 
 ## Conclusiones y recomendaciones
+
+**Sobre los Problem Statements.** Los dos Problem Statements definidos en 1.2.2.1 se han abordado parcialmente en esta primera iteración. Para el Problem Statement 1 (adultos mayores con tratamientos crónicos), el equipo entregó la infraestructura de configuración multimodal: el cuidador ya puede registrar medicamentos, asignar compartimentos y programar horarios desde la Web App, y el ESP32 cuenta con el endpoint `runtime-config` para sincronizar las próximas 24 h de tomas. La validación final del recordatorio multimodal (voz + LED + botón) y de la mejora en adherencia con usuarios reales queda como hipótesis a probar en el Sprint 2 a través de pruebas con pacientes del segmento. Para el Problem Statement 2 (familiares y cuidadores), el monitoreo remoto ya está operativo: el cuidador puede ver lecturas de temperatura y humedad reales transportadas vía MQTT → Edge → Backend → Web App, lo cual habilita la próxima etapa de validar la reducción de carga de supervisión percibida.
+
+**Sobre los Assumptions.** De los 11 Business Assumptions y 6 dimensiones de User Assumptions de 1.2.2.2, los más cercanos a la validación al cierre de TB1 son: (a) la viabilidad técnica de un dispositivo multimodal conectado a una app por API REST con monitoreo ambiental incluido, hoy demostrada por el end-to-end MQTT → Edge → Backend → Frontend; (b) la receptividad de los cuidadores hacia una experiencia simple de configuración por compartimento, parcialmente validada por la propuesta de UI matricial 1-a-1 con el pastillero físico. Las assumptions sobre canales de adquisición, modelo de precios y resistencia tecnológica del adulto mayor permanecen como riesgos vivos para validar en TB2.
+
+**Sobre los Hypotheses Statements.** El Hypothesis 1 (≥ 80 % de dosis confirmadas a tiempo) y el Hypothesis 2 (reducción del 70 % en preocupación percibida del cuidador) requieren la prueba en producción con el dispositivo físico y un panel de usuarios; al cierre de TB1 ambos están desbloqueados técnicamente. El Hypothesis 3 (alertas ambientales antes del umbral crítico) está validado a nivel funcional: el Backend calcula `risk_status` en la ingesta de `environment-readings` y la Web App muestra el historial de 24 h. El Hypothesis 4 (avisos anticipados de recarga / compra) cuenta con el endpoint `stock-events` ingresando datos en la tabla `medication_containers.remainingPills`, pero la lógica de alerta proactiva (push al cuidador) se traslada al Sprint 2.
+
+**Sobre los Lean UX success criteria.** El criterio de éxito de la entrega TB1 era contar con la primera versión desplegada de Landing, Frontend, Backend y Edge, conectados de extremo a extremo. Este criterio se cumple: las URLs públicas están operativas y el flujo del cuidador es funcional. El siguiente criterio (adherencia medible en uso real) se validará en TB2.
+
+**Recomendaciones / Roadmap.**
+
+1. **Sprint 2 — Cierre del flujo del paciente.** Implementar firmware ESP32 con WS2812B, DHT22, RTC DS3231, audio, botones y conexión MQTT TLS hacia HiveMQ. Implementar el front-end del estado de tomas en tiempo real con suscripción WebSocket o long-polling al `adherence/calendar`.
+2. **Sprint 2 — Notificaciones push.** Integrar Firebase Cloud Messaging para entregar los eventos de `MISSED`, `WARNING`/`CRITICAL` ambientales y `low stock` al cuidador.
+3. **Sprint 2 — Acceptance Tests BDD.** Incorporar Cucumber JVM al Backend y `.feature` files por User Story para complementar los 33 tests de integración existentes.
+4. **Sprint 3 — Validación con usuarios reales.** Coordinar 3–5 entrevistas de validación por segmento (cuidador y paciente) siguiendo el formato heurístico del Anexo D del curso.
+5. **Producto.** Evaluar la conveniencia de un modelo freemium para la Web App (versión básica gratuita + reportes avanzados de adherencia con suscripción) tal como se discutió en el Lean UX Canvas (1.2.2.4).
+6. **Operación.** Habilitar branch protection sobre `main` en los cuatro repos y activar GitHub Actions para CI (build + tests del Backend, build de Next.js, lint + type-check del Frontend).
+
 ## Video About-the-Team
+
+En el Video About-the-Team el equipo Dosys presenta el proceso de trabajo de las primeras siete semanas del proyecto, desde la conformación de la startup, el Lean UX Process y el descubrimiento con entrevistas, hasta la entrega del MVP desplegado al cierre del Sprint 1. La pauta de secuencias propuesta es:
+
+| Tiempo (hh:mm:ss) | Sección |
+| :--- | :--- |
+| 00:00:00 | Intro y presentación de la marca Dosys. |
+| 00:00:30 | Presentación de los 5 integrantes (rol, ciclo, expectativas). |
+| 00:02:00 | Problema, segmentos objetivo y Lean UX. |
+| 00:04:00 | Solución: Landing, Web App, Backend, Edge y pastillero IoT. |
+| 00:06:00 | Demostración del despliegue end-to-end (con voice over). |
+| 00:08:00 | Testimonio en cámara de cada participante: actividades realizadas, outcomes alcanzados y competencias desarrolladas. |
+| 00:12:00 | Cierre, agradecimientos y roadmap. |
+
+> **Pendientes a completar antes de la entrega final:**
+> - URL del video publicado en Microsoft Stream/Clipchamp.
+> - URL del video publicado en YouTube (para embed en el Landing).
+> - Cuadro de video representativo (screenshot) insertado aquí.
 
 # Bibliografía
 
+Checchi, K. D., Huybrechts, K. F., Avorn, J., & Kesselheim, A. S. (2014). Electronic medication packaging devices and medication adherence: A systematic review. *JAMA, 312*(12), 1237–1247. https://doi.org/10.1001/jama.2014.10059
+
+Conventional Commits. (s.f.). *Conventional Commits 1.0.0.* Recuperado de https://www.conventionalcommits.org/en/v1.0.0/
+
+Cutler, R. L., Fernandez-Llimos, F., Frommer, M., Benrimoj, C., & Garcia-Cardenas, V. (2025). Economic and clinical impact of medication nonadherence: An updated narrative review. *Patient Preference and Adherence, 19*, 121–141.
+
+Driessen, V. (2010). *A successful Git branching model.* Recuperado de https://nvie.com/posts/a-successful-git-branching-model/
+
+Gherkin Conventions for Readable Specifications. (s.f.). *Cucumber Documentation — Gherkin Reference.* Recuperado de https://cucumber.io/docs/gherkin/reference/
+
+Gothelf, J., & Seiden, J. (2021). *Lean UX: Designing great products with agile teams* (3rd ed.). O'Reilly Media.
+
+Google. (s.f.). *Google HTML/CSS Style Guide.* Recuperado de https://google.github.io/styleguide/htmlcssguide.html
+
+Google. (s.f.). *Google Java Style Guide.* Recuperado de https://google.github.io/styleguide/javaguide.html
+
+Google. (s.f.). *Google TypeScript Style Guide.* Recuperado de https://google.github.io/styleguide/tsguide.html
+
+Instituto Nacional de Estadística e Informática. (2023). *Perú: Encuesta Demográfica y de Salud Familiar — ENDES 2022.* INEI.
+
+Instituto Nacional de Estadística e Informática. (2024). *Situación de la población adulta mayor — Informe Técnico Trimestral.* INEI.
+
+Pazan, F., & Wehling, M. (2021). Polypharmacy in older adults: A narrative review of definitions, epidemiology and consequences. *European Geriatric Medicine, 12*(3), 443–452. https://doi.org/10.1007/s41999-021-00479-3
+
+Preston-Werner, T. (s.f.). *Semantic Versioning 2.0.0.* Recuperado de https://semver.org/
+
+Scrum.org. (s.f.). *The Scrum Guide.* Recuperado de https://scrumguides.org/
+
+Spring. (s.f.). *Spring Boot Features.* Recuperado de https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/
+
+U.S. National Library of Medicine. (s.f.). *MedlinePlus — Storing your medicines.* Recuperado de https://medlineplus.gov/ency/patientinstructions/000534.htm
+
+Vervloet, M., Linn, A. J., van Weert, J. C. M., de Bakker, D. H., Bouvy, M. L., & van Dijk, L. (2012). The effectiveness of interventions using electronic reminders to improve adherence to chronic medication: A systematic review of the literature. *Journal of the American Medical Informatics Association, 19*(5), 696–704.
+
+Walsh, C. A., Cahir, C., Tecklenborg, S., Byrne, C., Domegan, L., & Bennett, K. (2019). The association between medication non-adherence and adverse health outcomes in ageing populations: A systematic review and meta-analysis. *British Journal of Clinical Pharmacology, 85*(11), 2464–2478. https://doi.org/10.1111/bcp.14075
+
+World Health Organization. (2003). *Adherence to long-term therapies: Evidence for action.* WHO Press.
+
+W3C Web Accessibility Initiative. (2025). *Web accessibility for older users.* Recuperado de https://www.w3.org/WAI/older-users/
+
 # Anexos
+
+## Anexo A. Repositorios del proyecto
+
+| Producto | Repositorio | Despliegue |
+| :--- | :--- | :--- |
+| Organización GitHub | https://github.com/orgs/Dosys-IoT/repositories | — |
+| Landing Page | https://github.com/Dosys-IoT/landing | (Pendiente) |
+| Frontend Web Application | https://github.com/Dosys-IoT/frontend-web | https://frontend-web-jet-seven.vercel.app |
+| Backend REST API | https://github.com/Dosys-IoT/backend | https://dosys-backend-149855215912.us-central1.run.app |
+| Edge Service | https://github.com/Dosys-IoT/edge | https://dosys-edge-149855215912.us-central1.run.app |
+
+## Anexo B. Diseño en Figma
+
+Archivo de diseño completo (Style Guidelines, Information Architecture, Wireframes, Mock-ups, Wireflows, User Flows, Prototipo del Landing y de la Web App, IoT Device Design): [Figma — Dosys](https://www.figma.com/design/U7ZkWf3K7Tpnsx9BxFP7wY/Dosys?node-id=0-1&p=f).
+
+## Anexo C. Documentación del API
+
+- Swagger UI desplegado: https://dosys-backend-149855215912.us-central1.run.app/swagger-ui/index.html
+- Especificación OpenAPI cruda: https://dosys-backend-149855215912.us-central1.run.app/v3/api-docs
+- Edge health check: https://dosys-edge-149855215912.us-central1.run.app/edge/v1/health
+
+## Anexo D. Videos de Exposiciones
+
+| Entrega | Título del video | URL Microsoft Stream/Clipchamp |
+| :--- | :--- | :--- |
+| AV1 | Exposición AV1 — Capítulos I a IV | *(Pendiente de pegar)* |
+| TB1 | Exposición TB1 — Capítulos V y VI, Sprint 1 | *(Pendiente de pegar)* |
+
+> Esta relación se irá expandiendo con cada entrega del proyecto (AV2, TB2).
