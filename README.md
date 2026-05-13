@@ -28,10 +28,18 @@
 
 # Registro de versiones del informe
 
-| Versión | Fecha | Autores | Descripción |
+| Versión | Fecha | Autor | Descripción de modificación |
 | :---- | :---- | :---- | :---- |
-| AV1 | 27/04/2026 | Miguel Ybañez, Mariano Oblitas, Britney Qqueso, Diego Zúñiga y Gabriel Martel | Carátula, Registro de Versiones del Informe, Project Report Collaboration Insights, Tabla de Contenidos, Student Outcome, Capítulo I: Introducción, Capítulo II: Requirements Elicitation & Analysis, Capítulo III: Requirements Specification, Capítulo IV: Solution Software Design, avance de Conclusiones, Bibliografía y Anexos. |
-| TB1 | 12/05/2026 | Miguel Ybañez, Mariano Oblitas, Britney Qqueso, Diego Zúñiga y Gabriel Martel | Versión corregida y mejorada del informe. Se actualizó el Registro de Versiones, Project Report Collaboration Insights y Student Outcome. Además, se documentó la implementación y despliegue de la primera versión del Landing Page en GitHub Pages, el Frontend Web Application en Vercel, el Backend REST API y el Edge Service, junto con el Capítulo V: Solution UI/UX Design y el Capítulo VI: Product Implementation, Validation & Deployment con 6.1 y 6.2.1 Sprint 1, más Conclusiones, Bibliografía y Anexos. |
+| AV1 | 27/04/2026 | Martel Zevallos, Gabriel Aristóteles | Se aportó al diseño arquitectónico inicial de la solución, especialmente en la perspectiva técnica del sistema IoT, la definición de componentes vinculados al dispositivo y la coherencia general de la propuesta técnica inicial. |
+| AV1 | 27/04/2026 | Oblitas Davila, Mariano Moises | Se desarrolló el modelado de datos y el análisis técnico preliminar durante las fases de Requirements Elicitation & Analysis y Requirements Specification, aportando a la construcción de los Capítulos II y III. |
+| AV1 | 27/04/2026 | Qqueso Rodriguez, Britney Delhy | Se guió el proceso de obtención y análisis de requisitos, seleccionando técnicas para organizar la información del dominio y aportando a la construcción de los artefactos de Requirements Elicitation & Analysis. |
+| AV1 | 27/04/2026 | Ybañez Esquerre, Miguel Angel | Se desarrolló el diseño lógico de software, incluyendo diagramas de componentes y flujos técnicos correspondientes al Capítulo IV: Solution Software Design. |
+| AV1 | 27/04/2026 | Zúñiga Murillo, Diego Sebastián | Se consolidó el informe técnico de la entrega AV1, incorporando carátula, registro de versiones, Project Report Collaboration Insights, tabla de contenidos, Student Outcome, conclusiones preliminares, bibliografía y anexos, además de la revisión de calidad previa a la entrega. |
+| TB1 | 12/05/2026 | Martel Zevallos, Gabriel Aristóteles | Se actualizó el informe con aportes al Capítulo V: Solution UI/UX Design, especialmente en la organización de la experiencia de usuario, criterios visuales, accesibilidad y coherencia entre los flujos del cuidador, el adulto mayor y el dispositivo IoT. |
+| TB1 | 12/05/2026 | Oblitas Davila, Mariano Moises | Se documentó la implementación técnica del Backend REST API y del Edge Service, incluyendo la arquitectura del servidor, endpoints principales, integración con el dispositivo IoT y comunicación entre Edge API, Backend y Frontend Web. |
+| TB1 | 12/05/2026 | Qqueso Rodriguez, Britney Delhy | Se documentó el desarrollo, implementación y despliegue de la primera versión del Landing Page mediante GitHub Pages, así como su relación con la propuesta de valor de Dosys y la validación funcional de flujos IoT. |
+| TB1 | 12/05/2026 | Ybañez Esquerre, Miguel Angel | Se documentó el desarrollo y despliegue del Frontend Web Application en Vercel, incluyendo la estructura de vistas, el consumo de endpoints del Backend REST API y el flujo principal del cuidador. |
+| TB1 | 12/05/2026 | Zúñiga Murillo, Diego Sebastián | Se actualizó la versión corregida y mejorada del informe para TB1, incorporando mejoras en Project Report Collaboration Insights, Student Outcome, Capítulo VI: Product Implementation, Validation & Deployment, 6.1 Software Configuration Management, 6.2.1 Sprint 1, evidencias de Sprint Review, conclusiones, bibliografía y anexos. |
 
 # Project Report Collaboration Insights
 
@@ -412,6 +420,22 @@ Características:
 * Valoran interacciones simples, visibles y fáciles de comprender.
 * Pueden presentar dificultades visuales, auditivas, motoras o de memoria que afectan el seguimiento del tratamiento.
 * Se benefician de recordatorios multimodales, como voz, luz y botones físicos. (W3C Web Accessibility Initiative, 2025).
+
+#### **Familiares y cuidadores de adultos mayores polimedicados**
+
+Este es el segundo segmento objetivo de Dosys. Incluye a familiares, cuidadores informales y cuidadores responsables de acompañar a adultos mayores que siguen tratamientos farmacológicos crónicos o toman varios medicamentos al día. Este segmento no interactúa necesariamente con el dispositivo físico como usuario principal, pero sí cumple un rol clave en la configuración del tratamiento, supervisión del cumplimiento, revisión de alertas y toma de decisiones relacionadas con la reposición de medicamentos.
+
+Los familiares y cuidadores suelen asumir la responsabilidad de organizar horarios, preparar pastilleros, llamar al adulto mayor, verificar si tomó sus dosis y responder ante olvidos o confusiones. Esta carga se vuelve más compleja cuando el cuidador no vive con la persona adulta mayor, trabaja durante el día o comparte la responsabilidad del cuidado con otros familiares. En ese contexto, Dosys permite reducir la incertidumbre mediante monitoreo remoto, notificaciones, historial de tomas, alertas ambientales y avisos de recarga.
+
+Características:
+
+* Supervisan o apoyan el tratamiento farmacológico de un adulto mayor.
+* Pueden vivir con el adulto mayor o realizar seguimiento a distancia.
+* Necesitan visibilidad clara sobre dosis tomadas, dosis omitidas y estado del dispositivo.
+* Valoran herramientas que reduzcan la carga mental asociada al cuidado diario.
+* Requieren notificaciones oportunas ante eventos críticos, como olvidos, baja cantidad de pastillas, desconexión del dispositivo o condiciones ambientales inadecuadas.
+* Buscan una aplicación simple para configurar medicamentos, horarios, compartimentos y alertas sin depender de procesos técnicos complejos.
+* Pueden actuar como decisores de compra, ya que buscan soluciones que les brinden tranquilidad, trazabilidad y mayor control sobre la rutina de medicación del adulto mayor.
 
 # Capítulo II: Requirements Elicitation & Analysis
 
@@ -1093,6 +1117,11 @@ El empathy map de Carlos expone la carga mental del cuidador remoto: preocupaci�
 - Los dolores identificados en ambos empathy maps se alinean directamente con los cuatro Hypothesis Statements del Lean UX, confirmando que las hipótesis del producto apuntan a necesidades reales y no a suposiciones del equipo.
 
 ## 2.4. Big Picture EventStorming
+
+![EventStorm 1](<imgs/EventStorm 1.png>)
+![EventStorm 2](<imgs/EventStorm 2.png>)
+
+
 ## 2.5. Ubiquitous Language
 
 El siguiente glosario define los términos clave utilizados de manera consistente por todo el equipo de desarrollo de Dosys, tanto en la comunicación interna como en el código fuente, la documentación y la interfaz del producto. Su propósito es eliminar ambigüedades entre los dominios de salud, IoT y cuidado del adulto mayor.
@@ -3406,7 +3435,7 @@ Archivo de diseño completo (Style Guidelines, Information Architecture, Wirefra
 
 | Entrega | Título del video | URL Microsoft Stream/Clipchamp |
 | :--- | :--- | :--- |
-| AV1 | Exposición AV1 — Capítulos I a IV | *(Pendiente de pegar)* |
-| TB1 | Exposición TB1 — Capítulos V y VI, Sprint 1 | *(Pendiente de pegar)* |
+| AV1 | Exposición AV1 — Capítulos I a IV | *https://upcedupe-my.sharepoint.com/:v:/g/personal/u202310222_upc_edu_pe/IQA9g4vp0kjfToT0WWrbxWQtAQHWAiKIGYvqAzQoCZiYnjI?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=H6Bs6a* |
+| TB1 | Exposición TB1 — Capítulos V y VI, Sprint 1 | *https://upcedupe-my.sharepoint.com/:v:/g/personal/u202310222_upc_edu_pe/IQCkkEh8wIgDSIBoQb1theeAAfYdVKOJxJsDr6GsjTpch-g?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=jmHmhZ* |
 
 > Esta relación se irá expandiendo con cada entrega del proyecto (AV2, TB2).
