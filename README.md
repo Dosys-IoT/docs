@@ -1035,28 +1035,74 @@ Las tareas que presentan alta frecuencia y alta importancia en ambos segmentos s
 - **Verificar que se tomó la dosis correspondiente:** Es de alta importancia para el cuidador. Dosys la resuelve con el registro de confirmaciones y notificaciones remotas de dosis omitidas.
 - **Organizar los medicamentos en un pastillero:** Tarea que recae principalmente en el cuidador. Dosys la simplifica con cinco compartimentos diferenciados y configuración guiada desde la aplicación.
 
+
+
 ### 2.3.3. User Journey Mapping
 
-A partir de las User Personas definidas en la sección 2.3.1, se elaboraron dos User Journey Maps con la herramienta UXPressia para describir el recorrido esperado (TO-BE) de cada segmento objetivo al interactuar con la solución Dosys. A diferencia de los Empathy Maps de la sección 2.3.4 —que capturan el estado actual (AS-IS) de los usuarios antes de adoptar el producto—, estos journey maps representan la experiencia completa que Dosys se compromete a entregar a lo largo de cinco etapas del ciclo de vida: **Aware** (descubrimiento), **Join** (incorporación), **Use** (uso cotidiano), **Develop** (consolidación del uso) y **Leave** (cierre o renovación). En cada etapa se documentan los objetivos del usuario, los canales y procesos a través de los cuales interactúa, los problemas que puede encontrar, su experiencia emocional y las oportunidades de mejora identificadas.
+A partir de las User Personas definidas en la sección 2.3.1, se elaboraron User Journey Maps con la herramienta UXPressia para describir el recorrido de cada segmento objetivo frente a la gestión de medicamentos. Esta sección incorpora tres niveles de análisis para cada persona: primero, el **Journey Map general** ya elaborado en UXPressia; segundo, el **AS-IS Journey Map**, que representa la situación actual antes de adoptar Dosys; y tercero, el **TO-BE Journey Map**, que representa la experiencia esperada al interactuar con la solución.
+
+El uso de mapas AS-IS permite identificar las fricciones reales que viven los usuarios antes de contar con el producto, como olvidos, inseguridad, falta de trazabilidad y dependencia de recordatorios manuales. Por otro lado, los mapas TO-BE permiten visualizar cómo Dosys transforma esa experiencia mediante alertas multimodales, confirmación física de tomas, monitoreo remoto, control de stock y coordinación entre el adulto mayor y su cuidador.
 
 **User Journey Map 1 — Rosa Jiménez Vargas (Adulto Mayor Polimedicado)**
 
 <img src="imgs/journey-maps/journey_map_rosa_jimenez.png" alt="User Journey Map - Rosa Jiménez Vargas" title="Journey Map del Adulto Mayor Polimedicado" width="900"/>
 
-El journey map de Rosa muestra una curva emocional que parte de la **curiosidad cauta** en AWARE, desciende al punto más bajo de **ansiedad y abrumamiento** en JOIN —cuando debe aceptar un dispositivo tecnológico en su rutina diaria— y asciende progresivamente hasta alcanzar su pico de **orgullo y empoderamiento** en DEVELOP, cuando ha consolidado una rutina autónoma de adherencia. Este patrón evidencia que el momento crítico del diseño es la etapa JOIN: el onboarding del adulto mayor debe ser multimodal, guiado por voz, y siempre acompañado por el cuidador. La curva también confirma que el objetivo final del producto para S1 no es solo técnico (tomar la dosis) sino emocional: restaurar la sensación de autonomía que la polifarmacia había erosionado.
+El journey map general de Rosa Jiménez Vargas representa la experiencia completa que Dosys busca entregar a una adulta mayor polimedicada a lo largo de cinco etapas del ciclo de vida: **Aware** (descubrimiento), **Join** (incorporación), **Use** (uso cotidiano), **Develop** (consolidación del uso) y **Leave** (cierre o renovación). En este recorrido se identifican los objetivos, canales, procesos, problemas, emociones y oportunidades asociadas a la adopción del dispositivo.
+
+La curva emocional de Rosa parte de la **curiosidad cauta** en AWARE, desciende al punto más bajo de **ansiedad y abrumamiento** en JOIN —cuando debe aceptar un dispositivo tecnológico dentro de su rutina diaria— y asciende progresivamente hasta alcanzar su pico de **orgullo y empoderamiento** en DEVELOP, cuando ha consolidado una rutina autónoma de adherencia. Este patrón evidencia que el momento crítico del diseño es la etapa JOIN: el onboarding del adulto mayor debe ser multimodal, guiado por voz y acompañado por el cuidador.
+
+**AS-IS User Journey Map 1 — Rosa Jiménez Vargas (Adulto Mayor Polimedicado)**
+
+<img src="imgs/journey-maps/as_is_journey_map_rosa_jimenez.png" alt="AS-IS User Journey Map - Rosa Jiménez Vargas" title="AS-IS Journey Map del Adulto Mayor Polimedicado" width="900"/>
+
+El AS-IS Journey Map de Rosa representa la situación actual de una adulta mayor que gestiona su medicación sin una solución IoT de apoyo. Su recorrido depende de la memoria, recetas físicas, cajas de medicamentos, notas, alarmas genéricas y ayuda ocasional de familiares. Esta experiencia genera inseguridad porque no existe una confirmación objetiva de la toma ni una guía clara que indique qué medicamento corresponde en cada horario.
+
+El mayor problema se presenta al identificar el medicamento correcto y recordar si la dosis ya fue tomada. Esta situación incrementa el riesgo de omisión, duplicación o confusión entre medicamentos similares. Por ello, el principal hallazgo para el segmento S1 es que la solución no debe limitarse a emitir recordatorios, sino que debe guiar físicamente la acción mediante señales claras, como luz LED, voz y botón de confirmación.
+
+**TO-BE User Journey Map 1 — Rosa Jiménez Vargas (Adulto Mayor Polimedicado)**
+
+<img src="imgs/journey-maps/to_be_journey_map_rosa_jimenez.png" alt="TO-BE User Journey Map - Rosa Jiménez Vargas" title="TO-BE Journey Map del Adulto Mayor Polimedicado" width="900"/>
+
+El TO-BE Journey Map de Rosa representa la experiencia esperada cuando la adulta mayor incorpora Dosys en su rutina diaria. En este escenario, el dispositivo actúa como una guía física de adherencia terapéutica: emite alertas de voz, ilumina el compartimento correcto, permite confirmar la toma con un botón y reduce la incertidumbre sobre si una dosis fue tomada o no.
+
+Este recorrido evidencia que Dosys debe permitir que Rosa mantenga autonomía sin exigirle el uso constante de una aplicación móvil. La interacción principal debe ocurrir desde el dispositivo físico, con instrucciones simples, señales visibles y retroalimentación inmediata. El objetivo del producto para este segmento no es solo técnico, sino también emocional: reducir la ansiedad asociada a la polifarmacia y restaurar la sensación de control sobre su propio tratamiento.
 
 **User Journey Map 2 — Carlos Mendoza Ríos (Cuidador Familiar)**
 
 <img src="imgs/journey-maps/journey_map_carlos_mendoza.png" alt="User Journey Map - Carlos Mendoza Ríos" title="Journey Map del Cuidador Familiar" width="900"/>
 
-El journey map de Carlos dibuja una curva emocional distinta a la de Rosa: el punto más bajo se encuentra en JOIN —cuando enfrenta la complejidad técnica del setup inicial— y el pico se alcanza en DEVELOP, cuando puede compartir la responsabilidad del cuidado con otros familiares y dejar de sentirse solo en la gestión de la salud de su madre. Esto revela que para el segmento S2 la promesa de valor no se completa únicamente con el monitoreo remoto (USE) sino con la **coordinación familiar distribuida** (DEVELOP): Dosys no solo reduce la carga operativa, sino también la carga emocional del cuidador. La etapa JOIN es nuevamente el momento crítico, pero por razones opuestas a las de Rosa: aquí el riesgo no es la ansiedad emocional sino el abandono por fricción técnica, lo cual valida la prioridad de invertir en un onboarding guiado con escaneo de recetas.
+El journey map general de Carlos Mendoza Ríos representa la experiencia completa del cuidador familiar al adoptar Dosys como herramienta de supervisión remota. A diferencia de Rosa, Carlos no se relaciona principalmente con el dispositivo físico, sino con la aplicación y con los datos que esta le permite consultar para validar adherencia, stock y alertas relevantes.
 
-**Hallazgos clave del contraste entre ambos journey maps:**
+La curva emocional de Carlos tiene su punto más bajo en JOIN, cuando enfrenta la complejidad técnica del setup inicial. El pico se alcanza en DEVELOP, cuando puede compartir la responsabilidad del cuidado con otros familiares y dejar de sentirse solo en la gestión de la salud de su madre. Esto revela que para el segmento S2 la promesa de valor no se completa únicamente con el monitoreo remoto en USE, sino con la **coordinación familiar distribuida** en DEVELOP.
 
-- Ambas curvas emocionales tienen su **punto más bajo en JOIN**, pero por motivos distintos: Rosa siente ansiedad emocional ante la adopción tecnológica, mientras Carlos experimenta fricción operativa durante la configuración. Esto confirma que la etapa de incorporación es el mayor riesgo de abandono del producto y justifica invertir en un onboarding dual: guiado por voz para S1 y asistido por IA (escaneo de recetas) para S2.
-- El **pico emocional de ambas personas se alcanza en DEVELOP**, no en USE. Esto significa que el valor percibido de Dosys no se consolida con la primera toma exitosa, sino cuando el producto se integra a una rutina sostenible: para Rosa como fuente de empoderamiento personal, para Carlos como plataforma de coordinación familiar. El diseño debe priorizar features que refuercen esta etapa: reportes semanales, roles compartidos y mensajes motivacionales.
-- La etapa **LEAVE se interpreta de forma asimétrica** entre ambos segmentos: para Rosa es el cierre natural de un tratamiento médico, mientras que para Carlos es una decisión comercial sobre la suscripción. Esta diferencia no es una inconsistencia del modelo, sino un reflejo fiel de cómo cada persona se relaciona con el producto —Rosa con el hardware físico y sus ciclos clínicos, Carlos con el servicio digital y su modelo de negocio— y obliga al equipo a diseñar dos experiencias de cierre distintas.
-- Los canales identificados confirman la **estrategia de marketing dual** establecida en el análisis competitivo: Rosa es alcanzada por canales tradicionales y presenciales (folletos, farmacias, demos en casa), mientras Carlos responde a canales digitales (redes sociales, podcasts, landing page con testimonios verificados).
+**AS-IS User Journey Map 2 — Carlos Mendoza Ríos (Cuidador Familiar)**
+
+<img src="imgs/journey-maps/as_is_journey_map_carlos_mendoza.png" alt="AS-IS User Journey Map - Carlos Mendoza Ríos" title="AS-IS Journey Map del Cuidador Familiar" width="900"/>
+
+El AS-IS Journey Map de Carlos representa la experiencia actual de un familiar o cuidador que supervisa la medicación de un adulto mayor sin visibilidad remota ni trazabilidad digital. En este escenario, Carlos debe organizar medicamentos, recordar horarios, llamar o escribir al adulto mayor, verificar verbalmente si tomó la dosis y revisar físicamente el stock cuando realiza una visita.
+
+Este recorrido evidencia una carga operativa y emocional constante. Carlos no solo debe recordar la rutina de otra persona, sino también comprobar manualmente si se cumplió. La falta de datos en tiempo real genera incertidumbre, especialmente cuando el adulto mayor no responde llamadas, olvida informar una toma o no puede explicar con claridad qué medicamento consumió.
+
+El principal hallazgo para el segmento S2 es que el problema no se limita a organizar el tratamiento, sino a la ausencia de evidencia confiable. El cuidador necesita saber si la toma ocurrió, si hubo omisiones, si queda stock suficiente y si el entorno de almacenamiento es adecuado. Esta necesidad justifica el diseño de una aplicación con dashboard, alertas, historial de adherencia y monitoreo del dispositivo.
+
+**TO-BE User Journey Map 2 — Carlos Mendoza Ríos (Cuidador Familiar)**
+
+<img src="imgs/journey-maps/to_be_journey_map_carlos_mendoza.png" alt="TO-BE User Journey Map - Carlos Mendoza Ríos" title="TO-BE Journey Map del Cuidador Familiar" width="900"/>
+
+El TO-BE Journey Map de Carlos representa la experiencia esperada cuando el cuidador utiliza Dosys para configurar tratamientos, monitorear adherencia y recibir información remota sobre el estado del adulto mayor. En este escenario, Carlos deja de depender exclusivamente de llamadas, mensajes o visitas presenciales, y pasa a contar con una plataforma digital que centraliza la gestión del tratamiento.
+
+Este recorrido evidencia que Dosys reduce tanto la carga operativa como la carga emocional del cuidador. La aplicación permite registrar medicamentos, asociarlos a compartimentos, configurar horarios, consultar tomas confirmadas, revisar omisiones, monitorear stock y recibir alertas relevantes. La etapa JOIN sigue siendo crítica, pero por una razón distinta a la de Rosa: aquí el riesgo no es la ansiedad emocional ante el dispositivo, sino el abandono por fricción técnica durante la configuración inicial. Por ello, el onboarding del cuidador debe ser claro, guiado y orientado a completar rápidamente la primera configuración funcional del dispositivo.
+
+**Hallazgos clave del contraste entre AS-IS y TO-BE**
+
+El contraste entre los mapas AS-IS y TO-BE evidencia que Dosys debe resolver dos tipos de fricción: la fricción cognitiva del adulto mayor y la fricción operativa del cuidador. En el caso de Rosa, el problema actual se concentra en recordar, identificar y confirmar correctamente cada dosis. En el caso de Carlos, el problema se concentra en supervisar a distancia, verificar el cumplimiento y coordinar responsabilidades sin depender de llamadas constantes o visitas presenciales.
+
+En ambos segmentos, la etapa de incorporación es el mayor punto de riesgo. Para Rosa, JOIN representa ansiedad ante la adopción de un dispositivo nuevo; para Carlos, JOIN representa fricción técnica al configurar medicamentos, horarios y compartimentos. Por ello, el onboarding debe diseñarse como una experiencia dual: simple, física y guiada por voz para el adulto mayor; clara, estructurada y asistida desde la aplicación para el cuidador.
+
+El pico de valor en ambos recorridos no aparece durante el primer uso, sino cuando Dosys se integra a una rutina sostenible. Para Rosa, esto se traduce en mayor autonomía y tranquilidad. Para Carlos, se traduce en menor carga mental, mayor visibilidad remota y posibilidad de compartir la responsabilidad con otros familiares. Esto confirma que la solución no debe limitarse a emitir recordatorios, sino también registrar eventos, generar confianza y sostener una rutina familiar de cuidado.
+
+Finalmente, los mapas confirman que Dosys requiere una experiencia conectada entre hardware, aplicación y servicios backend. El dispositivo físico debe ser comprensible para el adulto mayor; la aplicación debe ser útil para el cuidador; y la arquitectura técnica debe garantizar sincronización, trazabilidad y disponibilidad de la información necesaria para ambos segmentos.
+
 
 ### 2.3.4. Empathy Mapping
 
