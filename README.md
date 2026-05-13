@@ -275,7 +275,7 @@ ABET – EAC - Student Outcome 5: La capacidad de funcionar efectivamente en un 
 * [Bibliografía](#bibliografía)
 * [Anexos](#anexos)
 
-# Capítulo I: Presentación
+# Capítulo I: Introducción
 
 ## 1.1. Startup Profile
 
