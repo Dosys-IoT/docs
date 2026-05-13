@@ -64,7 +64,7 @@ Figura: Historial de commits realizados para la construcción y consolidación d
 
 Durante la entrega TB1, el equipo corrigió y amplió los artefactos previamente presentados, actualizó el Registro de Versiones, el Student Outcome y el Project Report Collaboration Insights, e incorporó el Capítulo V: Solution UI/UX Design y el Capítulo VI: Product Implementation, Validation & Deployment.
 
-La organización del trabajo se alineó con el Sprint 1. Mariano Oblitas asumió el liderazgo técnico del Backend REST API y del Edge Service, trabajando sobre los bounded contexts Access, Medication y Device, además de la integración entre el dispositivo IoT, el Edge Service y el Backend REST API. Miguel Ybañez lideró el desarrollo del Frontend Web Application, definiendo la estructura de vistas, la integración con los endpoints del Backend y el flujo principal del cuidador. Gabriel Martel,colaboró en el diseño UI/UX y en el modelado funcional del bounded context Medication, especialmente en las secciones relacionadas con compartimentos, horarios y adherencia. Britney Qqueso lideró el desarrollo y despliegue del Landing Page, asegurando que la primera versión pública estuviera disponible mediante GitHub Pages, y colaboró en la validación funcional de los flujos IoT.. Diego Zúñiga coordinó la planificación del Sprint 1, la revisión de calidad del informe y la actualización de evidencias para el Sprint Review.
+La organización del trabajo se alineó con el Sprint 1. Mariano Oblitas asumió el liderazgo técnico del Backend REST API y del Edge Service, trabajando sobre los bounded contexts Access, Medication y Device, además de la integración entre el dispositivo IoT, el Edge Service y el Backend REST API. Miguel Ybañez lideró el desarrollo del Frontend Web Application, definiendo la estructura de vistas, la integración con los endpoints del Backend y el flujo principal del cuidador. Gabriel Martel,colaboró en el diseño UI/UX. Britney Qqueso lideró el desarrollo y despliegue del Landing Page, asegurando que la primera versión pública estuviera disponible mediante GitHub Pages, y colaboró en la validación funcional de los flujos IoT.. Diego Zúñiga coordinó la planificación del Sprint 1, la revisión de calidad del informe y la actualización de evidencias para el Sprint Review.
 
 La colaboración en TB1 fortaleció el modelo de co-liderazgo iniciado en AV1. Cada integrante asumió una vertical técnica o documental, mientras que las decisiones de integración fueron revisadas en conjunto para mantener coherencia entre el informe, los repositorios de código fuente y las evidencias de despliegue.
 
@@ -287,9 +287,8 @@ Dosys no busca reemplazar la supervisión médica ni verificar la ingesta real d
 | **Habilidades:** Mi nombre es Diego Sebastián Zúñiga Murillo, tengo 21 años y actualmente curso el séptimo ciclo de la carrera de Ingeniería de Software en la Universidad Peruana de Ciencias Aplicadas. Me considero una persona puntual, participativa y responsable, con una fuerte pasión por la tecnología y el aprendizaje constante. En mi tiempo libre disfruto de escuchar música, lo que me ayuda a relajarme y mantener el equilibrio entre mis estudios y mi vida personal. Como estudiante, me comprometo a aportar activamente en el desarrollo de este proyecto, contribuyendo con creatividad, iniciativa y habilidades de liderazgo. Confío en que, trabajando en equipo y manteniendo una comunicación constante, lograremos resultados destacados que reflejan nuestro esfuerzo y compromiso. |   |
 
 | Nombre: Martel Zevallos, Gabriel Aristóteles  | <img src="imgs/team/gabriel.jpg" alt="Gabriel" title="Foto de Gabriel" width="320"/> |
-| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------- |
+| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |-------------------- |
 | **Código:** U202121584
-|     |
 | **Carrera:** Ingeniería de Software |       |
 | **Habilidades:** Integrante del equipo Dosys. Participa en las actividades de investigación, análisis y construcción de la solución IoT, contribuyendo al trabajo colaborativo del proyecto. |      |
 
@@ -2737,7 +2736,7 @@ El equipo utiliza **GitHub** como sistema de control de versiones. La organizaci
 
 | Producto | Repositorio GitHub | Despliegue actual |
 | :--- | :--- | :--- |
-| Landing Page | https://github.com/Dosys-IoT/landing | (Pendiente de despliegue público — ver 6.1.4) |
+| Landing Page | https://github.com/Dosys-IoT/landing | https://dosys-iot.github.io/landing/ |
 | Frontend Web Application | https://github.com/Dosys-IoT/frontend-web | https://frontend-web-jet-seven.vercel.app |
 | Backend REST API (Web Services) | https://github.com/Dosys-IoT/backend | https://dosys-backend-149855215912.us-central1.run.app |
 | Edge Service | https://github.com/Dosys-IoT/edge | https://dosys-edge-149855215912.us-central1.run.app |
@@ -2868,25 +2867,9 @@ La reunión de Sprint Planning del Sprint 1 se llevó a cabo de forma virtual al
 | **Sprint n – 1 Retrospective Summary** | No aplica. Como retrospectiva inicial, el equipo acordó: (a) mantener dailies asíncronos por Discord, (b) usar Conventional Commits desde el primer commit, (c) sincronizar el Trello al cierre de cada sesión de trabajo para evitar Work Items huérfanos y (d) asignar líderes por aspecto para evitar duplicidad de responsabilidades. |
 | **Sprint Goal & User Stories** | |
 | **Sprint 1 Goal** | *Our focus is on entregar la primera versión desplegada de los cuatro productos digitales de Dosys: Landing Page, Frontend Web Application, Backend REST API y Edge Service. El Sprint cubre la presencia digital del producto, los flujos básicos del cuidador, la configuración inicial de medicamentos, la exposición de endpoints documentados y la validación inicial del flujo IoT mediante Edge Service. We believe it delivers un MVP demostrable y verificable de extremo a extremo, desde la presentación pública del producto hasta la integración técnica entre dispositivo, Edge, Backend y Web App. This will be confirmed when el Landing Page esté publicado en GitHub Pages, el Frontend Web esté desplegado en Vercel, el Backend REST API exponga sus endpoints documentados y el Edge Service pueda comunicarse con el Backend para registrar eventos o consultar configuración operativa.* |
-| **Sprint 1 Velocity** | 38 Story Points (capacidad acordada por el equipo para 3 semanas de Sprint con 5 integrantes). |
+| **Sprint 1 Velocity** | 38 Story Points (capacidad acordada por el equipo para 3 semanas de Sprint con 5 integrantes). 131 horas |
 | **Sum of Story Points** | 38 Story Points (ver Sprint Backlog en 6.2.1.3). |
 
-La reunión de Sprint Planning del Sprint 1 se llevó a cabo de forma virtual al inicio del ciclo de implementación. A continuación se presenta el cuadro resumen.
-
-| Sprint # | Sprint 1 |
-| :--- | :--- |
-| **Sprint Planning Background** | |
-| Date | 2026-04-21 |
-| Time | 07:30 PM |
-| Location | Reunión virtual por Discord (canal `#dosys-scrum`). |
-| Prepared By | Ybañez Esquerre, Miguel Angel |
-| Attendees (to planning meeting) | Martel Zevallos, Gabriel Aristóteles / Oblitas Davila, Mariano Moises / Qqueso Rodriguez, Britney Delhy / Ybañez Esquerre, Miguel Angel / Zúñiga Murillo, Diego Sebastián |
-| **Sprint n – 1 Review Summary** | No aplica. Sprint 1 es el primer Sprint de implementación; en las semanas previas (AV1) el equipo se enfocó en Requirements Elicitation & Analysis, Requirements Specification y Solution Software Design, sin entregables de producto desplegado. |
-| **Sprint n – 1 Retrospective Summary** | No aplica. Como retrospectiva inicial, el equipo acordó: (a) mantener dailies asíncronos por Discord, (b) usar Conventional Commits desde el primer commit, (c) sincronizar el Trello al cierre de cada sesión de trabajo para evitar Work-Items huérfanos. |
-| **Sprint Goal & User Stories** | |
-| **Sprint 1 Goal** | *Our focus is on entregar la primera versión desplegada de los cuatro productos digitales de Dosys (Landing, Frontend Web, Backend REST API y Edge Service), cubriendo la presencia digital del producto y los flujos básicos del cuidador (registro, vinculación del pastillero, alta de medicamento y monitoreo ambiental). We believe it delivers a un MVP demostrable y verificable de extremo a extremo (pastillero IoT → Edge → Backend → Web App) to el equipo, al docente del curso y a los primeros usuarios del segmento Cuidador familiar. This will be confirmed when las cuatro aplicaciones están desplegadas en URLs públicas, el cuidador puede registrarse, vincular un pastillero, crear un horario y ver lecturas ambientales reales en la Web App, y el Backend documenta sus endpoints con OpenAPI accesible públicamente.* |
-| **Sprint 1 Velocity** | 38 Story Points (capacidad acordada por el equipo para 3 semanas de Sprint con 5 integrantes). |
-| **Sum of Story Points** | 38 Story Points (ver Sprint Backlog en 6.2.1.3). |
 
 
 
