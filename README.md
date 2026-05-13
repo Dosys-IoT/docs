@@ -33,6 +33,60 @@
 | TB1 | 12/05/2026 | Miguel Ybañez Mariano Oblitas Britney Qqueso Diego Soto Gabriel Martel | Versión corregida y mejorada de lo anterior, actualización de Registro de Versiones del Informe, Project Report Collaboration Insights y Student Outcome, implementación y despliegue de la primera versión del Landing Page, Backend y Frontend Web Applications, además de Capítulo V: Solution UI/UX Design y Capítulo VI: Product Implementation, Validation & Deployment con 6.1 y 6.2.1 Sprint 1, más Conclusiones, Bibliografía y Anexos |
 
 
+# Project Report Collaboration Insights
+
+El informe del proyecto Dosys se desarrolla colaborativamente en el repositorio público de documentación de la organización Dosys-IoT en GitHub.
+
+**Repositorio del Project Report:**  
+[https://github.com/Dosys-IoT/docs](https://github.com/Dosys-IoT/docs)
+
+El archivo principal del informe es `README.md`, siguiendo la estructura solicitada para el curso. El equipo utiliza GitHub como medio de control de versiones, registrando los cambios relevantes mediante commits asociados a las entregas AV1 y TB1. La colaboración del equipo se organizó en función de las responsabilidades asumidas por cada integrante en las actividades de investigación, diseño, documentación técnica, implementación y revisión de calidad.
+
+## AV1 Collaboration Insights
+
+Durante la entrega AV1, el equipo concentró su trabajo en la construcción de los artefactos base del informe: carátula, registro de versiones, tabla de contenidos, Student Outcome, Capítulo I, Capítulo II, Capítulo III, Capítulo IV, conclusiones preliminares, bibliografía y anexos.
+
+La colaboración se distribuyó según las fortalezas técnicas de cada integrante. Gabriel Martel lideró el diseño arquitectónico inicial de la solución, especialmente la perspectiva mobile y los componentes técnicos vinculados al sistema. Mariano Oblitas lideró el modelado de datos y el análisis técnico preliminar durante las fases de Requirements Elicitation & Analysis y Requirements Specification. Britney Qqueso guió el proceso de obtención y análisis de requisitos, seleccionando técnicas adecuadas para organizar la información del dominio. Miguel Ybañez asumió el diseño lógico de software, modelando diagramas de componentes y flujos técnicos. Diego Zúñiga actuó como Team Leader, consolidando el informe técnico y realizando revisiones de calidad antes de la entrega.
+
+Esta dinámica permitió establecer un modelo de liderazgo distribuido. En lugar de concentrar todas las decisiones en un solo integrante, cada miembro asumió la responsabilidad de una sección crítica del informe y colaboró en la revisión cruzada de los artefactos producidos por los demás.
+
+**Evidencia de colaboración AV1:**  
+![GitHub Contributors — AV1](imgs/collaboration/docs-contributors-av1.png)
+
+Figura: Analíticos de colaboración del repositorio `Dosys-IoT/docs` durante la preparación de la entrega AV1.
+
+**Evidencia de commits AV1:**  
+![GitHub Commits — AV1](imgs/collaboration/docs-commits-av1.png)
+
+Figura: Historial de commits realizados para la construcción y consolidación del informe en la entrega AV1.
+
+## TB1 Collaboration Insights
+
+Durante la entrega TB1, el equipo corrigió y amplió los artefactos previamente presentados, actualizó el Registro de Versiones, el Student Outcome y el Project Report Collaboration Insights, e incorporó el Capítulo V: Solution UI/UX Design y el Capítulo VI: Product Implementation, Validation & Deployment.
+
+La organización del trabajo se alineó con el Sprint 1. Gabriel Martel asumió liderazgo técnico en Backend y Edge Service, trabajando sobre los bounded contexts Access, Medication y Device, además de la integración entre el dispositivo IoT, el Edge Service y el Backend REST API. Mariano Oblitas lideró el desarrollo y despliegue de la Landing Page, asegurando que la primera versión pública estuviera disponible mediante GitHub Pages. Miguel Ybañez lideró el desarrollo del Frontend Web Application, definiendo la estructura de vistas, la integración con los endpoints del Backend y el flujo principal del cuidador. Britney Qqueso colaboró en el diseño UI/UX y en el modelado funcional del bounded context Medication, especialmente en las secciones relacionadas con compartimentos, horarios y adherencia. Diego Zúñiga coordinó la planificación del Sprint 1, la revisión de calidad del informe y la actualización de evidencias para el Sprint Review.
+
+La colaboración en TB1 fortaleció el modelo de co-liderazgo iniciado en AV1. Cada integrante asumió una vertical técnica o documental, mientras que las decisiones de integración fueron revisadas en conjunto para mantener coherencia entre el informe, los repositorios de código fuente y las evidencias de despliegue.
+
+**Evidencia de colaboración TB1:**  
+![GitHub Contributors — TB1](imgs/collaboration/docs-contributors-tb1.png)
+
+Figura: Analíticos de colaboración del repositorio `Dosys-IoT/docs` durante la preparación de la entrega TB1.
+
+**Evidencia de commits TB1:**  
+![GitHub Commits — TB1](imgs/collaboration/docs-commits-tb1.png)
+
+Figura: Historial de commits realizados para la actualización del informe, incorporación del Capítulo V, incorporación del Capítulo VI y consolidación de evidencias de Sprint 1.
+
+## Interpretación de la colaboración
+
+Los analíticos de GitHub evidencian que el informe fue construido de manera progresiva y colaborativa. La participación del equipo no se limitó a la redacción individual de secciones, sino que incluyó revisión cruzada, consolidación de artefactos, corrección de observaciones y actualización de evidencias técnicas.
+
+La distribución de responsabilidades fue coherente con el Student Outcome del curso, ya que el equipo proporcionó liderazgo conjunto, creó un entorno colaborativo, estableció objetivos por entrega, planificó tareas en el Sprint 1 y cumplió con los objetivos principales de TB1: contar con la primera versión desplegada del Landing Page, Frontend Web Application, Backend REST API y Edge Service.
+
+Para las siguientes entregas, el equipo reforzará la trazabilidad de colaboración mediante Pull Requests por feature, mayor granularidad en los commits individuales y capturas actualizadas de los analíticos de GitHub en cada repositorio.
+
+
 # Student Outcome
 
 El curso contribuye al cumplimiento del Student Outcome ABET:
