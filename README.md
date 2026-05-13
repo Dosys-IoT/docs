@@ -2640,7 +2640,7 @@ La aplicación de los principios de diseño y arquitectura de información se ob
 
 Sobre los wireframes aprobados se construyeron los mock-ups aplicando el Design System (colores, tipografía Inter, iconografía lucide y radios de borde 12/16 px). El mock-up del hero usa `primary-500` como fondo del CTA *"Conocer Dosys"* y un `neutral-50` general para el resto de la página, con tarjetas blancas elevadas para los bloques de beneficios. La sección "Cómo funciona" alterna fondo blanco y `neutral-50` para crear ritmo visual.
 
-Los mock-ups finales pueden visualizarse en: [Figma — Dosys › Landing › Mock-ups](https://www.figma.com/design/U7ZkWf3K7Tpnsx9BxFP7wY/Dosys?node-id=0-1&p=f). La versión desplegada del Landing Page como primera iteración pública será incluida en la sección 6.1.4 y en el repositorio correspondiente.
+Los mock-ups finales pueden visualizarse en: [Figma — Dosys › Landing › Mock-ups](https://www.figma.com/design/U7ZkWf3K7Tpnsx9BxFP7wY/Dosys?node-id=0-1&p=f). La primera versión pública del Landing Page se encuentra desplegada mediante GitHub Pages y está disponible en: [https://dosys-iot.github.io/landing/](https://dosys-iot.github.io/landing/). Esta versión implementa la propuesta visual definida en los mock-ups y funciona como punto de entrada informativo para los visitantes del producto.
 
 ## 5.4. Applications UX/UI Design
 
@@ -2758,7 +2758,8 @@ A continuación se especifican los productos de software adoptados por el equipo
 | **Database (cloud)** | Supabase (PostgreSQL 15) | Base de datos relacional gestionada del Backend. | https://supabase.com |
 | **MQTT Broker (cloud)** | HiveMQ Cloud (Free plan) | Broker MQTT que conecta el pastillero con el Edge Service. | https://www.hivemq.com/products/mqtt-cloud-broker |
 | **Compute (cloud)** | Google Cloud Run | Hosting serverless del Backend REST API y del Edge Service. | https://cloud.google.com/run |
-| **Compute (cloud)** | Vercel | Hosting del Landing Page y del Frontend Web Application (Next.js). | https://vercel.com |
+| **Compute (cloud)** | Vercel | Hosting del Frontend Web Application (Next.js). | https://vercel.com |
+| **Static Hosting** | GitHub Pages | Hosting del Landing Page.  Despliegue público del Landing Page estático. | https://dosys-iot.github.io/landing/ |
 | **Source Code Management** | GitHub (org `Dosys-IoT`) | Repositorios, code review por Pull Requests y GitHub Actions para CI. | https://github.com/Dosys-IoT |
 | **Software Testing** | JUnit 5 + Spring Boot Test + MockMvc | Tests de integración del Backend. | Incluido en `spring-boot-starter-test`. |
 | **Software Documentation** | Markdown + GitHub | README por repositorio e informe principal de la solución. | https://www.markdownguide.org |
@@ -2832,7 +2833,7 @@ A continuación se documenta la configuración real del despliegue para cada pro
                                                             |  PostgreSQL/TLS (5432)
                                                             v
                                               [Supabase PostgreSQL 15 — schema `public`]
-[Visitante del Landing]  --HTTPS-->  [dosys-landing (Vercel / GitHub Pages)]
+[Visitante del Landing] --HTTPS--> [dosys-landing (GitHub Pages, HTML5 + CSS3 + JavaScript)]
 ```
 
 El Deployment Diagram en versión C4 oficial se encuentra en `imgs/software-architecture/deployment-diagrams.png` (referenciado en 4.1.3.3).
@@ -2873,7 +2874,7 @@ El Deployment Diagram en versión C4 oficial se encuentra en `imgs/software-arch
 2. El PR ejecuta los checks de CI (build + tests + lint).
 3. Tras la aprobación, se mergea a `develop` y se valida en preview deploys (Vercel) o entorno de staging.
 4. Para promover a producción, `develop` se mergea a `main` vía `release/x.y.z`.
-5. El push a `main` dispara: Vercel re-deploy de Landing y Frontend; `gcloud run deploy --source .` (manual desde la CLI) para Backend y Edge.
+5. El push a `main` dispara: GitHub Pages para el Landing Page, Vercel re-deploy para el Frontend Web Application y despliegue manual con `gcloud run deploy --source .` para Backend y Edge.
 6. Se verifica el health check del Backend (`/actuator/health`), del Edge (`/edge/v1/health`), del Frontend (`/`) y del Landing (`/`).
 
 ## 6.2. Landing Page, Services & Applications Implementation
@@ -2952,7 +2953,7 @@ El objetivo principal del Sprint 1 es habilitar el flujo end-to-end del cuidador
 | TS03 | Ingesta de Datos de Sensores | WI20 | Subscriber MQTT en Edge | Suscripción a `dosys/devices/+/environment` y reenvío al Backend. | 6 | Gabriel | Done |
 | TS04 | Health Check del Dispositivo | WI21 | Endpoint `/device/internal/{id}/heartbeats` + handler en Edge | Heartbeat cada 60 s. | 4 | Gabriel | Done |
 | — | — | WI22 | Deploy a Cloud Run (Backend + Edge) | Build con Cloud Build, configuración de servicios. | 5 | Gabriel | Done |
-| — | — | WI23 | Deploy a Vercel (Landing + Frontend) | Configuración de proyecto, env vars, custom domains. | 3 | Miguel | Done |
+| — | — | WI23 | Deploy Landing + Frontend | Configuración de GitHub Pages para Landing Page y Vercel para Frontend Web Application. | 3 | Miguel / Britney | Done |
 | — | — | WI24 | Migraciones Flyway V1–V4 | Esquema inicial + soporte device internal + multi-device. | 3 | Gabriel | Done |
 
 #### 6.2.1.4. Development Evidence for Sprint Review
@@ -3262,9 +3263,21 @@ Durante el Sprint 1 se realizaron las siguientes actividades de despliegue:
 
 ![Vercel — Build logs y prerender de rutas](imgs/deployment/vercel-frontend-build-logs.jpg)
 
-**g) Despliegue del Landing Page.** El repositorio `Dosys-IoT/landing` se preparó dentro del Sprint 1 con la primera versión del contenido informativo. El despliegue público se realizará desde Vercel siguiendo la misma configuración del Frontend.
+**g) Despliegue del Landing Page en GitHub Pages.**  
+El repositorio `Dosys-IoT/landing` fue configurado para desplegar la primera versión pública del Landing Page mediante GitHub Pages. Esta versión utiliza HTML5, CSS3 y JavaScript Vanilla, e incluye las secciones informativas principales del producto: Inicio, Problemática, Solución, Funciones, Beneficios, Sobre Nosotros, Preguntas Frecuentes y Contacto.
 
-> **Pendiente del equipo:** confirmar el dominio público del Landing una vez desplegado y agregar el screenshot de la build en esta subsección.
+El despliegue público se encuentra disponible en: [https://dosys-iot.github.io/landing/](https://dosys-iot.github.io/landing/).
+
+La configuración de GitHub Pages permite publicar el sitio estático directamente desde el repositorio, manteniendo trazabilidad entre los commits del Landing Page y la versión visible para visitantes. Durante el Sprint 1 se verificó que la página sea accesible públicamente y que el formulario de contacto cuente con validación del lado del cliente.
+
+![GitHub Pages — Landing Page Deploy](imgs/deployment/landing-github-pages-deploy.png)
+
+Figura: Configuración de GitHub Pages para el despliegue público del Landing Page.
+
+![Landing Page — Public URL](imgs/deployment/landing-public-url.png)
+
+Figura: Landing Page de Dosys desplegada y accesible públicamente mediante GitHub Pages.
+
 
 #### 6.2.1.9. Team Collaboration Insights during Sprint
 
