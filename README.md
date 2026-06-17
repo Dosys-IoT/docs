@@ -40,6 +40,11 @@
 | TB1 | 12/05/2026 | Qqueso Rodriguez, Britney Delhy | Se documentó el desarrollo, implementación y despliegue de la primera versión del Landing Page mediante GitHub Pages, así como su relación con la propuesta de valor de Dosys y la validación funcional de flujos IoT. |
 | TB1 | 12/05/2026 | Ybañez Esquerre, Miguel Angel | Se documentó el desarrollo y despliegue del Frontend Web Application en Vercel, incluyendo la estructura de vistas, el consumo de endpoints del Backend REST API y el flujo principal del cuidador. |
 | TB1 | 12/05/2026 | Zúñiga Murillo, Diego Sebastián | Se actualizó la versión corregida y mejorada del informe para TB1, incorporando mejoras en Project Report Collaboration Insights, Student Outcome, Capítulo VI: Product Implementation, Validation & Deployment, 6.1 Software Configuration Management, 6.2.1 Sprint 1, evidencias de Sprint Review, conclusiones, bibliografía y anexos. |
+| AV2 | 17/06/2026 | Ybañez Esquerre, Miguel Angel | Se documentó el Sprint 2 del Frontend Web Application: alineación del producto con el catálogo oficial US01–US23, sustitución de datos simulados por consumo real del Backend REST API y formalización de las nuevas User Stories US24–US27 (notificaciones en app, estados de carga/error, identidad visual y gestión de medicina por compartimento). |
+| AV2 | 17/06/2026 | Martel Zevallos, Gabriel Aristóteles | Se colaboró en el diseño UX/UI del Sprint 2, especialmente en la coherencia visual de las vistas reescritas y en la definición de la identidad tipográfica (Manrope/Inter) incorporada en la aplicación web. |
+| AV2 | 17/06/2026 | Oblitas Davila, Mariano Moises | Se validó la integración del Frontend con los servicios ya desplegados (Backend REST API y Edge Service), confirmando el consumo estable de endpoints reales sin modificaciones en el backend durante el Sprint 2. |
+| AV2 | 17/06/2026 | Qqueso Rodriguez, Britney Delhy | Se realizó la revisión funcional de las vistas del Frontend Web y la verificación de coherencia con la propuesta de valor del producto presentada en el Landing Page. |
+| AV2 | 17/06/2026 | Zúñiga Murillo, Diego Sebastián | Se consolidó la entrega AV2: actualización del Registro de Versiones, Project Report Collaboration Insights y Student Outcome, incorporación de la sección 6.2.2 Sprint 2 con sus evidencias de Sprint Review, y revisión de calidad y coherencia documental del informe. |
 
 # Project Report Collaboration Insights
 
@@ -85,6 +90,24 @@ Figura: Analíticos de colaboración del repositorio `Dosys-IoT/docs` durante la
 ![GitHub Commits — TB1](imgs/collaboration/docs-commits-tb1.png)
 
 Figura: Historial de commits realizados para la actualización del informe, incorporación del Capítulo V, incorporación del Capítulo VI y consolidación de evidencias de Sprint 1.
+
+## AV2 Collaboration Insights
+
+Durante la entrega AV2, el equipo corrigió y mejoró los artefactos previamente presentados e incorporó la sección **6.2.2 Sprint 2** del Capítulo VI, junto con la actualización del Registro de Versiones, el Student Outcome y el Project Report Collaboration Insights.
+
+La organización del trabajo se alineó con el Sprint 2, cuyo foco fue la consolidación del **Frontend Web Application**. Miguel Ybañez lideró el desarrollo del Sprint 2, alineando la aplicación con el catálogo oficial de User Stories US01–US23, sustituyendo los datos simulados por consumo real del Backend REST API e incorporando el trabajo transversal de calidad/UX formalizado como las nuevas User Stories US24–US27. Gabriel Martel colaboró en el diseño UX/UI y la identidad tipográfica. Mariano Oblitas validó la integración del Frontend con los servicios ya desplegados (Backend REST API y Edge Service), que no fueron modificados en este Sprint. Britney Qqueso realizó la revisión funcional de las vistas y la coherencia con la propuesta de valor del Landing Page. Diego Zúñiga coordinó la planificación del Sprint 2, la consolidación de evidencias y la revisión de calidad del informe.
+
+La colaboración en AV2 mantuvo el modelo de co-liderazgo, esta vez concentrado en una única vertical de producto (Frontend Web), con un líder técnico claro y el resto del equipo en roles de diseño, validación de integración y aseguramiento de calidad.
+
+**Evidencia de colaboración AV2:**  
+![GitHub Contributors — AV2](imgs/collaboration/docs-contributors-av2.png)
+
+Figura: Analíticos de colaboración del repositorio `Dosys-IoT/docs` durante la preparación de la entrega AV2.
+
+**Evidencia de commits AV2:**  
+![GitHub Commits — AV2](imgs/collaboration/docs-commits-av2.png)
+
+Figura: Historial de commits realizados para la actualización del informe y la incorporación de la sección 6.2.2 Sprint 2.
 
 ## Interpretación de la colaboración
 
@@ -231,6 +254,16 @@ ABET – EAC - Student Outcome 5: La capacidad de funcionar efectivamente en un 
       * [6.2.1.7. Services Documentation Evidence for Sprint Review](#6217-services-documentation-evidence-for-sprint-review)
       * [6.2.1.8. Software Deployment Evidence for Sprint Review](#6218-software-deployment-evidence-for-sprint-review)
       * [6.2.1.9. Team Collaboration Insights during Sprint](#6219-team-collaboration-insights-during-sprint)
+    * [6.2.2. Sprint 2](#622-sprint-2)
+      * [6.2.2.1. Sprint Planning 2](#6221-sprint-planning-2)
+      * [6.2.2.2. Aspect Leaders and Collaborators](#6222-aspect-leaders-and-collaborators)
+      * [6.2.2.3. Sprint Backlog 2](#6223-sprint-backlog-2)
+      * [6.2.2.4. Development Evidence for Sprint Review](#6224-development-evidence-for-sprint-review)
+      * [6.2.2.5. Testing Suite Evidence for Sprint Review](#6225-testing-suite-evidence-for-sprint-review)
+      * [6.2.2.6. Execution Evidence for Sprint Review](#6226-execution-evidence-for-sprint-review)
+      * [6.2.2.7. Services Documentation Evidence for Sprint Review](#6227-services-documentation-evidence-for-sprint-review)
+      * [6.2.2.8. Software Deployment Evidence for Sprint Review](#6228-software-deployment-evidence-for-sprint-review)
+      * [6.2.2.9. Team Collaboration Insights during Sprint](#6229-team-collaboration-insights-during-sprint)
   * [6.3. Validation Interviews](#63-validation-interviews)
     * [6.3.1. Diseño de Entrevistas](#631-diseño-de-entrevistas)
     * [6.3.2. Registro de Entrevistas](#632-registro-de-entrevistas)
@@ -3306,6 +3339,221 @@ Las actividades de implementación del Sprint 1 se desarrollaron de forma distri
 **Interpretación.** La colaboración del Sprint 1 se basó en liderazgo distribuido por aspecto. Esta estrategia permitió que cada integrante asumiera responsabilidad directa sobre una parte verificable del producto: Landing Page, UX/UI, Frontend Web, Backend REST API, Edge Service y documentación de calidad. La separación de responsabilidades redujo bloqueos, facilitó la integración entre componentes y permitió presentar un MVP inicial con productos desplegados y evidencias trazables.
 
 **Oportunidades de mejora para el siguiente Sprint.** Para el Sprint 2, el equipo reforzará la actualización más frecuente del tablero Trello y evidencias separadas por repositorio. Esto permitirá que los analíticos de GitHub reflejen mejor la participación individual y que la documentación mantenga consistencia con el avance técnico real.
+
+### 6.2.2. Sprint 2
+
+En esta sección se registra el avance del Sprint 2 del proyecto Dosys. A diferencia del Sprint 1 —que entregó la primera versión desplegada de los cuatro productos digitales—, el Sprint 2 se concentró íntegramente en el **Frontend Web Application**, consolidando la aplicación web sobre el Backend REST API ya existente. **No se modificaron el Backend REST API, el Edge Service ni el Landing Page**, cuyos despliegues del Sprint 1 permanecen vigentes y operativos.
+
+El foco del Sprint 2 fue triple: (a) **alinear el Frontend con el catálogo oficial de User Stories (US01–US23)**, eliminando las vistas y recuadros de IA/Insights que existían como funcionalidad fuera del alcance documentado; (b) **reemplazar todos los datos simulados (mocks) por datos reales** consumidos del Backend REST API, en particular en las vistas de Alertas y Dispositivo; y (c) **incorporar trabajo transversal de calidad/UX** (notificaciones en app, estados de carga y error, e identidad tipográfica consistente) que se formaliza como nuevas User Stories US24–US27.
+
+El Sprint 2 permitió pasar de un MVP con interfaces parcialmente simuladas a una aplicación web coherente con el backlog, conectada de extremo a extremo con el Backend real y con una experiencia de usuario más robusta frente a errores y estados de carga.
+
+#### 6.2.2.1. Sprint Planning 2
+
+La reunión de Sprint Planning del Sprint 2 se llevó a cabo de forma virtual al inicio de la segunda iteración de implementación. A continuación se presenta el cuadro resumen.
+
+| Sprint # | Sprint 2 |
+| :--- | :--- |
+| **Sprint Planning Background** | |
+| Date | 2026-05-19 *(confirmar fecha exacta del equipo)* |
+| Time | 07:30 PM |
+| Location | Reunión virtual por Discord (canal `#dosys-scrum`). |
+| Prepared By | Zúñiga Murillo, Diego Sebastián |
+| Attendees (to planning meeting) | Martel Zevallos, Gabriel Aristóteles / Oblitas Davila, Mariano Moises / Qqueso Rodriguez, Britney Delhy / Ybañez Esquerre, Miguel Angel / Zúñiga Murillo, Diego Sebastián |
+| **Sprint n – 1 Review Summary** | En el Sprint 1 se desplegó la primera versión de los cuatro productos digitales (Landing Page, Frontend Web, Backend REST API y Edge Service) y se validó el flujo end-to-end del cuidador. Se identificó que el Frontend incluía vistas y recuadros de IA/Insights (`/insights`, "Smart Reminders", "AI Insight") y datos simulados (mocks) en Alertas y Dispositivo que no correspondían a ninguna User Story del catálogo oficial. |
+| **Sprint n – 1 Retrospective Summary** | El equipo acordó: (a) alinear estrictamente el Frontend con el catálogo oficial US01–US23, retirando funcionalidad fuera de alcance; (b) sustituir todos los mocks por consumo real del Backend REST API; (c) formalizar como nuevas User Stories el trabajo transversal de calidad/UX (toasts, estados de carga/error, tipografía); y (d) mantener la disciplina de Conventional Commits y actualización del tablero Trello. |
+| **Sprint Goal & User Stories** | |
+| **Sprint 2 Goal** | *Our focus is on consolidar el Frontend Web Application de Dosys, alineándolo con el catálogo oficial de User Stories y reemplazando los datos simulados por información real del Backend REST API. El Sprint cubre la limpieza de funcionalidad fuera de alcance (IA/Insights), la reconversión de la vista de Dispositivo en una pestaña de Ambiente con datos reales, la derivación de alertas a partir de datos del backend, la detección de estado offline del dispositivo y el trabajo transversal de UX (notificaciones, estados de carga/error y tipografía consistente). We believe it delivers una aplicación web verificable, coherente con el backlog y conectada de extremo a extremo con el Backend real. This will be confirmed when la Web App muestre únicamente funcionalidad respaldada por User Stories del catálogo, consuma datos reales del Backend en todas sus vistas y entregue retroalimentación visual consistente al cuidador ante cada acción.* |
+| **Sprint 2 Velocity** | 21 Story Points (capacidad acordada por el equipo para una iteración enfocada en Frontend Web). 42 horas |
+| **Sum of Story Points** | 21 Story Points (ver Sprint Backlog en 6.2.2.3). |
+
+#### 6.2.2.2. Aspect Leaders and Collaborators
+
+Dado que el Sprint 2 se concentró en el Frontend Web Application, los aspectos considerados corresponden a las verticales de trabajo de la aplicación web: **Frontend — Alineación de Alcance** (retiro de IA/Insights), **Frontend — Datos Reales** (sustitución de mocks por consumo del Backend), **Frontend — Calidad/UX** (toasts, estados de carga/error, tipografía), **UX/UI Design** y **QA / Documentation**. La matriz LACX a continuación designa para cada aspecto un líder (L) y uno o varios colaboradores (C).
+
+| Team Member (Last Name, First Name) | GitHub Username | Frontend — Alcance | Frontend — Datos Reales | Frontend — Calidad/UX | UX/UI Design | QA / Documentation |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: |
+| Ybañez Esquerre, Miguel Angel | Miguel080902 | **L** | **L** | **L** | C | C |
+| Martel Zevallos, Gabriel Aristóteles | GaboMartel | C | C | C | **L** | C |
+| Oblitas Davila, Mariano Moises | Sigilo-dev | C | C | C | C | C |
+| Qqueso Rodriguez, Britney Delhy | brit2801 | C | C | C | C | C |
+| Zúñiga Murillo, Diego Sebastián | DekayDeCanela | C | C | C | C | **L** |
+
+Miguel Ybañez lideró las tres verticales del Frontend Web: la alineación del producto con el catálogo oficial (retiro de vistas IA/Insights), la sustitución de datos simulados por consumo real del Backend REST API y el trabajo transversal de calidad/UX. Gabriel Martel lideró la coherencia visual y la identidad tipográfica de la experiencia. Diego Zúñiga lideró QA, la documentación de evidencias y la verificación de coherencia documental del Sprint Review. Mariano Oblitas y Britney Qqueso colaboraron en la revisión funcional y en la validación de la integración con los servicios ya desplegados.
+
+#### 6.2.2.3. Sprint Backlog 2
+
+El objetivo principal del Sprint 2 es consolidar el Frontend Web Application: alinearlo con el catálogo oficial de User Stories, sustituir los datos simulados por datos reales del Backend REST API e incorporar el trabajo transversal de calidad/UX como nuevas User Stories formales. Todo el trabajo se realizó contra el Backend REST API ya desplegado en el Sprint 1, sin modificarlo.
+
+Durante el Sprint 2 se formalizaron las siguientes **nuevas User Stories** (no presentes en el catálogo original US01–US23), siguiendo la convención del informe:
+
+| ID | Título | User Story | Épica |
+| :--- | :--- | :--- | :--- |
+| **US24** | Notificaciones en App | Como cuidador, quiero recibir una confirmación visual al guardar o cuando algo falla, para saber si mi acción tuvo efecto. | EP03 |
+| **US25** | Estados de Carga y Error | Como cuidador, quiero ver indicadores de carga y poder reintentar ante un fallo, para no quedarme frente a pantallas vacías. | EP03 |
+| **US26** | Identidad Visual Consistente | Como cuidador, quiero una tipografía clara y consistente, para leer dosis y horarios sin esfuerzo. | EP01 |
+| **US27** | Gestión de Medicina en Compartimento | Como cuidador, quiero editar o retirar la medicina de un compartimento, para reorganizar el pastillero. | EP02 |
+
+El board público del Sprint en Trello se encuentra en:
+
+[Tablero Trello - Dosys Sprint 2](https://trello.com) *(reemplazar por el enlace real del board de Sprint 2)*
+
+<div align="center">
+  <img src="./imgs/sprint-2/trello-sprint-2.png" alt="Tablero Trello Dosys Sprint 2" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
+  <p><i>Figura: Vista general del tablero Trello y distribución de Work Items para el Sprint 2.</i></p>
+</div>
+
+| Sprint # | Sprint 2 |
+| :--- | :--- |
+
+| User Story Id | User Story Title | Work-Item Id | Work-Item Title | Description | Estimation (Hours) | Assigned To | Status |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| — | Alineación de Alcance | WI31 | Retiro de funcionalidad IA/Insights | Eliminar la vista `/insights`, la vista `/device/calibration`, los recuadros "AI Insight" y "Smart Reminders" y los mocks asociados, alineando el Frontend con el catálogo oficial US01–US23. | 3 | Miguel | Done |
+| US11, US12, US13 | Alertas con Datos Reales | WI32 | Derivación de alertas (`deriveAlerts`) | Reescribir `/alerts` para derivar las alertas de humedad, temperatura, recarga y dosis perdidas a partir de datos reales del Backend (`lib/domain/alerts.ts`), con auto-resolución cuando el dato cambia. | 6 | Miguel | Done |
+| US22 | Reporte de Temperatura (App) | WI33 | Pestaña de Ambiente con datos reales | Reconvertir la vista `/device` en una pestaña de Ambiente que consume `GET /devices/{id}/environment/history` y grafica temperatura y humedad (`components/device/environment-chart.tsx`). | 5 | Miguel | Done |
+| US18 | Notificación Offline | WI34 | Detección de estado offline | Mostrar el estado online/offline del dispositivo a partir de `DeviceResponse.lastSeenAt` (`lib/domain/device-status.ts`), con badge "Offline" cuando no hay señal reciente. | 3 | Miguel | Done |
+| US04 | Vinculación IoT | WI35 | Onboarding de dispositivo | Implementar la tarjeta de creación/vinculación de dispositivo (`components/device/create-device-card.tsx`) mostrada en Dashboard y Medicinas cuando la cuenta no tiene dispositivo. | 3 | Miguel | Done |
+| US24 | Notificaciones en App | WI36 | Sistema de toasts éxito/error | Implementar un sistema de notificaciones tipo toast (`components/ui/toast.tsx`) integrado en el provider global, mostrando confirmación al guardar y mensajes ante errores. | 4 | Miguel | Done |
+| US25 | Estados de Carga y Error | WI37 | Skeletons + banner de error con retry | Implementar indicadores de carga y un componente de estado de error con acción "Retry" (`components/ui/error-state.tsx`) en las vistas principales. | 4 | Miguel | Done |
+| US26 | Identidad Visual Consistente | WI38 | Tipografía Manrope + Inter | Configurar la tipografía del producto (Manrope para títulos, Inter para cuerpo) en `app/layout.tsx` y `app/globals.css`. | 3 | Miguel | Done |
+| US27 | Gestión de Medicina en Compartimento | WI39 | Edición de medicina por compartimento | Implementar la ruta de edición de medicina (`/medications/[containerNumber]/edit`) y los ajustes en las vistas de medicinas para gestionar el contenido del compartimento. | 4 | Miguel | Done |
+| — | QA / Documentation | WI40 | Evidencias de Sprint Review | Consolidar capturas de ejecución de las vistas alineadas, evidencia de despliegue en Vercel y video de la demostración del Sprint 2. | 4 | Diego | Done |
+| — | QA / Documentation | WI41 | Revisión de coherencia documental | Verificar que el backlog, las nuevas User Stories US24–US27, las evidencias y el Collaboration Insights mantengan coherencia con el avance técnico real. | 3 | Diego | Done |
+
+#### 6.2.2.4. Development Evidence for Sprint Review
+
+Durante el Sprint 2, todo el desarrollo se concentró en el repositorio **Frontend Web Application**. El trabajo consistió en retirar la funcionalidad fuera de alcance, sustituir los datos simulados por consumo real del Backend REST API e incorporar componentes transversales de calidad/UX. Como parte de la alineación de alcance se eliminaron las vistas `/insights` y `/device/calibration`, los componentes de IA (`donut.tsx`, `sensor-log.tsx`, `compartment-status-grid.tsx`) y los mocks (`lib/mocks/alerts.ts`, `lib/mocks/device-telemetry.ts`, `lib/mocks/insights.ts`). La lógica de dominio se trasladó a `lib/domain/` (`alerts.ts`, `device-status.ts`), consumiendo los endpoints reales declarados en `lib/api/endpoints.ts`. **No se realizaron cambios en el Backend REST API, el Edge Service ni el Landing Page.**
+
+* **Frontend Application:** [Repositorio Frontend Web](https://github.com/Dosys-IoT/frontend-web) | [Despliegue en Vercel](https://frontend-web-jet-seven.vercel.app)
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Dosys-IoT/frontend-web | main | 47f9dcf | feature: sprint 2 implementation | Alineación del Frontend con el catálogo oficial US01–US23: eliminación de las vistas `/insights` y `/device/calibration`, recuadros de IA y mocks. Reescritura de `/alerts` con `lib/domain/alerts.ts` (`deriveAlerts`) sobre datos reales. Reconversión de `/device` en pestaña de Ambiente con `environment-chart.tsx`. Detección de estado offline (`lib/domain/device-status.ts`). Onboarding de dispositivo (`create-device-card.tsx`). Sistema de toasts (`ui/toast.tsx`), estados de carga/error (`ui/error-state.tsx`) y tipografía Manrope/Inter. | 2026-06-17 |
+
+La siguiente tabla resume los principales artefactos de código creados, modificados y eliminados en el commit de Sprint 2 (29 archivos; +907 / −1460 líneas), evidenciando tanto la incorporación de funcionalidad real como la limpieza de funcionalidad fuera de alcance:
+
+| Acción | Archivo | User Story / Propósito |
+| :--- | :--- | :--- |
+| Añadido | `components/ui/toast.tsx` | US24 — Sistema de notificaciones toast. |
+| Añadido | `components/ui/error-state.tsx` | US25 — Estado de error con acción "Retry". |
+| Añadido | `components/device/environment-chart.tsx` | US22 — Gráfico de temperatura/humedad con datos reales. |
+| Añadido | `components/device/create-device-card.tsx` | US04 — Onboarding/vinculación de dispositivo. |
+| Añadido | `lib/domain/alerts.ts` | US11/US12/US13 — `deriveAlerts` a partir de datos reales. |
+| Añadido | `lib/domain/device-status.ts` | US18 — Detección de estado offline (`lastSeenAt`). |
+| Modificado | `app/(app)/alerts/page.tsx` | Reescritura de Alertas con datos reales (−184/+100). |
+| Modificado | `app/(app)/device/page.tsx` | Reconversión en pestaña de Ambiente (−168/+149). |
+| Modificado | `app/layout.tsx`, `app/globals.css` | US26 — Tipografía Manrope + Inter. |
+| Modificado | `app/(app)/medications/[containerNumber]/edit/page.tsx` | US27 — Edición de medicina por compartimento. |
+| Eliminado | `app/(app)/insights/page.tsx` | Alcance — vista de IA fuera del catálogo (−335). |
+| Eliminado | `app/(app)/device/calibration/page.tsx` | Alcance — vista con datos falsos (−253). |
+| Eliminado | `lib/mocks/alerts.ts`, `device-telemetry.ts`, `insights.ts` | Alcance — sustitución de datos simulados por datos reales. |
+
+#### 6.2.2.5. Testing Suite Evidence for Sprint Review
+
+El Sprint 2 fue una iteración exclusivamente de Frontend; en consecuencia, la verificación se centró en la **validación estática de tipos** y en **pruebas manuales de ejecución** sobre la aplicación web conectada al Backend real, en lugar de nuevas suites automatizadas. Concretamente:
+
+- **Verificación de tipos (TypeScript).** El proyecto Next.js 15 / React 19 mantiene comprobación estricta mediante `tsc`; la build de producción (`next build`) actúa como puerta de calidad, fallando ante errores de tipo o de compilación. El artefacto `tsconfig.tsbuildinfo` actualizado en el commit refleja la recompilación verificada.
+- **Pruebas manuales de integración (UI ↔ Backend real).** Se verificó que las vistas de Alertas, Dispositivo (Ambiente), Dashboard y Medicinas consumieran datos reales del Backend REST API desplegado en el Sprint 1, comprobando los estados de carga, los estados de error con reintento y la auto-resolución de alertas al cambiar el dato de origen.
+
+Respecto a la cobertura automatizada, **los 33 tests de integración del Backend (JUnit 5) documentados en el Sprint 1 (6.2.1.5) permanecen vigentes**, dado que el Backend no fue modificado en este Sprint. La incorporación de **acceptance tests BDD/Gherkin (`.feature`)** y de pruebas unitarias de los componentes del Frontend (p. ej. con Vitest/Testing Library para `deriveAlerts` y `device-status`) se mantiene como trabajo planificado para el siguiente Sprint, tal como se anticipó en 6.2.1.5.
+
+#### 6.2.2.6. Execution Evidence for Sprint Review
+
+En el Sprint 2 se ejecutó y verificó la aplicación web alineada con el catálogo oficial, consumiendo datos reales del Backend REST API desplegado. Los principales puntos de verificación fueron:
+
+- **Frontend Web — Dashboard** (`/dashboard`) — onboarding del dispositivo cuando la cuenta no tiene uno (`create-device-card`), score de adherencia y estado online/offline del dispositivo.
+- **Frontend Web — Dispositivo / Ambiente** (`/device`) — gráfico de temperatura y humedad de las últimas 24 h con datos reales (`environment/history`), en reemplazo de la telemetría simulada anterior.
+- **Frontend Web — Alertas** (`/alerts`) — alertas derivadas en el front (humedad, temperatura, recarga y dosis perdidas) sobre datos reales, con auto-resolución.
+- **Frontend Web — Medicinas** (`/medications`, `/medications/new`, `/medications/[containerNumber]/edit`) — gestión y edición de medicina por compartimento.
+- **Frontend Web — Calidad/UX transversal** — notificaciones toast al guardar o ante error (US24), estados de carga y banner de error con "Retry" (US25), y tipografía consistente Manrope/Inter (US26).
+
+> **Nota:** se eliminaron del producto las vistas `/insights` y `/device/calibration`, por lo que ya no forman parte de la evidencia de ejecución (alineación con el catálogo US01–US23).
+
+**Video de Execution Evidence - Frontend (Sprint 2)**
+
+<div align="center">
+  <a href="[PENDIENTE: enlace al video de demostración del Sprint 2]" target="_blank">
+    <img src="./imgs/sprint-2/video-evidence-frontend.png" alt="Video de Evidencia de Ejecución Frontend Sprint 2" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
+  </a>
+  <p><i>Figura: Video demostrativo del Frontend Web en el Sprint 2 (Haz clic para reproducir).</i></p>
+</div>
+
+##### Vista de Dashboard (Sprint 2)
+La vista principal (`/dashboard`) muestra el saludo personalizado al cuidador ("Hello, Mariano"), el estado del dispositivo vinculado (badge "DEVICE LINKED", humedad actual y acción "SYNC NOW"), la próxima dosis programada ("All caught up for now" cuando no hay dosis en ventana) y el score de adherencia semanal (100% — "Excellent Consistency", 0 dosis perdidas en los últimos 14 días). En la sección "Device Compartments" se listan los 5 compartimentos con su medicamento y unidades restantes reales (C1 Paracetamol con 9 unidades; C2–C5 sin asignar), todos alimentados por datos del Backend.
+
+<div align="center">
+  <img src="./imgs/sprint-2/dashboard-view.png" alt="Vista del Dashboard de Dosys (Sprint 2)" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
+  <p><i>Figura: Dashboard del cuidador con estado del dispositivo, score de adherencia y compartimentos con datos reales.</i></p>
+</div>
+
+##### Vista de Dispositivo — Ambiente (Sprint 2)
+La vista `/device` ("Device & Environment") fue reconvertida para mostrar el estado de conexión del dispositivo (en la captura, "Offline — Last signal: 42 days ago", con badge "NO SIGNAL" derivado de `lastSeenAt`) y las lecturas ambientales reales consumidas del Backend: temperatura (24.8 °C) y humedad (62 %), ambas con su indicador de estado ("Good"). El panel "Last 24 hours" grafica la tendencia de temperatura y humedad mediante `environment-chart.tsx` cuando hay suficientes lecturas; en la captura aún muestra "Not enough readings yet to draw a trend" por la ausencia de un dispositivo físico emitiendo datos. Esto sustituye la telemetría simulada del Sprint 1.
+
+<div align="center">
+  <img src="./imgs/sprint-2/device-environment-view.png" alt="Vista de Ambiente del Dispositivo (Sprint 2)" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
+  <p><i>Figura: Vista de Dispositivo y Ambiente con estado de conexión (offline) y lecturas reales de temperatura/humedad del Backend.</i></p>
+</div>
+
+##### Vista de Alertas (Sprint 2)
+La vista `/alerts` ("Alerts Center") fue reescrita para derivar las alertas (humedad, temperatura, recarga y dosis perdidas, además del estado offline del dispositivo) a partir de datos reales mediante `deriveAlerts`, eliminando los datos simulados. En la captura se muestra el contador "ACTIVE ALERTS: 01" y una alerta de severidad "WARNING": *"Device offline: Dosys Mariano Device — No signal for 42 days ago. Reminders may not be firing — check power and Wi-Fi"*, derivada de `lastSeenAt` (US18). Las alertas se auto-resuelven cuando el dato de origen cambia (por ejemplo, tras una recarga o al volver el dispositivo en línea).
+
+<div align="center">
+  <img src="./imgs/sprint-2/alerts-view.png" alt="Centro de Alertas de Dosys (Sprint 2)" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
+  <p><i>Figura: Centro de alertas derivadas de datos reales del Backend (alerta de dispositivo offline a partir de lastSeenAt).</i></p>
+</div>
+
+##### Vista de Medicinas (Sprint 2)
+Las vistas de Medicinas (`/medications`, `/medications/new`, `/medications/[containerNumber]/edit`) permiten registrar y editar la medicina asignada a cada compartimento. En la captura se observa el medicamento real "Paracetamol" en el compartimento C1 (estado "Active", próxima dosis "With Breakfast", suministro de 9 píldoras con umbral de recarga en 10), junto con las tarjetas informativas de Dose Reminders, Inventory Sync y Pharmacy Connect. La gestión se apoya en notificaciones de éxito/error (US24) y estados de carga consistentes (US25).
+
+<div align="center">
+  <img src="./imgs/sprint-2/medications-view.png" alt="Vista de Gestión de Medicamentos (Sprint 2)" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
+  <p><i>Figura: Gestión y edición de medicina por compartimento con datos reales y retroalimentación visual.</i></p>
+</div>
+
+#### 6.2.2.7. Services Documentation Evidence for Sprint Review
+
+El Sprint 2 no introdujo nuevos servicios ni endpoints en el Backend REST API. La documentación OpenAPI 3.0 expuesta mediante SpringDoc en `https://dosys-backend-149855215912.us-central1.run.app/swagger-ui/index.html` (especificación cruda en `/v3/api-docs`) permanece **vigente y sin cambios** respecto del Sprint 1 (ver el detalle completo de endpoints por bounded context en 6.2.1.7).
+
+El aporte del Sprint 2 a nivel de servicios consistió en **completar el consumo, desde el Frontend, de endpoints que el Backend ya exponía pero que no estaban siendo aprovechados**. En particular:
+
+| Endpoint (ya existente) | Bounded Context | Uso incorporado en el Sprint 2 |
+| :--- | :--- | :--- |
+| `GET /devices/{id}/environment/history` | Medication | US22 — Gráfico de Ambiente (temperatura/humedad de 24 h) en la vista `/device`. |
+| `GET /devices/{id}/environment/latest` | Medication | US11/US12 — Alerta ambiental derivada en `/alerts`. |
+| `GET /devices/{id}/containers` | Medication | US13 — Alerta de stock bajo/agotado derivada en `/alerts`. |
+| `GET /devices/{id}/adherence/calendar` | Medication | US08 — Dosis perdidas como insumo de alertas y score de adherencia. |
+| `DeviceResponse.lastSeenAt` (campo de `GET /devices`) | Medication | US18 — Detección de estado offline del dispositivo. |
+
+#### 6.2.2.8. Software Deployment Evidence for Sprint Review
+
+El despliegue del Sprint 2 se limitó al **Frontend Web Application en Vercel**. Los despliegues del Backend REST API y del Edge Service en Google Cloud Run, así como el del Landing Page en GitHub Pages, **permanecen sin cambios** respecto del Sprint 1.
+
+**a) Redespliegue del Frontend en Vercel.** El push del commit `47f9dcf` a la rama `main` del repositorio `Dosys-IoT/frontend-web` disparó automáticamente una nueva build de producción en Vercel (integración continua Git → Vercel), manteniendo la variable de entorno `NEXT_PUBLIC_API_BASE_URL` apuntando al Backend en Cloud Run. La nueva revisión quedó publicada en el dominio productivo [https://frontend-web-jet-seven.vercel.app](https://frontend-web-jet-seven.vercel.app).
+
+<div align="center">
+  <img src="./imgs/sprint-2/vercel-sprint-2-deployment.png" alt="Vercel — Deployment del Sprint 2" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
+  <p><i>Figura: Deployment del Sprint 2 en Vercel (estado Ready) generado a partir del commit 47f9dcf.</i></p>
+</div>
+
+**b) Servicios sin cambios.** Se verificó que el Backend REST API (`GET /swagger-ui/index.html`), el Edge Service (`GET /edge/v1/health → {"status":"UP"}`) y el Landing Page ([https://dosys-iot.github.io/landing/](https://dosys-iot.github.io/landing/)) siguieran operativos durante el Sprint Review, confirmando que la nueva versión del Frontend consume la infraestructura ya desplegada en el Sprint 1.
+
+#### 6.2.2.9. Team Collaboration Insights during Sprint
+
+Las actividades del Sprint 2 se concentraron en el Frontend Web Application, por lo que el liderazgo técnico recayó principalmente en el responsable de esa vertical, con apoyo del equipo en diseño, revisión funcional y documentación de evidencias.
+
+- **Ybañez Esquerre, Miguel Angel (`Miguel080902`)** — Lideró el **Frontend Web Application** en su totalidad durante el Sprint 2: la alineación del producto con el catálogo oficial US01–US23 (retiro de las vistas IA/Insights y de los mocks), la sustitución de datos simulados por consumo real del Backend REST API (alertas, ambiente, estado offline) y la incorporación del trabajo transversal de calidad/UX (toasts, estados de carga/error y tipografía consistente).
+
+- **Martel Zevallos, Gabriel Aristóteles (`GaboMartel`)** — Colaboró en **UX/UI Design**, apoyando la coherencia visual de las vistas reescritas y la definición de la identidad tipográfica (Manrope/Inter) incorporada en US26.
+
+- **Zúñiga Murillo, Diego Sebastián (`DekayDeCanela`)** — Lideró **QA y documentación** del Sprint 2, consolidando las evidencias de ejecución y despliegue, verificando la coherencia entre el backlog, las nuevas User Stories US24–US27 y el avance técnico real, y coordinando el Sprint Review.
+
+- **Oblitas Davila, Mariano Moises (`Sigilo-dev`)** — Colaboró en la **validación de la integración** entre el Frontend y los servicios ya desplegados (Backend REST API y Edge Service), confirmando que el consumo de endpoints reales se mantuviera estable sin cambios en el backend.
+
+- **Qqueso Rodriguez, Britney Delhy (`brit2801`)** — Colaboró en la **revisión funcional** de las vistas del Frontend y en la verificación de coherencia con la propuesta de valor del producto presentada en el Landing Page.
+
+**Interpretación.** El Sprint 2 mostró un patrón de colaboración distinto al del Sprint 1: en lugar de un liderazgo distribuido entre múltiples productos, el trabajo se concentró en una sola vertical (Frontend Web) con un líder técnico claro y el resto del equipo en roles de diseño, revisión y aseguramiento de calidad. Esta concentración permitió consolidar la aplicación web, alinearla con el catálogo de User Stories y elevar la calidad de la experiencia, manteniendo la trazabilidad entre el código, las evidencias y la documentación.
+
+**Oportunidades de mejora para el siguiente Sprint.** El equipo buscará distribuir nuevamente el trabajo entre varios productos (incluyendo el firmware del dispositivo IoT y notificaciones push), incrementar la granularidad de los commits del Frontend para reflejar mejor la participación individual en los analíticos de GitHub e incorporar pruebas automatizadas (BDD/Gherkin y unitarias de componentes) a la suite de calidad.
 
 ## 6.3. Validation Interviews
 
