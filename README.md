@@ -3583,6 +3583,8 @@ El prototipo físico fue ejecutado con sus componentes principales conectados al
 
 ![Pruebas físicas del prototipo IoT Dosys](\imgs\hardware\05-physical-circuit-tests.jpg)
 
+Video de funcionamiento de los componentes Testing Hardware: https://youtu.be/prMB6npDBd8 [**Anexo E**]
+
 **Figura:** Prueba física del prototipo Dosys con componentes conectados y funcionando de forma conjunta.
 
 #### 6.2.2.7. Services Documentation Evidence for Sprint Review
@@ -3779,4 +3781,6 @@ Archivo de diseño completo (Style Guidelines, Information Architecture, Wirefra
 | AV1 | Exposición AV1 — Capítulos I a IV | *https://upcedupe-my.sharepoint.com/:v:/g/personal/u202310222_upc_edu_pe/IQA9g4vp0kjfToT0WWrbxWQtAQHWAiKIGYvqAzQoCZiYnjI?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=H6Bs6a* |
 | TB1 | Exposición TB1 — Capítulos V y VI, Sprint 1 | *https://upcedupe-my.sharepoint.com/:v:/g/personal/u202310222_upc_edu_pe/IQCkkEh8wIgDSIBoQb1theeAAfYdVKOJxJsDr6GsjTpch-g?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=jmHmhZ* |
 
+## Anexo E. Video de Porducto Fisico
+- Video de funcionamiento de los componentes Testing Hardware: https://youtu.be/prMB6npDBd8 
 > Esta relación se irá expandiendo con cada entrega del proyecto (AV2, TB2).
