@@ -1479,25 +1479,73 @@ La elaboración del Impact Mapping se realizó en la plataforma UXPressia, utili
 
 ### 4.1.1. Design-Level EventStorming
 
-En esta sección se presenta el modelado detallado del dominio de **Dosys** mediante la técnica de **Design-Level EventStorming**. El objetivo de esta sesión, que tuvo una duración aproximada de 2 horas , fue identificar con precisión los eventos de dominio, comandos y actores que rigen los procesos críticos de la solución IoT.
-
-Se exploraron tres flujos principales: la configuración inicial del tratamiento por el cuidador, el ciclo de vida de los recordatorios de dosis (incluyendo confirmaciones y omisiones) y el monitoreo preventivo de condiciones ambientales a través de sensores integrados.
-
-<div align="center">
-  <img src="./imgs/EventStorm 2.png" alt="Design-Level EventStorming Dosys" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
-  <p><i>Enlace de LucidChart: https://lucid.app/lucidchart/20e81f45-c84d-4f8e-9b12-497449d56f40/edit?viewport_loc=1151%2C-3591%2C5338%2C6595%2C0_0&invitationId=inv_31eb482c-fdb4-41c2-9e05-561a08de57ad</i></p>
-</div>
+A continuación se presentan los resultados del proceso de EventStorming realizado para el diseño de la arquitectura de Dosys. Este proceso se llevó a cabo con el objetivo de identificar los distintos Bounded Contexts del sistema, los eventos de dominio que ocurren a lo largo del ciclo de vida del tratamiento y los flujos de mensajes que atraviesan las fronteras de cada contexto. El modelado nos permitió alinear la visión de negocio, garantizar la adherencia a la medicación del adulto mayor, con las decisiones técnicas de la solución IoT.
 
 #### 4.1.1.1. Candidate Context Discovery
 
-A partir del dominio modelado en el **EventStorm**, el equipo realizó el descubrimiento de los contextos candidatos para descomponer el sistema en límites manejables. Para esta identificación, se aplicaron técnicas como la búsqueda de eventos pivote y la priorización de áreas de mayor valor para el negocio.
+Tomando como base el Domain-Driven Design, realizamos todo el proceso de EventStorming en una pizarra colaborativa de Miro. De este modo, partiendo de la exploración libre de eventos, fuimos refinando el modelo hasta llegar a identificar los Bounded Contexts que componen Dosys: Access, Medication y Device.
 
-Como resultado de esta sesión colaborativa, se definieron tres **Bounded Contexts** principales para **Dosys**: **Access**, encargado de la autenticación; **Medication**, que gestiona la lógica de tratamientos; y **Device**, responsable del control del hardware IoT. A continuación, se presenta la evidencia de los límites identificados sobre el mapa de eventos.
+Para ello llevamos a cabo una sesión grupal, con una duración aproximada de 2 horas, en la que todo el equipo identificó de forma consensuada los eventos, comandos, políticas, agregados y sistemas externos del dominio. El proceso siguió los diez pasos clásicos de la técnica, que se documentan a continuación.
 
-<div align="center">
-  <img src="./imgs/EventStorm 1.png" alt="Candidate Context Discovery Dosys" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
-  <p><i>Enlace de LucidChart: https://lucid.app/lucidchart/20e81f45-c84d-4f8e-9b12-497449d56f40/edit?viewport_loc=1151%2C-3591%2C5338%2C6595%2C0_0&invitationId=inv_31eb482c-fdb4-41c2-9e05-561a08de57ad</i></p>
-</div>
+**Paso 1: Unstructured Exploration**
+
+Comenzamos con una lluvia de ideas desestructurada en la que cada integrante escribió, en notas naranjas y redactados en pasado, todos los eventos de dominio que se le ocurrían sin preocuparse por el orden. Aquí surgieron hechos como Cuidador registrado, Dispositivo vinculado, Tratamiento activado, Recordatorio generado, Dosis confirmada, Dosis omitida, Condición ambiental anómala detectada, Stock bajo detectado y Tratamiento finalizado. El objetivo de este paso fue capturar la mayor cantidad posible de eventos relevantes del negocio antes de imponer cualquier estructura.
+
+![Paso 1: Unstructured Exploration](imgs/event-storming/paso-1.png)
+
+**Paso 2: Timelines**
+
+Una vez recolectados los eventos, los ordenamos cronológicamente de izquierda a derecha para construir la línea de tiempo del sistema. De esta organización emergieron de forma natural los grandes flujos de Dosys: la configuración inicial del tratamiento por parte del cuidador, el ciclo de vida de la dosis (recordatorio, confirmación, posposición y omisión), el monitoreo ambiental y de stock, y el fin del tratamiento. Este paso permitió visualizar la secuencia real con la que ocurren los hechos en el dominio.
+
+![Paso 2: Timelines](imgs/event-storming/paso-2.png)
+
+**Paso 3: Pain Points**
+
+Sobre la línea de tiempo marcamos, con notas rojas rotadas, los puntos de dolor, dudas y conflictos detectados. Entre los principales identificamos: cómo distinguir una dosis omitida de una simple desconexión del dispositivo, cuál debe ser la duración de la ventana de confirmación antes de marcar una omisión, qué umbrales de temperatura y humedad disparan una alerta ambiental, y cómo manejar la sincronización entre la Edge API y la REST API ante una pérdida de conexión. Estos puntos calientes orientaron las decisiones de diseño posteriores.
+
+![Paso 3: Pain Points](imgs/event-storming/paso-3.png)
+
+**Paso 4: Pivotal Points**
+
+A continuación señalamos los eventos pivote, es decir, aquellos que dividen el flujo en fases claramente diferenciadas y que suelen marcar transiciones de responsabilidad entre contextos. Para Dosys identificamos como pivotes: Tratamiento activado (cierra la configuración e inicia la operación), Alerta multimodal emitida (abre la ventana de interacción con el paciente), Dosis omitida (dispara el protocolo de notificación al cuidador) y Condición ambiental anómala detectada (activa el flujo de alertas preventivas). Estos eventos se delimitaron con barras verticales sobre la línea de tiempo.
+
+![Paso 4: Pivotal Points](imgs/event-storming/paso-4.png)
+
+**Paso 5: Commands**
+
+En este paso incorporamos los comandos (notas azules) que originan cada evento, junto con los actores (notas amarillas) que los ejecutan. Identificamos al Cuidador como actor principal de la configuración (Registrar cuidador, Crear tratamiento, Configurar horario, Activar tratamiento) y al Paciente como actor del ciclo de toma a través del hardware (Confirmar dosis, Posponer recordatorio). De esta forma, cada evento quedó vinculado a la acción imperativa que lo provoca.
+
+![Paso 5: Commands](imgs/event-storming/paso-5.png)
+
+**Paso 6: Policies**
+
+Posteriormente añadimos las políticas (notas lilas), que representan la lógica reactiva del sistema bajo la forma "cuando ocurre un evento, entonces se dispara un comando". Las políticas más relevantes de Dosys son: cuando llega el horario de una dosis → generar recordatorio, cuando se genera un recordatorio → emitir alerta multimodal, cuando vence la ventana sin confirmación → marcar la dosis como omitida, cuando una dosis es omitida → notificar al cuidador, cuando se detecta una condición ambiental anómala → enviar alerta ambiental y cuando hay stock bajo → enviar alerta de recarga y generar aviso de compra.
+
+![Paso 6: Policies](imgs/event-storming/paso-6.png)
+
+**Paso 7: Read Models**
+
+Luego identificamos los modelos de lectura (notas verdes), que corresponden a la información que los actores consultan para tomar decisiones. En Dosys los principales read models son el Panel de adherencia (porcentaje de cumplimiento del tratamiento), el Historial de tomas, el Estado del dispositivo (conexión y batería), la Lectura ambiental actual y su historial, el Nivel de stock por compartimento y el Centro de alertas. Estos modelos alimentan tanto la aplicación del cuidador como la retroalimentación del propio dispositivo.
+
+![Paso 7: Read Models](imgs/event-storming/paso-7.png)
+
+**Paso 8: External Systems**
+
+En este paso incorporamos los sistemas externos (notas rosas) con los que interactúa Dosys en sus fronteras. Identificamos el Servicio de correo, utilizado para la verificación de cuentas durante el registro del cuidador, y el Servicio de notificaciones push (FCM), encargado de entregar al dispositivo móvil del cuidador las alertas de dosis omitida, condiciones ambientales anómalas, recarga y fin de tratamiento.
+
+![Paso 8: External Systems](imgs/event-storming/paso-8.png)
+
+**Paso 9: Aggregates**
+
+A continuación agrupamos comandos y eventos alrededor de sus agregados (notas amarillas grandes), que constituyen las fronteras de consistencia del modelo. Los agregados identificados, alineados con el modelo táctico, fueron: User, RefreshToken y DeviceAccess para el manejo de identidad; Treatment, MedicationContainer, MedicationSchedule e IntakeRecord para la lógica de tratamientos y dosis; y DeviceProfile, DeviceConfigurationSnapshot, EnvironmentReading, DeviceIntakeEvent, StockEvent y DeviceHeartbeat para la operación del hardware.
+
+![Paso 9: Aggregates](imgs/event-storming/paso-9.png)
+
+**Paso 10: Bounded Contexts**
+
+Finalmente, sintetizamos los flujos y agregados anteriores para delimitar los Bounded Contexts del sistema. Se definieron tres contextos principales: Access, responsable de la autenticación de cuidadores, la gestión de sesiones y la vinculación de dispositivos; Medication, núcleo del negocio que orquesta los tratamientos, el ciclo de vida de la dosis, la adherencia y el control de stock; y Device, encargado del control del hardware IoT, la telemetría ambiental y la sincronización Edge ↔ REST.
+
+![Paso 10: Bounded Contexts](imgs/event-storming/paso-10.png)
 
 #### 4.1.1.2. Domain Message Flows Modeling
 
@@ -1511,27 +1559,64 @@ El diagrama presenta el escenario de "Notificación y Confirmación de Dosis", d
 
 #### 4.1.1.3. Bounded Context Canvases
 
-En esta sección se presentan los **Bounded Context Canvases** para los tres contextos delimitados del sistema **Dosys**. Cada canvas detalla el propósito del contexto, sus reglas de negocio, el lenguaje ubicuo aplicado y sus dependencias, siguiendo un proceso de diseño iterativo para asegurar la cohesión del modelo.
+Los siguientes diagramas presentan los Bounded Context Canvases de Dosys. Cada canvas detalla con mayor profundidad la naturaleza de cada contexto, incluyendo su clasificación estratégica, los roles de dominio, su comunicación entrante y saliente, el lenguaje ubicuo específico y las principales reglas y decisiones de negocio que lo gobiernan.
 
-<div align="center">
-  <img src="./imgs/bounded-contexts/CanvasAccess.png" alt="Bounded Context Canvas Access" width="200px">
-  <p><i>Figura: Bounded Context Canvas para el contexto de Access.</i></p>
-  
-  <img src="./imgs/bounded-contexts/CanvasMedication.png" alt="Bounded Context Canvas Medication" width="200px">
-  <p><i>Figura: Bounded Context Canvas para el contexto de Medication.</i></p>
-  
-  <img src="./imgs/bounded-contexts/CanvasDevice.png" alt="Bounded Context Canvas Device" width="200px">
-  <p><i>Figura: Bounded Context Canvas para el contexto de Device.</i></p>
-</div>
+**Access Context Canvas**
+
+El contexto Access se encarga de la autenticación de los cuidadores, la gestión de sesiones seguras mediante tokens y la vinculación de cada dispositivo Dosys a una cuenta con sus respectivos permisos de monitoreo. Estratégicamente se clasifica como un *Generic Subdomain*, ya que la gestión de identidad es una capacidad transversal y estandarizada; su rol es el de un contexto de acceso (gateway) que protege al resto del sistema.
+
+![Bounded Context Canvas: Access](imgs/bounded-contexts/canvas-access.png)
+
+**Medication Context Canvas**
+
+El contexto Medication constituye el *Core Domain* de Dosys. Orquesta la creación y activación de tratamientos, la configuración de horarios, el ciclo de vida completo de la dosis (recordatorio, confirmación, posposición y omisión), el cálculo de la adherencia y el control de stock con sus respectivas alertas de recarga. Es el contexto que concentra el mayor valor de negocio y, por tanto, el que justifica la inversión de mayor esfuerzo de diseño.
+
+![Bounded Context Canvas: Medication](imgs/bounded-contexts/canvas-medication.png)
+
+**Device Context Canvas**
+
+El contexto Device gestiona el hardware IoT del pastillero: la recepción y aplicación de la configuración runtime, la emisión de las alertas multimodales (voz, LED y botón), la telemetría ambiental a través del sensor SHT3X, el registro de los eventos de toma generados por el botón físico y la sincronización de la información entre la Edge API y la REST API. Se clasifica como parte del *Core Domain*, dado que el dispositivo físico es el diferenciador central de la propuesta de valor.
+
+![Bounded Context Canvas: Device](imgs/bounded-contexts/canvas-device.png)
+
+
 
 #### 4.1.2. Context Mapping
+Durante el proceso de modelado del dominio para Dosys, identificamos tres Bounded Contexts principales: **Access**, **Medication** y **Device**. A partir de esta base, realizamos una serie de reflexiones y escenarios de reestructuración para evaluar cómo deberían relacionarse las capacidades del sistema y qué tipo de relación resultaba más coherente entre cada par de contextos. A continuación, explicamos el proceso seguido y las alternativas consideradas.
 
-En esta sección se presenta el **Context Map** de la solución **Dosys**, el cual visualiza las relaciones de comunicación y las dependencias técnicas entre los Bounded Contexts identificados. Este mapa es fundamental para entender cómo fluye la información y cómo se protegen los modelos de datos entre los distintos dominios del sistema.
+**Análisis de Contextos:**
 
-<div align="center">
-  <img src="./imgs/bounded-contexts/ContexMap.png" alt="Context Mapping Dosys" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
-  <p><i>Figura: Mapa de contextos detallando las relaciones Upstream/Downstream y patrones de integración de Dosys.</i></p>
-</div>
+- _Medication ↔ Device_: Existe una fuerte dependencia bidireccional. Por un lado, Medication decide los tratamientos y horarios, y Device debe ejecutar esas decisiones (recibir la configuración y emitir las alertas multimodales). Por otro lado, Device actúa como proveedor de la telemetría —confirmaciones de toma, niveles de stock y lecturas ambientales— que Medication consume para su lógica de adherencia y alertas. Aquí se establece una relación de tipo Customer/Supplier, donde Medication es el cliente que consume los datos del dispositivo, complementada con un patrón Conformist en el que Device acepta el modelo de configuración que Medication le impone.
+
+- _Access ↔ Todos los contextos_: Access es un contexto transversal que provee autenticación, identidad y permisos a todo el sistema. Aquí es viable aplicar un patrón Shared Kernel con Medication, dado que ambos comparten el modelo de la cuenta del cuidador y la relación cuidador–dispositivo para autorizar la gestión de tratamientos, o un patrón Conformist con Device, que simplemente acepta las credenciales y reglas de acceso impuestas por Access para autenticar el hardware.
+
+- _Device ↔ Paciente_: El paciente interactúa directamente con el sistema físico del pastillero a través de los botones de confirmación y posposición. Device es relativamente autónomo en su operación de hardware y puede funcionar de forma independiente, salvo por las acciones que le delega Medication, como la emisión de recordatorios.
+
+**Escenarios alternativos:**
+
+_¿Qué pasaría si moviéramos la lógica de detección de dosis omitida del contexto Medication al contexto Device?_
+Esto permitiría que el dispositivo marque la omisión de forma local (en el edge), reduciendo la latencia y la dependencia de la conectividad. Sin embargo, acoplaría una regla de negocio sensible al hardware, dificultando su evolución y haciendo que el cálculo de adherencia dependa del firmware del dispositivo.
+
+_¿Qué pasaría si separáramos un contexto independiente de Notifications?_
+Centralizar el envío de todas las alertas (dosis omitida, condiciones ambientales, recarga y fin de tratamiento) en un único contexto favorecería la cohesión y facilitaría cambiar de proveedor de notificaciones. No obstante, introduciría un contexto adicional y una capa de indirección que podría aumentar la complejidad del sistema en su etapa actual.
+
+_¿Qué pasaría si duplicáramos la funcionalidad de historial ambiental en Device y en Medication?_
+Esto rompería la dependencia en tiempo real entre ambos contextos para la consulta del historial, aunque aumentaría la duplicación de datos y el riesgo de inconsistencias entre la información del dispositivo y la de la aplicación.
+
+**Decisión final:**
+
+Tras evaluar estas opciones, consideramos la siguiente como la estructura más coherente:
+
+- Separación clara de responsabilidades entre la autenticación (Access), la lógica de tratamientos y dosis (Medication) y el control del hardware (Device), lo que permite un desarrollo y despliegue independiente de cada contexto.
+
+- Access ↔ Medication: se establece un patrón Shared Kernel, donde el modelo de usuario, la cuenta del cuidador y los permisos se comparten entre ambos contextos para autorizar la gestión de tratamientos.
+
+- Access ↔ Device: se aplica un patrón Conformist, en el que Device acepta sin modificaciones las credenciales y reglas de acceso definidas por Access para autenticar el dispositivo.
+
+- Medication → Device: Medication decide cuándo y cómo debe operar el dispositivo (configuración, horarios y recordatorios) y Device ejecuta esas decisiones operando el hardware físico, mientras a su vez le provee la telemetría. Se modela como una relación Customer/Supplier reforzada con un patrón Conformist.
+
+![Context Mapping](imgs/context-map/context-map.png)
+
 
 ### 4.1.3. Software Architecture
 #### 4.1.3.1. Software Architecture System Landscape Diagram
