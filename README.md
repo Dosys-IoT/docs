@@ -3737,23 +3737,24 @@ La principal mejora del Sprint fue cerrar la brecha entre el informe, el softwar
 
 ## 6.3. Validation Interviews
 
-*Sección reservada para AV2/TB2. En esta entrega TB1 no se realizan entrevistas de validación de los productos digitales desplegados; las entrevistas de descubrimiento y needfinding ya fueron registradas en 2.2.*
+*Sección reservada para TB2. En esta entrega TB1 no se realizan entrevistas de validación de los productos digitales desplegados; las entrevistas de descubrimiento y needfinding ya fueron registradas en 2.2.*
 
 ### 6.3.1. Diseño de Entrevistas
 
-> **Pendiente:** se elaborará durante el Sprint 2, una vez que la versión desplegada cubra el flujo del paciente (botón físico + LED) y permita una prueba multimodal con usuarios reales del segmento adulto mayor.
+> **Pendiente:** se elaborará durante el TB2, una vez que la versión desplegada cubra el flujo del paciente (botón físico + LED) y permita una prueba multimodal con usuarios reales del segmento adulto mayor.
 
 ### 6.3.2. Registro de Entrevistas
 
-> **Pendiente AV2/TB2.**
+> **Pendiente TB2.**
 
 ### 6.3.3. Evaluaciones según heurísticas
 
-> **Pendiente AV2/TB2** — Se aplicará el formato de evaluación heurística del Anexo D del documento del curso.
+> **Pendiente TB2** — Se aplicará el formato de evaluación heurística del Anexo D del documento del curso.
 
 ## 6.4. Video About-the-Product
 
-> **Pendiente AV2/TB2.** Para esta entrega TB1 se prioriza la evidencia de despliegue (6.2.1.8) y el primer prototipo navegable (5.5). El Video About-the-Product se elaborará una vez se cierre el Sprint 2 y se cuente con un flujo demostrable con testimonio positivo de un usuario del segmento Cuidador.
+![alt text](imgs/VideoAboutTheTeam.PNG)
+[\[https://youtu.be/GJyMBBZziW0\]](https://youtu.be/GJyMBBZziW0)
 
 # Conclusiones
 
@@ -3868,4 +3869,5 @@ Archivo de diseño completo (Style Guidelines, Information Architecture, Wirefra
 
 ## Anexo E. Video de Porducto Fisico
 - Video de funcionamiento de los componentes Testing Hardware: https://youtu.be/prMB6npDBd8 
-> Esta relación se irá expandiendo con cada entrega del proyecto (AV2, TB2).
+
+- Video About The Team: https://youtu.be/GJyMBBZziW0
