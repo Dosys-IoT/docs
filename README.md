@@ -45,6 +45,11 @@
 | AV2 | 17/06/2026 | Oblitas Davila, Mariano Moises | Se validó la integración del Frontend con los servicios ya desplegados (Backend REST API y Edge Service), confirmando el consumo estable de endpoints reales sin modificaciones en el backend durante el Sprint 2. |
 | AV2 | 17/06/2026 | Qqueso Rodriguez, Britney Delhy | Se realizó la revisión funcional de las vistas del Frontend Web y la verificación de coherencia con la propuesta de valor del producto presentada en el Landing Page. |
 | AV2 | 17/06/2026 | Zúñiga Murillo, Diego Sebastián | Se consolidó la entrega AV2: actualización del Registro de Versiones, Project Report Collaboration Insights y Student Outcome, incorporación de la sección 6.2.2 Sprint 2 con sus evidencias de Sprint Review, y revisión de calidad y coherencia documental del informe. |
+| TB2 | 07/07/2026 | Oblitas Davila, Mariano Moises | Se documentó la vertical IoT del Sprint 3: integración del firmware ESP32 con MQTT y el Edge Service, reenvío de telemetría real (ambiente, salud de hardware, tomas por botón físico y stock) al Backend REST API, endpoints internos del dispositivo, vinculación/desvinculación, alarm settings y horarios reales, además del despliegue de Backend (Cloud Run + Supabase) y Edge (Render/Cloud Run). |
+| TB2 | 07/07/2026 | Ybañez Esquerre, Miguel Angel | Se documentó el desarrollo de las aplicaciones cliente del Sprint 3: control y diagnóstico del dispositivo, editor de horarios personalizados y configuración de alarma en la Web App, y el desarrollo de la nueva App Móvil en Flutter con paridad funcional y consumo de datos reales. |
+| TB2 | 07/07/2026 | Martel Zevallos, Gabriel Aristóteles | Se colaboró en el diseño UX/UI de las nuevas pantallas de control y diagnóstico del dispositivo y de la App Móvil, manteniendo la coherencia visual del producto. |
+| TB2 | 07/07/2026 | Qqueso Rodriguez, Britney Delhy | Se realizaron las entrevistas de validación con usuarios del segmento adulto mayor y se apoyó la coherencia del producto integrado con la propuesta de valor del Landing Page. |
+| TB2 | 07/07/2026 | Zúñiga Murillo, Diego Sebastián | Se consolidó la entrega TB2 (Release Review): incorporación de la sección 6.2.3 Sprint 3 y de 6.3 Validation Interviews, actualización del Registro de Versiones, Project Report Collaboration Insights y Student Outcome, documentación de servicios internos, evidencias de despliegue final y revisión de calidad del informe. |
 
 # Project Report Collaboration Insights
 
@@ -108,6 +113,24 @@ Figura: Analíticos de colaboración del repositorio `Dosys-IoT/docs` durante la
 ![GitHub Commits — AV2](imgs/collaboration/docs-commits-av2.png)
 
 Figura: Historial de commits realizados para la actualización del informe y la incorporación de la sección 6.2.2 Sprint 2.
+
+## TB2 Collaboration Insights
+
+Durante la entrega TB2 (Release Review), el equipo corrigió y mejoró los artefactos previamente presentados e incorporó la sección **6.2.3 Sprint 3** del Capítulo VI y la sección **6.3 Validation Interviews**, junto con la actualización del Registro de Versiones, el Student Outcome y el Project Report Collaboration Insights.
+
+La organización del trabajo se alineó con el Sprint 3, cuyo foco fue cerrar el ciclo de vida del producto integrando el dispositivo físico real de extremo a extremo y ampliando el alcance con la App Móvil. Mariano Oblitas lideró la vertical IoT y de servicios (firmware ESP32, MQTT, Edge Service y endpoints internos del Backend, además del despliegue de Backend y Edge). Miguel Ybañez lideró las aplicaciones cliente (control/diagnóstico del dispositivo y horarios personalizados en la Web App, y el desarrollo de la App Móvil en Flutter). Gabriel Martel colaboró en el diseño UX/UI de las nuevas pantallas. Britney Qqueso realizó las entrevistas de validación con usuarios del segmento adulto mayor y la revisión funcional del producto integrado. Diego Zúñiga coordinó el Sprint 3, la ampliación de pruebas, la documentación de servicios y la consolidación de evidencias del Release Review.
+
+La colaboración en TB2 integró por primera vez todas las verticales del producto (hardware, servicios, Web App y App Móvil) en un flujo de extremo a extremo, con dos líderes técnicos complementarios y el resto del equipo en roles de diseño, validación con usuarios y aseguramiento de calidad.
+
+**Evidencia de colaboración TB2:**  
+![GitHub Contributors — TB2](imgs/collaboration/docs-contributors-tb2.png)
+
+Figura: Analíticos de colaboración del repositorio `Dosys-IoT/docs` durante la preparación de la entrega TB2.
+
+**Evidencia de commits TB2:**  
+![GitHub Commits — TB2](imgs/collaboration/docs-commits-tb2.png)
+
+Figura: Historial de commits realizados para la actualización del informe y la incorporación de las secciones 6.2.3 Sprint 3 y 6.3 Validation Interviews.
 
 ## Interpretación de la colaboración
 
@@ -264,6 +287,16 @@ ABET – EAC - Student Outcome 5: La capacidad de funcionar efectivamente en un 
       * [6.2.2.7. Services Documentation Evidence for Sprint Review](#6227-services-documentation-evidence-for-sprint-review)
       * [6.2.2.8. Software Deployment Evidence for Sprint Review](#6228-software-deployment-evidence-for-sprint-review)
       * [6.2.2.9. Team Collaboration Insights during Sprint](#6229-team-collaboration-insights-during-sprint)
+    * [6.2.3. Sprint 3](#623-sprint-3)
+      * [6.2.3.1. Sprint Planning 3](#6231-sprint-planning-3)
+      * [6.2.3.2. Aspect Leaders and Collaborators](#6232-aspect-leaders-and-collaborators)
+      * [6.2.3.3. Sprint Backlog 3](#6233-sprint-backlog-3)
+      * [6.2.3.4. Development Evidence for Sprint Review](#6234-development-evidence-for-sprint-review)
+      * [6.2.3.5. Testing Suite Evidence for Sprint Review](#6235-testing-suite-evidence-for-sprint-review)
+      * [6.2.3.6. Execution Evidence for Sprint Review](#6236-execution-evidence-for-sprint-review)
+      * [6.2.3.7. Services Documentation Evidence for Sprint Review](#6237-services-documentation-evidence-for-sprint-review)
+      * [6.2.3.8. Software Deployment Evidence for Sprint Review](#6238-software-deployment-evidence-for-sprint-review)
+      * [6.2.3.9. Team Collaboration Insights during Sprint](#6239-team-collaboration-insights-during-sprint)
   * [6.3. Validation Interviews](#63-validation-interviews)
     * [6.3.1. Diseño de Entrevistas](#631-diseño-de-entrevistas)
     * [6.3.2. Registro de Entrevistas](#632-registro-de-entrevistas)
@@ -3735,26 +3768,400 @@ La principal mejora del Sprint fue cerrar la brecha entre el informe, el softwar
 
 **Oportunidades de mejora para el siguiente Sprint.** El equipo buscará integrar el firmware del dispositivo físico con MQTT y Edge Service, transportar eventos reales del prototipo hacia el Backend REST API, incorporar pruebas automatizadas para Frontend y Backend, y preparar una validación con usuarios reales del segmento cuidador/adulto mayor.
 
+### 6.2.3. Sprint 3
+
+El Sprint 3 corresponde al cierre del ciclo de vida del producto Dosys y es el foco de la entrega TB2 (Release Review). Mientras el Sprint 2 consolidó el Frontend Web y validó físicamente el prototipo IoT de forma aislada, el Sprint 3 **cierra el flujo de extremo a extremo con hardware real** y **amplía el alcance de las aplicaciones del producto**.
+
+El Sprint 3 se organizó en cuatro frentes complementarios:
+
+1. **Integración IoT real (Firmware ESP32 ↔ MQTT ↔ Edge Service ↔ Backend REST API).** El dispositivo físico dejó de ser una prueba local aislada: ahora publica telemetría real (ambiente, latido/salud de hardware, tomas confirmadas por botón físico y stock) por MQTT hacia el Edge Service, que la reenvía al Backend, y recibe de vuelta su configuración de ejecución (`runtime-config`) y comandos.
+2. **Aplicación Móvil Dosys (nueva).** Se incorporó al alcance una **App Móvil en Flutter** orientada al paciente/adulto mayor, con paridad funcional respecto de la Web App y consumo de datos reales del Backend en Cloud Run.
+3. **Control y diagnóstico del dispositivo desde la Web App.** El cuidador puede vincular/desvincular el dispositivo físico, configurar la alarma (volumen y horas de silencio), personalizar los horarios de medicación y acceder a una pantalla de diagnóstico IoT de las tres capas (ESP32/Edge/Backend).
+4. **Aseguramiento y despliegue final.** Se ampliaron las suites de pruebas (contract tests del Edge, tests de integración y de aceptación BDD del Backend), se documentaron los servicios internos del dispositivo y se desplegó la versión final de las aplicaciones.
+
+El **Landing Page** no se modificó en este Sprint; su despliegue en GitHub Pages permanece vigente. El aporte central del Sprint 3 fue cerrar la brecha entre el software y el hardware, demostrando que Dosys opera como una solución IoT completa de extremo a extremo.
+
+#### 6.2.3.1. Sprint Planning 3
+
+La reunión de Sprint Planning del Sprint 3 se realizó de forma virtual al inicio de la tercera iteración. A continuación se presenta el cuadro resumen.
+
+| Sprint # | Sprint 3 |
+| :--- | :--- |
+| **Sprint Planning Background** | |
+| Date | 2026-06-23 *(confirmar fecha exacta del equipo)* |
+| Time | 07:30 PM |
+| Location | Reunión virtual por Discord, canal `#dosys-scrum`. |
+| Prepared By | Zúñiga Murillo, Diego Sebastián |
+| Attendees (to planning meeting) | Martel Zevallos, Gabriel Aristóteles / Oblitas Davila, Mariano Moises / Qqueso Rodriguez, Britney Delhy / Ybañez Esquerre, Miguel Angel / Zúñiga Murillo, Diego Sebastián |
+| **Sprint n – 1 Review Summary** | En el Sprint 2 se consolidó el Frontend Web Application (alineación con el catálogo US01–US23 y consumo de datos reales) y se validó físicamente el prototipo IoT de forma aislada (diseño 3D, impresión, ensamblaje y pruebas de componentes). Quedó pendiente cerrar el flujo de extremo a extremo con el hardware real conectado por MQTT y ampliar el alcance a una aplicación móvil. |
+| **Sprint n – 1 Retrospective Summary** | El equipo acordó: (a) integrar el firmware del ESP32 con MQTT y el Edge Service para transportar telemetría real hacia el Backend; (b) habilitar la vinculación de un dispositivo físico a la cuenta del cuidador; (c) incorporar la App Móvil como nueva aplicación del alcance; (d) dar al cuidador control y diagnóstico del dispositivo; y (e) ampliar la cobertura de pruebas automatizadas y desplegar la versión final. |
+| **Sprint Goal & User Stories** | |
+| **Sprint 3 Goal** | *Our focus is on cerrar el ciclo de vida del producto Dosys integrando el dispositivo físico real de extremo a extremo (Firmware ESP32 → MQTT → Edge Service → Backend REST API → aplicaciones), publicando la App Móvil y entregando al cuidador control y diagnóstico del dispositivo. We believe it delivers una solución IoT completa y verificable, con telemetría real de ambiente, salud de hardware, tomas confirmadas por botón físico y stock. This will be confirmed when el dispositivo físico reporte eventos reales visibles en las aplicaciones, el cuidador pueda vincular y controlar el dispositivo, y la App Móvil consuma los mismos datos reales del Backend desplegado.* |
+| **Sprint 3 Velocity** | 42 Story Points. 84 horas. |
+| **Sum of Story Points** | 42 Story Points. |
+
+#### 6.2.3.2. Aspect Leaders and Collaborators
+
+El Sprint 3 abarcó integración de hardware, servicios, dos aplicaciones cliente y aseguramiento de calidad. Los aspectos considerados fueron: **IoT Firmware & Hardware Integration**, **Edge Service (MQTT)**, **Backend — Device Events & API**, **Frontend Web — Control & Diagnóstico**, **Mobile App** y **QA / Documentation**.
+
+| Team Member (Last Name, First Name) | GitHub Username | IoT Firmware & Hardware | Edge Service (MQTT) | Backend — Device Events & API | Frontend Web — Control & Diagnóstico | Mobile App | QA / Documentation |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| Oblitas Davila, Mariano Moises | Sigilo-dev | **L** | **L** | **L** | C | C | C |
+| Ybañez Esquerre, Miguel Angel | Miguel080902 | C | C | C | **L** | **L** | C |
+| Martel Zevallos, Gabriel Aristóteles | GaboMartel | C | C | C | C | C | C |
+| Qqueso Rodriguez, Britney Delhy | brit2801 | C | C | C | C | C | C |
+| Zúñiga Murillo, Diego Sebastián | DekayDeCanela | C | C | C | C | C | **L** |
+
+Mariano Oblitas lideró la vertical IoT del Sprint: el firmware del ESP32, la mensajería MQTT, el Edge Service y los endpoints internos del dispositivo en el Backend. Miguel Ybañez lideró las dos aplicaciones cliente: el control y diagnóstico del dispositivo en la Web App y la nueva App Móvil en Flutter. Gabriel Martel colaboró en la coherencia visual de las nuevas pantallas de control/diagnóstico y de la App Móvil. Diego Zúñiga lideró QA, la documentación de servicios y la verificación de coherencia documental. Britney Qqueso colaboró en la revisión funcional y en la coherencia con la propuesta de valor.
+
+#### 6.2.3.3. Sprint Backlog 3
+
+Durante el Sprint 3 se formalizaron las siguientes nuevas User Stories, continuación del catálogo (US01–US28):
+
+| ID | Título | User Story | Épica |
+| :--- | :--- | :--- | :--- |
+| **US29** | Vinculación de Dispositivo Físico | Como cuidador, quiero vincular y desvincular el pastillero físico a mi cuenta, para asociar el dispositivo real a mi tratamiento sin perder el historial. | EP04 |
+| **US30** | Confirmación Física de Toma | Como paciente, quiero confirmar mi toma presionando el botón del dispositivo, para que la adherencia se registre automáticamente sin usar el teléfono. | EP04 |
+| **US31** | Diagnóstico IoT del Dispositivo | Como cuidador, quiero una pantalla de diagnóstico del dispositivo, para verificar la conectividad y la salud del hardware (ESP32, Edge, MQTT, sensores). | EP04 |
+| **US32** | Configuración de Alarma | Como cuidador, quiero ajustar el volumen de la alarma y definir horas de silencio, para adaptar el recordatorio al descanso del paciente. | EP03 |
+| **US33** | Horarios de Medicación Personalizados | Como cuidador, quiero definir días y múltiples horarios por medicamento, para reflejar tratamientos con más de una toma al día. | EP02 |
+| **US34** | Aplicación Móvil Dosys | Como paciente, quiero una app móvil para gestionar y monitorear mi tratamiento desde el teléfono, con las mismas funciones que la web. | EP01 |
+| **US35** | Telemetría del Firmware ESP32 | Como equipo de desarrollo, queremos que el dispositivo publique por MQTT su telemetría real (ambiente, salud, tomas y stock) hacia el Backend, para cerrar el flujo IoT de extremo a extremo. | EP04 |
+
+El board público del Sprint en Trello se encuentra en: [Tablero Trello - Dosys Sprint 3](https://trello.com) *(reemplazar por el enlace real del board de Sprint 3)*
+
+![Tablero Trello Dosys Sprint 3](imgs/sprint-3/trello-sprint-3-board.png)
+
+**Figura:** Vista general del tablero Trello y distribución de Work Items para el Sprint 3.
+
+| User Story Id | User Story Title | Work-Item Id | Work-Item Title | Description | Estimation (Hours) | Assigned To | Status |
+| :--- | :--- | :--- | :--- | :--- | :---: | :--- | :--- |
+| US35 | Telemetría del Firmware ESP32 | WI46 | Puente MQTT ESP32 → Edge | Suscribir el Edge Service a los topics `dosys/devices/+/{environment,heartbeat,intake,stock,config/request}` y parsear los payloads del ESP32. | 6 | Mariano | Done |
+| US35 | Telemetría del Firmware ESP32 | WI47 | Reenvío de telemetría Edge → Backend | Enrutar cada evento MQTT al endpoint interno correspondiente del Backend con clave `X-Edge-Service-Key`, normalizando marcas de tiempo a hora de Lima e idempotencia por `eventId`. | 6 | Mariano | Done |
+| US35 | Telemetría del Firmware ESP32 | WI48 | Endpoints internos del dispositivo | Rehacer los endpoints `/api/v1/device/internal/{id}/{environment-readings,heartbeats,intake-events,stock-events}` con DTOs tipados, persistencia y migraciones (heartbeats, stock-events). | 7 | Mariano | Done |
+| US30 | Confirmación Física de Toma | WI49 | Registro de tomas por botón físico | Persistir `IntakeEvent` con `source = PHYSICAL_BUTTON` y `buttonPin`, actualizando adherencia y stock del compartimento. | 4 | Mariano | Done |
+| US29 | Vinculación de Dispositivo Físico | WI50 | Endpoints de link/unlink | Implementar `POST /medication/devices/link` y `POST /medication/devices/{id}/unlink` con `hardwareDeviceId`, reconciliación de propietario y 5 compartimentos por defecto. | 5 | Mariano | Done |
+| US29 | Vinculación de Dispositivo Físico | WI51 | UI de vinculación en Web App | Tarjeta de vinculación de dispositivo físico (Device ID / nombre / key) en la vista `/device` cuando la cuenta no tiene dispositivo. | 3 | Miguel | Done |
+| US32 | Configuración de Alarma | WI52 | Alarm settings (Backend + runtime-config) | Persistir volumen y horas de silencio (`/alarm-settings`) e incluirlos en el `RuntimeConfigResponse` que consume el ESP32. | 4 | Mariano | Done |
+| US32 | Configuración de Alarma | WI53 | UI de configuración de alarma | Sección de configuración de alarma (slider de volumen, quiet hours) en `/profile`, con sincronización al dispositivo. | 3 | Miguel | Done |
+| US33 | Horarios de Medicación Personalizados | WI54 | Editor de horarios personalizados | Editor de días de la semana y múltiples horarios por medicamento, con persistencia (`schedules`) y sincronización al dispositivo. | 5 | Miguel | Done |
+| US33 | Horarios de Medicación Personalizados | WI55 | Exposición de horarios reales (Backend) | Endpoint `GET .../containers/{n}/schedules` que devuelve solo los horarios activos ordenados por hora. | 3 | Mariano | Done |
+| US31 | Diagnóstico IoT del Dispositivo | WI56 | Comandos Edge → ESP32 | Endpoints de comando del Edge (audio-test, led-test, status-request, config-sync) que publican por MQTT al dispositivo. | 4 | Mariano | Done |
+| US31 | Diagnóstico IoT del Dispositivo | WI57 | Pantalla de diagnóstico IoT | Vista `/device-diagnostics` con estado de Backend/Edge/MQTT, salud del hardware, ambiente, config en caché y comandos. | 5 | Miguel | Done |
+| US34 | Aplicación Móvil Dosys | WI58 | App Móvil Flutter con datos reales | Construir la App Móvil (auth JWT, dashboard, medicinas, dispositivo, insights, alertas, perfil) con paridad respecto de la web y consumo del Backend en Cloud Run. | 12 | Miguel | Done |
+| — | Despliegue | WI59 | Despliegue final de servicios | Desplegar Backend en Cloud Run (Supabase Postgres), Edge en Render/Cloud Run y Frontend Web en Vercel, con CORS y variables de entorno. | 4 | Mariano | Done |
+| — | QA / Documentation | WI60 | Contract tests del Edge | Suite `test_edge.py` de contrato: parsing de topics, reenvío por tipo de evento, comandos y tolerancia a telemetría inválida. | 4 | Diego | Done |
+| — | QA / Documentation | WI61 | Tests de integración y BDD del Backend | Ampliar los tests de integración (link/unlink, alarm settings, horarios) y las features Cucumber de aceptación. | 4 | Diego | Done |
+| — | QA / Documentation | WI62 | Evidencias y documentación de Sprint Review | Consolidar capturas, evidencia de despliegue, documentación de servicios internos y video About-the-Product. | 3 | Diego | Done |
+
+#### 6.2.3.4. Development Evidence for Sprint Review
+
+El desarrollo del Sprint 3 abarcó cuatro repositorios: **Edge Service**, **Backend REST API**, **Frontend Web Application** y la nueva **Mobile Application**. El **Landing Page** no se modificó.
+
+- **Backend REST API:** [Repositorio backend](https://github.com/Dosys-IoT/backend)
+- **Edge Service:** [Repositorio edge](https://github.com/Dosys-IoT/edge)
+- **Frontend Web:** [Repositorio frontend-web](https://github.com/Dosys-IoT/frontend-web) — [Despliegue Vercel](https://frontend-web-jet-seven.vercel.app)
+- **Mobile App:** [Repositorio frontend-mobile](https://github.com/Dosys-IoT/frontend-mobile)
+
+| Repository | Branch | Commit Id | Commit Message | Committed on (Date) |
+| :--- | :--- | :--- | :--- | :--- |
+| Dosys-IoT/frontend-mobile | main | 2cd9c1a | feat: complete mobile app with real data and full feature parity | 2026-06-17 |
+| Dosys-IoT/backend | main | 43beeb0 | feat(device): support esp32 hardware events | 2026-06-27 |
+| Dosys-IoT/backend | main | 85cc293 | fix(device): return default runtime config when device is missing | 2026-06-27 |
+| Dosys-IoT/backend | main | 8096c9f | feat(device): link physical device to user | 2026-06-27 |
+| Dosys-IoT/backend | main | c20d374 | feat(backend): persist device alarm settings | 2026-06-28 |
+| Dosys-IoT/backend | main | 23067f5 | feat(backend): support device unlinking | 2026-06-28 |
+| Dosys-IoT/backend | main | cd7f238 | fix(backend): expose real medication schedules | 2026-06-28 |
+| Dosys-IoT/edge | main | 1781246 | feat(edge): bridge esp32 mqtt events | 2026-06-27 |
+| Dosys-IoT/edge | main | 5f59cb5 | fix(edge): forward mqtt telemetry to backend | 2026-06-28 |
+| Dosys-IoT/edge | main | ac271a3 | fix(edge): enable cors for vercel frontend | 2026-06-28 |
+| Dosys-IoT/frontend-web | main | 4d2cbac | feat(frontend): add iot diagnostics screen | 2026-06-27 |
+| Dosys-IoT/frontend-web | main | e548714 | feat(frontend): link physical device | 2026-06-27 |
+| Dosys-IoT/frontend-web | main | 9acc230 | feat(frontend): support custom medication schedules | 2026-06-28 |
+| Dosys-IoT/frontend-web | main | 6fa2af9 | fix(frontend): integrate device controls and status | 2026-06-28 |
+| Dosys-IoT/frontend-web | main | a1c1ab0 | fix(frontend): load medication schedules from backend | 2026-06-28 |
+
+**Principales artefactos por repositorio.**
+
+*Edge Service (Flask + MQTT, Python):*
+
+| Acción | Archivo | Propósito |
+| :--- | :--- | :--- |
+| Añadido | `app/services/command_service.py` | US31 — Publicación de comandos (audio/LED/estado/sync) al ESP32 por MQTT. |
+| Modificado | `app/services/sync_service.py` | US35 — Enrutado de eventos MQTT a los endpoints internos del Backend y normalización a hora de Lima. |
+| Modificado | `app/mqtt/handlers.py`, `app/mqtt/topics.py`, `app/mqtt/client.py` | US35 — Suscripción a topics del ESP32, `publish_json` y respuesta de `config-request` con caché de `runtime-config`. |
+| Añadido | `tests/test_edge.py` | QA — Contract tests del Edge. |
+| Añadido | `render.yaml`, `Procfile` | Despliegue del Edge en Render / Cloud Run. |
+
+*Backend REST API (Spring Boot / Java, DDD):*
+
+| Acción | Archivo | Propósito |
+| :--- | :--- | :--- |
+| Modificado | `device/interfaces/rest/internal/DeviceInternalController.java` | US35 — Endpoints internos con DTOs tipados (environment, heartbeat, intake, stock) y `runtime-config`. |
+| Modificado | `medication/application/MedicationService.java` | US29/US32/US33 — Vinculación/desvinculación, alarm settings y horarios por compartimento. |
+| Añadido | `db/migration/V5__device_internal_iot_events.sql` | US35 — Tablas `device_heartbeats`, `device_stock_events` e idempotencia por `event_id`. |
+| Añadido | `db/migration/V6__add_hardware_device_id.sql` | US29 — `hardware_device_id` para el dispositivo físico. |
+| Añadido | `db/migration/V7__device_alarm_settings.sql` | US32 — Volumen y horas de silencio de la alarma. |
+
+*Frontend Web (Next.js 15 / React 19):*
+
+| Acción | Archivo / Ruta | Propósito |
+| :--- | :--- | :--- |
+| Añadido | `app/(app)/device-diagnostics/page.tsx` | US31 — Pantalla de diagnóstico IoT de tres capas. |
+| Modificado | `app/(app)/device/page.tsx` | US29/US31 — Estado del dispositivo, controles (audio/LED/estado/sync) y vinculación. |
+| Añadido | `components/medications/custom-schedule-editor.tsx` | US33 — Editor de días y horarios personalizados. |
+| Modificado | `app/(app)/profile/page.tsx` | US29/US32 — Configuración de alarma y desvinculación del dispositivo. |
+| Añadido | `app/(app)/medications/[containerNumber]/report/page.tsx` | Reporte de adherencia por compartimento. |
+
+*Mobile App (Flutter / Dart):*
+
+| Acción | Archivo / Módulo | Propósito |
+| :--- | :--- | :--- |
+| Añadido | `dosys_app/lib/main.dart`, `lib/router/app_router.dart` | US34 — App `MaterialApp.router` con `go_router` (splash, login, register, home, medications, device, insights, alerts, profile). |
+| Añadido | `lib/core/network/api_client.dart` | US34 — Cliente HTTP con JWT contra el Backend en Cloud Run. |
+| Añadido | `lib/core/domain/{device_status,next_dose,alerts,adherence}.dart` | US34 — Lógica de dominio portada desde la Web App (paridad funcional). |
+
+#### 6.2.3.5. Testing Suite Evidence for Sprint Review
+
+El Sprint 3 amplió la cobertura de pruebas automatizadas en los servicios y sumó pruebas de integración física del dispositivo real.
+
+**Edge Service — Contract tests (`tests/test_edge.py`, `unittest`).**
+
+| Test | Objetivo | Resultado |
+| :--- | :--- | :--- |
+| Parsing de topics | Verificar la extracción de `deviceId` y tipo de evento del topic MQTT. | Passed |
+| Rechazo de `deviceId` inconsistente | Rechazar payloads cuyo `deviceId` no coincide con el del topic. | Passed |
+| Reenvío por tipo de evento | Environment/heartbeat/intake se reenvían al endpoint interno correcto (con `buttonPin=15`, `source=PHYSICAL_BUTTON`). | Passed |
+| Config-request → config-response | Responder la solicitud de configuración del ESP32 por MQTT. | Passed |
+| Comandos audio/LED | Publicar comandos de prueba al dispositivo. | Passed |
+| Telemetría inválida tolerada | No caerse ante timestamps corruptos; reenviar con hora coercionada a Lima. | Passed |
+| CORS | Permitir el origen del Frontend en Vercel y previews. | Passed |
+
+**Backend REST API — Integración y aceptación (JUnit + Cucumber).**
+
+| Test | Objetivo | Resultado |
+| :--- | :--- | :--- |
+| `DeviceInternalIntegrationTest` | Ingesta de eventos del dispositivo y `runtime-config` por defecto cuando el dispositivo no existe. | Passed |
+| `MedicationIntegrationTest` (link/unlink) | Vinculación y desvinculación del dispositivo físico. | Passed |
+| `MedicationIntegrationTest` (alarm/horarios) | Persistencia de alarm settings y listado de horarios activos por compartimento. | Passed |
+| `AccessIntegrationTest` (`PUT /me`) | Actualización del perfil del usuario autenticado. | Passed |
+| Cucumber `device.feature` / `medication.feature` / `access.feature` | Contratos de aceptación BDD de los flujos de dispositivo, medicación y acceso. | Passed |
+
+**Frontend Web y Mobile — Pruebas funcionales manuales.**
+
+| Test Case | User Story | Objetivo | Resultado |
+| :--- | :--- | :--- | :--- |
+| FE-TC08 — Vinculación de dispositivo | US29 | Vincular/desvincular el dispositivo físico desde la Web App. | Passed |
+| FE-TC09 — Diagnóstico IoT | US31 | Verificar estado de Backend/Edge/MQTT, salud del hardware y comandos. | Passed |
+| FE-TC10 — Configuración de alarma | US32 | Ajustar volumen y horas de silencio con sincronización al dispositivo. | Passed |
+| FE-TC11 — Horarios personalizados | US33 | Definir días y múltiples horarios por medicamento y persistirlos. | Passed |
+| MO-TC01 — App Móvil end-to-end | US34 | Login, dashboard, medicinas, dispositivo, insights y perfil con datos reales. | Passed |
+
+**Hardware — Integración de extremo a extremo.**
+
+| Test Case | Objetivo | Resultado |
+| :--- | :--- | :--- |
+| HW-TC07 — Telemetría MQTT real | El ESP32 publica ambiente/heartbeat/intake/stock y el Edge los reenvía al Backend. | Passed |
+| HW-TC08 — Confirmación por botón físico | La toma confirmada con el botón se registra como `IntakeEvent` (`PHYSICAL_BUTTON`). | Passed |
+| HW-TC09 — Runtime config del ESP32 | El dispositivo solicita y recibe su `runtime-config` (horarios, umbrales, alarma). | Passed |
+| HW-TC10 — Comandos remotos | El dispositivo responde a los comandos audio-test / led-test / status-request / config-sync. | Passed |
+
+#### 6.2.3.6. Execution Evidence for Sprint Review
+
+En el Sprint 3 se ejecutó y verificó el producto completo: las aplicaciones cliente (Web y Móvil) consumiendo datos reales, y el dispositivo físico operando de extremo a extremo por MQTT.
+
+Principales puntos de verificación:
+
+- **Frontend Web — Dispositivo y controles** (`/device`) — estado en vivo (online/offline), ambiente real y controles remotos (Probar audio, Probar LEDs, Solicitar estado, Sincronizar config).
+- **Frontend Web — Diagnóstico IoT** (`/device-diagnostics`) — estado de Backend, Edge y MQTT, salud del hardware (RTC, SHT3X, DFPlayer, SD, switch), RSSI, firmware y configuración en caché.
+- **Frontend Web — Perfil** (`/profile`) — configuración de alarma (volumen y horas de silencio) y desvinculación del dispositivo.
+- **Frontend Web — Medicinas** — editor de horarios personalizados (días + múltiples horas) con persistencia y sincronización al dispositivo.
+- **Mobile App** — flujo completo del paciente (login, dashboard con próxima dosis, medicinas por compartimento, dispositivo/ambiente, insights de adherencia, alertas y perfil).
+- **Hardware — Extremo a extremo** — telemetría real del ESP32 visible en las aplicaciones y toma confirmada por botón físico registrada como adherencia.
+
+> **Nota:** las capturas de esta sección se almacenarán en `imgs/sprint-3/`. Al momento de redactar, esa carpeta aún no contiene las imágenes definitivas; los siguientes recuadros referencian las rutas previstas y deben reemplazarse por las capturas reales antes de la entrega final.
+
+### Vista de Diagnóstico IoT (Sprint 3)
+
+![Pantalla de diagnóstico IoT - Sprint 3](imgs/sprint-3/device-diagnostics-view.png)
+
+**Figura:** Diagnóstico de las tres capas (ESP32 / Edge / Backend), con salud del hardware, ambiente y configuración en caché.
+
+### Vista de Control del Dispositivo (Sprint 3)
+
+![Vista de control del dispositivo - Sprint 3](imgs/sprint-3/device-controls-view.png)
+
+**Figura:** Estado en vivo del dispositivo y comandos remotos (audio, LEDs, estado y sincronización de configuración).
+
+### Aplicación Móvil Dosys (Sprint 3)
+
+![App Móvil Dosys - Sprint 3](imgs/sprint-3/mobile-app-views.png)
+
+**Figura:** App Móvil en Flutter con datos reales del Backend: dashboard, medicinas, dispositivo e insights.
+
+### Ejecución de extremo a extremo del dispositivo físico (Sprint 3)
+
+![Flujo IoT de extremo a extremo - Sprint 3](imgs/sprint-3/iot-end-to-end.png)
+
+**Figura:** Telemetría real del ESP32 transportada por MQTT → Edge → Backend y visible en las aplicaciones, con confirmación de toma por botón físico.
+
+#### 6.2.3.7. Services Documentation Evidence for Sprint Review
+
+El Sprint 3 introdujo nuevos servicios y endpoints, principalmente en la API interna del dispositivo (consumida por el Edge Service) y en la API de medicación (consumida por las aplicaciones cliente), además de la mensajería MQTT y los comandos del Edge.
+
+**API interna del dispositivo — Backend (`/api/v1/device/internal`, autenticada con `X-Edge-Service-Key`).**
+
+| Método | Endpoint | Propósito |
+| :--- | :--- | :--- |
+| GET | `/{deviceId}/runtime-config` | Configuración de ejecución que el ESP32 solicita al arrancar (contenedores, horarios, umbrales ambientales, alarma). |
+| POST | `/{deviceId}/environment-readings` | Ingesta de lecturas de temperatura y humedad. |
+| POST | `/{deviceId}/heartbeats` | Latido con salud del hardware (RTC, SHT3X, DFPlayer, SD, switch, RSSI, firmware). |
+| POST | `/{deviceId}/intake-events` | Toma confirmada por botón físico (`source = PHYSICAL_BUTTON`). |
+| POST | `/{deviceId}/stock-events` | Pastillas restantes por compartimento. |
+
+**API de medicación / dispositivo — Backend (`/api/v1/medication`, autenticada por usuario).**
+
+| Método | Endpoint | Propósito |
+| :--- | :--- | :--- |
+| POST | `/devices/link` | Vincular un dispositivo físico a la cuenta (`hardwareDeviceId`). |
+| POST | `/devices/{id}/unlink` | Desvincular el dispositivo conservando el historial. |
+| PUT | `/devices/{id}/alarm-settings` | Volumen de alarma y horas de silencio. |
+| GET | `/devices/{id}/containers/{n}/schedules` | Horarios activos de un compartimento, ordenados por hora. |
+| PUT | `/access/me` | Actualización del perfil del usuario autenticado. |
+
+**Edge Service — Comandos y mensajería.**
+
+| Canal | Detalle |
+| :--- | :--- |
+| Comandos HTTP → MQTT | `POST /edge/v1/devices/{id}/commands/{audio-test\|led-test\|status-request\|config-sync}` publican al topic `dosys/devices/{id}/commands`. |
+| Topics de entrada (ESP32 → Edge) | `dosys/devices/+/{environment, heartbeat, intake, stock, config/request}`. |
+| Topics de salida (Edge → ESP32) | `dosys/devices/{id}/config/response`, `dosys/devices/{id}/commands`. |
+| Diagnóstico | `GET /edge/v1/health`, `/edge/v1/mqtt/status`, `/edge/v1/devices/{id}/cached-config`, `/edge/v1/diagnostics/events/recent`. |
+
+El broker MQTT es **HiveMQ Cloud** (TLS, puerto 8883). La documentación OpenAPI 3.0 del Backend (SpringDoc) se mantiene vigente e incorpora los nuevos endpoints.
+
+#### 6.2.3.8. Software Deployment Evidence for Sprint Review
+
+El Sprint 3 desplegó la versión final de las aplicaciones del alcance:
+
+| Producto | Plataforma | Estado en Sprint 3 |
+| :--- | :--- | :--- |
+| **Frontend Web** | Vercel | Nueva versión con control/diagnóstico del dispositivo y horarios personalizados. `NEXT_PUBLIC_API_BASE_URL`/`EDGE_API_BASE_URL` a los servicios en la nube. |
+| **Backend REST API** | Google Cloud Run + **Supabase PostgreSQL** | Datasource externalizado por variables de entorno; contraseña vía Secret Manager; Flyway gestiona el esquema (`ddl-auto: validate`). |
+| **Edge Service** | **Render** (`render.yaml`) y Cloud Run (`Procfile`) | Puente MQTT ↔ Backend con `X-Edge-Service-Key`; CORS habilitado para Vercel. |
+| **Mobile App** | Flutter (build Android/iOS/Web) | Primera versión funcional apuntando al Backend en Cloud Run; distribución manual (APK / `flutter run`). |
+| **Landing Page** | GitHub Pages | Sin cambios respecto del Sprint 1. |
+
+- **Frontend Web:** [https://frontend-web-jet-seven.vercel.app](https://frontend-web-jet-seven.vercel.app)
+- **Backend REST API:** `https://dosys-backend-149855215912.us-central1.run.app` (Swagger en `/swagger-ui/index.html`).
+- **Edge Service:** `https://dosys-edge-149855215912.us-central1.run.app` (health en `/edge/v1/health`).
+
+![Vercel - Deployment del Sprint 3](imgs/sprint-3/vercel-sprint-3-deployment.png)
+
+**Figura:** Deployment del Sprint 3 en Vercel a partir del último commit de la iteración.
+
+> **Nota:** la captura del deployment de Vercel del Sprint 3 y la evidencia de build de la App Móvil deben incorporarse en `imgs/sprint-3/` antes de la entrega final.
+
+#### 6.2.3.9. Team Collaboration Insights during Sprint
+
+El Sprint 3 se organizó en cuatro líneas de trabajo (IoT/servicios, Web App, App Móvil y QA/despliegue), integrando por primera vez el hardware real con el software en un flujo de extremo a extremo.
+
+- **Oblitas Davila, Mariano Moises (`Sigilo-dev`)** — Lideró la vertical **IoT y servicios**: firmware del ESP32, mensajería MQTT, Edge Service (reenvío de telemetría y comandos) y los endpoints internos del dispositivo, vinculación/desvinculación, alarm settings y horarios reales en el Backend, además del despliegue de Backend y Edge.
+
+- **Ybañez Esquerre, Miguel Angel (`Miguel080902`)** — Lideró las **aplicaciones cliente**: control y diagnóstico del dispositivo, editor de horarios personalizados y configuración de alarma en la Web App, y el desarrollo completo de la **App Móvil en Flutter** con paridad funcional y datos reales.
+
+- **Martel Zevallos, Gabriel Aristóteles (`GaboMartel`)** — Colaboró en **UX/UI**, apoyando la coherencia visual de las nuevas pantallas de control/diagnóstico y de la App Móvil.
+
+- **Qqueso Rodriguez, Britney Delhy (`brit2801`)** — Colaboró en la **revisión funcional** del producto integrado y en la coherencia con la propuesta de valor presentada en el Landing Page.
+
+- **Zúñiga Murillo, Diego Sebastián (`DekayDeCanela`)** — Lideró **QA, documentación y despliegue final**: contract tests del Edge, tests de integración y aceptación del Backend, documentación de servicios internos y consolidación de evidencias del Sprint Review.
+
+**Interpretación.** El Sprint 3 mostró el patrón de colaboración más integrador del proyecto: dos líderes técnicos complementarios (IoT/servicios y aplicaciones cliente) cerrando juntos el flujo de extremo a extremo, con soporte transversal de UX, revisión funcional y QA. La principal mejora fue eliminar la última brecha entre el informe, el software desplegado y el dispositivo físico: el hardware real ahora reporta telemetría verificable y la adherencia se registra por botón físico.
+
+**Cierre del ciclo.** Con el Sprint 3, Dosys alcanza una solución IoT completa: Landing, Web App, App Móvil, Backend, Edge y dispositivo físico operando de extremo a extremo. Las oportunidades de continuidad (notificaciones push al cuidador, endurecimiento de seguridad del canal MQTT, y pruebas de adherencia longitudinales con usuarios reales) quedan documentadas como trabajo futuro más allá del alcance del curso.
+
 ## 6.3. Validation Interviews
 
-*Sección reservada para TB2. En esta entrega TB1 no se realizan entrevistas de validación de los productos digitales desplegados; las entrevistas de descubrimiento y needfinding ya fueron registradas en 2.2.*
+Con el producto ya desplegado —pastillero inteligente IoT, Web App del cuidador y App Móvil— el equipo Dosys realizó entrevistas de validación con usuarios reales de los dos segmentos objetivo. A diferencia de las entrevistas de descubrimiento y *needfinding* registradas en la sección 2.2 (orientadas a entender el problema), estas entrevistas de validación buscan confirmar que la solución construida resuelve el problema y resulta usable, deseable y viable para el paciente adulto mayor y para el familiar/cuidador.
 
 ### 6.3.1. Diseño de Entrevistas
 
-> **Pendiente:** se elaborará durante el TB2, una vez que la versión desplegada cubra el flujo del paciente (botón físico + LED) y permita una prueba multimodal con usuarios reales del segmento adulto mayor.
+**Objetivo.** Validar con usuarios reales la comprensión, usabilidad y utilidad percibida de los tres componentes del producto: (a) el dispositivo físico (pastillero de 5 compartimentos con recordatorio multimodal de voz, LED y botón), (b) la Web App del cuidador y (c) la App Móvil, verificando las hipótesis de valor definidas en el Lean UX (adherencia del paciente y reducción de la carga de supervisión del cuidador).
+
+**Segmentos entrevistados.** Se definieron dos segmentos, coherentes con los Problem Statements de 1.2.2.1:
+
+| Segmento | Perfil | Qué se valida |
+| :--- | :--- | :--- |
+| **Segmento 1 — Adulto mayor / paciente** | Persona adulta mayor con uno o más tratamientos crónicos, usuaria directa del dispositivo físico. | Facilidad de entendimiento del dispositivo, claridad de los compartimentos, ergonomía, visibilidad del recordatorio multimodal (alarma/LED) y utilidad percibida para recordar sus tomas. |
+| **Segmento 2 — Familiar / cuidador** | Familiar o cuidador responsable del seguimiento de la medicación del adulto mayor, usuario principal de la app de monitoreo. | Sencillez de la app, claridad de la información de adherencia, utilidad del monitoreo remoto (tomas, próxima dosis, alertas) y comprensión del dispositivo físico. |
+
+**Método.** Entrevista **semiestructurada** e individual, realizada de forma presencial con demostración del prototipo físico y de la aplicación desplegada. Cada sesión fue **grabada en video** con consentimiento del participante y publicada como evidencia (enlaces en 6.3.2). El entrevistador siguió un guion base por segmento, permitiendo repreguntas para profundizar en las respuestas.
+
+**Guion de preguntas — Segmento 1 (Adulto mayor / paciente).**
+
+| Dimensión | Preguntas |
+| :--- | :--- |
+| **Dispositivo físico** | ¿El dispositivo le parece fácil de entender? · ¿El diseño le parece amigable? · ¿Los 5 compartimentos son suficientes para sus pastillas? · ¿Los compartimentos se ven claros y fáciles de identificar? · ¿La forma curva del compartimento le ayuda a sacar la pastilla con facilidad? · ¿Dónde colocaría el dispositivo en su casa? · ¿Cambiaría algo del diseño físico? |
+| **Aplicación** | ¿La app le parece sencilla de usar? · ¿Cree que usted o un familiar podría usarla fácilmente? · ¿Qué información le gustaría ver en la app? · ¿Qué funcionalidad extra le gustaría tener? |
+| **Recordatorio multimodal y valor general** | ¿La alarma se escucha con claridad? · ¿Las luces LED se ven bien durante el día? · ¿Cree que el dispositivo le ayudaría a recordar sus pastillas? · ¿Usaría este dispositivo todos los días? |
+
+**Guion de preguntas — Segmento 2 (Familiar / cuidador).**
+
+| Dimensión | Preguntas |
+| :--- | :--- |
+| **Datos del participante** | ¿Cómo te llamas? · ¿Cuántos años tienes? · ¿Cuál es tu relación con el adulto mayor? |
+| **Aplicación de monitoreo** | ¿La app te parece sencilla de usar? · ¿La información de la app se entiende fácilmente? · ¿Te serviría ver si el adulto mayor tomó o no tomó su medicamento? · ¿Te serviría ver la hora de la próxima dosis? · ¿Te gustaría recibir alertas si una dosis no fue tomada? · ¿Qué dato consideras más importante ver en la app? · ¿Agregarías alguna funcionalidad extra? |
+| **Dispositivo físico** | ¿El dispositivo físico te parece fácil de entender? · ¿Crees que los 5 compartimentos son suficientes? · ¿Dónde crees que debería colocarse el dispositivo en casa? |
 
 ### 6.3.2. Registro de Entrevistas
 
-> **Pendiente TB2.**
+Las siguientes entrevistas fueron realizadas y grabadas. Los videos completos constituyen la evidencia de validación del producto.
+
+| # | Segmento | Participante | Perfil *(completar edad/relación)* | Video |
+| :--- | :--- | :--- | :--- | :--- |
+| **E1** | Adulto mayor / paciente | Participante 1 | Adulto mayor con tratamiento crónico | [Segmento 1 — Entrevista 1](https://youtu.be/WT8atub9vWo) |
+| **E2** | Adulto mayor / paciente | Participante 2 | Adulto mayor con tratamiento crónico | [Segmento 1 — Entrevista 2](https://youtu.be/Xt1SSdcho6E) |
+| **E3** | Adulto mayor / paciente | Participante 3 | Adulto mayor con tratamiento crónico | [Segmento 1 — Entrevista 3](https://youtu.be/gK98ZRZfnWs) |
+| **E4** | Familiar / cuidador | *(por completar)* | Familiar/cuidador de adulto mayor | *(entrevista programada — guion listo en 6.3.1)* |
+
+> **Nota de estado:** al cierre de esta iteración se completaron **3 entrevistas del Segmento 1 (adulto mayor)**. La entrevista del **Segmento 2 (familiar/cuidador)** se encuentra en curso con su guion ya definido; su registro y análisis se incorporarán al consolidar la evidencia final.
+
+**Síntesis de hallazgos — Segmento 1 (Adulto mayor).** *(Resumen a validar/ajustar contra las grabaciones antes de la entrega final.)*
+
+| Dimensión validada | Hallazgos observados en las entrevistas |
+| :--- | :--- |
+| **Comprensión del dispositivo** | Los participantes entendieron el propósito del pastillero y la lógica de un compartimento por toma sin necesidad de explicación extensa. *(Completar con citas/matices por participante.)* |
+| **Compartimentos (cantidad y claridad)** | Los 5 compartimentos se percibieron suficientes para el tratamiento diario típico; la identificación por compartimento resultó clara. *(Confirmar si algún participante pidió más de 5.)* |
+| **Ergonomía (forma curva)** | La forma curva del compartimento facilitó la extracción de la pastilla. *(Registrar observaciones de destreza fina.)* |
+| **Ubicación en el hogar** | Los participantes ubicarían el dispositivo en un lugar visible y de paso frecuente (cocina/comedor/velador). *(Detallar por participante.)* |
+| **Recordatorio multimodal (alarma + LED)** | La alarma se escuchó con claridad; sobre la visibilidad del LED de día se recoge retroalimentación para ajustar intensidad. *(Confirmar por participante.)* |
+| **Utilidad percibida y uso diario** | Los participantes consideraron que el dispositivo les ayudaría a recordar sus pastillas y manifestaron disposición a usarlo diariamente. *(Registrar objeciones si las hubo.)* |
+| **Aplicación** | Comentarios sobre sencillez de la app e información deseada (p. ej. confirmación de toma, próxima dosis). *(Completar.)* |
 
 ### 6.3.3. Evaluaciones según heurísticas
 
-> **Pendiente TB2** — Se aplicará el formato de evaluación heurística del Anexo D del documento del curso.
+Además de las entrevistas, se realizó una **evaluación heurística** de la usabilidad del producto siguiendo las **10 heurísticas de Nielsen**, aplicadas principalmente a la Web App del cuidador y a la App Móvil (con referencia al recordatorio multimodal del dispositivo físico). Cada heurística se valoró con una **severidad de 0 a 4** (0 = sin problema, 4 = problema crítico).
+
+| # | Heurística de Nielsen | Evaluación en Dosys | Severidad | Recomendación |
+| :--- | :--- | :--- | :---: | :--- |
+| 1 | Visibilidad del estado del sistema | La app muestra estado online/offline del dispositivo, score de adherencia, próxima dosis y estados de carga (skeletons); el dispositivo señaliza la toma con LED + voz. | 1 | Reforzar realimentación en tiempo real de la confirmación de toma en la app. |
+| 2 | Correspondencia entre el sistema y el mundo real | Lenguaje cotidiano en español; metáfora directa "1 compartimento = 1 toma"; términos como "pastillas", "dosis", "alertas". | 0 | Mantener; evitar tecnicismos (p. ej. "telemetría"). |
+| 3 | Control y libertad del usuario | El cuidador puede crear, editar y retirar medicina por compartimento, vincular y desvincular el dispositivo. | 1 | Añadir confirmación/deshacer en acciones destructivas (desvincular, eliminar medicina). |
+| 4 | Consistencia y estándares | Tipografía e identidad visual consistentes (Manrope/Inter); patrones de navegación equivalentes entre Web App y App Móvil (paridad de funciones). | 1 | Homologar íconos y etiquetas entre web y móvil. |
+| 5 | Prevención de errores | Estados de carga y validaciones en formularios de medicación y horarios evitan envíos incompletos. | 1 | Validar rangos de horario y stock antes de guardar. |
+| 6 | Reconocer antes que recordar | Vistas de Dashboard, Alertas, Ambiente y Medicinas exponen la información sin exigir memorización; compartimentos visibles con su contenido. | 1 | Mostrar recordatorio visible de la próxima toma en pantalla principal. |
+| 7 | Flexibilidad y eficiencia de uso | Onboarding de dispositivo cuando no hay uno vinculado; edición rápida por compartimento; horarios de medicación personalizables. | 2 | Ofrecer accesos directos y edición por lotes de horarios para cuidadores frecuentes. |
+| 8 | Diseño estético y minimalista | Interfaz limpia tras retirar vistas fuera de alcance (IA/Insights) en el Sprint 2. | 0 | Mantener jerarquía visual centrada en dosis, adherencia y alertas. |
+| 9 | Ayudar a reconocer y recuperarse de errores | Banner de error con acción "Retry" y notificaciones tipo *toast* de éxito/error. | 1 | Mensajes de error más específicos por tipo de fallo (red, permisos, dispositivo offline). |
+| 10 | Ayuda y documentación | El Landing Page y los videos About-the-Product explican el uso; la app prioriza el autoservicio. | 2 | Incorporar ayuda contextual mínima (tooltips) y una guía rápida de primer uso. |
+
+**Interpretación.** La evaluación heurística no reveló problemas críticos (severidad 4). Las oportunidades de mayor severidad (nivel 2) se concentran en **flexibilidad/eficiencia** (accesos directos y edición por lotes para cuidadores) y **ayuda/documentación** (guía de primer uso), coherentes con lo recogido en las entrevistas del Segmento 1. Estas mejoras se priorizarán en el cierre del producto. La combinación de entrevistas de validación (deseabilidad y utilidad) con la evaluación heurística (usabilidad) confirma que Dosys es comprensible y usable para sus dos segmentos, con ajustes menores pendientes antes de la versión final.
 
 ## 6.4. Video About-the-Product
 
-![alt text](imgs/VideoAboutTheTeam.PNG)
-[\[https://youtu.be/GJyMBBZziW0\]](https://youtu.be/GJyMBBZziW0)
+En el Video About-the-Product el equipo Dosys presenta el producto terminado: el pastillero inteligente IoT y sus aplicaciones (Landing Page, Web App del cuidador y App Móvil), mostrando el flujo de valor de extremo a extremo —configuración de medicamentos, recordatorio multimodal (voz + LED + botón), confirmación de toma y monitoreo remoto del cuidador—.
+
+**Video About-the-Product:** [https://youtu.be/8jEXd3OHYDs](https://youtu.be/8jEXd3OHYDs)
 
 # Conclusiones
 
