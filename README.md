@@ -4117,26 +4117,147 @@ Con el producto ya desplegado —pastillero inteligente IoT, Web App del cuidado
 
 Las siguientes entrevistas fueron realizadas y grabadas. Los videos completos constituyen la evidencia de validación del producto.
 
-| # | Segmento | Participante | Perfil *(completar edad/relación)* | Video |
+| # | Segmento | Participante | Perfil | Video |
 | :--- | :--- | :--- | :--- | :--- |
 | **E1** | Adulto mayor / paciente | Participante 1 | Adulto mayor con tratamiento crónico | [Segmento 1 — Entrevista 1](https://youtu.be/WT8atub9vWo) |
 | **E2** | Adulto mayor / paciente | Participante 2 | Adulto mayor con tratamiento crónico | [Segmento 1 — Entrevista 2](https://youtu.be/Xt1SSdcho6E) |
-| **E3** | Adulto mayor / paciente | Participante 3 | Adulto mayor con tratamiento crónico | [Segmento 1 — Entrevista 3](https://youtu.be/gK98ZRZfnWs) |
-| **E4** | Familiar / cuidador | *(por completar)* | Familiar/cuidador de adulto mayor | *(entrevista programada — guion listo en 6.3.1)* |
+| **E3** | Adulto mayor / paciente | Mery Murillo | Adulta mayor con tratamiento crónico | [Segmento 1 — Entrevista 3](https://youtu.be/gK98ZRZfnWs) |
+| **E4** | Familiar / cuidador | Eduardo Rodríguez Alarcón | Nieto (28 años), cuidador de adulto mayor | [Segmento 2 — Entrevista cuidador](https://youtu.be/Q8i7aOgb4hU) |
 
-> **Nota de estado:** al cierre de esta iteración se completaron **3 entrevistas del Segmento 1 (adulto mayor)**. La entrevista del **Segmento 2 (familiar/cuidador)** se encuentra en curso con su guion ya definido; su registro y análisis se incorporarán al consolidar la evidencia final.
+**Videos de las entrevistas de validación** *(haz clic en cada miniatura para reproducir el video completo en YouTube).*
 
-**Síntesis de hallazgos — Segmento 1 (Adulto mayor).** *(Resumen a validar/ajustar contra las grabaciones antes de la entrega final.)*
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://youtu.be/WT8atub9vWo" target="_blank">
+        <img src="https://img.youtube.com/vi/WT8atub9vWo/hqdefault.jpg" alt="Entrevista de validación E1 — Adulto mayor / paciente" title="Haz clic para ver el video completo de la entrevista E1" width="320"/>
+      </a>
+      <br/><b>E1 — Adulto mayor / paciente</b>
+    </td>
+    <td align="center">
+      <a href="https://youtu.be/Xt1SSdcho6E" target="_blank">
+        <img src="https://img.youtube.com/vi/Xt1SSdcho6E/hqdefault.jpg" alt="Entrevista de validación E2 — Adulto mayor / paciente" title="Haz clic para ver el video completo de la entrevista E2" width="320"/>
+      </a>
+      <br/><b>E2 — Adulto mayor / paciente</b>
+    </td>
+    <td align="center">
+      <a href="https://youtu.be/gK98ZRZfnWs" target="_blank">
+        <img src="https://img.youtube.com/vi/gK98ZRZfnWs/hqdefault.jpg" alt="Entrevista de validación E3 — Adulto mayor / paciente" title="Haz clic para ver el video completo de la entrevista E3" width="320"/>
+      </a>
+      <br/><b>E3 — Adulto mayor / paciente</b>
+    </td>
+    <td align="center">
+      <a href="https://youtu.be/Q8i7aOgb4hU" target="_blank">
+        <img src="https://img.youtube.com/vi/Q8i7aOgb4hU/hqdefault.jpg" alt="Entrevista de validación E4 — Familiar / cuidador" title="Haz clic para ver el video completo de la entrevista E4" width="320"/>
+      </a>
+      <br/><b>E4 — Familiar / cuidador</b>
+    </td>
+  </tr>
+</table>
+
+> **Nota de estado:** al cierre de esta iteración se completaron **4 entrevistas de validación**: **3 del Segmento 1 (adulto mayor)** y **1 del Segmento 2 (familiar/cuidador)**. Las cuatro fueron grabadas con demostración del prototipo físico y de la aplicación; los enlaces y miniaturas están arriba y las respuestas se detallan a continuación.
+
+#### Respuestas por entrevista
+
+**E1 — Adulto mayor / paciente (Segmento 1).**
+
+| Pregunta | Respuesta |
+| :--- | :--- |
+| ¿El dispositivo le parece fácil de entender? | Sí. |
+| ¿El diseño le parece amigable? | Sí, aunque lo preferiría **ligeramente más pequeño**. |
+| ¿Los 5 compartimentos son suficientes? | Suficientes. |
+| ¿Los compartimentos se ven claros y fáciles de identificar? | Sí. |
+| ¿La forma curva le ayuda a sacar la pastilla con facilidad? | Sí, con facilidad. |
+| ¿Dónde colocaría el dispositivo en su casa? | En su mesita de noche. |
+| ¿Cambiaría algo del diseño físico? | El tamaño: que sea **más práctico y compacto ("más chato"), no tan alto**, como un pastillero tradicional. |
+| ¿La app le parece sencilla de usar? | Sí. |
+| ¿Cree que usted o un familiar podría usarla fácilmente? | Sí, explicándole cómo entrar a la web. |
+| ¿Qué información le gustaría ver en la app? | Además del número de pastillas y cuántas ha tomado, le gustaría ver **la receta**. |
+| ¿Qué funcionalidad extra le gustaría? | Un formato físico más compacto/bajo. |
+| ¿La alarma se escucha con claridad? | Sí. |
+| ¿Las luces LED se ven bien durante el día? | Sí. |
+| ¿Le ayudaría a recordar sus pastillas? | Sí. |
+| ¿Usaría este dispositivo todos los días? | Cuando sea necesario, sí. |
+
+**E2 — Adulto mayor / paciente (Segmento 1).**
+
+| Pregunta | Respuesta |
+| :--- | :--- |
+| ¿El dispositivo le parece fácil de entender? | Sí, está muy claro. |
+| ¿El diseño le parece amigable? | "Re contra amigable". |
+| ¿Los 5 compartimentos son suficientes? | Sí, son suficientes. |
+| ¿Los compartimentos se ven claros y fáciles de identificar (por las luces)? | Sí. |
+| ¿La forma curva le ayuda a sacar la pastilla con facilidad? | "Muchísima facilidad… excelente". |
+| ¿Dónde colocaría el dispositivo en su casa? | En su mesita de noche. |
+| ¿Cambiaría algo del diseño físico? | Solo **el color** (sugiere un rojo más visible). |
+| ¿La app le parece sencilla de usar? | Sí. |
+| ¿Cree que usted o un familiar podría usarla fácilmente? | Duda de sí misma, pero sí un familiar (p. ej. Fernanda). |
+| ¿Qué información le gustaría ver en la app? | Mostrar **la receta agrupada** (varias pastillas de una misma receta). |
+| ¿Qué funcionalidad extra le gustaría? | Enfocada en la aplicación; el resto le parece bien y práctico. |
+| ¿La alarma se escucha con claridad? | Con mucha claridad. |
+| ¿Las luces LED se ven bien durante el día? | Sí. |
+| ¿Le ayudaría a recordar sus pastillas? | Por supuesto que sí. |
+| ¿Usaría este dispositivo todos los días? | Sí, mientras deba tomar la pastilla; le sería muy favorable. |
+
+**E3 — Mery Murillo, adulta mayor / paciente (Segmento 1).**
+
+| Pregunta | Respuesta |
+| :--- | :--- |
+| ¿El dispositivo le parece fácil de entender? | Sí, bastante fácil y claro. |
+| ¿El diseño le parece amigable? | Sí; entiende que es un prototipo y que más adelante se le dará color. |
+| ¿Los 5 compartimentos son suficientes? | Observa que **muchos pacientes toman pastillas los 7 días de la semana, no solo 5** (sugiere considerar capacidad semanal). |
+| ¿Los compartimentos se ven claros y fáciles de identificar? | Sí. |
+| ¿La forma curva le ayuda a sacar la pastilla con facilidad? | Sí. |
+| ¿Dónde colocaría el dispositivo en su casa? | Al pie de su cama, en la mesa de noche. |
+| ¿Cambiaría algo del diseño físico? | Lo haría **más pequeño y transportable** (para llevarlo en el bolso). |
+| ¿Cree que un familiar o usted podría usarlo fácilmente? | Por supuesto que sí. |
+| ¿Qué funcionalidad extra le gustaría? | Le parece completo; valora la alarma que avisa la hora de la dosis. |
+| ¿La alarma debería escucharse con claridad? | Sí, por ser algo importante (la medicación). |
+| ¿Las luces LED se ven bien durante el día? | Se ven perfectamente según el diseño mostrado. |
+| ¿Le ayudaría a recordar sus pastillas? | Por supuesto; reitera que sea más pequeño para poder transportarlo. |
+| ¿Usaría este dispositivo todos los días? | Por supuesto que sí. |
+
+**E4 — Eduardo Rodríguez Alarcón, cuidador / nieto (28 años, Segmento 2).**
+
+| Pregunta | Respuesta |
+| :--- | :--- |
+| ¿Cómo se llama? | Eduardo Rodríguez Alarcón. |
+| ¿Cuántos años tiene? | 28 años. |
+| ¿Cuál es su relación con el adulto mayor? | Nieto; apoya en su cuidado y está pendiente de que tome sus medicamentos. |
+| ¿La app le parece sencilla de usar? | Sí; la información está organizada de forma clara y no se ve complicada. |
+| ¿La información de la app se entiende fácilmente? | Sí; lo más importante es que muestre medicamento, horarios y estado de la dosis de manera directa. |
+| ¿Le serviría ver si el adulto mayor tomó o no su medicamento? | Sí, bastante; a veces no está cerca y verlo en la app le da tranquilidad. |
+| ¿Le serviría ver la hora de la próxima dosis? | Sí; así puede anticiparse y recordarle a su abuela. |
+| ¿Le gustaría recibir alertas si una dosis no fue tomada? | Sí; lo considera muy importante para **actuar rápido**. |
+| ¿Qué dato considera más importante? | Saber **si tomó o no** sus pastillas y la **hora de la próxima toma**. |
+| ¿Agregaría alguna funcionalidad extra? | Un **historial** por días/semanas/meses y **permitir que más familiares reciban las alertas**. |
+| ¿El dispositivo físico le parece fácil de entender? | Sí; luces claras, botones grandes y recordatorios por voz ayudan mucho al adulto mayor. |
+| ¿Cree que los 5 compartimentos son suficientes? | Sí, para la mayoría de tratamientos diarios (quien tome muchos medicamentos podría necesitar más espacio). |
+| ¿Dónde debería colocarse el dispositivo en casa? | En un lugar visible, seco y de fácil acceso (mesa de noche, repisa en la sala o cerca de donde desayuna). |
+
+**Síntesis de hallazgos — Segmento 1 (Adulto mayor).**
 
 | Dimensión validada | Hallazgos observados en las entrevistas |
 | :--- | :--- |
-| **Comprensión del dispositivo** | Los participantes entendieron el propósito del pastillero y la lógica de un compartimento por toma sin necesidad de explicación extensa. *(Completar con citas/matices por participante.)* |
-| **Compartimentos (cantidad y claridad)** | Los 5 compartimentos se percibieron suficientes para el tratamiento diario típico; la identificación por compartimento resultó clara. *(Confirmar si algún participante pidió más de 5.)* |
-| **Ergonomía (forma curva)** | La forma curva del compartimento facilitó la extracción de la pastilla. *(Registrar observaciones de destreza fina.)* |
-| **Ubicación en el hogar** | Los participantes ubicarían el dispositivo en un lugar visible y de paso frecuente (cocina/comedor/velador). *(Detallar por participante.)* |
-| **Recordatorio multimodal (alarma + LED)** | La alarma se escuchó con claridad; sobre la visibilidad del LED de día se recoge retroalimentación para ajustar intensidad. *(Confirmar por participante.)* |
-| **Utilidad percibida y uso diario** | Los participantes consideraron que el dispositivo les ayudaría a recordar sus pastillas y manifestaron disposición a usarlo diariamente. *(Registrar objeciones si las hubo.)* |
-| **Aplicación** | Comentarios sobre sencillez de la app e información deseada (p. ej. confirmación de toma, próxima dosis). *(Completar.)* |
+| **Comprensión del dispositivo** | Los tres participantes entendieron el propósito del pastillero y la lógica de un compartimento por toma sin explicación extensa ("está muy claro", "bastante fácil y claro"). |
+| **Compartimentos (cantidad y claridad)** | Los 5 compartimentos se percibieron suficientes para el tratamiento diario (E1 y E2); la identificación por compartimento resultó clara. **E3 (Mery Murillo) señaló que muchos pacientes toman pastillas los 7 días de la semana**, no solo 5 → considerar capacidad semanal. |
+| **Ergonomía (forma curva)** | La forma curva facilitó la extracción de la pastilla en los tres casos; E2 la calificó de "excelente, muchísima facilidad". |
+| **Ubicación en el hogar** | Los tres ubicarían el dispositivo en la **mesita/mesa de noche**. |
+| **Diseño físico (tamaño y color)** | E1 y E3 pidieron un formato **más pequeño/compacto y transportable** (E3: llevarlo en el bolso); E2 solo cambiaría el **color** (rojo más visible). |
+| **Recordatorio multimodal (alarma + LED)** | La alarma se escuchó con claridad ("con mucha claridad") y las luces LED se ven bien durante el día en los tres casos. |
+| **Utilidad percibida y uso diario** | Los tres consideraron que el dispositivo les ayudaría a recordar sus pastillas y manifestaron disposición a usarlo diariamente. |
+| **Aplicación** | App percibida como sencilla; E1 y E2 sugirieron mostrar **la receta** (agrupando las pastillas de una misma prescripción) además del conteo de pastillas. |
+
+**Síntesis de hallazgos — Segmento 2 (Familiar / cuidador).**
+
+| Dimensión validada | Hallazgos observados en la entrevista |
+| :--- | :--- |
+| **Sencillez de la app** | Percibida como sencilla y clara, con la información organizada y no complicada de manejar. |
+| **Información de adherencia** | Lo más valorado: ver **si tomó o no** la dosis y la **hora de la próxima toma** de forma directa. |
+| **Monitoreo remoto** | Útil para el cuidador que no siempre está cerca; ver el estado en la app "da más tranquilidad". |
+| **Alertas** | Considera **muy importante** recibir alertas cuando una dosis no fue tomada, para actuar rápido. |
+| **Funcionalidades deseadas** | **Historial** de cumplimiento (días/semanas/meses) y **alertas para más de un familiar**. |
+| **Dispositivo físico** | Fácil de entender (luces claras, botones grandes, voz); 5 compartimentos suficientes para la mayoría de tratamientos; ubicación visible, seca y de fácil acceso. |
 
 ### 6.3.3. Evaluaciones según heurísticas
 
