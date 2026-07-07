@@ -3828,7 +3828,7 @@ Durante el Sprint 3 se formalizaron las siguientes nuevas User Stories, continua
 | **US34** | Aplicación Móvil Dosys | Como paciente, quiero una app móvil para gestionar y monitorear mi tratamiento desde el teléfono, con las mismas funciones que la web. | EP01 |
 | **US35** | Telemetría del Firmware ESP32 | Como equipo de desarrollo, queremos que el dispositivo publique por MQTT su telemetría real (ambiente, salud, tomas y stock) hacia el Backend, para cerrar el flujo IoT de extremo a extremo. | EP04 |
 
-El board público del Sprint en Trello se encuentra en: [Tablero Trello - Dosys Sprint 3](https://trello.com) *(reemplazar por el enlace real del board de Sprint 3)*
+El board público del Sprint en Trello se encuentra en: [Tablero Trello - Dosys Sprint 3](https://trello.com/invite/b/6a4d4c95d141197cdddf8f9c/ATTI0a880f4968df6ccf84280ee3b6e2dea321842A95/dosys-sprint-3)
 
 ![Tablero Trello Dosys Sprint 3](imgs/sprint-3/trello-sprint-3-board.png)
 
@@ -3979,31 +3979,33 @@ Principales puntos de verificación:
 - **Mobile App** — flujo completo del paciente (login, dashboard con próxima dosis, medicinas por compartimento, dispositivo/ambiente, insights de adherencia, alertas y perfil).
 - **Hardware — Extremo a extremo** — telemetría real del ESP32 visible en las aplicaciones y toma confirmada por botón físico registrada como adherencia.
 
-> **Nota:** las capturas de esta sección se almacenarán en `imgs/sprint-3/`. Al momento de redactar, esa carpeta aún no contiene las imágenes definitivas; los siguientes recuadros referencian las rutas previstas y deben reemplazarse por las capturas reales antes de la entrega final.
-
 ### Vista de Diagnóstico IoT (Sprint 3)
 
 ![Pantalla de diagnóstico IoT - Sprint 3](imgs/sprint-3/device-diagnostics-view.png)
 
-**Figura:** Diagnóstico de las tres capas (ESP32 / Edge / Backend), con salud del hardware, ambiente y configuración en caché.
+**Figura:** Diagnóstico de conectividad de las tres capas en la Web App (`/device`): Backend API ONLINE, Edge API UP y MQTT Connected con última señal en tiempo real, junto a la consola del clúster HiveMQ Cloud (URLs TLS MQTT/WebSocket, plan Serverless en AWS y sesiones activas del ciclo de facturación).
 
 ### Vista de Control del Dispositivo (Sprint 3)
 
 ![Vista de control del dispositivo - Sprint 3](imgs/sprint-3/device-controls-view.png)
 
-**Figura:** Estado en vivo del dispositivo y comandos remotos (audio, LEDs, estado y sincronización de configuración).
+**Figura:** Estado en vivo del dispositivo y comandos remotos hacia el ESP32 vía Edge (Probar audio, Probar LEDs, Solicitar estado, Sincronizar config), con el resumen de conectividad, el estado de riesgo ambiental (WARNING) y la tendencia de temperatura y humedad de las últimas 24 horas.
 
 ### Aplicación Móvil Dosys (Sprint 3)
 
 ![App Móvil Dosys - Sprint 3](imgs/sprint-3/mobile-app-views.png)
 
-**Figura:** App Móvil en Flutter con datos reales del Backend: dashboard, medicinas, dispositivo e insights.
+**Figura:** App Móvil en Flutter con datos reales del Backend: dashboard del paciente con la próxima dosis programada, el horario del día y el estado de los compartimentos del dispositivo (incluida la alerta de refill por stock bajo).
 
 ### Ejecución de extremo a extremo del dispositivo físico (Sprint 3)
 
 ![Flujo IoT de extremo a extremo - Sprint 3](imgs/sprint-3/iot-end-to-end.png)
 
-**Figura:** Telemetría real del ESP32 transportada por MQTT → Edge → Backend y visible en las aplicaciones, con confirmación de toma por botón físico.
+**Figura:** Dispositivo físico Dosys operando junto a la vista de diagnóstico de la Web App (conectividad Backend/Edge/MQTT y telemetría de las últimas 24 horas) y la consola del clúster MQTT en HiveMQ Cloud, evidenciando el flujo real ESP32 → MQTT → Edge → Backend → aplicaciones.
+
+![Comando remoto de LEDs ejecutado en el dispositivo físico - Sprint 3](imgs/sprint-3/iot-remote-command-led.png)
+
+**Figura:** Ejecución del comando remoto "Probar LEDs" desde la Web App: la confirmación "LED test sent" en pantalla y el LED del pastillero físico encendido, verificando el camino inverso Frontend → Backend/Edge → MQTT → ESP32.
 
 #### 6.2.3.7. Services Documentation Evidence for Sprint Review
 
@@ -4058,9 +4060,9 @@ El Sprint 3 desplegó la versión final de las aplicaciones del alcance:
 
 ![Vercel - Deployment del Sprint 3](imgs/sprint-3/vercel-sprint-3-deployment.png)
 
-**Figura:** Deployment del Sprint 3 en Vercel a partir del último commit de la iteración.
+**Figura:** Deployment del Sprint 3 en Vercel a partir del último commit de la iteración (`a1c1ab0 — fix(frontend): load medication schedules from backend`), con estado Ready en producción y el dominio productivo `frontend-web-jet-seven.vercel.app`.
 
-> **Nota:** la captura del deployment de Vercel del Sprint 3 y la evidencia de build de la App Móvil deben incorporarse en `imgs/sprint-3/` antes de la entrega final.
+> **Nota:** la evidencia de build de la App Móvil debe incorporarse en `imgs/sprint-3/` antes de la entrega final.
 
 #### 6.2.3.9. Team Collaboration Insights during Sprint
 
