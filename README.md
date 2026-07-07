@@ -4062,6 +4062,10 @@ El Sprint 3 desplegó la versión final de las aplicaciones del alcance:
 
 **Figura:** Deployment del Sprint 3 en Vercel a partir del último commit de la iteración (`a1c1ab0 — fix(frontend): load medication schedules from backend`), con estado Ready en producción y el dominio productivo `frontend-web-jet-seven.vercel.app`.
 
+![Servicios desplegados en producción - Sprint 3](imgs/sprint-3/deployment-services-overview.png)
+
+**Figura:** Vista consolidada de las capas del sistema en producción: Web App con el estado en vivo del dispositivo (Backend ONLINE, Edge UP, MQTT Connected), clúster MQTT en HiveMQ Cloud, servicios `dosys-backend` y `dosys-edge` en Google Cloud Run, y base de datos Postgres en Supabase con estado Healthy.
+
 > **Nota:** la evidencia de build de la App Móvil debe incorporarse en `imgs/sprint-3/` antes de la entrega final.
 
 #### 6.2.3.9. Team Collaboration Insights during Sprint
