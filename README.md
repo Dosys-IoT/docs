@@ -3520,7 +3520,7 @@ Durante el Sprint 2 se formalizaron las siguientes nuevas User Stories, no prese
 | **US27** | Gestión de Medicina en Compartimento | Como cuidador, quiero editar o retirar la medicina de un compartimento, para reorganizar el pastillero. | EP02 |
 | **US28** | Prototipo Físico IoT | Como equipo de desarrollo, queremos validar el ensamblaje físico del pastillero inteligente, para comprobar que los componentes principales pueden operar juntos en un prototipo funcional. | EP04 |
 
-El board público del Sprint en Trello se encuentra en: [Tablero Trello - Dosys Sprint 2](https://trello.com) *(reemplazar por el enlace real del board de Sprint 2)*
+El board público del Sprint en Trello se encuentra en: [Tablero Trello - Dosys Sprint 2](https://trello.com/invite/b/6a4d4c95d141197cdddf8f9c/ATTI0a880f4968df6ccf84280ee3b6e2dea321842A95/dosys-sprint-3)
 
 ![Tablero Trello Dosys Sprint 2](imgs/sprint-2/trello-sprint-2-board.png)
 
@@ -4325,10 +4325,11 @@ En el Video About-the-Team el equipo Dosys presenta el proceso de trabajo de las
 | 00:08:00 | Testimonio en cámara de cada participante: actividades realizadas, outcomes alcanzados y competencias desarrolladas. |
 | 00:12:00 | Cierre, agradecimientos y roadmap. |
 
-> **Pendientes a completar antes de la entrega final:**
-> - URL del video publicado en Microsoft Stream/Clipchamp.
-> - URL del video publicado en YouTube (para embed en el Landing).
-> - Cuadro de video representativo (screenshot) insertado aquí.
+**Video About-the-Team:** [https://youtu.be/yfWS0xtfCrM](https://youtu.be/yfWS0xtfCrM)
+
+[![Video About-the-Team — Dosys](https://img.youtube.com/vi/yfWS0xtfCrM/hqdefault.jpg)](https://youtu.be/yfWS0xtfCrM)
+
+**Figura:** Cuadro representativo del Video About-the-Team, publicado en YouTube y referenciado desde el Landing Page.
 
 # Bibliografía
 
@@ -4404,4 +4405,4 @@ Archivo de diseño completo (Style Guidelines, Information Architecture, Wirefra
 ## Anexo E. Video de Porducto Fisico
 - Video de funcionamiento de los componentes Testing Hardware: https://youtu.be/prMB6npDBd8 
 
-- Video About The Team: https://youtu.be/GJyMBBZziW0
+- Video About The Team: https://youtu.be/yfWS0xtfCrM
